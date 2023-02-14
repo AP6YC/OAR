@@ -1,0 +1,2 @@
+# OAR
+Ontological Adaptive Resonance
