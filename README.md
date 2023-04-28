@@ -30,6 +30,7 @@ Ontologies with Adaptive Resonance Theory (ART).
     - [Python](#python)
   - [Links](#links)
     - [Ontology](#ontology)
+    - [Packages](#packages)
     - [Miscellaneous](#miscellaneous)
 
 [1]: https://julialang.org/
@@ -113,6 +114,11 @@ This section contains several categories of links to useful resources when worki
 - [QSAR](https://www.wikiwand.com/en/Quantitative_structure%E2%80%93activity_relationship)
 - [Protege](https://protege.stanford.edu/)
 - [Barry Smith homepage](http://ontology.buffalo.edu/smith/)
+
+### Packages
+
+- [Julia word2vec Wrapper](https://github.com/JuliaText/Word2Vec.jl)
+- [GPT/Hugging Face Tokenizer](https://github.com/huggingface/tokenizers)
 
 ### Miscellaneous
 
