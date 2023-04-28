@@ -10,6 +10,7 @@ Ontologies with Adaptive Resonance
   - [Usage](#usage)
     - [Julia](#julia)
       - [Testing](#testing)
+      - [Documentation](#documentation)
     - [Python](#python)
   - [Links](#links)
     - [Ontology](#ontology)
@@ -21,6 +22,8 @@ Ontologies with Adaptive Resonance
 [4]: https://juliadynamics.github.io/DrWatson.jl/dev/
 [5]: https://jupyter.org/
 [6]: https://docs.github.com/en/actions/using-workflows
+[7]: https://documenter.juliadocs.org/stable/
+[8]: https://democards.juliadocs.org/stable/
 
 ## Overview
 
@@ -61,9 +64,27 @@ julia> ]
 
 These unit tests are also automated through [GitHub workflows][6].
 
+#### Documentation
+
+The [`Documenter.jl`][7] package is used to generate documentation with examples being generated with [`DemoCards.jl`][8].
+This documentation is generated and hosted with [GitHub workflows][6] for the project.
+To generate the documentation locally, change your terminal directory to the `docs/` directory and run Julia with the following REPL commands:
+
+```julia-repl
+julia> ]
+(@v1.8) pkg> activate .
+(docs) pkg> instantiate
+(docs) pkg> <BACKSPACE>
+julia> include("serve".jl)
+```
+
+The line `<BACKSPACE>` means hitting the backspace key on your keyboard.
+This instantiates the documentation (downloading and precompiling dependencies), builds the documentation, and hosts it locally.
+If you wish to just build the docs, instead run `include("make.jl")` (the `serve.jl` script simply runs the make script and runs a local live server for convenience).
+
 ### Python
 
-[`Python`][2] experiments are currently in the form of [IPython Jupyter notebooks][4] under the `notebooks/` folder.
+[`Python`][2] experiments are currently in the form of [IPython Jupyter notebooks][5] under the `notebooks/` folder.
 Pip requirements are listed in `requirements.txt`, and Python 3.11 is used.
 
 ## Links
