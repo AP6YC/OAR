@@ -2,6 +2,22 @@
 
 Ontologies with Adaptive Resonance
 
+## Table of Contents
+
+- [OAR](#oar)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Links](#links)
+    - [Ontology](#ontology)
+    - [Miscellaneous](#miscellaneous)
+
+## Overview
+
+This repository is a research project for working with ontologies with Adaptive Resonance Theory (ART) algorithms.
+
+This project contains both `Julia` and `Python` experiments, so typical project structures for these languages are overlapping in this repository.
+This generally does not result in software collision, but this is noted here to clarify any confusion that could arise from this to the reader.
+
 ## Links
 
 ### Ontology
