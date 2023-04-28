@@ -21,3 +21,5 @@ work_dir(args...) = projectdir("work", args...)
 # FUNCTIONS
 # -----------------------------------------------------------------------------
 
+
+greet() = print("Hello World!")
