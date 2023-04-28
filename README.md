@@ -20,6 +20,8 @@ This generally does not result in software collision, but this is noted here to 
 
 ## Links
 
+This section contains several categories of links to useful resources when working with ontologies and the programming techniques of this research project.
+
 ### Ontology
 
 - [SIPOC](https://www.wikiwand.com/en/SIPOC)
