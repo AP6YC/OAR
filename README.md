@@ -18,8 +18,6 @@ Ontologies with Adaptive Resonance Theory (ART).
 [ci-img]: https://github.com/AP6YC/OAR/workflows/CI/badge.svg
 [ci-url]: https://github.com/AP6YC/OAR/actions?query=workflow%3ACI
 
-
-
 ## Table of Contents
 
 - [OAR](#oar)
