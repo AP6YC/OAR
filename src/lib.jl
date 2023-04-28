@@ -1,5 +1,7 @@
-using DrWatson
-using AdaptiveResonance
+using
+    AdaptiveResonance,
+    DrWatson,
+    NumericalTypeAliases
 
 # -----------------------------------------------------------------------------
 # CUSTOM DRWATSON DIRECTORY DEFINITIONS
@@ -12,6 +14,12 @@ work_dir(args...) = projectdir("work", args...)
 # -----------------------------------------------------------------------------
 # STRUCTS
 # -----------------------------------------------------------------------------
+
+abstract type ARTNode end
+
+mutable struct ProtoNode <: ARTNode
+    dist::Vector{Float}
+end
 
 # -----------------------------------------------------------------------------
 # METHOD
