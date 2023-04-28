@@ -140,7 +140,7 @@ postprocess_cb()
 # -----------------------------------------------------------------------------
 
 deploydocs(
-    repo="github.com/AP6YC/AdaptiveResonance.jl.git",
+    repo="github.com/AP6YC/OAR.git",
     devbranch="develop",
     # push_preview = should_push_preview(),
 )
