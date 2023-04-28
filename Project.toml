@@ -1,3 +1,9 @@
+name = "OAR"
+uuid = "2c0fe338-9bab-4ad6-9854-394aaab43699"
+authors = ["Sasha Petrenko <sap625@umsystem.edu>"]
+version = "0.1.0"
+
 [deps]
 AdaptiveResonance = "3d72adc0-63d3-4141-bf9b-84450dd0395b"
 DrWatson = "634d3b9d-ee7a-5ddf-bec9-22491ea816e1"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
