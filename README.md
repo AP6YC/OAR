@@ -1,6 +1,24 @@
 # OAR
 
-Ontologies with Adaptive Resonance
+Ontologies with Adaptive Resonance Theory (ART).
+
+| **Docs (Stable)** | **Docs Build Status**|  **Testing Status** |
+|:-----------------:|:--------------------:|:-------------------:|
+| [![Stable][docs-stable-img]][docs-stable-url] | [![Docs Status][doc-status-img]][doc-status-url] | [![CI Status][ci-img]][ci-url]  |
+
+[doc-status-img]: https://github.com/AP6YC/OAR/actions/workflows/Documentation.yml/badge.svg
+[doc-status-url]: https://github.com/AP6YC/OAR/actions/workflows/Documentation.yml
+
+[docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
+[docs-stable-url]: https://AP6YC.github.io/OAR/stable
+
+<!-- [docs-dev-img]: https://img.shields.io/badge/docs-dev-blue.svg
+[docs-dev-url]: https://AP6YC.github.io/OAR/dev -->
+
+[ci-img]: https://github.com/AP6YC/OAR/workflows/CI/badge.svg
+[ci-url]: https://github.com/AP6YC/OAR/actions?query=workflow%3ACI
+
+
 
 ## Table of Contents
 
