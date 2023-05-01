@@ -1,6 +1,6 @@
 # OAR
 
-[![oar-header](docs/build/assets/boat-2-512.png)][docs-url]
+[![oar-header](docs/src/assets/logo.png)][docs-url]
 
 Ontologies with Adaptive Resonance Theory (ART).
 
@@ -56,6 +56,8 @@ This repository is a research project for working with ontologies with Adaptive 
 
 This project contains [`Julia`][1], [`Python`][2], and [`Rust`][9] experiments, so typical project structures for these languages are overlapping in this repository.
 This generally does not result in software collision, but this is noted here to clarify any confusion that could arise from this to the reader.
+
+The majority of the project is structured as a [`DrWatson`][4] research project, but the source files are organized into a `Julia` Package for documentation, testing, and reproducibility.
 
 ## Usage
 
