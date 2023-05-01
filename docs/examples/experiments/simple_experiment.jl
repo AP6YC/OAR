@@ -1,5 +1,5 @@
 # ---
-# title: ART DataConfig Example
+# title: Simple Experiment
 # id: data_config
 # date: 2023-4-28
 # author: "[Sasha Petrenko](https://github.com/AP6YC)"

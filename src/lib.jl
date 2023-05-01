@@ -17,8 +17,15 @@ work_dir(args...) = projectdir("work", args...)
 
 abstract type ARTNode end
 
+"""
+Definition of Terminal symbols used throughtout GramART.
+"""
 const Terminal = String
-const TerminalDist = Dict{String, Float}
+
+"""
+Terminal Distribution definition that is a dictionary mapping from Terminals to probabilities.
+"""
+const TerminalDist = Dict{Terminal, Float}
 
 """
 ProtoNode struct, used to generate tree prototypes, which are the templates of GramART.
