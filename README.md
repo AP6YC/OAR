@@ -1,5 +1,7 @@
 # OAR
 
+[![oar-header](docs/build/assets/boat-2-512.png)][docs-url]
+
 Ontologies with Adaptive Resonance Theory (ART).
 
 | **Documentation** | **Docs Build Status**|  **Testing Status** |
@@ -28,6 +30,7 @@ Ontologies with Adaptive Resonance Theory (ART).
       - [Testing](#testing)
       - [Documentation](#documentation)
     - [Python](#python)
+    - [Rust](#rust)
   - [Links](#links)
     - [Ontology](#ontology)
     - [Packages](#packages)
@@ -44,17 +47,18 @@ Ontologies with Adaptive Resonance Theory (ART).
 [6]: https://docs.github.com/en/actions/using-workflows
 [7]: https://documenter.juliadocs.org/stable/
 [8]: https://democards.juliadocs.org/stable/
+[9]: https://www.rust-lang.org/
 
 ## Overview
 
 This repository is a research project for working with ontologies with Adaptive Resonance Theory (ART) algorithms.
 
-This project contains both [`Julia`][1] and [`Python`][2] experiments, so typical project structures for these languages are overlapping in this repository.
+This project contains [`Julia`][1], [`Python`][2], and [`Rust`][9] experiments, so typical project structures for these languages are overlapping in this repository.
 This generally does not result in software collision, but this is noted here to clarify any confusion that could arise from this to the reader.
 
 ## Usage
 
-This project has both [`Julia`][1] and [`Python`][2] code, so files and experiments using each of these languages are listed separately.
+This project has both [`Julia`][1], [`Python`][2], and [`Rust`][9] code, so files and experiments using each of these languages are listed separately.
 
 ### Julia
 
@@ -106,6 +110,11 @@ If you wish to just build the docs, instead run `include("make.jl")` (the `serve
 
 [`Python`][2] experiments are currently in the form of [IPython Jupyter notebooks][5] under the `notebooks/` folder.
 Pip requirements are listed in `requirements.txt`, and Python 3.11 is used.
+
+### Rust
+
+[`Rust`][9]
+TODO
 
 ## Links
 

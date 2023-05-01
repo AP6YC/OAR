@@ -4,7 +4,9 @@ DocTestSetup = quote
 end
 ```
 
-<img src="assets/boat-512.png" width="200">
+```@raw html
+<img src="assets/logo.png" width="300">
+```
 
 ---
 
