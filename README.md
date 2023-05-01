@@ -113,8 +113,13 @@ Pip requirements are listed in `requirements.txt`, and Python 3.11 is used.
 
 ### Rust
 
-[`Rust`][9]
-TODO
+The [`Rust`][9] component of the project is contained with its own `oar/` folder.
+Until the `Rust` component becomes more sophisticated, its usage simply follows the usual compile-execute method with `cargo`:
+
+```shell
+cd oar
+cargo run
+```
 
 ## Links
 
