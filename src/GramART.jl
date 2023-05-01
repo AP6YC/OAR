@@ -30,6 +30,11 @@ Terminal Distribution definition that is a dictionary mapping from Terminals to 
 const TerminalDist = Dict{Terminal, Float}
 
 """
+The structure of the counter for symbols in a ProtoNode.
+"""
+const SymbolCount = Vector{Int}
+
+"""
 ProtoNode struct, used to generate tree prototypes, which are the templates of GramART.
 """
 mutable struct ProtoNode <: ARTNode
@@ -42,7 +47,7 @@ mutable struct ProtoNode <: ARTNode
     """
     The update counters for each symbol.
     """
-    N::Vector{Int}
+    N::SymbolCount
 
     """
     The children on this node.
@@ -80,6 +85,10 @@ greet() = print("Hello World!")
 function trace!(A::TreeNode, B::ProtoNode, sum::RealFP, size::Integer)
 # function trace!(A::TreeNode, B::ProtoNode)
     sum += B.dist[A.t]
+    return
+end
+
+function new_weight(dist::TerminalDist, N::SymbolCount)
     return
 end
 

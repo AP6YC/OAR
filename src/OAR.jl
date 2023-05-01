@@ -1,5 +1,5 @@
 """
-TODO
+A module encapsulating the experimental driver code for the OAR project.
 
 # Imports
 
@@ -24,7 +24,6 @@ using
     AdaptiveResonance,
     DocStringExtensions,    # Docstring utilities
     DrWatson,
-    # ExprTools,
     NumericalTypeAliases,
     Reexport
 
@@ -35,20 +34,28 @@ using PrecompileSignatures: @precompile_signatures
 # INCLUDES
 # -----------------------------------------------------------------------------
 
+# Library code
 include("lib.jl")
+# Version for the package
 include("version.jl")
 
 # -----------------------------------------------------------------------------
 # EXPORTS
 # -----------------------------------------------------------------------------
 
-export OAR_VERSION
+export
+    # GramART
+    ProtoNode,
+    TreeNode,
+
+    # Version of the package
+    OAR_VERSION
 
 # -----------------------------------------------------------------------------
 # PRECOMPILE
 # -----------------------------------------------------------------------------
 
 # Precompile any concrete-type function signatures
-@precompile_signatures(AdaptiveResonance)
+@precompile_signatures(OAR)
 
 end

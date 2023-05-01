@@ -16,3 +16,7 @@ Aggregates all common types and functions that are used throughout `AdaptiveReso
 include("docstrings.jl")
 # DrWatson extensions
 include("drwatson.jl")
+# Backus-Naur form
+include("Backus-Naur.jl")
+# GramART Julia implementation
+include("GramART.jl")
