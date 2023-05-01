@@ -24,7 +24,7 @@ using
     AdaptiveResonance,
     DocStringExtensions,    # Docstring utilities
     DrWatson,
-    ExprTools,
+    # ExprTools,
     NumericalTypeAliases,
     Reexport
 
