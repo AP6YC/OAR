@@ -32,6 +32,9 @@ Ontologies with Adaptive Resonance Theory (ART).
     - [Ontology](#ontology)
     - [Packages](#packages)
     - [Miscellaneous](#miscellaneous)
+  - [Attribution](#attribution)
+    - [Authors](#authors)
+    - [Images](#images)
 
 [1]: https://julialang.org/
 [2]: https://www.python.org/
@@ -125,3 +128,16 @@ This section contains several categories of links to useful resources when worki
 - [FBVector](https://github.com/facebook/folly/blob/main/folly/docs/FBVector.md)
 - [Lotka-Volterra](https://www.wikiwand.com/en/Lotka%E2%80%93Volterra_equations)
 - [Karpathy's Makemore Tutorial](https://youtu.be/PaCmpygFfXo)
+
+## Attribution
+
+### Authors
+
+- Sasha Petrenko <sap625@mst.edu>
+
+### Images
+
+This project uses the following images:
+
+- [Boat icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/boat) ([boat_2383726](https://www.flaticon.com/free-icon/boat_2383726))
+- [Oar icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/oar) ([boat_196204](https://www.flaticon.com/free-icon/boat_196204))
