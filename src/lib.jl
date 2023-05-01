@@ -17,10 +17,24 @@ work_dir(args...) = projectdir("work", args...)
 
 abstract type ARTNode end
 
+"""
+ProtoNode struct, used to generate tree prototypes, which are the templates of GramART.
+"""
 mutable struct ProtoNode <: ARTNode
+    """
+    The distribution over all symbols at this node.
+    """
     dist::Vector{Float}
+
+    """
+    The update counters for each symbol.
+    """
     N::Vector{Int}
-    protochildren::Vector{ProtoNode}
+
+    """
+    The children on this node.
+    """
+    children::Vector{ProtoNode}
 end
 
 mutable struct TreeNode <: ARTNode
@@ -29,7 +43,7 @@ mutable struct TreeNode <: ARTNode
 end
 
 # -----------------------------------------------------------------------------
-# METHOD
+# METHODS
 # -----------------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------

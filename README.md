@@ -4,13 +4,13 @@ Ontologies with Adaptive Resonance Theory (ART).
 
 | **Documentation** | **Docs Build Status**|  **Testing Status** |
 |:-----------------:|:--------------------:|:-------------------:|
-| [![Stable][docs-img]][docs-url] | [![Docs Status][doc-status-img]][doc-status-url] | [![CI Status][ci-img]][ci-url]  |
+| [![Docs][docs-img]][docs-url] | [![Docs Status][doc-status-img]][doc-status-url] | [![CI Status][ci-img]][ci-url]  |
 
 [doc-status-img]: https://github.com/AP6YC/OAR/actions/workflows/Documentation.yml/badge.svg
 [doc-status-url]: https://github.com/AP6YC/OAR/actions/workflows/Documentation.yml
 
 [docs-img]: https://img.shields.io/badge/docs-blue.svg
-[docs-url]: https://AP6YC.github.io/OAR/
+[docs-url]: https://AP6YC.github.io/OAR/dev/
 
 <!-- [docs-dev-img]: https://img.shields.io/badge/docs-dev-blue.svg
 [docs-dev-url]: https://AP6YC.github.io/OAR/dev -->
@@ -124,3 +124,4 @@ This section contains several categories of links to useful resources when worki
 
 - [FBVector](https://github.com/facebook/folly/blob/main/folly/docs/FBVector.md)
 - [Lotka-Volterra](https://www.wikiwand.com/en/Lotka%E2%80%93Volterra_equations)
+- [Karpathy's Makemore Tutorial](https://youtu.be/PaCmpygFfXo)
