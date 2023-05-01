@@ -17,6 +17,9 @@ work_dir(args...) = projectdir("work", args...)
 
 abstract type ARTNode end
 
+const Terminal = String
+const TerminalDist = Dict{String, Float}
+
 """
 ProtoNode struct, used to generate tree prototypes, which are the templates of GramART.
 """
@@ -24,7 +27,8 @@ mutable struct ProtoNode <: ARTNode
     """
     The distribution over all symbols at this node.
     """
-    dist::Vector{Float}
+    dist::TerminalDist
+    # dist::Vector{Float}
 
     """
     The update counters for each symbol.
@@ -37,8 +41,19 @@ mutable struct ProtoNode <: ARTNode
     children::Vector{ProtoNode}
 end
 
+"""
+Tree node for a GramART module.
+"""
 mutable struct TreeNode <: ARTNode
-    t::String
+    """
+    The terminal symbol for the node.
+    """
+    t::Terminal
+    # t::String
+
+    """
+    Children nodes of this node.
+    """
     children::Vector{TreeNode}
 end
 
@@ -52,11 +67,14 @@ end
 
 greet() = print("Hello World!")
 
-function Trace(A::TreeNode, B::ProtoNode, sum::RealFP, size::Integer)
+
+function trace!(A::TreeNode, B::ProtoNode, sum::RealFP, size::Integer)
+# function trace!(A::TreeNode, B::ProtoNode)
+    sum += B.dist[A.t]
     return
 end
 
-function UpdateNode(A::TreeNode, B::ProtoNode)
+function update_node!(A::TreeNode, B::ProtoNode)
     return
 end
 
