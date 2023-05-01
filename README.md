@@ -36,6 +36,7 @@ Ontologies with Adaptive Resonance Theory (ART).
     - [Packages](#packages)
     - [Miscellaneous](#miscellaneous)
   - [Attribution](#attribution)
+    - [Citations](#citations)
     - [Authors](#authors)
     - [Images](#images)
 
@@ -144,6 +145,11 @@ This section contains several categories of links to useful resources when worki
 - [Karpathy's Makemore Tutorial](https://youtu.be/PaCmpygFfXo)
 
 ## Attribution
+
+### Citations
+
+- GramART:
+  - Meuth, Ryan J., "Adaptive multi-vehicle mission planning for search area coverage" (2007). Masters Theses. 44. https://scholarsmine.mst.edu/masters_theses/44
 
 ### Authors
 
