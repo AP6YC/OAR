@@ -2,9 +2,15 @@ using
     Revise,
     OAR
 
-N = Set([
+N = [
     "SL", "SW", "PL", "PW",
-])
+]
+
+bnf = OAR.DescretizedBNF(N)
+
+statement = OAR.random_statement(bnf)
+
+@info statement
 
 # T = [
 #     "SL1", "SL2", "SL3", "SL4", "SL5", "SL6", "SL7", "SL8", "SL9", "SL10",
@@ -13,7 +19,7 @@ N = Set([
 #     "PW1", "PW2", "PW3", "PW4", "PW5", "PW6", "PW7", "PW8", "PW9", "PW10",
 # ]
 
-bnf = OAR.DescretizedBNF(N)
+# statement = Statement("SL", )
 
 # IRIS BNF grammar, Meuth dissertation p.48, Table 4.6
 # N = {SL, SW, PL, PW}

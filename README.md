@@ -139,6 +139,7 @@ This section contains several categories of links to useful resources when worki
 
 - [Julia word2vec Wrapper](https://github.com/JuliaText/Word2Vec.jl)
 - [GPT/Hugging Face Tokenizer](https://github.com/huggingface/tokenizers)
+- [Fusion 360 Gallery Datset](https://github.com/AutodeskAILab/Fusion360GalleryDataset) ([paper](https://arxiv.org/pdf/2010.02392.pdf))
 
 ### Miscellaneous
 
@@ -150,7 +151,7 @@ This section contains several categories of links to useful resources when worki
 
 ### Citations
 
-- GramART:
+- [GramART](https://scholarsmine.mst.edu/masters_theses/44):
   - Meuth, Ryan J., "Adaptive multi-vehicle mission planning for search area coverage" (2007). Masters Theses. 44. https://scholarsmine.mst.edu/masters_theses/44
 
 ### Authors
