@@ -50,7 +50,7 @@ If you wish to just build the docs, instead run `include("make.jl")` (the `serve
 
 ## Python
 
-[`Python`](https://www.python.org/) experiments are currently in the form of [IPython Jupyter notebooks]https://jupyter.org/ under the `notebooks/` folder.
+[`Python`](https://www.python.org/) experiments are currently in the form of [IPython Jupyter notebooks](https://jupyter.org/) under the `notebooks/` folder.
 Pip requirements are listed in `requirements.txt`, and Python 3.11 is used.
 
 ## Rust

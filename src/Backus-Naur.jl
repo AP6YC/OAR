@@ -48,7 +48,7 @@ const Statement = Vector{GSymbol}
 # -----------------------------------------------------------------------------
 
 """
-Backus-Naur form [grammar](@ref OAR.Grammar).
+Backus-Naur form of [`Grammar`](@ref OAR.Grammar).
 
 Consists of a set of terminal symbols, non-terminal symbols, and production rules.
 """
