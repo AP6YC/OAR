@@ -3,7 +3,7 @@ using
     OAR
 
 N = [
-    "SL", "SW", "PL", "PW"
+    "SL", "SW", "PL", "PW",
 ]
 
 T = [
