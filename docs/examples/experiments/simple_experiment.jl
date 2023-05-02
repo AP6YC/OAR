@@ -20,3 +20,13 @@
 
 ## Include/run an experiment that generates a random statement from a discretized Iris dataset grammar
 include(joinpath("..", "..", "..", "..", "scripts", "0_init", "ebnf.jl"))
+
+# The above script very importantly includes the preamble
+## using DrWatson
+## @quickactivate :OAR
+# which makes sure that the correct context is set up and that the OAR module containing experiment driver code is precompiled.
+# This example will now reactivate the `docs` package because running the above example activates the top-level `OAR` package.
+
+## Reactivate the documentation for future examples
+using Pkg
+Pkg.activate(joinpath("..", "..", "..", "..", "docs"))
