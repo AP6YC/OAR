@@ -60,6 +60,18 @@ This file extends DrWatson workflow functionality such as by adding additional c
 #     return arg
 # end
 
+# macro makesdir(dir_func)
+#     # mkpath(dir_func())
+#     :(mkpath($dir_func()))
+#     return dir_func
+# end
+
+# function makesdir(dir_func)
+#     mkpath(dir_func())
+#     return dir_func
+# end
+
+
 # -----------------------------------------------------------------------------
 # COMMON DOCSTRINGS
 # -----------------------------------------------------------------------------
@@ -72,17 +84,6 @@ const DRWATSON_ARGS_DOC = """
 # -----------------------------------------------------------------------------
 # CUSTOM DRWATSON DIRECTORY DEFINITIONS
 # -----------------------------------------------------------------------------
-
-# macro makesdir(dir_func)
-#     # mkpath(dir_func())
-#     :(mkpath($dir_func()))
-#     return dir_func
-# end
-
-# function makesdir(dir_func)
-#     mkpath(dir_func())
-#     return dir_func
-# end
 
 """
 Points to the work directory containing raw datasets, processed datasets, and results.
