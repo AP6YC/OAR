@@ -14,6 +14,10 @@ Abstract type for formal grammars.
 """
 abstract type Grammar end
 
+# -----------------------------------------------------------------------------
+# TYPE ALIASES
+# -----------------------------------------------------------------------------
+
 """
 A grammar symbol is a String.
 """
@@ -25,10 +29,14 @@ A set of GSymbols.
 const GSymbolSet = Set{GSymbol}
 
 """
-A production rule is a set of vectors of symbols.
+A production rule alternative is an ordered list of grammar symbols
 """
-const ProductionRule = Set{Vector{GSymbol}}
-# const ProductionRule = Dict{GSymbol, GSymbolSet}
+const Alternative = Vector{GSymbol}
+
+"""
+A production rule is a set of alternatives (vectors of symbols).
+"""
+const ProductionRule = Set{Alternative}
 
 """
 A production rule set is simply a set of production rules.
@@ -90,9 +98,12 @@ end
 # FUNCTIONS
 # -----------------------------------------------------------------------------
 
-# function incremented_gsymbol(bin::Integer)
-
-# end
+"""
+Returns a new GSymbol by adding a suffix.
+"""
+function join_gsymbol(symb::GSymbol, num::Integer)
+    return symb * string(num)
+end
 
 """
 Creates a grammer for discretizing a set of symbols into a number of bins.
@@ -111,13 +122,17 @@ function DescretizedBNF(N::GSymbolSet ; bins::Integer=10)
     P = ProductionRuleSet()
     # Iterate over each non-terminal symbol
     for symb in N
+        # Create a new production rule with the non-terminal as the start
+        P[symb] = ProductionRule()
         # Iterate over the number of discretized bins that we want
         for ix = 1:bins
             # Create a binned symbol
-            new_gsymbol = symb + string(ix)
+            new_gsymbol = join_gsymbol(symb, ix)
             # Push a binned symbol to the terminals
             push!(T, new_gsymbol)
-            push!(P[symb], new_gsymbol)
+            alt = Alternative()
+            push!(alt, new_gsymbol)
+            push!(P[symb], alt)
         end
     end
 
