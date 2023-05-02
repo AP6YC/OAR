@@ -24,46 +24,31 @@ A grammar symbol is a String.
 const GSymbol = String
 
 """
-A set of GSymbols.
+A set of [`GSymbols`](@ref GSymbol).
 """
 const GSymbolSet = Set{GSymbol}
 
-# """
-# A production rule alternative is an ordered list of grammar symbols
-# """
-# const Alternative = Vector{GSymbol}
-
 """
-A production rule is a set of symbols.
+A production rule is a set of [`GSymbols`](@ref OAR.GSymbol).
 """
 const ProductionRule = Set{GSymbol}
-# """
-# A production rule is a set of alternatives (vectors of symbols).
-# """
-# const ProductionRule = Set{Alternative}
 
 """
-A production rule set is simply a set of production rules.
+A production rule set is simply a set of [`ProductionRules`](@ref OAR.ProductionRule).
 """
 const ProductionRuleSet = Dict{GSymbol, ProductionRule}
 
 """
-A statement is an ordered vector of GSymbols.
+A statement is an ordered vector of [`GSymbols`](@ref OAR.GSymbol).
 """
 const Statement = Vector{GSymbol}
-
-# """
-# A statement is a tuple containing a non-terminal GSymbol and an alternative.
-# """
-# const ConcreteStatement = Tuple{GSymbol, Alternative}
-# const Statement = Tuple{GSymbol, Alternative}
 
 # -----------------------------------------------------------------------------
 # STRUCTS
 # -----------------------------------------------------------------------------
 
 """
-Backus-Naur form grammar.
+Backus-Naur form [grammar](@ref OAR.Grammar).
 
 Consists of a set of terminal symbols, non-terminal symbols, and production rules.
 """
@@ -134,9 +119,6 @@ Creates a grammer for discretizing a set of symbols into a number of bins.
 - `bins::Integer=10`: optional, the granularity/number of bins.
 """
 function DescretizedBNF(S::Statement ; bins::Integer=10)
-# function DescretizedBNF(data::RealMatrix, N::GSymbolSet ; bins::Integer=10)
-    # Create an initial BNF
-    # bnf = BNF(N)
     # Initialize the terminal symbol set
     T = GSymbolSet()
     # Initialize the production rule set
@@ -170,7 +152,7 @@ end
 Parses and checks that a statement is permissible under a grammer.
 """
 function parse_grammar(grammar::Grammar, statement::Statement)
-
+    return
 end
 
 """
@@ -180,11 +162,31 @@ function random_produce(grammar::Grammar, symb::GSymbol)
     return rand(grammar.P[symb])
 end
 
+"""
+Checks if a symbol is terminal in the grammar.
+"""
+function is_terminal(grammar::Grammar, symb::GSymbol)
+    return symb in grammar.T
+end
+
+"""
+Checks if a symbol is non-terminal in the grammar.
+"""
+function is_nonterminal(grammar::Grammar, symb::GSymbol)
+    return symb in grammar.N
+end
+
+"""
+Generates a random statement from a grammar.
+"""
 function random_statement(grammar::Grammar)
     # rand_N = rand(grammar.N)
     statement = Statement()
     for el in grammar.S
-        push!(statement, random_produce(grammar, el))
+        rand_symb = random_produce(grammar, el)
+        if is_terminal(grammar, rand_symb)
+            push!(statement, random_produce(grammar, el))
+        end
     end
 
     return statement
