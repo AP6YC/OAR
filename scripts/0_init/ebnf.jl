@@ -2,6 +2,7 @@
     ebnf.jl
 
 # Description
+Demo experiment with an extended Backus-Naur form grammar.
 
 # Authors
 - Sasha Petrenko <sap625@mst.edu>

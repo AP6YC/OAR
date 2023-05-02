@@ -14,9 +14,6 @@ Ontologies with Adaptive Resonance Theory (ART).
 [docs-img]: https://img.shields.io/badge/docs-blue.svg
 [docs-url]: https://AP6YC.github.io/OAR/dev/
 
-<!-- [docs-dev-img]: https://img.shields.io/badge/docs-dev-blue.svg
-[docs-dev-url]: https://AP6YC.github.io/OAR/dev -->
-
 [ci-img]: https://github.com/AP6YC/OAR/workflows/CI/badge.svg
 [ci-url]: https://github.com/AP6YC/OAR/actions?query=workflow%3ACI
 
