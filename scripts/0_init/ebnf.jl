@@ -25,9 +25,12 @@ using Revise
 # EXPERIMENT
 # -----------------------------------------------------------------------------
 
+# Create a discretized symbolic version of the IRIS dataset
 N = [
     "SL", "SW", "PL", "PW",
 ]
+
+bins = 10
 
 bnf = OAR.DescretizedBNF(N)
 
