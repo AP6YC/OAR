@@ -12,8 +12,8 @@
 #SBATCH --time=24:00:00
 
 # Variables, directories, etc.
-PROJECT_DIR=$HOME/dev/DCCR
-VENV_DIR=$HOME/.venv/DCCR
+PROJECT_DIR=$HOME/dev/OAR
+VENV_DIR=$HOME/.venv/OAR
 
 # Date and current folder
 date
