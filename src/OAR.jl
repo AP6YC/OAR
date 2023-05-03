@@ -35,7 +35,7 @@ using PrecompileSignatures: @precompile_signatures
 # -----------------------------------------------------------------------------
 
 # Library code
-include("lib.jl")
+include("lib/lib.jl")
 # Version for the package
 include("version.jl")
 

@@ -17,6 +17,6 @@ include("docstrings.jl")
 # DrWatson extensions
 include("drwatson.jl")
 # Backus-Naur form
-include("Backus-Naur.jl")
+include("BNF.jl")
 # GramART Julia implementation
 include("GramART.jl")
