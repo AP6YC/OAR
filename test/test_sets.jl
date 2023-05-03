@@ -21,15 +21,19 @@ using
 end
 
 @testset "EBNF" begin
-
+    # Declare the IRIS categories and bins
     N = [
         "SL", "SW", "PL", "PW",
     ]
-
     bins = 10
-
+    # Create a discretized BNF for real-valued data
     bnf = OAR.DescretizedBNF(N)
-
+    # Make a random statement from that grammar
     statement = OAR.random_statement(bnf)
+
+    # Make test assertions about structure
+    @assert BNF isa Grammar
+    @assert bnf isa OAR.BNF
+    @assert statement isa OAR.Statement
 end
 
