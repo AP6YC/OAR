@@ -9,6 +9,7 @@ DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
 DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 DrWatson = "634d3b9d-ee7a-5ddf-bec9-22491ea816e1"
 Logging = "56ddb016-857b-54e1-b83d-db4d58db5568"
+MLDataUtils = "cc2ba9b6-d476-5e6d-8eaf-a92d5412d41d"
 MLDatasets = "eb30cadb-4394-5ae3-aed4-317e484a6458"
 NumericalTypeAliases = "be9b823e-291e-41a1-b8ce-806204e78f92"
 Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
@@ -18,9 +19,9 @@ Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 
 [compat]
 DocStringExtensions = "0.8, 0.9"
-julia = "1"
-PrecompileSignatures = "3"
 NumericalTypeAliases = "0.1, 0.2"
+PrecompileSignatures = "3"
+julia = "1"
 
 [extras]
 SafeTestsets = "1bc83da4-3b8d-516f-aca4-4fe02f6d838f"
