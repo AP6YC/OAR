@@ -32,7 +32,7 @@ end
     statement = OAR.random_statement(bnf)
 
     # Make test assertions about structure
-    @assert BNF isa Grammar
+    @assert OAR.BNF isa OAR.Grammar
     @assert bnf isa OAR.BNF
     @assert statement isa OAR.Statement
 end

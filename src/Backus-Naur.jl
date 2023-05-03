@@ -24,6 +24,18 @@ A grammar symbol is a String.
 const GSymbol = String
 
 """
+Definition of a Terminal symbol as a [`GSymbol`](@ref OAR.GSymbol).
+"""
+const Terminal = GSymbol
+
+"""
+Definition of a NonTermial symbol as a [`GSymbol`](@ref OAR.GSymbol).
+
+Though both [`Terminal`](@ref OAR.Terminal) and [`NonTerminal`](@ref OAR.NonTerminal) symbols are defined with the same data structure, they are disambiguated in how they are used in [`Grammars`](@ref OAR.Grammar).
+"""
+const NonTerminal = GSymbol
+
+"""
 A set of [`GSymbols`](@ref GSymbol).
 """
 const GSymbolSet = Set{GSymbol}
