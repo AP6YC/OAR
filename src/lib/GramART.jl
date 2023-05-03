@@ -22,12 +22,12 @@ abstract type ARTNode end
 """
 Definition of Terminal symbols used throughtout GramART.
 """
-const Terminal = String
+const GramARTTerminal = String
 
 """
 Terminal Distribution definition that is a dictionary mapping from Terminals to probabilities.
 """
-const TerminalDist = Dict{Terminal, Float}
+const TerminalDist = Dict{GramARTTerminal, Float}
 
 """
 The structure of the counter for symbols in a ProtoNode.
@@ -62,7 +62,7 @@ mutable struct TreeNode <: ARTNode
     """
     The terminal symbol for the node.
     """
-    t::Terminal
+    t::GramARTTerminal
     # t::String
 
     """

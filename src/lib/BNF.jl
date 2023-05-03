@@ -14,6 +14,60 @@ Abstract type for formal grammars.
 """
 abstract type Grammar end
 
+"""
+Parametric abstract symol type for [`Grammars`](@ref OAR.Grammar).
+"""
+abstract type AbstractSymbol{T} end
+
+"""
+Parametric type for terminal symbols.
+"""
+struct Terminal{T} <: AbstractSymbol{T}
+    """
+    The grammar symbol of type T.
+    """
+    symb::T
+end
+
+"""
+Parametric type for nonterminal symbols.
+"""
+struct NonTerminal{T} <: AbstractSymbol{T}
+    """
+    The grammar symbol of type T.
+    """
+    symb::T
+end
+
+"""
+Definition for a set of symbols, terminal or nonterminal.
+"""
+struct SymbolSet{T <: AbstractSymbol}
+    data::Set{T}
+end
+
+"""
+Convenience function that makes a SymbolSet from a vector of grammar symbols.
+"""
+function SymbolSet(symbs::Vector{T}) where T <: AbstractSymbol
+    return SymbolSet(
+        Set(symbs)
+    )
+end
+
+# const ProductionRule = SymbolSet
+
+# struct ProductionRuleSet{T <: AbstractSymbol}
+
+# end
+
+# function getindex(h::)
+# function getindex(A::SymbolSet, i1::Integer)
+#     return
+# end
+
+# struct ProductionRule{}
+
 # -----------------------------------------------------------------------------
 # TYPE ALIASES
 # -----------------------------------------------------------------------------
@@ -23,17 +77,18 @@ A grammar symbol is a String.
 """
 const GSymbol = String
 
-"""
-Definition of a Terminal symbol as a [`GSymbol`](@ref OAR.GSymbol).
-"""
-const Terminal = GSymbol
 
-"""
-Definition of a NonTermial symbol as a [`GSymbol`](@ref OAR.GSymbol).
+# """
+# Definition of a Terminal symbol as a [`GSymbol`](@ref OAR.GSymbol).
+# """
+# const Terminal = GSymbol
 
-Though both [`Terminal`](@ref OAR.Terminal) and [`NonTerminal`](@ref OAR.NonTerminal) symbols are defined with the same data structure, they are disambiguated in how they are used in [`Grammars`](@ref OAR.Grammar).
-"""
-const NonTerminal = GSymbol
+# """
+# Definition of a NonTermial symbol as a [`GSymbol`](@ref OAR.GSymbol).
+
+# Though both [`Terminal`](@ref OAR.Terminal) and [`NonTerminal`](@ref OAR.NonTerminal) symbols are defined with the same data structure, they are disambiguated in how they are used in [`Grammars`](@ref OAR.Grammar).
+# """
+# const NonTerminal = GSymbol
 
 """
 A set of [`GSymbols`](@ref GSymbol).
@@ -153,10 +208,10 @@ function DescretizedBNF(S::Statement ; bins::Integer=10)
 
     # Return a constructed BNF struct
     return BNF(
-        Set(S),
-        T,
-        S,
-        P,
+        Set(S),     # N
+        T,          # T
+        S,          # S
+        P,          # P
     )
 end
 
