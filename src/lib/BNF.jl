@@ -20,23 +20,23 @@ Parametric abstract symol type for [`Grammars`](@ref OAR.Grammar).
 abstract type AbstractSymbol{T} end
 
 """
-Parametric type for terminal symbols.
+Value-as-type parametric type for terminal symbols.
 """
 struct Terminal{T} <: AbstractSymbol{T}
-    """
-    The grammar symbol of type T.
-    """
-    symb::T
+    # """
+    # The grammar symbol of type T.
+    # """
+    # symb::T
 end
 
 """
-Parametric type for nonterminal symbols.
+Value-as-type parametric type for nonterminal symbols.
 """
 struct NonTerminal{T} <: AbstractSymbol{T}
-    """
-    The grammar symbol of type T.
-    """
-    symb::T
+    # """
+    # The grammar symbol of type T.
+    # """
+    # symb::T
 end
 
 """
