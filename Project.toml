@@ -21,6 +21,7 @@ Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 DocStringExtensions = "0.8, 0.9"
 NumericalTypeAliases = "0.1, 0.2"
 PrecompileSignatures = "3"
+Revise = "3"
 julia = "1"
 
 [extras]
