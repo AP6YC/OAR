@@ -23,92 +23,35 @@ abstract type AbstractSymbol{T} end
 Value-as-type parametric type for terminal symbols.
 """
 struct Terminal{T} <: AbstractSymbol{T}
-    # """
-    # The grammar symbol of type T.
-    # """
-    # symb::T
+    """
+    The grammar symbol of type T.
+    """
+    data::T
 end
 
 """
 Value-as-type parametric type for nonterminal symbols.
 """
 struct NonTerminal{T} <: AbstractSymbol{T}
-    # """
-    # The grammar symbol of type T.
-    # """
-    # symb::T
+    """
+    The grammar symbol of type T.
+    """
+    data::T
 end
-
-"""
-Definition for a set of symbols, terminal or nonterminal.
-"""
-struct SymbolSet{T <: AbstractSymbol}
-    data::Set{T}
-end
-
-"""
-Convenience function that makes a SymbolSet from a vector of grammar symbols.
-"""
-function SymbolSet(symbs::Vector{T}) where T <: AbstractSymbol
-    return SymbolSet(
-        Set(symbs)
-    )
-end
-
-# const ProductionRule = SymbolSet
-
-# struct ProductionRuleSet{T <: AbstractSymbol}
-
-# end
-
-# function getindex(h::)
-# function getindex(A::SymbolSet, i1::Integer)
-#     return
-# end
-
-# struct ProductionRule{}
 
 # -----------------------------------------------------------------------------
 # TYPE ALIASES
 # -----------------------------------------------------------------------------
 
-"""
-A grammar symbol is a String.
-"""
-const GSymbol = String
 
+const SymbolSet{T <: AbstractSymbol} = Set{T}
 
-# """
-# Definition of a Terminal symbol as a [`GSymbol`](@ref OAR.GSymbol).
-# """
-# const Terminal = GSymbol
+const Statement{T <: NonTerminal} = SymbolSet{T}
 
-# """
-# Definition of a NonTermial symbol as a [`GSymbol`](@ref OAR.GSymbol).
+const ProductionRule = SymbolSet
 
-# Though both [`Terminal`](@ref OAR.Terminal) and [`NonTerminal`](@ref OAR.NonTerminal) symbols are defined with the same data structure, they are disambiguated in how they are used in [`Grammars`](@ref OAR.Grammar).
-# """
-# const NonTerminal = GSymbol
+const ProductionRuleSet = Dict{NonTerminal, ProductionRule}
 
-"""
-A set of [`GSymbols`](@ref GSymbol).
-"""
-const GSymbolSet = Set{GSymbol}
-
-"""
-A production rule is a set of [`GSymbols`](@ref OAR.GSymbol).
-"""
-const ProductionRule = Set{GSymbol}
-
-"""
-A production rule set is simply a set of [`ProductionRules`](@ref OAR.ProductionRule).
-"""
-const ProductionRuleSet = Dict{GSymbol, ProductionRule}
-
-"""
-A statement is an ordered vector of [`GSymbols`](@ref OAR.GSymbol).
-"""
-const Statement = Vector{GSymbol}
 
 # -----------------------------------------------------------------------------
 # STRUCTS
@@ -123,12 +66,14 @@ struct BNF <: Grammar
     """
     Non-terminal symbols of the grammar.
     """
-    N::GSymbolSet
+    N::SymbolSet{NonTerminal}
+    # N::GSymbolSet
 
     """
     Terminal symbols of the grammar.
     """
-    T::GSymbolSet
+    T::SymbolSet{Terminal}
+    # T::GSymbolSet
 
     """
     Definition of a statement in this grammar.
@@ -155,7 +100,8 @@ function BNF(S::Statement)
     return BNF(
         Set(S),
         S,
-        GSymbolSet(),
+        # GSymbolSet(),
+        Statement(),
         ProductionRuleSet(),
     )
 end

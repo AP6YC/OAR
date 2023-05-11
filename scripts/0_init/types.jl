@@ -1,27 +1,36 @@
 # assets_folder = joinpath("src", "assets")
 
-abstract type abt{T} end
+abstract type AbstractType{T} end
 
-struct AB{T} <: abt{T}
+struct FieldedType{T} <: AbstractType{T}
     val::T
-
-    # function stuff()
-    #     return
-    # end
 end
 
-struct AC{T} <: abt{T}
+struct ValueType{T} <: AbstractType{T}
 end
-AC(x) = AC{x}()
 
-a = AB(1)
+ValueType(x) = ValueType{x}()
 
-b = AC(1)
+a = FieldedType(1)
+@info a.val
 
-d = AC(1)
+b = ValueType(1)
+d = ValueType(1)
 
-b == d
+@info b == d
 
-
-
+# e = ValueType([1,2,3])
+# @info e
+# struct
 # @info a.val
+
+const SubFielded{T} = FieldedType{T}
+const AnotherFielded = SubFielded
+
+e = AnotherFielded(1)
+
+const SetFielded{T} = Set{T}
+
+my_set = SetFielded([1,2,3])
+
+another_set = SetFielded()
