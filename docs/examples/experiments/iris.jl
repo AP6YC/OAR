@@ -17,7 +17,6 @@ unique(labels)
 # Next, we will create a train/test split with the `MLDataUtils.stratifiedobs` utility:
 (X_train, y_train), (X_test, y_test) = stratifiedobs((features, labels))
 
-
 # Create a discretized symbolic version of the IRIS dataset
 N = [
     "SL", "SW", "PL", "PW",
