@@ -14,45 +14,47 @@ Abstract type for formal grammars.
 """
 abstract type Grammar end
 
-"""
-Parametric abstract symol type for [`Grammars`](@ref OAR.Grammar).
-"""
-abstract type AbstractSymbol{T} end
-
-"""
-Value-as-type parametric type for terminal symbols.
-"""
-struct Terminal{T} <: AbstractSymbol{T}
-    """
-    The nonterminal grammar symbol of type T.
-    """
-    data::T
-end
-
-"""
-Value-as-type parametric type for nonterminal symbols.
-"""
-struct NonTerminal{T} <: AbstractSymbol{T}
-    """
-    The nonterminal grammar symbol of type T.
-    """
-    data::T
-end
-
 # -----------------------------------------------------------------------------
 # TYPE ALIASES
 # -----------------------------------------------------------------------------
 
-const SymbolSet{T <: AbstractSymbol} = Set{T}
+struct GSymbol{T}
+    """
+    The grammar symbol of type T.
+    """
+    data::T
 
-const Statement{T <: NonTerminal} = SymbolSet{T}
+    """
+    Boolean flag if the symbol is terminal (true) or nonterminal (false).
+    """
+    terminal::Bool
+end
+
+function Terminal(data::T) where T <: Any
+    return GSymbol{T}(
+        data,
+        true,
+    )
+end
+
+function NonTerminal(data::T) where T <: Any
+    return GSymbol{T}(
+        data,
+        false,
+    )
+end
+
+const SymbolSet = Set{GSymbol}
+
+const Statement = SymbolSet
 
 const ProductionRule = SymbolSet
 
-const ProductionRuleSet = Dict{NonTerminal, ProductionRule}
+const ProductionRuleSet = Dict{GSymbol, ProductionRule}
 
-function SymbolSet(my_vec::Vector{T}) where T <: AbstractSymbol
-    return Statement{T}(my_vec)
+function quick_symbolset(data::Vector{T} ; terminal::Bool=false) where T <: Any
+    new_data = [GSymbol(datum, terminal) for datum in data]
+    return SymbolSet(new_data)
 end
 
 # -----------------------------------------------------------------------------
@@ -68,13 +70,15 @@ struct BNF <: Grammar
     """
     Non-terminal symbols of the grammar.
     """
-    N::SymbolSet{NonTerminal}
+    N::SymbolSet
+    # N::SymbolSet{NonTerminal}
     # N::GSymbolSet
 
     """
     Terminal symbols of the grammar.
     """
-    T::SymbolSet{Terminal}
+    T::SymbolSet
+    # T::SymbolSet{Terminal}
     # T::GSymbolSet
 
     """
@@ -122,10 +126,14 @@ end
 """
 Returns a new GSymbol by adding a suffix.
 """
-function join_gsymbol(symb::T, num::Integer) where T <: AbstractSymbol
+function join_gsymbol(symb::GSymbol, num::Integer)
+# function join_gsymbol(symb::T, num::Integer) where T <: AbstractSymbol
     # return symb * string(num)
     # return symb.data * string(num)
-    return T(symb.data * string(num))
+    return GSymbol(
+        symb.data * string(num),
+        symb.terminal,
+    )
 end
 
 """
@@ -138,7 +146,8 @@ Creates a grammer for discretizing a set of symbols into a number of bins.
 function DescretizedBNF(S::Statement ; bins::Integer=10)
     # Initialize the terminal symbol set
     # T = GSymbolSet()
-    T = SymbolSet{Terminal}()
+    # T = SymbolSet{Terminal}()
+    T = SymbolSet()
     # Initialize the production rule set
     P = ProductionRuleSet()
     # Iterate over each non-terminal symbol
@@ -176,21 +185,24 @@ end
 """
 Produces a random terminal from the non-terminal using the corresponding production rule.
 """
-function random_produce(grammar::Grammar, symb::AbstractSymbol)
+function random_produce(grammar::Grammar, symb::GSymbol)
+# function random_produce(grammar::Grammar, symb::AbstractSymbol)
     return rand(grammar.P[symb])
 end
 
 """
 Checks if a symbol is terminal in the grammar.
 """
-function is_terminal(grammar::Grammar, symb::AbstractSymbol)
+function is_terminal(grammar::Grammar, symb::GSymbol)
+# function is_terminal(grammar::Grammar, symb::AbstractSymbol)
     return symb in grammar.T
 end
 
 """
 Checks if a symbol is non-terminal in the grammar.
 """
-function is_nonterminal(grammar::Grammar, symb::AbstractSymbol)
+function is_nonterminal(grammar::Grammar, symb::GSymbol)
+# function is_nonterminal(grammar::Grammar, symb::AbstractSymbol)
     return symb in grammar.N
 end
 
