@@ -1,6 +1,6 @@
 # ---
 # title: Simple Experiment
-# id: data_config
+# id: simple_experiment
 # date: 2023-4-28
 # author: "[Sasha Petrenko](https://github.com/AP6YC)"
 # julia: 1.8
