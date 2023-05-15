@@ -30,6 +30,49 @@ struct DataSplit
 end
 
 """
+Vectored train/test split of arbitrary feature types.
+"""
+struct VectoredDataSplit{T, M}
+    """
+    Training data as a vector of feature vectors of type `T`.
+    """
+    train_x::Vector{Vector{T}}
+
+    """
+    Testing data as a vector of feature vectors of type `T`.
+    """
+    test_x::Vector{Vector{T}}
+
+    """
+    Training labels as a vector of type `M`.
+    """
+    train_y::Vector{M}
+
+    """
+    Testing labels as a vector of type `M`.
+    """
+    test_y::Vector{M}
+end
+
+"""
+Convenience constructor, turning a DataSplit into its vectored variant.
+"""
+function VectoredDataSplit(data::DataSplit)
+    # Assume that the number of samples is the length of the label vectors
+    n_train = length(data.train_y)
+    n_test = length(data.test_y)
+
+    # Create the vectored version with list comprehensions
+    return VectoredDataSplit{Float, Int}(
+        [data.train_x[:, ix] for ix in 1:n_train],
+        [data.test_x[:, ix] for ix in 1:n_test],
+        data.train_y,
+        data.test_y,
+    )
+end
+
+"""
+Loads the Iris dataset and returns a DataSplit.
 """
 function iris_tt_real()
     # Load the Iris dataset from MLDatasets
@@ -51,6 +94,11 @@ function iris_tt_real()
     )
 end
 
+"""
+# Arguments
+- `data::DataSplit`: the [`OAR.DataSplit`](@ref) to convert to symbols.
+- `labels::Vector{String}`: the labels corresponding to the non-terminal symbol names for the feature categories and their subsequent terminal variants.
+"""
 function real_to_symb(data::DataSplit, labels::Vector{String})
 
 

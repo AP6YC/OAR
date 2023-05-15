@@ -13,6 +13,8 @@ using DrWatson
 # Load the datasplit
 data = OAR.iris_tt_real()
 
+dv = OAR.VectoredDataSplit(data)
+
 # Create a discretized symbolic version of the IRIS dataset
 N = [
     "SL", "SW", "PL", "PW",
