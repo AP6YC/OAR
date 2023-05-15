@@ -24,7 +24,7 @@ Value-as-type parametric type for terminal symbols.
 """
 struct Terminal{T} <: AbstractSymbol{T}
     """
-    The grammar symbol of type T.
+    The nonterminal grammar symbol of type T.
     """
     data::T
 end
@@ -34,7 +34,7 @@ Value-as-type parametric type for nonterminal symbols.
 """
 struct NonTerminal{T} <: AbstractSymbol{T}
     """
-    The grammar symbol of type T.
+    The nonterminal grammar symbol of type T.
     """
     data::T
 end
@@ -42,7 +42,6 @@ end
 # -----------------------------------------------------------------------------
 # TYPE ALIASES
 # -----------------------------------------------------------------------------
-
 
 const SymbolSet{T <: AbstractSymbol} = Set{T}
 
@@ -52,6 +51,9 @@ const ProductionRule = SymbolSet
 
 const ProductionRuleSet = Dict{NonTerminal, ProductionRule}
 
+function SymbolSet(my_vec::Vector{T}) where T <: AbstractSymbol
+    return Statement{T}(my_vec)
+end
 
 # -----------------------------------------------------------------------------
 # STRUCTS
@@ -120,8 +122,10 @@ end
 """
 Returns a new GSymbol by adding a suffix.
 """
-function join_gsymbol(symb::GSymbol, num::Integer)
-    return symb * string(num)
+function join_gsymbol(symb::T, num::Integer) where T <: AbstractSymbol
+    # return symb * string(num)
+    # return symb.data * string(num)
+    return T(symb.data * string(num))
 end
 
 """
@@ -133,7 +137,8 @@ Creates a grammer for discretizing a set of symbols into a number of bins.
 """
 function DescretizedBNF(S::Statement ; bins::Integer=10)
     # Initialize the terminal symbol set
-    T = GSymbolSet()
+    # T = GSymbolSet()
+    T = SymbolSet{Terminal}()
     # Initialize the production rule set
     P = ProductionRuleSet()
     # Iterate over each non-terminal symbol
@@ -171,21 +176,21 @@ end
 """
 Produces a random terminal from the non-terminal using the corresponding production rule.
 """
-function random_produce(grammar::Grammar, symb::GSymbol)
+function random_produce(grammar::Grammar, symb::AbstractSymbol)
     return rand(grammar.P[symb])
 end
 
 """
 Checks if a symbol is terminal in the grammar.
 """
-function is_terminal(grammar::Grammar, symb::GSymbol)
+function is_terminal(grammar::Grammar, symb::AbstractSymbol)
     return symb in grammar.T
 end
 
 """
 Checks if a symbol is non-terminal in the grammar.
 """
-function is_nonterminal(grammar::Grammar, symb::GSymbol)
+function is_nonterminal(grammar::Grammar, symb::AbstractSymbol)
     return symb in grammar.N
 end
 
