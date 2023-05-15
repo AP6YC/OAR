@@ -28,3 +28,5 @@ bnf = OAR.DescretizedBNF(OAR.quick_symbolset(N), bins=bins)
 statement = OAR.random_statement(bnf)
 
 @info statement
+
+real_to_symb(data, N)

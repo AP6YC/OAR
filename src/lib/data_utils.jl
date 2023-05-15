@@ -99,8 +99,51 @@ end
 - `data::DataSplit`: the [`OAR.DataSplit`](@ref) to convert to symbols.
 - `labels::Vector{String}`: the labels corresponding to the non-terminal symbol names for the feature categories and their subsequent terminal variants.
 """
-function real_to_symb(data::DataSplit, labels::Vector{String})
+function real_to_symb(data::DataSplit, labels::Vector{String}, bins=10)
+    # Create a vectored version of the data
+    # dv = VectoredDataSplit(data)
 
+    # Capture the statistics of all of the data
+    data_x = [data.train_x data.test_x]
+
+    # Get the dimensionality of the data
+    # dim = length(dv.train_x)
+    dim, n_train = size(data_x)
+
+    # Get the mins and maxes of the data for linear normalization
+    mins = zeros(dim)
+    maxs = zeros(dim)
+    for ix = 1:dim
+        mins[ix] = minimum(data_x[ix, :])
+        maxs[ix] = maximum(data_x[ix, :])
+    end
+
+    # Create a destination for the normalized values
+    x_ln = zeros(dim, n_train)
+
+    # Iterate over each dimension
+    for ix = 1:dim
+        denominator = maxs[ix] - mins[ix]
+        if denominator != 0
+            # If the denominator is not zero, normalize
+            x_ln[i, :] = (data_x[i, :] .- mins[i]) ./ denominator
+        else
+            # Otherwise, the feature is zeroed because it contains no useful information
+            x_ln[i, :] = zeros(length(x_ln[i, :]))
+        end
+    end
+
+    # Bin and get the index for each datum
+    for ix = 1:dim
+
+    end
+
+    # bnf = OAR.DescretizedBNF(OAR.quick_symbolset(N), bins=bins)
+    # # symbs = VectoredDataSplit{GSymbol, Int}()
+    # statements = Vector{Vector{GSymbol}}()
+    # for ix = 1:n_samples
+
+    # end
 
     return
 end
