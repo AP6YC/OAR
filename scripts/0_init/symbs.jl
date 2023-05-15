@@ -1,3 +1,10 @@
+"""
+    symbs.jl
+
+# Description
+This script is a place to tinker with the development of grammar symbols in the OAR project.
+"""
+
 using Revise
 
 using DrWatson
