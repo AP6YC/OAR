@@ -1,9 +1,7 @@
-using DrWatson
-@quickactivate :OAR
-
+# Multi-line using statements are permitted in Julia to gather all requirements and compile at once
 using
-    MLDatasets,        # Iris dataset
-    MLDataUtils
+    MLDatasets,         # Iris dataset
+    MLDataUtils         # Data utilities, splitting, etc.
 
 iris = Iris()
 
