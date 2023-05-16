@@ -101,14 +101,10 @@ end
 - `bins::Int=10`: the number of symbols to descretize the real-valued data to.
 """
 function real_to_symb(data::DataSplit, labels::Vector{String}, bins::Int=10)
-    # Create a vectored version of the data
-    # dv = VectoredDataSplit(data)
-
     # Capture the statistics of all of the data
     data_x = [data.train_x data.test_x]
 
     # Get the dimensionality of the data
-    # dim = length(dv.train_x)
     dim, n_samples = size(data_x)
 
     # Get the mins and maxes of the data for linear normalization
@@ -139,12 +135,11 @@ function real_to_symb(data::DataSplit, labels::Vector{String}, bins::Int=10)
     for ix = 1:dim
         for jx = 1:n_samples
             # Get an integer
-            symb_ind[ix, jx] = Int(round(x_ln[ix, jx] * bins))
+            symb_ind[ix, jx] = Int(round((x_ln[ix, jx] + 0.05) * bins))
         end
     end
 
     bnf = OAR.DescretizedBNF(OAR.quick_symbolset(labels), bins=bins)
-    # symbs = VectoredDataSplit{GSymbol, Int}()
     statements = Vector{Vector{GSymbol}}()
 
     # Iterate over every sample
@@ -154,14 +149,30 @@ function real_to_symb(data::DataSplit, labels::Vector{String}, bins::Int=10)
         for ix = 1:dim
             # Get the symbol for the feature dimension
             label = GSymbol(labels[ix], false)
-            # local_symb = bnf.T[label][symb_ind[ix, jx]]
+            # TODO: this manually creates the symbol, but should be grabbed from the grammar
+            #   that would look like this (once a vectored grammar with indexing is implemented):
+            #   local_symb = bnf.T[label][symb_ind[ix, jx]]
             local_symb = join_gsymbol(label, symb_ind[ix, jx])
+            # Add the symbol to the statement
             push!(local_st, local_symb)
-        # local_st = [bnf.T[label][symb_ind[ix, jx]] for ]
         end
         # Add the statement to the list
         push!(statements, local_st)
     end
 
-    return statements
+    # Recreate the split
+    n_train = length(data.train_y)
+    st_train = statements[1:n_train]
+    st_test = statements[n_train + 1:end]
+
+    # Create the split struct
+    vs_symbs = VectoredDataSplit{GSymbol, Int}(
+        st_train,
+        st_test,
+        data.train_y,
+        data.test_y,
+    )
+
+    # Return the list of samples as a vectored datasplit
+    return vs_symbs
 end
