@@ -15,6 +15,7 @@ using
     Test
 
 @testset "DrWatson Modifications" begin
+    # Temp dir for
     test_dir = "testing"
     @info OAR.work_dir(test_dir)
     @info OAR.results_dir(test_dir)
@@ -39,3 +40,19 @@ end
     @assert statement isa OAR.Statement
 end
 
+@testset "Iris" begin
+    # Declare the IRIS categories and bins
+    N = [
+        "SL", "SW", "PL", "PW",
+    ]
+    bins = 10
+
+    # Load the real component of the data
+    data = OAR.iris_tt_real()
+
+    # Get the symbolic list of statements
+    symb_statements = OAR.real_to_symb(data, N)
+
+    # Verify that the statements are a vectored datasplit
+    @assert symb_statements isa OAR.VectoredDataSplit
+end
