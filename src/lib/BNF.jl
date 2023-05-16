@@ -47,6 +47,7 @@ end
 const SymbolSet = Set{GSymbol}
 
 const Statement = SymbolSet
+# const Statement = Vector{GSymbol}
 
 const ProductionRule = SymbolSet
 

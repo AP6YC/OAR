@@ -29,4 +29,4 @@ statement = OAR.random_statement(bnf)
 
 @info statement
 
-OAR.real_to_symb(data, N)
+statements = OAR.real_to_symb(data, N)

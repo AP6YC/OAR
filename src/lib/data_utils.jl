@@ -98,8 +98,9 @@ end
 # Arguments
 - `data::DataSplit`: the [`OAR.DataSplit`](@ref) to convert to symbols.
 - `labels::Vector{String}`: the labels corresponding to the non-terminal symbol names for the feature categories and their subsequent terminal variants.
+- `bins::Int=10`: the number of symbols to descretize the real-valued data to.
 """
-function real_to_symb(data::DataSplit, labels::Vector{String}, bins=10)
+function real_to_symb(data::DataSplit, labels::Vector{String}, bins::Int=10)
     # Create a vectored version of the data
     # dv = VectoredDataSplit(data)
 
@@ -137,7 +138,8 @@ function real_to_symb(data::DataSplit, labels::Vector{String}, bins=10)
     symb_ind = zeros(Int, dim, n_samples)
     for ix = 1:dim
         for jx = 1:n_samples
-            symb_ind[ix, jx] = Int(round(x_ln[ix, jx] * 10))
+            # Get an integer
+            symb_ind[ix, jx] = Int(round(x_ln[ix, jx] * bins))
         end
     end
 
@@ -145,11 +147,21 @@ function real_to_symb(data::DataSplit, labels::Vector{String}, bins=10)
     # symbs = VectoredDataSplit{GSymbol, Int}()
     statements = Vector{Vector{GSymbol}}()
 
+    # Iterate over every sample
     for jx = 1:n_samples
-        for ix = 1:dims
+        # Create an empty vector for the statement
+        local_st = Vector{GSymbol}()
+        for ix = 1:dim
+            # Get the symbol for the feature dimension
+            label = GSymbol(labels[ix], false)
+            # local_symb = bnf.T[label][symb_ind[ix, jx]]
+            local_symb = join_gsymbol(label, symb_ind[ix, jx])
+            push!(local_st, local_symb)
         # local_st = [bnf.T[label][symb_ind[ix, jx]] for ]
         end
+        # Add the statement to the list
+        push!(statements, local_st)
     end
 
-    return
+    return statements
 end
