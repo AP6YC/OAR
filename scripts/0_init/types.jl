@@ -1,3 +1,10 @@
+"""
+    types.jl
+
+# Description
+This file is a playground for experimenting with Julia types, aliasing, and subtyping.
+"""
+
 # assets_folder = joinpath("src", "assets")
 
 abstract type AbstractType{T} end
