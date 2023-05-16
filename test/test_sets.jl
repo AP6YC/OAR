@@ -6,18 +6,18 @@ The main collection of tests for the OAR.jl package.
 This file loads common utilities and aggregates all other unit tests files.
 """
 
+# Preamble for all project scripts
 using DrWatson
 @quickactivate :OAR
 
 using
-    # DrWatson,
-    # OAR,
     Logging,
     Test
 
-@testset "Boilerplate" begin
-    @assert 1 == 1
-    @info "Done testing"
+@testset "DrWatson Modifications" begin
+    test_dir = "testing"
+    @info OAR.work_dir(test_dir)
+    @info OAR.results_dir(test_dir)
 end
 
 @testset "EBNF" begin
@@ -27,7 +27,7 @@ end
     ]
     bins = 10
     # Create a discretized BNF for real-valued data
-    bnf = OAR.DescretizedBNF(N)
+    bnf = OAR.DescretizedBNF(OAR.quick_symbolset(N), bins=bins)
     # Make a random statement from that grammar
     statement = OAR.random_statement(bnf)
 
