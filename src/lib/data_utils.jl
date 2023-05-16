@@ -108,7 +108,7 @@ function real_to_symb(data::DataSplit, labels::Vector{String}, bins=10)
 
     # Get the dimensionality of the data
     # dim = length(dv.train_x)
-    dim, n_train = size(data_x)
+    dim, n_samples = size(data_x)
 
     # Get the mins and maxes of the data for linear normalization
     mins = zeros(dim)
@@ -119,31 +119,37 @@ function real_to_symb(data::DataSplit, labels::Vector{String}, bins=10)
     end
 
     # Create a destination for the normalized values
-    x_ln = zeros(dim, n_train)
+    x_ln = zeros(dim, n_samples)
 
     # Iterate over each dimension
     for ix = 1:dim
         denominator = maxs[ix] - mins[ix]
         if denominator != 0
             # If the denominator is not zero, normalize
-            x_ln[i, :] = (data_x[i, :] .- mins[i]) ./ denominator
+            x_ln[ix, :] = (data_x[ix, :] .- mins[ix]) ./ denominator
         else
             # Otherwise, the feature is zeroed because it contains no useful information
-            x_ln[i, :] = zeros(length(x_ln[i, :]))
+            x_ln[ix, :] = zeros(length(x_ln[ix, :]))
         end
     end
 
     # Bin and get the index for each datum
+    symb_ind = zeros(Int, dim, n_samples)
     for ix = 1:dim
-
+        for jx = 1:n_samples
+            symb_ind[ix, jx] = Int(round(x_ln[ix, jx] * 10))
+        end
     end
 
-    # bnf = OAR.DescretizedBNF(OAR.quick_symbolset(N), bins=bins)
-    # # symbs = VectoredDataSplit{GSymbol, Int}()
-    # statements = Vector{Vector{GSymbol}}()
-    # for ix = 1:n_samples
+    bnf = OAR.DescretizedBNF(OAR.quick_symbolset(labels), bins=bins)
+    # symbs = VectoredDataSplit{GSymbol, Int}()
+    statements = Vector{Vector{GSymbol}}()
 
-    # end
+    for jx = 1:n_samples
+        for ix = 1:dims
+        # local_st = [bnf.T[label][symb_ind[ix, jx]] for ]
+        end
+    end
 
     return
 end
