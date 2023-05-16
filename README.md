@@ -4,9 +4,9 @@
 
 Ontologies with Adaptive Resonance Theory (ART).
 
-| **Documentation** | **Docs Build Status**|  **Testing Status** |
-|:-----------------:|:--------------------:|:-------------------:|
-| [![Docs][docs-img]][docs-url] | [![Docs Status][doc-status-img]][doc-status-url] | [![CI Status][ci-img]][ci-url]  |
+| **Documentation** | **Docs Build Status**|  **Testing Status** | **Coveralls** | **Codecov** |
+|:-----------------:|:--------------------:|:-------------------:|:-------------:|:-----------:|
+| [![Docs][docs-img]][docs-url] | [![Docs Status][doc-status-img]][doc-status-url] | [![CI Status][ci-img]][ci-url] | [![Coveralls][coveralls-img]][coveralls-url] | [![Codecov][codecov-img]][codecov-url] |
 
 [doc-status-img]: https://github.com/AP6YC/OAR/actions/workflows/Documentation.yml/badge.svg
 [doc-status-url]: https://github.com/AP6YC/OAR/actions/workflows/Documentation.yml
@@ -16,6 +16,12 @@ Ontologies with Adaptive Resonance Theory (ART).
 
 [ci-img]: https://github.com/AP6YC/OAR/workflows/CI/badge.svg
 [ci-url]: https://github.com/AP6YC/OAR/actions?query=workflow%3ACI
+
+[codecov-img]: https://codecov.io/gh/AP6YC/OAR/branch/main/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/AP6YC/OAR
+
+[coveralls-img]: https://coveralls.io/repos/github/AP6YC/OAR/badge.svg?branch=main
+[coveralls-url]: https://coveralls.io/github/AP6YC/OAR?branch=main
 
 ## Table of Contents
 
