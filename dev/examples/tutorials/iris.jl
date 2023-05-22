@@ -1,5 +1,6 @@
 # Multi-line using statements are permitted in Julia to gather all requirements and compile at once
 using
+    OAR,                # This project
     MLDatasets,         # Iris dataset
     MLDataUtils         # Data utilities, splitting, etc.
 
@@ -12,17 +13,9 @@ unique(labels)
 
 (X_train, y_train), (X_test, y_test) = stratifiedobs((features, labels))
 
-N = [
-    "SL", "SW", "PL", "PW",
-]
+data = OAR.DataSplit(X_train, X_test, y_train, y_test)
 
-bins = 10
-
-bnf = OAR.DescretizedBNF(OAR.quick_symbolset(N), bins=bins)
-
-statement = OAR.random_statement(bnf)
-
-@info statement
+data_vec = OAR.VectoredDataSplit(data)
 
 # This file was generated using Literate.jl, https://github.com/fredrikekre/Literate.jl
 
