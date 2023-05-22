@@ -22,12 +22,14 @@ abstract type ARTNode end
 """
 Definition of Terminal symbols used throughtout GramART.
 """
-const GramARTTerminal = String
+const GramARTTerminal = GSymbol{String}
+# const GramARTTerminal = String
 
 """
 Terminal Distribution definition that is a dictionary mapping from Terminals to probabilities.
 """
 const TerminalDist = Dict{GramARTTerminal, Float}
+# const TerminalDist = Dict{GramARTTerminal, Float}
 
 """
 The structure of the counter for symbols in a ProtoNode.
@@ -56,6 +58,17 @@ mutable struct ProtoNode <: ARTNode
 end
 
 """
+Empty constructor for a GramART Protonode.
+"""
+function ProtoNode()
+    ProtoNode(
+        TerminalDist(),
+        SymbolCount(),
+        Vector{ProtoNode}(),
+    )
+end
+
+"""
 Tree node for a GramART module.
 """
 mutable struct TreeNode <: ARTNode
@@ -71,6 +84,16 @@ mutable struct TreeNode <: ARTNode
     children::Vector{TreeNode}
 end
 
+"""
+Empty constructor for a GramART TreeNode.
+"""
+function TreeNode(name::String)
+    TreeNode(
+        GramARTTerminal(name),
+        Vector{TreeNode}(),
+    )
+end
+
 # -----------------------------------------------------------------------------
 # METHODS
 # -----------------------------------------------------------------------------
@@ -78,9 +101,6 @@ end
 # -----------------------------------------------------------------------------
 # FUNCTIONS
 # -----------------------------------------------------------------------------
-
-greet() = print("Hello World!")
-
 
 function trace!(A::TreeNode, B::ProtoNode, sum::RealFP, size::Integer)
 # function trace!(A::TreeNode, B::ProtoNode)

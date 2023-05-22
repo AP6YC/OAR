@@ -30,6 +30,19 @@ struct GSymbol{T}
     terminal::Bool
 end
 
+function GSymbol{T}(data::T) where T <: Any
+    GSymbol{T}(
+        data,
+        true,
+    )
+end
+# function GSymbol{String}(name::String)
+#     GSymbol{String}(
+#         name,
+#         true,
+#     )
+# end
+
 function Terminal(data::T) where T <: Any
     return GSymbol{T}(
         data,
@@ -54,7 +67,7 @@ const ProductionRule = SymbolSet
 const ProductionRuleSet = Dict{GSymbol, ProductionRule}
 
 function quick_symbolset(data::Vector{T} ; terminal::Bool=false) where T <: Any
-    new_data = [GSymbol(datum, terminal) for datum in data]
+    new_data = [GSymbol{T}(datum, terminal) for datum in data]
     return SymbolSet(new_data)
 end
 
@@ -127,13 +140,14 @@ end
 """
 Returns a new GSymbol by adding a suffix.
 """
-function join_gsymbol(symb::GSymbol, num::Integer)
+function join_gsymbol(symb::GSymbol, num::Integer ; terminal::Bool=true)
 # function join_gsymbol(symb::T, num::Integer) where T <: AbstractSymbol
     # return symb * string(num)
     # return symb.data * string(num)
-    return GSymbol(
+    return GSymbol{String}(
         symb.data * string(num),
-        symb.terminal,
+        # symb.terminal,
+        terminal,
     )
 end
 
