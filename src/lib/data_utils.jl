@@ -5,9 +5,17 @@
 This file contains utilities for handling datasets and train/test splits for the `OAR` project.
 """
 
+# -----------------------------------------------------------------------------
+# IMPORTS
+# -----------------------------------------------------------------------------
+
 using
     MLDatasets,         # Iris dataset
     MLDataUtils         # Data utilities, splitting, etc.
+
+# -----------------------------------------------------------------------------
+# STRUCTS
+# -----------------------------------------------------------------------------
 
 """
 Train/test split dataset.
@@ -37,24 +45,6 @@ struct DataSplit
 end
 
 """
-Overload of the show function for [`OAR.DataSplit`](@ref).
-
-# Arguments
-- `io::IO`: the current IO stream.
-- `data::DataSplit`: the `DataSplit` to print/display.
-"""
-function Base.show(io::IO, data::DataSplit)
-    dim = size(data.train_x)[1]
-    n_train = length(data.train_y)
-    n_test = length(data.test_y)
-    print(io, "$(typeof(data)): dim=$(dim), n_train=$(n_train), n_test=$(n_test):\n")
-    print(io, "train_x: $(size(data.train_x)) $(typeof(data.train_x))\n")
-    print(io, "test_x: $(size(data.test_x)) $(typeof(data.test_x))\n")
-    print(io, "train_y: $(size(data.train_y)) $(typeof(data.train_y))\n")
-    print(io, "test_y: $(size(data.test_y)) $(typeof(data.test_y))\n")
-end
-
-"""
 Vectored train/test split of arbitrary feature types.
 
 This struct contains a standardized train/test split of vectors of vectored samples that map to labels.
@@ -79,6 +69,28 @@ struct VectoredDataSplit{T, M}
     Testing labels as a vector of type `M`.
     """
     test_y::Vector{M}
+end
+
+# -----------------------------------------------------------------------------
+# FUNCTIONS
+# -----------------------------------------------------------------------------
+
+"""
+Overload of the show function for [`OAR.DataSplit`](@ref).
+
+# Arguments
+- `io::IO`: the current IO stream.
+- `data::DataSplit`: the `DataSplit` to print/display.
+"""
+function Base.show(io::IO, data::DataSplit)
+    dim = size(data.train_x)[1]
+    n_train = length(data.train_y)
+    n_test = length(data.test_y)
+    print(io, "$(typeof(data)): dim=$(dim), n_train=$(n_train), n_test=$(n_test):\n")
+    print(io, "train_x: $(size(data.train_x)) $(typeof(data.train_x))\n")
+    print(io, "test_x: $(size(data.test_x)) $(typeof(data.test_x))\n")
+    print(io, "train_y: $(size(data.train_y)) $(typeof(data.train_y))\n")
+    print(io, "test_y: $(size(data.test_y)) $(typeof(data.test_y))\n")
 end
 
 """
@@ -149,9 +161,9 @@ Turns a [`OAR.DataSplit`](@ref) into a binned symbolic variant for use with Gram
 # Arguments
 - `data::DataSplit`: the [`OAR.DataSplit`](@ref) to convert to symbols.
 - `labels::Vector{String}`: the labels corresponding to the non-terminal symbol names for the feature categories and their subsequent terminal variants.
-- `bins::Int=10`: the number of symbols to descretize the real-valued data to.
+- `bins::Int=10`: optional, the number of symbols to descretize the real-valued data to.
 """
-function real_to_symb(data::DataSplit, labels::Vector{String}, bins::Int=10)
+function real_to_symb(data::DataSplit, labels::Vector{String} ; bins::Int=10)
     # Capture the statistics of all of the data
     data_x = [data.train_x data.test_x]
 
@@ -199,7 +211,7 @@ function real_to_symb(data::DataSplit, labels::Vector{String}, bins::Int=10)
         local_st = Vector{GSymbol}()
         for ix = 1:dim
             # Get the symbol for the feature dimension
-            label = GSymbol(labels[ix], false)
+            label = GSymbol(labels[ix], true)
             # TODO: this manually creates the symbol, but should be grabbed from the grammar
             #   that would look like this (once a vectored grammar with indexing is implemented):
             #   local_symb = bnf.T[label][symb_ind[ix, jx]]
@@ -226,4 +238,25 @@ function real_to_symb(data::DataSplit, labels::Vector{String}, bins::Int=10)
 
     # Return the list of samples as a vectored datasplit
     return vs_symbs
+end
+
+"""
+Quickly generates a [`OAR.VectoredDataSplit`] of the symbolic Iris dataset.
+
+# Arguments
+- `bins::Int=10`: optional, the number of symbols to descretize the real-valued data to.
+"""
+function symbolic_iris(;bins::Int=10)
+    # Load the Iris DataSplit
+    data = OAR.iris_tt_real()
+
+    # Declare the names for the nonterminal symbols
+    N = [
+        "SL", "SW", "PL", "PW",
+    ]
+
+    # Create the symbolic version of the data
+    statements = OAR.real_to_symb(data, N, bins=bins)
+
+    return statements
 end
