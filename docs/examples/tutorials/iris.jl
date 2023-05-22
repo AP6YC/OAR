@@ -2,8 +2,9 @@
 # title: Iris Dataset
 # id: iris
 # date: 2023-5-15
+# cover: ../assets/iris.png
 # author: "[Sasha Petrenko](https://github.com/AP6YC)"
-# julia: 1.8
+# julia: 1.9
 # description: This demo provides a quick example of how to load the Iris dataset with existing Julia tools.
 # ---
 

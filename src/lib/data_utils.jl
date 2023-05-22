@@ -37,7 +37,7 @@ struct DataSplit
 end
 
 """
-Overload of the show function for `DataSplit`.
+Overload of the show function for [`OAR.DataSplit`](@ref).
 
 # Arguments
 - `io::IO`: the current IO stream.
@@ -56,6 +56,8 @@ end
 
 """
 Vectored train/test split of arbitrary feature types.
+
+This struct contains a standardized train/test split of vectors of vectored samples that map to labels.
 """
 struct VectoredDataSplit{T, M}
     """
@@ -80,11 +82,11 @@ struct VectoredDataSplit{T, M}
 end
 
 """
-Overload of the show function for `VectoredDataSplit`.
+Overload of the show function for [`OAR.VectoredDataSplit`](@ref).
 
 # Arguments
 - `io::IO`: the current IO stream.
-- `data::DataSplit`: the `DataSplit` to print/display.
+- `data::VectoredDataSplit`: the [`OAR.VectoredDataSplit`](@ref) to print/display.
 """
 function Base.show(io::IO, data::VectoredDataSplit)
     dim = length(data.train_x[1])
@@ -99,7 +101,10 @@ function Base.show(io::IO, data::VectoredDataSplit)
 end
 
 """
-Convenience constructor, turning a DataSplit into its vectored variant.
+Convenience constructor, turning a [`OAR.DataSplit`](@ref) into its vectored variant.
+
+# Arguments
+- `data::DataSplit`: the original [`OAR.DataSplit`](@ref) to transform into a vectored data ssplit.
 """
 function VectoredDataSplit(data::DataSplit)
     # Assume that the number of samples is the length of the label vectors
@@ -116,7 +121,7 @@ function VectoredDataSplit(data::DataSplit)
 end
 
 """
-Loads the Iris dataset and returns a DataSplit.
+Loads the Iris dataset and returns a [`OAR.DataSplit`](@ref).
 """
 function iris_tt_real()
     # Load the Iris dataset from MLDatasets
@@ -139,6 +144,8 @@ function iris_tt_real()
 end
 
 """
+Turns a [`OAR.DataSplit`](@ref) into a binned symbolic variant for use with GramART.
+
 # Arguments
 - `data::DataSplit`: the [`OAR.DataSplit`](@ref) to convert to symbols.
 - `labels::Vector{String}`: the labels corresponding to the non-terminal symbol names for the feature categories and their subsequent terminal variants.
