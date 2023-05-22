@@ -34,7 +34,8 @@ const TerminalDist = Dict{GramARTTerminal, Float}
 """
 The structure of the counter for symbols in a ProtoNode.
 """
-const SymbolCount = Vector{Int}
+# const SymbolCount = Vector{Int}
+const SymbolCount = Dict{GramARTTerminal, Int}
 
 """
 ProtoNode struct, used to generate tree prototypes, which are the templates of GramART.
