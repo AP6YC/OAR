@@ -18,9 +18,11 @@
 
 ## Multi-line using statements are permitted in Julia to gather all requirements and compile at once
 using
+    OAR,                # This project
     MLDatasets,         # Iris dataset
     MLDataUtils         # Data utilities, splitting, etc.
 
+# ## Loading the Dataset
 
 # We will download the Iris dataset for its small size and benchmark use for clustering algorithms.
 
@@ -39,16 +41,11 @@ unique(labels)
 
 (X_train, y_train), (X_test, y_test) = stratifiedobs((features, labels))
 
-# Create a discretized symbolic version of the IRIS dataset
-N = [
-    "SL", "SW", "PL", "PW",
-]
+# We now have a train/test split of the features and targets for the Iris dataset.
+# This project also defines some low-level data utilities for more easily passing around and transforming this data, so we often see this train/test split as a combined `DataSplit` struct:
 
-bins = 10
+data = OAR.DataSplit(X_train, X_test, y_train, y_test)
 
-# bnf = OAR.DescretizedBNF(N)
-bnf = OAR.DescretizedBNF(OAR.quick_symbolset(N), bins=bins)
+# We can also turn this `DataSplit` into a vectored variant (where the features are arranged as a vector of samples rather than combined into a matrix like in the `DataSplit`):
 
-statement = OAR.random_statement(bnf)
-
-@info statement
+data_vec = OAR.VectoredDataSplit(data)

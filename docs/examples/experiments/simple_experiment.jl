@@ -3,7 +3,7 @@
 # id: simple_experiment
 # date: 2023-4-28
 # author: "[Sasha Petrenko](https://github.com/AP6YC)"
-# julia: 1.8
+# julia: 1.9
 # description: This demo shows how to run a simple experiment in the OAR project.
 # ---
 

@@ -1,3 +1,10 @@
+"""
+    data_utils.jl
+
+# Description
+This file contains utilities for handling datasets and train/test splits for the `OAR` project.
+"""
+
 using
     MLDatasets,         # Iris dataset
     MLDataUtils         # Data utilities, splitting, etc.
@@ -30,6 +37,24 @@ struct DataSplit
 end
 
 """
+Overload of the show function for `DataSplit`.
+
+# Arguments
+- `io::IO`: the current IO stream.
+- `data::DataSplit`: the `DataSplit` to print/display.
+"""
+function Base.show(io::IO, data::DataSplit)
+    dim = size(data.train_x)[1]
+    n_train = length(data.train_y)
+    n_test = length(data.test_y)
+    print(io, "$(typeof(data)): dim=$(dim), n_train=$(n_train), n_test=$(n_test):\n")
+    print(io, "train_x: $(size(data.train_x)) $(typeof(data.train_x))\n")
+    print(io, "test_x: $(size(data.test_x)) $(typeof(data.test_x))\n")
+    print(io, "train_y: $(size(data.train_y)) $(typeof(data.train_y))\n")
+    print(io, "test_y: $(size(data.test_y)) $(typeof(data.test_y))\n")
+end
+
+"""
 Vectored train/test split of arbitrary feature types.
 """
 struct VectoredDataSplit{T, M}
@@ -52,6 +77,25 @@ struct VectoredDataSplit{T, M}
     Testing labels as a vector of type `M`.
     """
     test_y::Vector{M}
+end
+
+"""
+Overload of the show function for `VectoredDataSplit`.
+
+# Arguments
+- `io::IO`: the current IO stream.
+- `data::DataSplit`: the `DataSplit` to print/display.
+"""
+function Base.show(io::IO, data::VectoredDataSplit)
+    dim = length(data.train_x[1])
+    n_train = length(data.train_y)
+    n_test = length(data.test_y)
+    print(io, "$(typeof(data)): dim=$(dim), n_train=$(n_train), n_test=$(n_test):\n")
+    # print(io, "$(typeof(data)) with $(dim) features, $(n_train) training samples, and $(n_test) testing samples:\n")
+    print(io, "train_x: $(size(data.train_x)) $(typeof(data.train_x))\n")
+    print(io, "test_x: $(size(data.test_x)) $(typeof(data.test_x))\n")
+    print(io, "train_y: $(size(data.train_y)) $(typeof(data.train_y))\n")
+    print(io, "test_y: $(size(data.test_y)) $(typeof(data.test_y))\n")
 end
 
 """
