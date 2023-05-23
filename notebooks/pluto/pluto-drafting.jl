@@ -52,15 +52,24 @@ TableOfContents()
 
 # ╔═╡ 84eae36a-55f0-4be9-930c-d8764b4a183d
 if x == 42
-	correct("THE ANSWER")
+	correct(md"THE ANSWER")
 elseif 30 < x < 42
-	almost("ALMOST")
+	almost(md"ALMOST")
 else
-	keep_working("NO")
+	keep_working(md"NO")
 end
 
 # ╔═╡ 4b07c22c-7532-4ae9-8d14-fda2689237cb
-md"Then "
+a = md"Then "
+
+# ╔═╡ 79d478c3-1629-48e5-9bdb-fc88fd910422
+typeof(a)
+
+# ╔═╡ 883a4d58-ba1e-408e-90cc-126fccf911a5
+hint(md"asdf")
+
+# ╔═╡ 4e5c45b7-2ec4-46da-b005-a3131d77a986
+keep_working(md"asdf")
 
 # ╔═╡ Cell order:
 # ╟─78f1b791-4209-470d-a047-60f2062c1af3
@@ -71,3 +80,6 @@ md"Then "
 # ╠═95979252-f17a-41e8-a808-8e793607efe2
 # ╠═84eae36a-55f0-4be9-930c-d8764b4a183d
 # ╠═4b07c22c-7532-4ae9-8d14-fda2689237cb
+# ╠═79d478c3-1629-48e5-9bdb-fc88fd910422
+# ╠═883a4d58-ba1e-408e-90cc-126fccf911a5
+# ╠═4e5c45b7-2ec4-46da-b005-a3131d77a986
