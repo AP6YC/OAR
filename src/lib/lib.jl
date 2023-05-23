@@ -20,3 +20,5 @@ include("drwatson.jl")
 include("BNF.jl")
 # GramART Julia implementation
 include("GramART.jl")
+# Data utilities
+include("data_utils.jl")

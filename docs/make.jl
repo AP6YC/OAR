@@ -113,9 +113,11 @@ makedocs(
             "Languages" => "man/languages.md",
             # "Examples" => "man/examples.md",
             # "Modules" => "man/modules.md",
-            "Contributing" => "man/contributing.md",
+        ],
+        "Internals" => [
             "Index" => "man/full-index.md",
-            "Internals" => "man/dev-index.md",
+            "Dev Index" => "man/dev-index.md",
+            "Contributing" => "man/contributing.md",
         ],
     ],
     repo="https://github.com/AP6YC/OAR/blob/{commit}{path}#L{line}",
