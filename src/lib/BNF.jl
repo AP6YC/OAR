@@ -14,101 +14,63 @@ Abstract type for formal grammars.
 """
 abstract type Grammar end
 
-"""
-Parametric abstract symol type for [`Grammars`](@ref OAR.Grammar).
-"""
-abstract type AbstractSymbol{T} end
-
-"""
-Value-as-type parametric type for terminal symbols.
-"""
-struct Terminal{T} <: AbstractSymbol{T}
-    # """
-    # The grammar symbol of type T.
-    # """
-    # symb::T
-end
-
-"""
-Value-as-type parametric type for nonterminal symbols.
-"""
-struct NonTerminal{T} <: AbstractSymbol{T}
-    # """
-    # The grammar symbol of type T.
-    # """
-    # symb::T
-end
-
-"""
-Definition for a set of symbols, terminal or nonterminal.
-"""
-struct SymbolSet{T <: AbstractSymbol}
-    data::Set{T}
-end
-
-"""
-Convenience function that makes a SymbolSet from a vector of grammar symbols.
-"""
-function SymbolSet(symbs::Vector{T}) where T <: AbstractSymbol
-    return SymbolSet(
-        Set(symbs)
-    )
-end
-
-# const ProductionRule = SymbolSet
-
-# struct ProductionRuleSet{T <: AbstractSymbol}
-
-# end
-
-# function getindex(h::)
-# function getindex(A::SymbolSet, i1::Integer)
-#     return
-# end
-
-# struct ProductionRule{}
-
 # -----------------------------------------------------------------------------
 # TYPE ALIASES
 # -----------------------------------------------------------------------------
 
-"""
-A grammar symbol is a String.
-"""
-const GSymbol = String
+struct GSymbol{T}
+    """
+    The grammar symbol of type T.
+    """
+    data::T
 
+    """
+    Boolean flag if the symbol is terminal (true) or nonterminal (false).
+    """
+    terminal::Bool
+end
 
-# """
-# Definition of a Terminal symbol as a [`GSymbol`](@ref OAR.GSymbol).
-# """
-# const Terminal = GSymbol
+function GSymbol{T}(data::T) where T <: Any
+    GSymbol{T}(
+        data,
+        true,
+    )
+end
+# function GSymbol{String}(name::String)
+#     GSymbol{String}(
+#         name,
+#         true,
+#     )
+# end
 
-# """
-# Definition of a NonTermial symbol as a [`GSymbol`](@ref OAR.GSymbol).
+function Terminal(data::T) where T <: Any
+    return GSymbol{T}(
+        data,
+        true,
+    )
+end
 
-# Though both [`Terminal`](@ref OAR.Terminal) and [`NonTerminal`](@ref OAR.NonTerminal) symbols are defined with the same data structure, they are disambiguated in how they are used in [`Grammars`](@ref OAR.Grammar).
-# """
-# const NonTerminal = GSymbol
+function NonTerminal(data::T) where T <: Any
+    return GSymbol{T}(
+        data,
+        false,
+    )
+end
 
-"""
-A set of [`GSymbols`](@ref GSymbol).
-"""
-const GSymbolSet = Set{GSymbol}
+const SymbolSet = Set{GSymbol}
 
-"""
-A production rule is a set of [`GSymbols`](@ref OAR.GSymbol).
-"""
-const ProductionRule = Set{GSymbol}
+# const Statement = SymbolSet
+const Statement = Vector{GSymbol}
 
-"""
-A production rule set is simply a set of [`ProductionRules`](@ref OAR.ProductionRule).
-"""
+const ProductionRule = SymbolSet
+
 const ProductionRuleSet = Dict{GSymbol, ProductionRule}
 
-"""
-A statement is an ordered vector of [`GSymbols`](@ref OAR.GSymbol).
-"""
-const Statement = Vector{GSymbol}
+function quick_statement(data::Vector{T} ; terminal::Bool=false) where T <: Any
+    new_data = [GSymbol{T}(datum, terminal) for datum in data]
+    # return SymbolSet(new_data)
+    return Statement(new_data)
+end
 
 # -----------------------------------------------------------------------------
 # STRUCTS
@@ -123,12 +85,16 @@ struct BNF <: Grammar
     """
     Non-terminal symbols of the grammar.
     """
-    N::GSymbolSet
+    N::SymbolSet
+    # N::SymbolSet{NonTerminal}
+    # N::GSymbolSet
 
     """
     Terminal symbols of the grammar.
     """
-    T::GSymbolSet
+    T::SymbolSet
+    # T::SymbolSet{Terminal}
+    # T::GSymbolSet
 
     """
     Definition of a statement in this grammar.
@@ -155,7 +121,8 @@ function BNF(S::Statement)
     return BNF(
         Set(S),
         S,
-        GSymbolSet(),
+        # GSymbolSet(),
+        Statement(),
         ProductionRuleSet(),
     )
 end
@@ -174,8 +141,15 @@ end
 """
 Returns a new GSymbol by adding a suffix.
 """
-function join_gsymbol(symb::GSymbol, num::Integer)
-    return symb * string(num)
+function join_gsymbol(symb::GSymbol, num::Integer ; terminal::Bool=true)
+# function join_gsymbol(symb::T, num::Integer) where T <: AbstractSymbol
+    # return symb * string(num)
+    # return symb.data * string(num)
+    return GSymbol{String}(
+        symb.data * string(num),
+        # symb.terminal,
+        terminal,
+    )
 end
 
 """
@@ -187,7 +161,9 @@ Creates a grammer for discretizing a set of symbols into a number of bins.
 """
 function DescretizedBNF(S::Statement ; bins::Integer=10)
     # Initialize the terminal symbol set
-    T = GSymbolSet()
+    # T = GSymbolSet()
+    # T = SymbolSet{Terminal}()
+    T = SymbolSet()
     # Initialize the production rule set
     P = ProductionRuleSet()
     # Iterate over each non-terminal symbol
@@ -226,6 +202,7 @@ end
 Produces a random terminal from the non-terminal using the corresponding production rule.
 """
 function random_produce(grammar::Grammar, symb::GSymbol)
+# function random_produce(grammar::Grammar, symb::AbstractSymbol)
     return rand(grammar.P[symb])
 end
 
@@ -233,6 +210,7 @@ end
 Checks if a symbol is terminal in the grammar.
 """
 function is_terminal(grammar::Grammar, symb::GSymbol)
+# function is_terminal(grammar::Grammar, symb::AbstractSymbol)
     return symb in grammar.T
 end
 
@@ -240,6 +218,7 @@ end
 Checks if a symbol is non-terminal in the grammar.
 """
 function is_nonterminal(grammar::Grammar, symb::GSymbol)
+# function is_nonterminal(grammar::Grammar, symb::AbstractSymbol)
     return symb in grammar.N
 end
 
