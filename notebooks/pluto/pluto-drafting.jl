@@ -4,14 +4,30 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ 74e9205a-5449-49c6-9b9e-1c9f936c88b6
-using Pkg
+# This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
+macro bind(def, element)
+    quote
+        local iv = try Base.loaded_modules[Base.PkgId(Base.UUID("6e696c72-6542-2067-7265-42206c756150"), "AbstractPlutoDingetjes")].Bonds.initial_value catch; b -> missing; end
+        local el = $(esc(element))
+        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : iv(el)
+        el
+    end
+end
 
-# ╔═╡ 33fd324d-9032-43c5-b567-6704ccf9335c
-Pkg.activate(".")
+# ╔═╡ 861ef620-70c3-47f0-999f-8188006cb7e1
+begin
+	cd(joinpath(@__DIR__, "..", ".."))
+	using Pkg
+	Pkg.activate(".")
+end
 
-# ╔═╡ bae92503-0e8d-40ee-9026-94b7fd8da8fa
-using OAR
+# ╔═╡ 2a779836-bce0-4896-9fd6-016494676485
+begin
+	using Revise
+	using OAR
+	using PlutoUI
+	include("src/lib/pluto.jl")
+end
 
 # ╔═╡ 78f1b791-4209-470d-a047-60f2062c1af3
 md"# _Pluto Demo_
@@ -25,20 +41,33 @@ For example, Pluto notebooks are just Julia scripts (*.jl) with special comment 
 # ╔═╡ 35e178e3-64db-4d2e-b4a5-8516048ef76c
 md"
 Lets activate the local environment.
-First, use the Julia `Pkg` package:
+Despite the fact that this is a DrWatson project, we will activate and load our dependencies manually:
 "
+
+# ╔═╡ 3bf3f923-e9e9-4336-876f-1ebe0ae8b817
+TableOfContents()
+
+# ╔═╡ 95979252-f17a-41e8-a808-8e793607efe2
+@bind x Slider(1:42, default=31, show_value=true)
+
+# ╔═╡ 84eae36a-55f0-4be9-930c-d8764b4a183d
+if x == 42
+	correct("THE ANSWER")
+elseif 30 < x < 42
+	almost("ALMOST")
+else
+	keep_working("NO")
+end
 
 # ╔═╡ 4b07c22c-7532-4ae9-8d14-fda2689237cb
 md"Then "
 
-# ╔═╡ dfd5186f-bdb2-447d-9361-7933816e71aa
-
-
 # ╔═╡ Cell order:
 # ╟─78f1b791-4209-470d-a047-60f2062c1af3
 # ╟─35e178e3-64db-4d2e-b4a5-8516048ef76c
-# ╠═74e9205a-5449-49c6-9b9e-1c9f936c88b6
+# ╠═861ef620-70c3-47f0-999f-8188006cb7e1
+# ╠═2a779836-bce0-4896-9fd6-016494676485
+# ╠═3bf3f923-e9e9-4336-876f-1ebe0ae8b817
+# ╠═95979252-f17a-41e8-a808-8e793607efe2
+# ╟─84eae36a-55f0-4be9-930c-d8764b4a183d
 # ╠═4b07c22c-7532-4ae9-8d14-fda2689237cb
-# ╠═33fd324d-9032-43c5-b567-6704ccf9335c
-# ╠═bae92503-0e8d-40ee-9026-94b7fd8da8fa
-# ╠═dfd5186f-bdb2-447d-9361-7933816e71aa
