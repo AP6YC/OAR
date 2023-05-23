@@ -68,3 +68,14 @@ for statement in fs.train_x
     end
     # @info statement
 end
+
+# Calculate the distributions
+for v in v_gramart
+    m = 0
+    for (key, count) in v.N
+        m += count
+    end
+    for (key, dist) in v.dist
+        v.dist[key] = v.N[key] / m
+    end
+end
