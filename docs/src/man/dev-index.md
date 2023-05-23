@@ -33,7 +33,7 @@ Modules = [OAR]
 Order = [:constant]
 ```
 
-### [Docs](@id dev-index-docs)
+## [Docs](@id dev-index-docs)
 
 Documentation for all internal names are listed below.
 

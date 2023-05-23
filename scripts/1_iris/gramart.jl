@@ -1,11 +1,8 @@
 """
-    ebnf.jl
+    gramart.jl
 
 # Description
-Demo experiment with an extended Backus-Naur form grammar.
-
-# Authors
-- Sasha Petrenko <sap625@mst.edu>
+This script shows how to use a GramART to cluster on the Iris dataset.
 """
 
 # -----------------------------------------------------------------------------
@@ -17,19 +14,9 @@ using DrWatson
 @quickactivate :OAR
 
 # -----------------------------------------------------------------------------
-# EXPERIMENT
+# IRIS DATASET
 # -----------------------------------------------------------------------------
 
-# Create a discretized symbolic version of the IRIS dataset
-N = [
-    "SL", "SW", "PL", "PW",
-]
-
-bins = 10
-
-# bnf = OAR.DescretizedBNF(N)
-bnf = OAR.DescretizedBNF(OAR.quick_statement(N), bins=bins)
-
-statement = OAR.random_statement(bnf)
-
-@info statement
+# All-in-one function
+fast_statements = OAR.symbolic_iris()
+@info fast_statements
