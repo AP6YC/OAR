@@ -1,5 +1,20 @@
+"""
+    drwatson.jl
+
+# Description
+This script tinkers with the various DrWatson.jl directory locations as well as
+"""
+
+# -----------------------------------------------------------------------------
+# PREAMBLE
+# -----------------------------------------------------------------------------
+
 using DrWatson
 @quickactivate :OAR
+
+# -----------------------------------------------------------------------------
+# DRWATSON BASE DIR COMMANDS
+# -----------------------------------------------------------------------------
 
 @info datadir()
 @info srcdir()
@@ -7,6 +22,11 @@ using DrWatson
 @info scriptsdir()
 @info papersdir()
 
-exp_name = "1_init"
+# -----------------------------------------------------------------------------
+# CUSTOM DRWATSON DIR COMMANDS
+# -----------------------------------------------------------------------------
+
+exp_name = "0_init"
 
 @info OAR.work_dir(exp_name)
+@info OAR.results_dir(exp_name)
