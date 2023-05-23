@@ -25,6 +25,7 @@ MLDatasets = "0.7"
 MLDataUtils = "0.5"
 NumericalTypeAliases = "0.1, 0.2"
 PrecompileSignatures = "3"
+Revise = "3"
 Reexport = "1"
 julia = "1"
 
