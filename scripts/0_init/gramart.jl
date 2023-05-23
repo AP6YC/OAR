@@ -21,8 +21,7 @@ N = [
     "SL", "SW", "PL", "PW",
 ]
 bins = 10
-bnf = OAR.DescretizedBNF(OAR.quick_symbolset(N), bins=bins)
-
+bnf = OAR.DescretizedBNF(OAR.quick_statement(N), bins=bins)
 
 # All-in-one function
 fs = OAR.symbolic_iris()
@@ -36,14 +35,13 @@ pn = ProtoNode()
 tn = TreeNode("testing")
 @info tn
 
-
 # Initialize the protonode tree for the grammar
 v_gramart = Vector{ProtoNode}()
-for N in bnf.N
+for S in bnf.S
     # @info N
     local_dist = OAR.TerminalDist()
     local_count = OAR.SymbolCount()
-    for T in bnf.P[N]
+    for T in bnf.P[S]
         # @info T
         local_dist[T] = 0.0
         # push!(local_count, 0)
@@ -65,7 +63,8 @@ n_symbols = length(v_gramart)
 for statement in fs.train_x
     for n = 1:n_symbols
         @info statement[n]
-
+        v_gramart[n].N[statement[n]] += 1
+        # v_gramart[n]
     end
     # @info statement
 end

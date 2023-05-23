@@ -59,16 +59,17 @@ end
 
 const SymbolSet = Set{GSymbol}
 
-const Statement = SymbolSet
-# const Statement = Vector{GSymbol}
+# const Statement = SymbolSet
+const Statement = Vector{GSymbol}
 
 const ProductionRule = SymbolSet
 
 const ProductionRuleSet = Dict{GSymbol, ProductionRule}
 
-function quick_symbolset(data::Vector{T} ; terminal::Bool=false) where T <: Any
+function quick_statement(data::Vector{T} ; terminal::Bool=false) where T <: Any
     new_data = [GSymbol{T}(datum, terminal) for datum in data]
-    return SymbolSet(new_data)
+    # return SymbolSet(new_data)
+    return Statement(new_data)
 end
 
 # -----------------------------------------------------------------------------

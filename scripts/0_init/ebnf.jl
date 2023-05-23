@@ -28,7 +28,7 @@ N = [
 bins = 10
 
 # bnf = OAR.DescretizedBNF(N)
-bnf = OAR.DescretizedBNF(OAR.quick_symbolset(N), bins=bins)
+bnf = OAR.DescretizedBNF(OAR.quick_statement(N), bins=bins)
 
 statement = OAR.random_statement(bnf)
 

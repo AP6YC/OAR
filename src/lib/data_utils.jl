@@ -183,6 +183,8 @@ function real_to_symb(data::DataSplit, labels::Vector{String} ; bins::Int=10)
 
     # Iterate over each dimension
     for ix = 1:dim
+        # NOTE: minor adjustment of denominator here to make max values floor down
+        # denominator = maxs[ix] - mins[ix] + eps()*10
         denominator = maxs[ix] - mins[ix]
         if denominator != 0
             # If the denominator is not zero, normalize
@@ -197,12 +199,17 @@ function real_to_symb(data::DataSplit, labels::Vector{String} ; bins::Int=10)
     symb_ind = zeros(Int, dim, n_samples)
     for ix = 1:dim
         for jx = 1:n_samples
-            # Get an integer
-            symb_ind[ix, jx] = Int(round((x_ln[ix, jx] + 0.05) * bins))
+            # Get an floored integer index
+            local_ind = Int(floor(x_ln[ix, jx] * bins)) + 1
+            # Correction for if we have a max value so that it is binned one down
+            if local_ind > bins
+                local_ind = Int(bins)
+            end
+            symb_ind[ix, jx] = local_ind
         end
     end
 
-    bnf = OAR.DescretizedBNF(OAR.quick_symbolset(labels), bins=bins)
+    # bnf = OAR.DescretizedBNF(OAR.quick_statement(labels), bins=bins)
     statements = Vector{Vector{GSymbol}}()
 
     # Iterate over every sample
@@ -211,7 +218,7 @@ function real_to_symb(data::DataSplit, labels::Vector{String} ; bins::Int=10)
         local_st = Vector{GSymbol}()
         for ix = 1:dim
             # Get the symbol for the feature dimension
-            label = GSymbol(labels[ix], true)
+            label = GSymbol{String}(labels[ix], true)
             # TODO: this manually creates the symbol, but should be grabbed from the grammar
             #   that would look like this (once a vectored grammar with indexing is implemented):
             #   local_symb = bnf.T[label][symb_ind[ix, jx]]
