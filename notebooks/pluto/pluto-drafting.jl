@@ -30,7 +30,7 @@ begin
 end
 
 # ╔═╡ 78f1b791-4209-470d-a047-60f2062c1af3
-md"# _Pluto Demo_
+md"# _Pluto Drafting_
 
 Pluto is a notebook environment unique to the Julia programming language, updating code as you write it (with computer magic ✨).
 
@@ -69,5 +69,5 @@ md"Then "
 # ╠═2a779836-bce0-4896-9fd6-016494676485
 # ╠═3bf3f923-e9e9-4336-876f-1ebe0ae8b817
 # ╠═95979252-f17a-41e8-a808-8e793607efe2
-# ╟─84eae36a-55f0-4be9-930c-d8764b4a183d
+# ╠═84eae36a-55f0-4be9-930c-d8764b4a183d
 # ╠═4b07c22c-7532-4ae9-8d14-fda2689237cb
