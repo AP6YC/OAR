@@ -20,13 +20,25 @@ using DrWatson
 # All-in-one function
 fs, bnf = OAR.symbolic_iris()
 
-# Make a protonode
-pn = ProtoNode()
-@info pn
+# Init the top protonode
+gramart = ProtoNode(bnf.T)
 
-# Make a treenode
-tn = TreeNode("testing")
-@info tn
+# # Initialize the top node with a distribution of all symbols
+# for terminal in bnf.T
+#     gramart.N[terminal] = 0
+#     gramart.dist[terminal] = 0.0
+# end
+
+# Populate the sub nodes
+for S in bnf.S
+    push!(gramart.children, ProtoNode(bnf.T))
+end
+
+# # Process the statements
+# for S in bnf.S
+
+# end
+
 
 # Initialize the protonode tree for the grammar
 v_gramart = Vector{ProtoNode}()
@@ -49,13 +61,13 @@ for S in bnf.S
     push!(v_gramart, local_pn)
 end
 
-# @info v_gramart
+@info v_gramart
 
 # Update the counts of each symbol
 n_symbols = length(v_gramart)
 for statement in fs.train_x
     for n = 1:n_symbols
-        # @info statement[n]
+        @info statement[n]
         v_gramart[n].N[statement[n]] += 1
         # v_gramart[n]
     end

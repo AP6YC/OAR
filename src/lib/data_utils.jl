@@ -243,8 +243,10 @@ function real_to_symb(data::DataSplit, labels::Vector{String} ; bins::Int=10)
         data.test_y,
     )
 
+    bnf = OAR.DescretizedBNF(labels, bins=bins)
+
     # Return the list of samples as a vectored datasplit
-    return vs_symbs
+    return vs_symbs, bnf
 end
 
 """
@@ -263,7 +265,7 @@ function symbolic_iris(;bins::Int=10)
     ]
 
     # Create the symbolic version of the data
-    statements = OAR.real_to_symb(data, N, bins=bins)
+    statements, grammar = OAR.real_to_symb(data, N, bins=bins)
 
-    return statements
+    return statements, grammar
 end

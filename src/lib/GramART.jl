@@ -70,6 +70,44 @@ function ProtoNode()
 end
 
 """
+Constructor for a zero-initialized Gramart ProtoNode.
+
+# Arguments
+- `symbols::SymbolSet`: the terminal symbols to initialize the node with.
+"""
+function ProtoNode(symbols::SymbolSet)
+    # Initialize an empty ProtoNode
+    pn = ProtoNode()
+    # Init counts and distributions for all terminal symbols
+    for terminal in symbols
+        pn.N[terminal] = 0
+        pn.dist[terminal] = 0.0
+    end
+    return pn
+end
+
+"""
+Overload of the show function for [`OAR.ProtoNode`](@ref).
+
+# Arguments
+- `io::IO`: the current IO stream.
+- `node::ProtoNode`: the [`OAR.ProtoNode`](@ref) to print/display.
+"""
+function Base.show(io::IO, node::ProtoNode)
+    # print(io, node)
+    return
+    # dim = length(data.train_x[1])
+    # n_train = length(data.train_y)
+    # n_test = length(data.test_y)
+    # print(io, "$(typeof(data)): dim=$(dim), n_train=$(n_train), n_test=$(n_test):\n")
+    # # print(io, "$(typeof(data)) with $(dim) features, $(n_train) training samples, and $(n_test) testing samples:\n")
+    # print(io, "train_x: $(size(data.train_x)) $(typeof(data.train_x))\n")
+    # print(io, "test_x: $(size(data.test_x)) $(typeof(data.test_x))\n")
+    # print(io, "train_y: $(size(data.train_y)) $(typeof(data.train_y))\n")
+    # print(io, "test_y: $(size(data.test_y)) $(typeof(data.test_y))\n")
+end
+
+"""
 Tree node for a GramART module.
 """
 mutable struct TreeNode <: ARTNode

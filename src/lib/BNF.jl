@@ -152,6 +152,10 @@ function join_gsymbol(symb::GSymbol, num::Integer ; terminal::Bool=true)
     )
 end
 
+function DescretizedBNF(N::Vector{String} ; bins::Integer=10)
+    return DescretizedBNF(quick_statement(N), bins=bins)
+end
+
 """
 Creates a grammer for discretizing a set of symbols into a number of bins.
 
