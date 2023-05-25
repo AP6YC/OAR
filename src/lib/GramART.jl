@@ -130,11 +130,27 @@ struct GramART
 end
 
 function GramART(grammar::BNF)
-    GramART(
+    gramart = GramART(
         ProtoNode(grammar.T),
         Vector{TreeNode}(),
         grammar,
     )
+
+    # Iterate over the production rules
+    for (nonterminal, prod_rule) in grammar.P
+        # Add a node for each non-terminal place
+        local_node = ProtoNode(grammar.T)
+        # Add a node for each terminal
+        for terminal in prod_rule
+            # push!(local_node.children, ProtoNode(bnf.T))
+            local_node.children[terminal] = ProtoNode(grammar.T)
+        end
+        # Add the ndoe with nodes to the top node
+        # push!(gramart.children, local_node)
+        gramart.protonodes.children[nonterminal] = local_node
+    end
+
+    return gramart
 end
 
 # -----------------------------------------------------------------------------
@@ -177,6 +193,7 @@ function ProtoNode(symbols::SymbolSet)
         pn.N[terminal] = 0
         pn.dist[terminal] = 0.0
     end
+    # Return the zero-initialized protonode
     return pn
 end
 
@@ -219,20 +236,33 @@ function update_dist!(pn::ProtoNode, symb::GSymbol)
 end
 
 """
+Updates the tree of protonodes from a single terminal.
 """
 function inc_update_symbols!(pn::ProtoNode, nonterminal::GSymbol, symb::GSymbol)
     # function inc_update_symbols!(pn::ProtoNode, symb::GSymbol, position::Integer)
     # Update the top node
     update_dist!(pn, symb)
     # Update the middle nodes
-    update_dist!(pn.children[nonterminal], symb)
+    middle_node = pn.children[nonterminal]
+    update_dist!(middle_node, symb)
     # Update the terminal nodes
-    # for child in pn.children[position].children
+    # if haskey(middle_node.children, symb)
+    update_dist!(middle_node.children[symb], symb)
+    # else
+    #     #
+    #     middle_node.children[symb] = ProtoNode()
+    # end
+    # for child in pn.children[nonterminal].children
     #     update_dist!(child, symb)
     # end
 end
 
 """
+Processes a statement for a [`OAR.GramART`](@ref) module.
+
+# Arguments
+- `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
+- `statement::Statement`: the grammar statement to process.
 """
 function process_statement!(gramart::GramART, statement::Statement)
     for ix in eachindex(statement)

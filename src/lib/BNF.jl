@@ -115,13 +115,12 @@ end
 Constructor for a Backus-Naur Form grammer with an initial statement of non-terminal symbols.
 
 # Arguments
-- `N::STatement`: an initial set of non-terminal grammar symbols.
+- `N::Statement`: an initial set of non-terminal grammar symbols.
 """
 function BNF(S::Statement)
     return BNF(
         Set(S),
         S,
-        # GSymbolSet(),
         Statement(),
         ProductionRuleSet(),
     )
@@ -139,15 +138,27 @@ end
 # -----------------------------------------------------------------------------
 
 """
+Overload of the show function for [`OAR.BNF`](@ref).
+
+# Arguments
+- `io::IO`: the current IO stream.
+- `bnf::BNF`: the [`OAR.BNF`](@ref) grammar to print/display.
+"""
+function Base.show(io::IO, bnf::BNF)
+    # print(io, "$(typeof(node))($(length(node.N)))")
+    n_N = length(bnf.N)
+    n_S = length(bnf.S)
+    n_P = length(bnf.P)
+    n_T = length(bnf.T)
+    print(io, "$(typeof(bnf))(N:$(n_N), S:$(n_S), P:$(n_P), T:$(n_T))")
+end
+
+"""
 Returns a new GSymbol by adding a suffix.
 """
 function join_gsymbol(symb::GSymbol, num::Integer ; terminal::Bool=true)
-# function join_gsymbol(symb::T, num::Integer) where T <: AbstractSymbol
-    # return symb * string(num)
-    # return symb.data * string(num)
     return GSymbol{String}(
         symb.data * string(num),
-        # symb.terminal,
         terminal,
     )
 end
