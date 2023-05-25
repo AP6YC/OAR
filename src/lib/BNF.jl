@@ -30,6 +30,19 @@ struct GSymbol{T}
     terminal::Bool
 end
 
+"""
+Common argument docstring for GSymbol consruction.
+"""
+const GSYMBOL_DATA_ARG = """
+# Arguments
+- `data::T where T <: Any`: the piece of data comprising the grammar symbol of any type.
+"""
+
+"""
+Constructor for a grammar symbol from just the provided data (defaults to being terminal).
+
+$GSYMBOL_DATA_ARG
+"""
 function GSymbol{T}(data::T) where T <: Any
     GSymbol{T}(
         data,
@@ -44,6 +57,11 @@ end
 #     )
 # end
 
+"""
+Constructor for a terminal grammar symbol.
+
+$GSYMBOL_DATA_ARG
+"""
 function Terminal(data::T) where T <: Any
     return GSymbol{T}(
         data,
@@ -51,6 +69,11 @@ function Terminal(data::T) where T <: Any
     )
 end
 
+"""
+Consructor for a nonterminal grammar symbol.
+
+$GSYMBOL_DATA_ARG
+"""
 function NonTerminal(data::T) where T <: Any
     return GSymbol{T}(
         data,
@@ -58,15 +81,34 @@ function NonTerminal(data::T) where T <: Any
     )
 end
 
+"""
+Type alias, a set of grammar symbols is implemented as a Julia set.
+"""
 const SymbolSet = Set{GSymbol}
 
 # const Statement = SymbolSet
+"""
+Type alias, a statement is a vector of grammar symbols.
+"""
 const Statement = Vector{GSymbol}
 
+"""
+Type alias, a grammar production rule is a set of symbols.
+"""
 const ProductionRule = SymbolSet
 
+"""
+Type alias, a production rule set is a dictionary mapping grammar symbols to production rules.
+"""
 const ProductionRuleSet = Dict{GSymbol, ProductionRule}
 
+"""
+Creates a [`OAR.Statement`](@ref) from a vector of elements of arbitrary type.
+
+# Arguments
+- `data::Vector{T} where T<:Any`: a vector of any type for creating a [`OAR.Statement`](@ref) of symbols of that type.
+- `terminal::Bool=false`: optional, if the symbols of the statement are terminal.
+"""
 function quick_statement(data::Vector{T} ; terminal::Bool=false) where T <: Any
     new_data = [GSymbol{T}(datum, terminal) for datum in data]
     # return SymbolSet(new_data)
@@ -213,10 +255,16 @@ function DescretizedBNF(S::Statement ; bins::Integer=10)
     )
 end
 
+"""
+Common docstring argument for grammars.
+"""
 const GRAMMAR_ARG = """
 - `grammar::Grammar`: a subtype of the abstract [`OAR.Grammar`](@ref) type.
 """
 
+"""
+Common docstring for functions using a grammar and a grammar symbol.
+"""
 const GRAMMAR_SYMB_ARG = """
 # Arguments
 $GRAMMAR_ARG
