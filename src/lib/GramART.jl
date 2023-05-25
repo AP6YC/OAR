@@ -22,25 +22,37 @@ abstract type ARTNode end
 """
 Definition of Terminal symbols used throughtout GramART.
 """
-const GramARTTerminal = GSymbol{String}
+const GramARTSymbol = GSymbol{String}
 # const GramARTTerminal = String
 
 """
 Terminal Distribution definition that is a dictionary mapping from Terminals to probabilities.
 """
-const TerminalDist = Dict{GramARTTerminal, Float}
+const TerminalDist = Dict{GramARTSymbol, Float}
 # const TerminalDist = Dict{GramARTTerminal, Float}
 
 """
 The structure of the counter for symbols in a ProtoNode.
 """
 # const SymbolCount = Vector{Int}
-const SymbolCount = Dict{GramARTTerminal, Int}
+const SymbolCount = Dict{GramARTSymbol, Int}
+
+mutable struct ProtoNodeStats
+    """
+    Convenience counter for the total number of symbols encountered.
+    """
+    m::Int
+
+    """
+    If the ProtoNode is terminal on the graph.
+    """
+    terminal::Bool
+end
 
 """
 ProtoNode struct, used to generate tree prototypes, which are the templates of GramART.
 """
-mutable struct ProtoNode <: ARTNode
+struct ProtoNode <: ARTNode
     """
     The distribution over all symbols at this node.
     """
@@ -52,10 +64,88 @@ mutable struct ProtoNode <: ARTNode
     """
     N::SymbolCount
 
+    # """
+    # Convenience counter for the total number of symbols encountered.
+    # """
+    # m::Int
+
     """
     The children on this node.
     """
-    children::Vector{ProtoNode}
+    children::Dict{GSymbol{String}, ProtoNode}
+    # children::ProtoChildren
+    # children::Vector{ProtoNode}
+
+    # """
+    # """
+    # terminal::Bool
+
+    """
+    """
+    stats::ProtoNodeStats
+end
+
+const ProtoChildren = Dict{GSymbol{String}, ProtoNode}
+
+"""
+Overload of the show function for [`OAR.ProtoNode`](@ref).
+
+# Arguments
+- `io::IO`: the current IO stream.
+- `node::ProtoNode`: the [`OAR.ProtoNode`](@ref) to print/display.
+"""
+function Base.show(io::IO, node::ProtoNode)
+    print(io, "$(typeof(node))($(length(node.N)))")
+end
+
+"""
+Tree node for a GramART module.
+"""
+mutable struct TreeNode <: ARTNode
+    """
+    The terminal symbol for the node.
+    """
+    t::GramARTSymbol
+
+    """
+    Children nodes of this node.
+    """
+    children::Vector{TreeNode}
+end
+
+"""
+"""
+struct GramART
+    """
+    """
+    protonodes::ProtoNode
+
+    """
+    """
+    treenodes::Vector{TreeNode}
+
+    """
+    """
+    grammar::BNF
+end
+
+function GramART(grammar::BNF)
+    GramART(
+        ProtoNode(grammar.T),
+        Vector{TreeNode}(),
+        grammar,
+    )
+end
+
+# -----------------------------------------------------------------------------
+# METHODS
+# -----------------------------------------------------------------------------
+
+function ProtoNodeStats()
+    ProtoNodeStats(
+        0,
+        false,
+    )
 end
 
 """
@@ -65,7 +155,11 @@ function ProtoNode()
     ProtoNode(
         TerminalDist(),
         SymbolCount(),
-        Vector{ProtoNode}(),
+        # 0,
+        # Vector{ProtoNode}(),
+        ProtoChildren(),
+        ProtoNodeStats(),
+        # true
     )
 end
 
@@ -86,60 +180,66 @@ function ProtoNode(symbols::SymbolSet)
     return pn
 end
 
-"""
-Overload of the show function for [`OAR.ProtoNode`](@ref).
-
-# Arguments
-- `io::IO`: the current IO stream.
-- `node::ProtoNode`: the [`OAR.ProtoNode`](@ref) to print/display.
-"""
-function Base.show(io::IO, node::ProtoNode)
-    # print(io, node)
-    return
-    # dim = length(data.train_x[1])
-    # n_train = length(data.train_y)
-    # n_test = length(data.test_y)
-    # print(io, "$(typeof(data)): dim=$(dim), n_train=$(n_train), n_test=$(n_test):\n")
-    # # print(io, "$(typeof(data)) with $(dim) features, $(n_train) training samples, and $(n_test) testing samples:\n")
-    # print(io, "train_x: $(size(data.train_x)) $(typeof(data.train_x))\n")
-    # print(io, "test_x: $(size(data.test_x)) $(typeof(data.test_x))\n")
-    # print(io, "train_y: $(size(data.train_y)) $(typeof(data.train_y))\n")
-    # print(io, "test_y: $(size(data.test_y)) $(typeof(data.test_y))\n")
-end
-
-"""
-Tree node for a GramART module.
-"""
-mutable struct TreeNode <: ARTNode
-    """
-    The terminal symbol for the node.
-    """
-    t::GramARTTerminal
-    # t::String
-
-    """
-    Children nodes of this node.
-    """
-    children::Vector{TreeNode}
-end
+# """
+# Empty constructor for a GramART TreeNode.
+# """
+# function TreeNode()
+#     TreeNode(
+#         GramARTSymbol(),
+#         Vector{TreeNode}(),
+#     )
+# end
 
 """
 Empty constructor for a GramART TreeNode.
 """
 function TreeNode(name::String)
     TreeNode(
-        GramARTTerminal(name),
+        GramARTSymbol(name),
         Vector{TreeNode}(),
     )
 end
 
 # -----------------------------------------------------------------------------
-# METHODS
-# -----------------------------------------------------------------------------
-
-# -----------------------------------------------------------------------------
 # FUNCTIONS
 # -----------------------------------------------------------------------------
+
+"""
+"""
+function update_dist!(pn::ProtoNode, symb::GSymbol)
+    # Update the counts
+    pn.N[symb] += 1
+    pn.stats.m += 1
+    # Update the distributions
+    ratio = 1 / pn.stats.m
+    for (key, _) in pn.dist
+        # Repeated multiplication is faster than division
+        pn.dist[key] = pn.N[key] * ratio
+    end
+end
+
+"""
+"""
+function inc_update_symbols!(pn::ProtoNode, nonterminal::GSymbol, symb::GSymbol)
+    # function inc_update_symbols!(pn::ProtoNode, symb::GSymbol, position::Integer)
+    # Update the top node
+    update_dist!(pn, symb)
+    # Update the middle nodes
+    update_dist!(pn.children[nonterminal], symb)
+    # Update the terminal nodes
+    # for child in pn.children[position].children
+    #     update_dist!(child, symb)
+    # end
+end
+
+"""
+"""
+function process_statement!(gramart::GramART, statement::Statement)
+    for ix in eachindex(statement)
+        inc_update_symbols!(gramart.protonodes, gramart.grammar.S[ix], statement[ix])
+    end
+end
+
 
 function trace!(A::TreeNode, B::ProtoNode, sum::RealFP, size::Integer)
 # function trace!(A::TreeNode, B::ProtoNode)
