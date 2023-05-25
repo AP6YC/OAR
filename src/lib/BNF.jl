@@ -36,6 +36,7 @@ function GSymbol{T}(data::T) where T <: Any
         true,
     )
 end
+
 # function GSymbol{String}(name::String)
 #     GSymbol{String}(
 #         name,
@@ -145,7 +146,6 @@ Overload of the show function for [`OAR.BNF`](@ref).
 - `bnf::BNF`: the [`OAR.BNF`](@ref) grammar to print/display.
 """
 function Base.show(io::IO, bnf::BNF)
-    # print(io, "$(typeof(node))($(length(node.N)))")
     n_N = length(bnf.N)
     n_S = length(bnf.S)
     n_P = length(bnf.P)
@@ -163,6 +163,15 @@ function join_gsymbol(symb::GSymbol, num::Integer ; terminal::Bool=true)
     )
 end
 
+"""
+Wrapper for creating a DescretizedBNF from just a vector of nonterminal symbol names as strings.
+
+This function turns the vector of strings in to a statement and passes it to the actual constructor.
+
+# Arguments
+- `N::Vector{String}`: the nonterminal symbol names as a vector of strings.
+- `bins::Integer=10`: optional, the granularity/number of bins.
+"""
 function DescretizedBNF(N::Vector{String} ; bins::Integer=10)
     return DescretizedBNF(quick_statement(N), bins=bins)
 end
@@ -176,8 +185,6 @@ Creates a grammer for discretizing a set of symbols into a number of bins.
 """
 function DescretizedBNF(S::Statement ; bins::Integer=10)
     # Initialize the terminal symbol set
-    # T = GSymbolSet()
-    # T = SymbolSet{Terminal}()
     T = SymbolSet()
     # Initialize the production rule set
     P = ProductionRuleSet()
@@ -206,15 +213,32 @@ function DescretizedBNF(S::Statement ; bins::Integer=10)
     )
 end
 
+const GRAMMAR_ARG = """
+- `grammar::Grammar`: a subtype of the abstract [`OAR.Grammar`](@ref) type.
+"""
+
+const GRAMMAR_SYMB_ARG = """
+# Arguments
+$GRAMMAR_ARG
+- `symb::GSymbol`: the grammar symbol to use.
+"""
+
 """
 Parses and checks that a statement is permissible under a grammer.
+
+# Arguments
+$GRAMMAR_ARG
+- `statement::Statement`: a grammar [`OAR.Statement`] to check the validity of.s
 """
 function parse_grammar(grammar::Grammar, statement::Statement)
+    @warn "UNIMPLEMENTED"
     return
 end
 
 """
 Produces a random terminal from the non-terminal using the corresponding production rule.
+
+$GRAMMAR_SYMB_ARG
 """
 function random_produce(grammar::Grammar, symb::GSymbol)
 # function random_produce(grammar::Grammar, symb::AbstractSymbol)
@@ -223,6 +247,8 @@ end
 
 """
 Checks if a symbol is terminal in the grammar.
+
+$GRAMMAR_SYMB_ARG
 """
 function is_terminal(grammar::Grammar, symb::GSymbol)
 # function is_terminal(grammar::Grammar, symb::AbstractSymbol)
@@ -231,6 +257,8 @@ end
 
 """
 Checks if a symbol is non-terminal in the grammar.
+
+$GRAMMAR_SYMB_ARG
 """
 function is_nonterminal(grammar::Grammar, symb::GSymbol)
 # function is_nonterminal(grammar::Grammar, symb::AbstractSymbol)
@@ -239,6 +267,9 @@ end
 
 """
 Generates a random statement from a grammar.
+
+# Arguments
+$GRAMMAR_ARG
 """
 function random_statement(grammar::Grammar)
     # rand_N = rand(grammar.N)

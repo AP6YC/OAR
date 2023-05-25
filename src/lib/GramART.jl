@@ -144,14 +144,13 @@ function GramART(grammar::BNF)
         local_node = ProtoNode(grammar.T)
         # Add a node for each terminal
         for terminal in prod_rule
-            # push!(local_node.children, ProtoNode(bnf.T))
             local_node.children[terminal] = ProtoNode(grammar.T)
         end
-        # Add the ndoe with nodes to the top node
-        # push!(gramart.children, local_node)
+        # Add the node with nodes to the top node
         gramart.protonodes.children[nonterminal] = local_node
     end
 
+    # Return the initialized GramART module
     return gramart
 end
 
@@ -159,6 +158,9 @@ end
 # METHODS
 # -----------------------------------------------------------------------------
 
+"""
+Empty constructor for the mutable options and stats component of a ProtoNode.
+"""
 function ProtoNodeStats()
     ProtoNodeStats(
         0,
@@ -238,7 +240,8 @@ Updates the tree of protonodes from a single terminal.
 
 # Arguments
 - `pn::ProtoNode`: the top of the protonode tree to update.
-- `nonterminal::GramARTSymbol`: the
+- `nonterminal::GramARTSymbol`: the nonterminal symbol of the statement to update at.
+- `symb::GramARTSymbol`: the terminal symbol to update everywhere.
 """
 function inc_update_symbols!(pn::ProtoNode, nonterminal::GramARTSymbol, symb::GramARTSymbol)
     # function inc_update_symbols!(pn::ProtoNode, symb::GSymbol, position::Integer)
@@ -249,6 +252,9 @@ function inc_update_symbols!(pn::ProtoNode, nonterminal::GramARTSymbol, symb::Gr
     update_dist!(middle_node, symb)
     # Update the corresponding terminal node
     update_dist!(middle_node.children[symb], symb)
+
+    # Explicity empty return
+    return
 end
 
 """
@@ -264,18 +270,26 @@ function process_statement!(gramart::GramART, statement::Statement)
     end
 end
 
-
+"""
+"""
 function trace!(A::TreeNode, B::ProtoNode, sum::RealFP, size::Integer)
 # function trace!(A::TreeNode, B::ProtoNode)
     sum += B.dist[A.t]
+    @warn "UNIMPLEMENTED"
     return
 end
 
+"""
+"""
 function new_weight(dist::TerminalDist, N::SymbolCount)
+    @warn "UNIMPLEMENTED"
     return
 end
 
+"""
+"""
 function update_node!(A::TreeNode, B::ProtoNode)
+    @warn "UNIMPLEMENTED"
     return
 end
 
