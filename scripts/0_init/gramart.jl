@@ -2,7 +2,7 @@
     gramart.jl
 
 # Description
-This script is used in the development of GramART.
+This script is used in the early development of GramART.
 """
 
 # -----------------------------------------------------------------------------

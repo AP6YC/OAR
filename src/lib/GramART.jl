@@ -64,28 +64,23 @@ struct ProtoNode <: ARTNode
     """
     N::SymbolCount
 
-    # """
-    # Convenience counter for the total number of symbols encountered.
-    # """
-    # m::Int
-
     """
     The children on this node.
     """
-    children::Dict{GSymbol{String}, ProtoNode}
+    children::Dict{GramARTSymbol, ProtoNode}
     # children::ProtoChildren
     # children::Vector{ProtoNode}
 
-    # """
-    # """
-    # terminal::Bool
-
     """
+    The mutable options and stats of the ProtoNode.
     """
     stats::ProtoNodeStats
 end
 
-const ProtoChildren = Dict{GSymbol{String}, ProtoNode}
+"""
+Alias for how ProtoNode children are indexed.
+"""
+const ProtoChildren = Dict{GramARTSymbol, ProtoNode}
 
 """
 Overload of the show function for [`OAR.ProtoNode`](@ref).
@@ -117,19 +112,26 @@ end
 """
 struct GramART
     """
+    The [`OAR.ProtoNode`](@ref)s of the GramART module.
     """
     protonodes::ProtoNode
 
     """
+    The [`OAR.TreeNode`](@ref)s of the GramART module.
     """
     treenodes::Vector{TreeNode}
 
     """
+    The [`OAR.BNF`](@ref)-form grammar used for processing data (statements).
     """
     grammar::BNF
 end
 
+"""
+Constructor for a [`OAR.GramART`](@ref) module that takes a BNF grammar and automatically sets up the [`ProtoNode`](@ref) tree.
+"""
 function GramART(grammar::BNF)
+    # Instantiate the GramART module
     gramart = GramART(
         ProtoNode(grammar.T),
         Vector{TreeNode}(),
@@ -168,14 +170,12 @@ end
 Empty constructor for a GramART Protonode.
 """
 function ProtoNode()
+    # Construct and return the ProtoNode
     ProtoNode(
         TerminalDist(),
         SymbolCount(),
-        # 0,
-        # Vector{ProtoNode}(),
         ProtoChildren(),
         ProtoNodeStats(),
-        # true
     )
 end
 
@@ -197,18 +197,11 @@ function ProtoNode(symbols::SymbolSet)
     return pn
 end
 
-# """
-# Empty constructor for a GramART TreeNode.
-# """
-# function TreeNode()
-#     TreeNode(
-#         GramARTSymbol(),
-#         Vector{TreeNode}(),
-#     )
-# end
-
 """
 Empty constructor for a GramART TreeNode.
+
+# Arguments
+- `name::String`: the string name of the symbol to instantiate the TreeNode with.
 """
 function TreeNode(name::String)
     TreeNode(
@@ -222,8 +215,13 @@ end
 # -----------------------------------------------------------------------------
 
 """
+Updates the distribution of a single [`OAR.ProtoNode`](@ref) from one new symbol instance.
+
+# Arguments
+- `pn::ProtoNode`: the [`OAR.ProtoNode`](@ref) to update the distribution with.
+- `symb::GramARTSymbol`: the symbol instance to update the [`OAR.ProtoNode`](@ref) with.
 """
-function update_dist!(pn::ProtoNode, symb::GSymbol)
+function update_dist!(pn::ProtoNode, symb::GramARTSymbol)
     # Update the counts
     pn.N[symb] += 1
     pn.stats.m += 1
@@ -237,24 +235,20 @@ end
 
 """
 Updates the tree of protonodes from a single terminal.
+
+# Arguments
+- `pn::ProtoNode`: the top of the protonode tree to update.
+- `nonterminal::GramARTSymbol`: the
 """
-function inc_update_symbols!(pn::ProtoNode, nonterminal::GSymbol, symb::GSymbol)
+function inc_update_symbols!(pn::ProtoNode, nonterminal::GramARTSymbol, symb::GramARTSymbol)
     # function inc_update_symbols!(pn::ProtoNode, symb::GSymbol, position::Integer)
     # Update the top node
     update_dist!(pn, symb)
     # Update the middle nodes
     middle_node = pn.children[nonterminal]
     update_dist!(middle_node, symb)
-    # Update the terminal nodes
-    # if haskey(middle_node.children, symb)
+    # Update the corresponding terminal node
     update_dist!(middle_node.children[symb], symb)
-    # else
-    #     #
-    #     middle_node.children[symb] = ProtoNode()
-    # end
-    # for child in pn.children[nonterminal].children
-    #     update_dist!(child, symb)
-    # end
 end
 
 """
