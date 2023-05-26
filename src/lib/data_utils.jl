@@ -80,7 +80,7 @@ Overload of the show function for [`OAR.DataSplit`](@ref).
 
 # Arguments
 - `io::IO`: the current IO stream.
-- `data::DataSplit`: the `DataSplit` to print/display.
+- `data::DataSplit`: the [`OAR.DataSplit`](@ref) to print/display.
 """
 function Base.show(io::IO, data::DataSplit)
     dim = size(data.train_x)[1]
@@ -136,15 +136,15 @@ end
 Loads the Iris dataset and returns a [`OAR.DataSplit`](@ref).
 
 # Arguments
-- `download_dir::String=""`: optional,
+- `download_local::Bool=false`: optional (default false), to download the Iris dataset to the local datadir.
 """
-function iris_tt_real(download_dir::String="")
+function iris_tt_real(;download_local::Bool=false)
     # Load the Iris dataset from MLDatasets
-    if isempty(download_dir)
+    if download_local
         local_dir = OAR.data_dir("downloads")
         iris = Iris(dir=local_dir)
     else
-        iris = Iris(dir=download_dir)
+        iris = Iris()
     end
     # Manipulate the features and labels into a matrix of features and a vector of labels
     features, labels = Matrix(iris.features)', vec(Matrix{String}(iris.targets))
@@ -262,10 +262,11 @@ Quickly generates a [`OAR.VectoredDataSplit`] of the symbolic Iris dataset.
 
 # Arguments
 - `bins::Int=10`: optional, the number of symbols to descretize the real-valued data to.
+- `download_local::Bool=false`: optional (default false), to download the Iris dataset to the local datadir.
 """
-function symbolic_iris(;bins::Int=10)
+function symbolic_iris(;bins::Int=10, download_local::Bool=false)
     # Load the Iris DataSplit
-    data = OAR.iris_tt_real()
+    data = OAR.iris_tt_real(download_local=download_local)
 
     # Declare the names for the nonterminal symbols
     N = [
@@ -275,5 +276,6 @@ function symbolic_iris(;bins::Int=10)
     # Create the symbolic version of the data
     statements, grammar = OAR.real_to_symb(data, N, bins=bins)
 
+    # Return the statements and grammar together
     return statements, grammar
 end

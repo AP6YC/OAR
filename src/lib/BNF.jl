@@ -18,6 +18,9 @@ abstract type Grammar end
 # TYPE ALIASES
 # -----------------------------------------------------------------------------
 
+"""
+Definition of a grammar symbol with arbitrary datatype and a boolean flag for if the symbol is terminal or not.
+"""
 struct GSymbol{T}
     """
     The grammar symbol of type T.
@@ -82,23 +85,23 @@ function NonTerminal(data::T) where T <: Any
 end
 
 """
-Type alias, a set of grammar symbols is implemented as a Julia set.
+Type alias (`SymbolSet = Set{[OAR.GSymbol](@ref)}`), a set of grammar symbols is implemented as a Julia set.
 """
 const SymbolSet = Set{GSymbol}
 
 # const Statement = SymbolSet
 """
-Type alias, a statement is a vector of grammar symbols.
+Type alias (`Statement = Vector{[OAR.GSymbol](@ref)}`), a statement is a vector of grammar symbols.
 """
 const Statement = Vector{GSymbol}
 
 """
-Type alias, a grammar production rule is a set of symbols.
+Type alias (`ProductionRule = [OAR.SymbolSet](@ref)`), a grammar production rule is a set of symbols.
 """
 const ProductionRule = SymbolSet
 
 """
-Type alias, a production rule set is a dictionary mapping grammar symbols to production rules.
+Type alias (`ProductionRuleSet = Dict{[OAR.GSymbol](@ref), [OAR.ProductionRule](@ref)}`), a production rule set is a dictionary mapping grammar symbols to production rules.
 """
 const ProductionRuleSet = Dict{GSymbol, ProductionRule}
 
@@ -197,6 +200,11 @@ end
 
 """
 Returns a new GSymbol by adding a suffix.
+
+# Arguments
+- `symb::GSymbol`: the original symbol to append a suffix to.
+- `num::Integer`: the integer to add as a suffix to the symbol.
+- `terminal::Bool=true`: optional (default true), to set the new symbol as terminal.
 """
 function join_gsymbol(symb::GSymbol, num::Integer ; terminal::Bool=true)
     return GSymbol{String}(
