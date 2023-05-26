@@ -21,7 +21,7 @@ N = [
     "SL", "SW", "PL", "PW",
 ]
 bins = 10
-bnf = OAR.DescretizedBNF(OAR.quick_statement(N), bins=bins)
+bnf = OAR.DescretizedCFG(OAR.quick_statement(N), bins=bins)
 
 # All-in-one function
 fs = OAR.symbolic_iris()

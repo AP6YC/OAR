@@ -217,7 +217,7 @@ function real_to_symb(data::DataSplit, labels::Vector{String} ; bins::Int=10)
         end
     end
 
-    # bnf = OAR.DescretizedBNF(OAR.quick_statement(labels), bins=bins)
+    # bnf = OAR.DescretizedCFG(OAR.quick_statement(labels), bins=bins)
     statements = Vector{Vector{GSymbol}}()
 
     # Iterate over every sample
@@ -251,7 +251,7 @@ function real_to_symb(data::DataSplit, labels::Vector{String} ; bins::Int=10)
         data.test_y,
     )
 
-    bnf = OAR.DescretizedBNF(labels, bins=bins)
+    bnf = OAR.DescretizedCFG(labels, bins=bins)
 
     # Return the list of samples as a vectored datasplit
     return vs_symbs, bnf

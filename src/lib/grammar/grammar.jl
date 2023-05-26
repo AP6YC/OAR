@@ -148,7 +148,7 @@ function join_gsymbol(symb::GSymbol, num::Integer ; terminal::Bool=true)
 end
 
 """
-Wrapper for creating a DescretizedBNF from just a vector of nonterminal symbol names as strings.
+Wrapper for creating a DescretizedCFG from just a vector of nonterminal symbol names as strings.
 
 This function turns the vector of strings in to a statement and passes it to the actual constructor.
 
@@ -156,8 +156,8 @@ This function turns the vector of strings in to a statement and passes it to the
 - `N::Vector{String}`: the nonterminal symbol names as a vector of strings.
 - `bins::Integer=10`: optional, the granularity/number of bins.
 """
-function DescretizedBNF(N::Vector{String} ; bins::Integer=10)
-    return DescretizedBNF(quick_statement(N), bins=bins)
+function DescretizedCFG(N::Vector{String} ; bins::Integer=10)
+    return DescretizedCFG(quick_statement(N), bins=bins)
 end
 
 """
@@ -167,7 +167,7 @@ Creates a grammer for discretizing a set of symbols into a number of bins.
 - `N::Statement`: the set of non-terminal grammar symbols to use for binning.
 - `bins::Integer=10`: optional, the granularity/number of bins.
 """
-function DescretizedBNF(S::Statement ; bins::Integer=10)
+function DescretizedCFG(S::Statement ; bins::Integer=10)
     # Initialize the terminal symbol set
     T = SymbolSet()
     # Initialize the production rule set

@@ -28,7 +28,7 @@ end
     ]
     bins = 10
     # Create a discretized CFG for real-valued data
-    bnf = OAR.DescretizedBNF(OAR.quick_statement(N), bins=bins)
+    bnf = OAR.DescretizedCFG(OAR.quick_statement(N), bins=bins)
     # Make a random statement from that grammar
     statement = OAR.random_statement(bnf)
 
