@@ -1,8 +1,8 @@
 """
-    BNF.jl
+    grammar.jl
 
 # Description
-This file implements the parsing and generation of statements with the Backus-Naur form.
+This file implements grammars and the parsing and generation of statements with the Backus-Naur form.
 """
 
 # -----------------------------------------------------------------------------
@@ -17,72 +17,6 @@ abstract type Grammar end
 # -----------------------------------------------------------------------------
 # TYPE ALIASES
 # -----------------------------------------------------------------------------
-
-"""
-Definition of a grammar symbol with arbitrary datatype and a boolean flag for if the symbol is terminal or not.
-"""
-struct GSymbol{T}
-    """
-    The grammar symbol of type T.
-    """
-    data::T
-
-    """
-    Boolean flag if the symbol is terminal (true) or nonterminal (false).
-    """
-    terminal::Bool
-end
-
-"""
-Common argument docstring for GSymbol consruction.
-"""
-const GSYMBOL_DATA_ARG = """
-# Arguments
-- `data::T where T <: Any`: the piece of data comprising the grammar symbol of any type.
-"""
-
-"""
-Constructor for a grammar symbol from just the provided data (defaults to being terminal).
-
-$GSYMBOL_DATA_ARG
-"""
-function GSymbol{T}(data::T) where T <: Any
-    GSymbol{T}(
-        data,
-        true,
-    )
-end
-
-# function GSymbol{String}(name::String)
-#     GSymbol{String}(
-#         name,
-#         true,
-#     )
-# end
-
-"""
-Constructor for a terminal grammar symbol.
-
-$GSYMBOL_DATA_ARG
-"""
-function Terminal(data::T) where T <: Any
-    return GSymbol{T}(
-        data,
-        true,
-    )
-end
-
-"""
-Consructor for a nonterminal grammar symbol.
-
-$GSYMBOL_DATA_ARG
-"""
-function NonTerminal(data::T) where T <: Any
-    return GSymbol{T}(
-        data,
-        false,
-    )
-end
 
 """
 Type alias (`SymbolSet = Set{[OAR.GSymbol](@ref)}`), a set of grammar symbols is implemented as a Julia set.
@@ -123,11 +57,11 @@ end
 # -----------------------------------------------------------------------------
 
 """
-Backus-Naur form of [`Grammar`](@ref OAR.Grammar).
+Context-Free [`Grammar`](@ref OAR.Grammar).
 
-Consists of a set of terminal symbols, non-terminal symbols, and production rules.
+Consists of a set of terminal symbols, non-terminal symbols, and production rules of Backus-Naur Form.
 """
-struct BNF <: Grammar
+struct CFG <: Grammar
     """
     Non-terminal symbols of the grammar.
     """
@@ -148,7 +82,7 @@ struct BNF <: Grammar
     S::Statement
 
     """
-    The set of production rules of the grammar.
+    The set of production rules of the grammar of the Backus-Naur Form (CFG).
     """
     P::ProductionRuleSet
 end
@@ -158,13 +92,13 @@ end
 # -----------------------------------------------------------------------------
 
 """
-Constructor for a Backus-Naur Form grammer with an initial statement of non-terminal symbols.
+Constructor for a Context-Free Grammer with an initial statement of non-terminal symbols.
 
 # Arguments
 - `N::Statement`: an initial set of non-terminal grammar symbols.
 """
-function BNF(S::Statement)
-    return BNF(
+function CFG(S::Statement)
+    return CFG(
         Set(S),
         S,
         Statement(),
@@ -173,10 +107,10 @@ function BNF(S::Statement)
 end
 
 """
-Default constructor for the Backus-Naur Form.
+Default constructor for a Context-Free Grammar.
 """
-function BNF()
-    return BNF(Statement())
+function CFG()
+    return CFG(Statement())
 end
 
 # -----------------------------------------------------------------------------
@@ -184,18 +118,18 @@ end
 # -----------------------------------------------------------------------------
 
 """
-Overload of the show function for [`OAR.BNF`](@ref).
+Overload of the show function for [`OAR.CFG`](@ref).
 
 # Arguments
 - `io::IO`: the current IO stream.
-- `bnf::BNF`: the [`OAR.BNF`](@ref) grammar to print/display.
+- `cfg::CFG`: the [`OAR.CFG`](@ref) grammar to print/display.
 """
-function Base.show(io::IO, bnf::BNF)
-    n_N = length(bnf.N)
-    n_S = length(bnf.S)
-    n_P = length(bnf.P)
-    n_T = length(bnf.T)
-    print(io, "$(typeof(bnf))(N:$(n_N), S:$(n_S), P:$(n_P), T:$(n_T))")
+function Base.show(io::IO, cfg::CFG)
+    n_N = length(cfg.N)
+    n_S = length(cfg.S)
+    n_P = length(cfg.P)
+    n_T = length(cfg.T)
+    print(io, "$(typeof(cfg))(N:$(n_N), S:$(n_S), P:$(n_P), T:$(n_T))")
 end
 
 """
@@ -254,8 +188,8 @@ function DescretizedBNF(S::Statement ; bins::Integer=10)
         end
     end
 
-    # Return a constructed BNF struct
-    return BNF(
+    # Return a constructed CFG struct
+    return CFG(
         Set(S),     # N
         T,          # T
         S,          # S

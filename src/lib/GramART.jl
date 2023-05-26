@@ -129,9 +129,9 @@ struct GramART
     treenodes::Vector{TreeNode}
 
     """
-    The [`OAR.BNF`](@ref)-form grammar used for processing data (statements).
+    The [`OAR.CFG`](@ref) (Context-Free Grammar) used for processing data (statements).
     """
-    grammar::BNF
+    grammar::CFG
 end
 
 # -----------------------------------------------------------------------------
@@ -139,9 +139,9 @@ end
 # -----------------------------------------------------------------------------
 
 """
-Constructor for a [`OAR.GramART`](@ref) module that takes a BNF grammar and automatically sets up the [`ProtoNode`](@ref) tree.
+Constructor for a [`OAR.GramART`](@ref) module that takes a CFG grammar and automatically sets up the [`ProtoNode`](@ref) tree.
 """
-function GramART(grammar::BNF)
+function GramART(grammar::CFG)
     # Instantiate the GramART module
     gramart = GramART(
         ProtoNode(grammar.T),
@@ -222,6 +222,15 @@ end
 # -----------------------------------------------------------------------------
 # FUNCTIONS
 # -----------------------------------------------------------------------------
+
+
+
+# """
+
+# """
+# function statement_to_tree(statement::Statement)
+
+# end
 
 """
 Overload of the show function for [`OAR.ProtoNode`](@ref).
@@ -311,7 +320,7 @@ function update_node!(A::TreeNode, B::ProtoNode)
     return
 end
 
-# IRIS BNF grammar, Meuth dissertation p.48, Table 4.6
+# IRIS CFG grammar, Meuth dissertation p.48, Table 4.6
 # N = {SL, SW, PL, PW}
 # T = {SL1, SL2, SL3, SL4, SL5, SL6, SL7, SL8, SL9, SL10,
 # SW1, SW2, SW3, SW4, SW5, SW6, SW7, SW8, SW9, SW10,

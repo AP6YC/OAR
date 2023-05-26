@@ -27,16 +27,16 @@ end
         "SL", "SW", "PL", "PW",
     ]
     bins = 10
-    # Create a discretized BNF for real-valued data
+    # Create a discretized CFG for real-valued data
     bnf = OAR.DescretizedBNF(OAR.quick_statement(N), bins=bins)
     # Make a random statement from that grammar
     statement = OAR.random_statement(bnf)
 
     # Make test assertions about structure
-    @assert OAR.BNF <: OAR.Grammar
+    @assert OAR.CFG <: OAR.Grammar
 
     # Make test assertions about types
-    @assert bnf isa OAR.BNF
+    @assert bnf isa OAR.CFG
     @assert statement isa OAR.Statement
 end
 
@@ -55,7 +55,7 @@ end
 
     # Verify that the statements are a vectored datasplit
     @assert statements isa OAR.VectoredDataSplit
-    @assert bnf isa OAR.BNF
+    @assert bnf isa OAR.CFG
 end
 
 @testset "GramART" begin
