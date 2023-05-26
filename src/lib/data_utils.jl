@@ -134,10 +134,18 @@ end
 
 """
 Loads the Iris dataset and returns a [`OAR.DataSplit`](@ref).
+
+# Arguments
+- `download_dir::String=""`: optional,
 """
-function iris_tt_real()
+function iris_tt_real(download_dir::String="")
     # Load the Iris dataset from MLDatasets
-    iris = Iris()
+    if isempty(download_dir)
+        local_dir = OAR.data_dir("downloads")
+        iris = Iris(dir=local_dir)
+    else
+        iris = Iris(dir=download_dir)
+    end
     # Manipulate the features and labels into a matrix of features and a vector of labels
     features, labels = Matrix(iris.features)', vec(Matrix{String}(iris.targets))
     # Because the MLDatasets package gives us Iris labels as strings, we will use the `MLDataUtils.convertlabel` method with the `MLLabelUtils.LabelEnc.Indices` type to get a list of integers representing each class:

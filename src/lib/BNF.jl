@@ -320,14 +320,18 @@ Generates a random statement from a grammar.
 $GRAMMAR_ARG
 """
 function random_statement(grammar::Grammar)
-    # rand_N = rand(grammar.N)
+    # Create an empty statement
     statement = Statement()
+    # For each element of what the grammar constitutes a statement
     for el in grammar.S
+        # Get a random element from nonterminal
         rand_symb = random_produce(grammar, el)
+        # If the symbol is terminal, then push it to the new random statement
         if is_terminal(grammar, rand_symb)
-            push!(statement, random_produce(grammar, el))
+            # push!(statement, random_produce(grammar, el))
+            push!(statement, rand_symb)
         end
     end
-
+    # Return the populated random statement of terminal symbols
     return statement
 end

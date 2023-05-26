@@ -40,7 +40,7 @@ end
     @assert statement isa OAR.Statement
 end
 
-@testset "Iris" begin
+@testset "data_utils" begin
     # Declare the IRIS categories and bins
     N = [
         "SL", "SW", "PL", "PW",
@@ -51,8 +51,25 @@ end
     data = OAR.iris_tt_real()
 
     # Get the symbolic list of statements
-    symb_statements = OAR.real_to_symb(data, N)
+    statements, bnf = OAR.real_to_symb(data, N)
 
     # Verify that the statements are a vectored datasplit
-    @assert symb_statements isa OAR.VectoredDataSplit
+    @assert statements isa OAR.VectoredDataSplit
+    @assert bnf isa OAR.BNF
+end
+
+@testset "GramART" begin
+    # All-in-one function
+    fs, bnf = OAR.symbolic_iris()
+
+    # Initialize the GramART module
+    gramart = OAR.GramART(bnf)
+
+    @assert gramart isa OAR.GramART
+
+    # Process the statements
+    n_positions = length(bnf.S)
+    for statement in fs.train_x
+        OAR.process_statement!(gramart, statement)
+    end
 end

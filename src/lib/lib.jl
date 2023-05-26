@@ -8,6 +8,8 @@ Aggregates all common types and functions that are used throughout `AdaptiveReso
 - Sasha Petrenko <sap625@mst.edu>
 """
 
+ENV["DATADEPS_ALWAYS_ACCEPT"] = true
+
 # -----------------------------------------------------------------------------
 # DEPENDENCIES
 # -----------------------------------------------------------------------------

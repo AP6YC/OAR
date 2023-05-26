@@ -14,10 +14,17 @@ This file implements the structs, methods, and functions for GramART's functiona
 """
 
 # -----------------------------------------------------------------------------
-# STRUCTS
+# ABSTRACT TYPES
 # -----------------------------------------------------------------------------
 
+"""
+Definition of the ARTNode supertype.
+"""
 abstract type ARTNode end
+
+# -----------------------------------------------------------------------------
+# ALIASES
+# -----------------------------------------------------------------------------
 
 """
 Definition of Terminal symbols used throughtout GramART.
@@ -37,6 +44,14 @@ The structure of the counter for symbols in a ProtoNode.
 # const SymbolCount = Vector{Int}
 const SymbolCount = Dict{GramARTSymbol, Int}
 
+# -----------------------------------------------------------------------------
+# STRUCTS
+# -----------------------------------------------------------------------------
+
+
+"""
+The mutable components of a [`ProtoNode`](@ref), containing options and statistics of the node.
+"""
 mutable struct ProtoNodeStats
     """
     Convenience counter for the total number of symbols encountered.
@@ -83,17 +98,6 @@ Alias for how ProtoNode children are indexed.
 const ProtoChildren = Dict{GramARTSymbol, ProtoNode}
 
 """
-Overload of the show function for [`OAR.ProtoNode`](@ref).
-
-# Arguments
-- `io::IO`: the current IO stream.
-- `node::ProtoNode`: the [`OAR.ProtoNode`](@ref) to print/display.
-"""
-function Base.show(io::IO, node::ProtoNode)
-    print(io, "$(typeof(node))($(length(node.N)))")
-end
-
-"""
 Tree node for a GramART module.
 """
 mutable struct TreeNode <: ARTNode
@@ -109,6 +113,9 @@ mutable struct TreeNode <: ARTNode
 end
 
 """
+Definition of a GramART module.
+
+Contains the proto nodes, tree nodes, and grammar that is used.
 """
 struct GramART
     """
@@ -126,6 +133,10 @@ struct GramART
     """
     grammar::BNF
 end
+
+# -----------------------------------------------------------------------------
+# METHODS
+# -----------------------------------------------------------------------------
 
 """
 Constructor for a [`OAR.GramART`](@ref) module that takes a BNF grammar and automatically sets up the [`ProtoNode`](@ref) tree.
@@ -154,10 +165,6 @@ function GramART(grammar::BNF)
     return gramart
 end
 
-# -----------------------------------------------------------------------------
-# METHODS
-# -----------------------------------------------------------------------------
-
 """
 Empty constructor for the mutable options and stats component of a ProtoNode.
 """
@@ -174,10 +181,10 @@ Empty constructor for a GramART Protonode.
 function ProtoNode()
     # Construct and return the ProtoNode
     ProtoNode(
-        TerminalDist(),
-        SymbolCount(),
-        ProtoChildren(),
-        ProtoNodeStats(),
+        TerminalDist(),     # dict
+        SymbolCount(),      # N
+        ProtoChildren(),    # children
+        ProtoNodeStats(),   # stats
     )
 end
 
@@ -207,14 +214,25 @@ Empty constructor for a GramART TreeNode.
 """
 function TreeNode(name::String)
     TreeNode(
-        GramARTSymbol(name),
-        Vector{TreeNode}(),
+        GramARTSymbol(name),    # t
+        Vector{TreeNode}(),     # children
     )
 end
 
 # -----------------------------------------------------------------------------
 # FUNCTIONS
 # -----------------------------------------------------------------------------
+
+"""
+Overload of the show function for [`OAR.ProtoNode`](@ref).
+
+# Arguments
+- `io::IO`: the current IO stream.
+- `node::ProtoNode`: the [`OAR.ProtoNode`](@ref) to print/display.
+"""
+function Base.show(io::IO, node::ProtoNode)
+    print(io, "$(typeof(node))($(length(node.N)))")
+end
 
 """
 Updates the distribution of a single [`OAR.ProtoNode`](@ref) from one new symbol instance.
