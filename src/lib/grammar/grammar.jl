@@ -122,7 +122,7 @@ Overload of the show function for [`OAR.CFG`](@ref).
 
 # Arguments
 - `io::IO`: the current IO stream.
-- `cfg::CFG`: the [`OAR.CFG`](@ref) grammar to print/display.
+- `cfg::CFG`: the [`OAR.CFG`](@ref) [`OAR.Grammar`](@ref) to print/display.
 """
 function Base.show(io::IO, cfg::CFG)
     n_N = length(cfg.N)
@@ -133,7 +133,7 @@ function Base.show(io::IO, cfg::CFG)
 end
 
 """
-Returns a new GSymbol by adding a suffix.
+Returns a new [`OAR.GSymbol`](@ref) by adding a suffix.
 
 # Arguments
 - `symb::GSymbol`: the original symbol to append a suffix to.

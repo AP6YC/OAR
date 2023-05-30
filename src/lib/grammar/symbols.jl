@@ -49,7 +49,7 @@ function GSymbol{T}(data::T) where T <: Any
 end
 
 """
-Constructor for a terminal grammar symbol.
+Convenience constructor for a terminal grammar symbol.
 
 $GSYMBOL_DATA_ARG
 """
@@ -61,7 +61,7 @@ function Terminal(data::T) where T <: Any
 end
 
 """
-Consructor for a nonterminal grammar symbol.
+Convenience consructor for a nonterminal grammar symbol.
 
 $GSYMBOL_DATA_ARG
 """
