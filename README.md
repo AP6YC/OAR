@@ -117,6 +117,10 @@ If you wish to just build the docs, instead run `include("make.jl")` (the `serve
 [`Python`][2] experiments are currently in the form of [IPython Jupyter notebooks][5] under the `notebooks/` folder.
 Pip requirements are listed in `requirements.txt`, and Python 3.11 is used.
 
+If using the `assembly_graph` scripts, the additional meshplot dependency is satisfied with a conda-forge installation:
+
+- `conda install -c conda-forge meshplot`
+
 ### Rust
 
 The [`Rust`][9] component of the project is contained with its own `oar/` folder.
