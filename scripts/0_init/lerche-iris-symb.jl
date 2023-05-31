@@ -1,3 +1,9 @@
+"""
+    lerche-iris-symb.jl
+
+# Description
+This script uses the Lerche parsing library for parsing Iris dataset statements into symbolic trees.
+"""
 # -----------------------------------------------------------------------------
 # PREAMBLE
 # -----------------------------------------------------------------------------
@@ -7,6 +13,10 @@ using DrWatson
 @quickactivate :OAR
 
 using Lerche
+
+# -----------------------------------------------------------------------------
+# EXPERIMENT
+# -----------------------------------------------------------------------------
 
 iris_grammar = raw"""
     ?start: statement

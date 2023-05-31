@@ -121,7 +121,7 @@ struct GramART
     """
     The [`OAR.ProtoNode`](@ref)s of the GramART module.
     """
-    protonodes::ProtoNode
+    protonodes::Vector{ProtoNode}
 
     """
     The [`OAR.TreeNode`](@ref)s of the GramART module.
@@ -144,22 +144,23 @@ Constructor for a [`OAR.GramART`](@ref) module that takes a CFG grammar and auto
 function GramART(grammar::CFG)
     # Instantiate the GramART module
     gramart = GramART(
-        ProtoNode(grammar.T),
+        # ProtoNode(grammar.T),
+        Vector{ProtoNode}(),
         Vector{TreeNode}(),
         grammar,
     )
 
-    # Iterate over the production rules
-    for (nonterminal, prod_rule) in grammar.P
-        # Add a node for each non-terminal place
-        local_node = ProtoNode(grammar.T)
-        # Add a node for each terminal
-        for terminal in prod_rule
-            local_node.children[terminal] = ProtoNode(grammar.T)
-        end
-        # Add the node with nodes to the top node
-        gramart.protonodes.children[nonterminal] = local_node
-    end
+    # # Iterate over the production rules
+    # for (nonterminal, prod_rule) in grammar.P
+    #     # Add a node for each non-terminal place
+    #     local_node = ProtoNode(grammar.T)
+    #     # Add a node for each terminal
+    #     for terminal in prod_rule
+    #         local_node.children[terminal] = ProtoNode(grammar.T)
+    #     end
+    #     # Add the node with nodes to the top node
+    #     gramart.protonodes.children[nonterminal] = local_node
+    # end
 
     # Return the initialized GramART module
     return gramart
@@ -223,7 +224,29 @@ end
 # FUNCTIONS
 # -----------------------------------------------------------------------------
 
+"""
+Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.GramART`](@ref) module.
 
+# Arguments
+- `gramart::GramART`: the [`OAR.GramART`](@ref) to append a new node to.
+"""
+function add_node!(gramart::GramART)
+    # Create the top node
+    top_node = ProtoNode(grammar.T)
+    # Iterate over the production rules
+    for (nonterminal, prod_rule) in grammar.P
+        # Add a node for each non-terminal place
+        local_node = ProtoNode(grammar.T)
+        # Add a node for each terminal
+        for terminal in prod_rule
+            local_node.children[terminal] = ProtoNode(grammar.T)
+        end
+        # Add the node with nodes to the top node
+        top_node.children[nonterminal] = local_node
+    end
+    # Append the recursively constructed proto node
+    push!(gramart.protonodes, top_node)
+end
 
 # """
 
@@ -291,11 +314,30 @@ Processes a statement for a [`OAR.GramART`](@ref) module.
 - `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
 - `statement::Statement`: the grammar statement to process.
 """
-function process_statement!(gramart::GramART, statement::Statement)
+function process_statement!(gramart::GramART, statement::Statement, index::Int)
     for ix in eachindex(statement)
-        inc_update_symbols!(gramart.protonodes, gramart.grammar.S[ix], statement[ix])
+        inc_update_symbols!(gramart.protonodes[index], gramart.grammar.S[ix], statement[ix])
     end
 end
+
+"""
+Processes a statement for a [`OAR.GramART`](@ref) module.
+
+# Arguments
+- `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
+- `statement::Statement`: the grammar statement to process.
+"""
+function train!(gramart::GramART, statement::Statement)
+    # If this is the first sample, then fast commit
+    if isempty(gramart.protonodes)
+        add_node!(gramart)
+        process_statement!(gramart, statement, 1)
+    end
+    # for ix in eachindex(statement)
+    #     inc_update_symbols!(gramart.protonodes, gramart.grammar.S[ix], statement[ix])
+    # end
+end
+
 
 """
 """
