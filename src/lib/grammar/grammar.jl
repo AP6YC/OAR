@@ -133,21 +133,6 @@ function Base.show(io::IO, cfg::CFG)
 end
 
 """
-Returns a new [`OAR.GSymbol`](@ref) by adding a suffix.
-
-# Arguments
-- `symb::GSymbol`: the original symbol to append a suffix to.
-- `num::Integer`: the integer to add as a suffix to the symbol.
-- `terminal::Bool=true`: optional (default true), to set the new symbol as terminal.
-"""
-function join_gsymbol(symb::GSymbol, num::Integer ; terminal::Bool=true)
-    return GSymbol{String}(
-        symb.data * string(num),
-        terminal,
-    )
-end
-
-"""
 Wrapper for creating a DescretizedCFG from just a vector of nonterminal symbol names as strings.
 
 This function turns the vector of strings in to a statement and passes it to the actual constructor.
