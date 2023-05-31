@@ -5,9 +5,13 @@
 This file tinkers with using parametric abstract types for the symbol hierarchy
 """
 
+# -----------------------------------------------------------------------------
+# DEFINITIONS
+# -----------------------------------------------------------------------------
+
 module grm
 
-abstract type GSymbol{T} end
+    abstract type GSymbol{T} end
 
     struct Terminal{T} <: GSymbol{T}
         data::T
@@ -20,6 +24,10 @@ abstract type GSymbol{T} end
     const SymbUnion{T} = Union{Terminal{T}, NonTerminal{T}}
 
 end
+
+# -----------------------------------------------------------------------------
+# EXPERIMENT
+# -----------------------------------------------------------------------------
 
 @info grm.GSymbol{String} <: grm.GSymbol
 a = grm.Terminal("asdf")

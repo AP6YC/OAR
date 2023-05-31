@@ -14,7 +14,7 @@ using DrWatson
 @quickactivate :OAR
 
 # -----------------------------------------------------------------------------
-# SYMBOLS
+# SYMBOLS EXPERIMENT
 # -----------------------------------------------------------------------------
 
 # Create some symbols from convenience aliases
