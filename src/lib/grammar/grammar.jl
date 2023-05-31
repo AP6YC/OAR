@@ -39,19 +39,6 @@ Type alias (`ProductionRuleSet = Dict{[OAR.GSymbol](@ref), [OAR.ProductionRule](
 """
 const ProductionRuleSet = Dict{GSymbol, ProductionRule}
 
-"""
-Creates a [`OAR.Statement`](@ref) from a vector of elements of arbitrary type.
-
-# Arguments
-- `data::Vector{T} where T<:Any`: a vector of any type for creating a [`OAR.Statement`](@ref) of symbols of that type.
-- `terminal::Bool=false`: optional, if the symbols of the statement are terminal.
-"""
-function quick_statement(data::Vector{T} ; terminal::Bool=false) where T <: Any
-    new_data = [GSymbol{T}(datum, terminal) for datum in data]
-    # return SymbolSet(new_data)
-    return Statement(new_data)
-end
-
 # -----------------------------------------------------------------------------
 # STRUCTS
 # -----------------------------------------------------------------------------
@@ -116,6 +103,19 @@ end
 # -----------------------------------------------------------------------------
 # FUNCTIONS
 # -----------------------------------------------------------------------------
+
+"""
+Creates a [`OAR.Statement`](@ref) from a vector of elements of arbitrary type.
+
+# Arguments
+- `data::Vector{T} where T<:Any`: a vector of any type for creating a [`OAR.Statement`](@ref) of symbols of that type.
+- `terminal::Bool=false`: optional, if the symbols of the statement are terminal.
+"""
+function quick_statement(data::Vector{T} ; terminal::Bool=false) where T <: Any
+    new_data = [GSymbol{T}(datum, terminal) for datum in data]
+    # return SymbolSet(new_data)
+    return Statement(new_data)
+end
 
 """
 Overload of the show function for [`OAR.CFG`](@ref).
