@@ -18,5 +18,14 @@ using DrWatson
 # -----------------------------------------------------------------------------
 
 # All-in-one function
-fast_statements = OAR.symbolic_iris()
-@info fast_statements
+fs, bnf = OAR.symbolic_iris()
+
+# Initialize the GramART module
+gramart = OAR.GramART(bnf)
+
+@info gramart
+
+# Process the statements
+for statement in fs.train_x
+    OAR.process_statement!(gramart, statement)
+end
