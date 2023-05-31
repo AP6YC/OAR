@@ -3,3 +3,8 @@ jupyterlab
 tqdm
 transformers
 datasets
+numpy
+networkx
+meshplot
+trimesh
+requests
