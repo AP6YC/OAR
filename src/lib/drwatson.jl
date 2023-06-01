@@ -42,3 +42,14 @@ function results_dir(args...)
     mkpath(newdir(args...))
     return newdir(args...)
 end
+
+"""
+Points to the data directory.
+
+$DRWATSON_ARGS_DOC
+"""
+function data_dir(args...)
+    newdir(args...) = work_dir("data", args...)
+    mkpath(newdir(args...))
+    return newdir(args...)
+end

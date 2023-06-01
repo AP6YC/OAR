@@ -27,20 +27,20 @@ end
         "SL", "SW", "PL", "PW",
     ]
     bins = 10
-    # Create a discretized BNF for real-valued data
-    bnf = OAR.DescretizedBNF(OAR.quick_statement(N), bins=bins)
+    # Create a discretized CFG for real-valued data
+    bnf = OAR.DescretizedCFG(OAR.quick_statement(N), bins=bins)
     # Make a random statement from that grammar
     statement = OAR.random_statement(bnf)
 
     # Make test assertions about structure
-    @assert OAR.BNF <: OAR.Grammar
+    @assert OAR.CFG <: OAR.Grammar
 
     # Make test assertions about types
-    @assert bnf isa OAR.BNF
+    @assert bnf isa OAR.CFG
     @assert statement isa OAR.Statement
 end
 
-@testset "Iris" begin
+@testset "data_utils" begin
     # Declare the IRIS categories and bins
     N = [
         "SL", "SW", "PL", "PW",
@@ -51,8 +51,25 @@ end
     data = OAR.iris_tt_real()
 
     # Get the symbolic list of statements
-    symb_statements = OAR.real_to_symb(data, N)
+    statements, bnf = OAR.real_to_symb(data, N)
 
     # Verify that the statements are a vectored datasplit
-    @assert symb_statements isa OAR.VectoredDataSplit
+    @assert statements isa OAR.VectoredDataSplit
+    @assert bnf isa OAR.CFG
+end
+
+@testset "GramART" begin
+    # All-in-one function
+    fs, bnf = OAR.symbolic_iris()
+
+    # Initialize the GramART module
+    gramart = OAR.GramART(bnf)
+
+    @assert gramart isa OAR.GramART
+
+    # Process the statements
+    n_positions = length(bnf.S)
+    for statement in fs.train_x
+        OAR.process_statement!(gramart, statement)
+    end
 end

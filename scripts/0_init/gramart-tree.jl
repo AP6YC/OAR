@@ -2,7 +2,7 @@
     gramart.jl
 
 # Description
-This script shows how to use a GramART to cluster on the Iris dataset.
+This script is used in the final development of GramART.
 """
 
 # -----------------------------------------------------------------------------

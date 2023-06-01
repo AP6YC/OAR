@@ -3,3 +3,7 @@ jupyterlab
 tqdm
 transformers
 datasets
+numpy
+networkx
+trimesh
+requests

@@ -14,13 +14,16 @@ Aggregates all common types and functions that are used throughout `AdaptiveReso
 
 # Common docstrings and their templates
 include("docstrings.jl")
+
 # DrWatson extensions
 include("drwatson.jl")
-# Backus-Naur form
-include("BNF.jl")
+
+# Grammars and the Backus-Naur form
+# include("grammar.jl")
+include("grammar/lib.jl")
+
 # GramART Julia implementation
 include("GramART.jl")
+
 # Data utilities
 include("data_utils.jl")
-# # PlutoUI utilities
-# include("pluto.jl")

@@ -5,7 +5,9 @@
 This file is a playground for experimenting with Julia types, aliasing, and subtyping.
 """
 
-# assets_folder = joinpath("src", "assets")
+# -----------------------------------------------------------------------------
+# TYPE DEFINITIONS
+# -----------------------------------------------------------------------------
 
 abstract type AbstractType{T} end
 
@@ -15,6 +17,10 @@ end
 
 struct ValueType{T} <: AbstractType{T}
 end
+
+# -----------------------------------------------------------------------------
+# TYPES EXPERIMENT
+# -----------------------------------------------------------------------------
 
 ValueType(x) = ValueType{x}()
 
