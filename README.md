@@ -3,6 +3,7 @@
 [![oar-header](docs/src/assets/logo.png)][docs-url]
 
 Ontologies with Adaptive Resonance Theory (ART).
+Please see the [documentation][docs-url].
 
 | **Documentation** | **Docs Build Status**|  **Testing Status** | **Coveralls** | **Codecov** |
 |:-----------------:|:--------------------:|:-------------------:|:-------------:|:-----------:|
