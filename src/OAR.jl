@@ -1,4 +1,11 @@
 """
+    OAR.jl
+
+# Description
+Definition of the `OAR` module, which encapsulates experiment driver code.
+"""
+
+"""
 A module encapsulating the experimental driver code for the OAR project.
 
 # Imports

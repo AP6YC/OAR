@@ -27,7 +27,8 @@ begin
 	using Revise
 	using OAR
 	using PlutoUI
-	include("src/lib/pluto.jl")
+	pluto_utils = "src/lib/pluto.jl"
+	include(pluto_utils)
 	md"Setup complete"
 end
 
@@ -87,12 +88,12 @@ md"### 2: Cats and Dogs"
 begin
 	dog_slider = @bind 🐶 Slider(1:10, default=5, show_value=true)
 	cat_slider = @bind 🐱 Slider(11:20, default=12, show_value=true)
-	
+
 	md"""
 	**How many pets do you have?**
-	
+
 	Dogs 🐶: $(dog_slider)
-	
+
 	Cats 😺: $(cat_slider)
 	"""
 end
