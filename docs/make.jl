@@ -2,7 +2,7 @@
     make.jl
 
 # Description
-This file builds the documentation for the OAR.jl package
+This file builds the documentation for the OAR project
 using Documenter.jl and other tools.
 """
 

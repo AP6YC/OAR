@@ -91,23 +91,19 @@ OAR
 │   └───src                 //      Documentation source files.
 ├── examples                // Source: example usage scripts.
 ├── src                     // Source: majority of source code.
-│   ├───ART                 //      ART-based unsupervised modules.
-│   │   ├───distributed     //      Distributed ART modules.
-│   │   └───single          //      Undistributed ART modules.
-│   └───ARTMAP              //      ARTMAP-based supervised modules.
+│   └───lib                 //      Library for the OAR module.
+│       └───grammar         //      Grammar code implementions.
 ├── test                    // Test: Unit, integration, and environment tests.
-│   ├── adaptiveresonance   //      Tests common to the entire package.
-│   ├── art                 //      Tests for just ART modules.
-│   ├── artmap              //      Tests for just ARTMAP modules.
-│   └───data                //      CI test data.
-├── .appveyor               // Appveyor: Windows-specific coverage.
+├── work                    // Data: datasets, results, plots, etc.
+│   ├───data                //      Source datasets for experiments.
+│   └───results             //      Destination for generated figures, etc.
 ├── .gitattributes          // Git: LFS settings, languages, etc.
 ├── .gitignore              // Git: .gitignore for the whole project.
 ├── CODE_OF_CONDUCT.md      // Doc: the code of conduct for contributors.
 ├── CONTRIBUTING.md         // Doc: contributing guide (points to this page).
 ├── LICENSE                 // Doc: the license to the project.
 ├── Project.toml            // Julia: the Pkg.jl dependencies of the project.
-└── README.md               // Doc: this document.
+└── README.md               // Doc: the top-level readme for the project.
 ```
 
 #### Type Aliases
