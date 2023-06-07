@@ -31,13 +31,13 @@ However, the main driver libraries of the project are bundled into a `OAR` modul
 The project utilizes [`DrWatson`](https://juliadynamics.github.io/DrWatson.jl/dev/) for workflow utilities such as directory operations, results saving/loading, and simulation configurations.
 The file structure of this project differs slightly from the `DrWatson` [default setup](https://juliadynamics.github.io/DrWatson.jl/dev/project/l), so extra utilities are used for pointing to the correct source data directory and destination results directory according to each experiment.
 
-In addition to the `Julia` components, some experiments are written in [`Python`](https://www.python.org/) and [`Rust`](ttps://www.rust-lang.org/)
+In addition to the `Julia` components, some experiments are written in [`Python`](https://www.python.org/) and [`Rust`](https://www.rust-lang.org/).
 
 Each experiment contains a `README` outlining the setup and usage of the experiment such as in the setup of custom `Python` environments and in the running of parallel and distibuted experiments.
 
 ## [Experiments](@id guide-experiments)
 
-To run an experiment, [setup the `OAR` project](@ref guide-installation) on your target system and run the experiment either in an interactive session with `include(...)`:
+To run an `Julia` experiment, [setup the `OAR` project](@ref guide-installation) on your target system and run the experiment either in an interactive session with `include(...)`:
 
 ```julia
 include("scripts/1_iris/gramart.jl")
