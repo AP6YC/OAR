@@ -2,8 +2,27 @@
     file.jl
 
 # Description
-File operation utilities, such as for loading simulation options.
+File operation utilities, such as for loading simulation options and parsing arguments.
 """
+
+# -----------------------------------------------------------------------------
+# FUNCTIONS
+# -----------------------------------------------------------------------------
+
+"""
+Loads the provided options YAML file.
+
+# Arguments
+- `file::AbstractString`: the YAML file to load.
+"""
+function load_opts(file::AbstractString)
+    # Point to the default location of the file
+    full_path = projectdir("opts", file)
+    # Load the YAML options file as a string-keyed dictionary
+    file_opts = YAML.load_file(full_path, dicttype=Dict{String, Any})
+    # Return the dictionary
+    return file_opts
+end
 
 """
 Parses the command line for common options in distributed experiments.

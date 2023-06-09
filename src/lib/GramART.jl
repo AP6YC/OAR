@@ -48,7 +48,6 @@ const SymbolCount = Dict{GramARTSymbol, Int}
 # STRUCTS
 # -----------------------------------------------------------------------------
 
-
 """
 The mutable components of a [`ProtoNode`](@ref), containing options and statistics of the node.
 """
