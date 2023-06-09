@@ -37,6 +37,9 @@ using
 # Precompile concrete type methods
 using PrecompileSignatures: @precompile_signatures
 
+# Imports
+import YAML
+
 # -----------------------------------------------------------------------------
 # VARIABLES
 # -----------------------------------------------------------------------------

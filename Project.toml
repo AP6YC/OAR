@@ -5,6 +5,7 @@ version = "0.1.0"
 
 [deps]
 AdaptiveResonance = "3d72adc0-63d3-4141-bf9b-84450dd0395b"
+ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
 DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
 DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 DrWatson = "634d3b9d-ee7a-5ddf-bec9-22491ea816e1"
@@ -19,6 +20,7 @@ PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 PrecompileSignatures = "91cefc8d-f054-46dc-8f8c-26e11d7c5411"
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+YAML = "ddb6d928-2868-570f-bddf-ab3f9cf99eb6"
 
 [compat]
 AdaptiveResonance = "0.8"

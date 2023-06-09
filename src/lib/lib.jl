@@ -27,3 +27,6 @@ include("GramART.jl")
 
 # Data utilities
 include("data_utils.jl")
+
+# File and options utilities
+include("file.jl")
