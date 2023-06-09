@@ -28,11 +28,12 @@ module OAR
 
 # Full usings (which supports comma-separated import notation)
 using
-    AdaptiveResonance,
+    AdaptiveResonance,      # ART algorithms
     DocStringExtensions,    # Docstring utilities
     DrWatson,
-    NumericalTypeAliases,
-    Reexport
+    NumericalTypeAliases,   # RealMatrix, IntegerVector, etc.
+    Pkg,                    # Version
+    Reexport                # @reexport
 
 # Precompile concrete type methods
 using PrecompileSignatures: @precompile_signatures
@@ -53,8 +54,6 @@ ENV["DATADEPS_ALWAYS_ACCEPT"] = true
 
 # Library code
 include("lib/lib.jl")
-# Version for the package
-include("version.jl")
 
 # -----------------------------------------------------------------------------
 # EXPORTS

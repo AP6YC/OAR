@@ -9,6 +9,7 @@ This script tinkers with the various DrWatson.jl directory locations as well as
 # PREAMBLE
 # -----------------------------------------------------------------------------
 
+using Revise
 using DrWatson
 @quickactivate :OAR
 

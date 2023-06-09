@@ -12,6 +12,9 @@ Aggregates all common types and functions that are used throughout `AdaptiveReso
 # DEPENDENCIES
 # -----------------------------------------------------------------------------
 
+# Version of the package as a constant
+include("version.jl")
+
 # Common docstrings and their templates
 include("docstrings.jl")
 
