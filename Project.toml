@@ -24,6 +24,7 @@ YAML = "ddb6d928-2868-570f-bddf-ab3f9cf99eb6"
 
 [compat]
 AdaptiveResonance = "0.8"
+ArgParse = "1"
 DataStructures = "0.18"
 DocStringExtensions = "0.8, 0.9"
 DrWatson = "2"
