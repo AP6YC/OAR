@@ -34,7 +34,7 @@ iris_parser = Lark(
     parser="lalr",
     lexer="standard",
     transformer=GramARTTree()
-)
+);
 
 text = raw"SL1 SW3 PL4 PW8"
 
