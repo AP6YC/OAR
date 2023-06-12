@@ -37,7 +37,7 @@ Each experiment contains a `README` outlining the setup and usage of the experim
 
 ## [Experiments](@id guide-experiments)
 
-To run an `Julia` experiment, [setup the `OAR` project](@ref guide-installation) on your target system and run the experiment either in an interactive session with `include(...)`:
+To run an `Julia` experiment, [setup the `OAR` project](@ref installation) on your target system and run the experiment either in an interactive session with `include(...)`:
 
 ```julia
 include("scripts/1_iris/gramart.jl")

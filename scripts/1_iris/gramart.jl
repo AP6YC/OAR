@@ -32,7 +32,7 @@ fs, bnf = OAR.symbolic_iris()
 # Initialize the GramART module
 gramart = OAR.GramART(bnf)
 
-# Initalize the first node of the module``
+# Initalize the first node of the module
 OAR.add_node!(gramart)
 
 @info gramart

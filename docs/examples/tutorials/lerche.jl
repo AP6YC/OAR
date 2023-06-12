@@ -17,8 +17,8 @@
 
 # First, we load some dependencies:
 
-## Parsing library
-using Lerche
+using OAR       # The OAR project module
+using Lerche    # Parsing library
 
 # Next, we declare the rules of the symbolic Iris grammar using the syntax and format provided by the `Leche` library and the `lark` Python library that it is inspired by.
 

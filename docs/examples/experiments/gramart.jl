@@ -30,11 +30,14 @@ fs, bnf = OAR.symbolic_iris()
 ## Initialize the GramART module
 gramart = OAR.GramART(bnf)
 
+## Initalize the first node of the module
+OAR.add_node!(gramart)
+
 # ## Training
 
 # Now that we have a GramART module, we should process the training dataset:
 
 ## Process the statements
 for statement in fs.train_x
-    OAR.process_statement!(gramart, statement)
+    OAR.process_statement!(gramart, statement, 1)
 end
