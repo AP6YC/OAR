@@ -1,5 +1,5 @@
-# Parsing library
-using Lerche
+using OAR       # The OAR project module
+using Lerche    # Parsing library
 
 # Statements in this grammar are simply four nonterminal positions with four bins of terminals.
 iris_grammar = raw"""
