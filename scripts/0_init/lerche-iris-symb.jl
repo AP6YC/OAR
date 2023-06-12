@@ -3,6 +3,9 @@
 
 # Description
 This script uses the Lerche parsing library for parsing Iris dataset statements into symbolic trees.
+
+# Authors
+- Sasha Petrenko <sap625@mst.edu>
 """
 # -----------------------------------------------------------------------------
 # PREAMBLE
@@ -18,6 +21,7 @@ using Lerche
 # EXPERIMENT
 # -----------------------------------------------------------------------------
 
+# Declare the rules of the symbolic Iris grammar
 iris_grammar = raw"""
     ?start: statement
 
@@ -37,12 +41,24 @@ iris_grammar = raw"""
     %ignore WS
 """
 
+# The grammar tree subtypes from a Lerche Transformer
 struct GramARTTree <: Transformer end
 
+# The rules turn the terminals into `OAR` grammar symbols and statements into vectors
 @rule iris_symb(t::GramARTTree, p) = OAR.GSymbol(p[1], true)
-@rule statement(t::GramARTTree, p) = Set(p)
+# @rule statement(t::GramARTTree, p) = Set(p)
+@rule statement(t::GramARTTree, p) = Vector(p)
 
-iris_parser = Lark(iris_grammar, parser="lalr", lexer="standard", transformer=GramARTTree());
+# Create the parser from these rules
+iris_parser = Lark(
+    iris_grammar,
+    parser="lalr",
+    lexer="standard",
+    transformer=GramARTTree()
+)
+
+# Set some sample text as the input statement
 text = raw"SL1 SW3 PL4 PW8"
 
+# Parse the statement
 k = Lerche.parse(iris_parser, text)

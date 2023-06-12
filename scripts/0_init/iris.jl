@@ -3,6 +3,9 @@
 
 # Description
 This script is a place to develop the symbolic version of the Iris dataset for validating GramART.
+
+# Authors
+- Sasha Petrenko <sap625@mst.edu>
 """
 
 # -----------------------------------------------------------------------------
