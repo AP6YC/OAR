@@ -15,6 +15,11 @@ using Revise
 using DrWatson
 @quickactivate :OAR
 
+# -----------------------------------------------------------------------------
+# DEPENDENCIES
+# -----------------------------------------------------------------------------
+
+# Parsing library
 using Lerche
 
 # -----------------------------------------------------------------------------
@@ -45,8 +50,7 @@ iris_grammar = raw"""
 struct GramARTTree <: Transformer end
 
 # The rules turn the terminals into `OAR` grammar symbols and statements into vectors
-@rule iris_symb(t::GramARTTree, p) = OAR.GSymbol(p[1], true)
-# @rule statement(t::GramARTTree, p) = Set(p)
+@rule iris_symb(t::GramARTTree, p) = OAR.GSymbol{String}(p[1], true)
 @rule statement(t::GramARTTree, p) = Vector(p)
 
 # Create the parser from these rules
