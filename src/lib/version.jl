@@ -21,5 +21,5 @@ A constant that contains the version of the installed OAR package.
 This value is computed at compile time, so it may be used to programmatically verify the version of `OAR` that is installed in case a `compat` entry in your Project.toml is missing or otherwise incorrect.
 """
 const OAR_VERSION = VersionNumber(
-    Pkg.TOML.parsefile(joinpath(dirname(@__DIR__), "Project.toml"))["version"]
+    Pkg.TOML.parsefile(joinpath(dirname(@__DIR__), ".." , "Project.toml"))["version"]
 )

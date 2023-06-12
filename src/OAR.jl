@@ -25,15 +25,16 @@ module OAR
 # -----------------------------------------------------------------------------
 
 # Usings/imports for the whole package declared once
+using Reexport              # @reexport
 
 # Full usings (which supports comma-separated import notation)
 using
     AdaptiveResonance,      # ART algorithms
+    ArgParse,
     DocStringExtensions,    # Docstring utilities
     DrWatson,
     NumericalTypeAliases,   # RealMatrix, IntegerVector, etc.
-    Pkg,                    # Version
-    Reexport                # @reexport
+    Pkg                    # Version
 
 # Precompile concrete type methods
 using PrecompileSignatures: @precompile_signatures
@@ -59,6 +60,7 @@ include("lib/lib.jl")
 # EXPORTS
 # -----------------------------------------------------------------------------
 
+# Export all public names
 export
     # GramART
     ProtoNode,

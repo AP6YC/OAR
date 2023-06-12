@@ -231,14 +231,14 @@ Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.GramART`](@ref
 """
 function add_node!(gramart::GramART)
     # Create the top node
-    top_node = ProtoNode(grammar.T)
+    top_node = ProtoNode(gramart.grammar.T)
     # Iterate over the production rules
-    for (nonterminal, prod_rule) in grammar.P
+    for (nonterminal, prod_rule) in gramart.grammar.P
         # Add a node for each non-terminal place
-        local_node = ProtoNode(grammar.T)
+        local_node = ProtoNode(gramart.grammar.T)
         # Add a node for each terminal
         for terminal in prod_rule
-            local_node.children[terminal] = ProtoNode(grammar.T)
+            local_node.children[terminal] = ProtoNode(gramart.grammar.T)
         end
         # Add the node with nodes to the top node
         top_node.children[nonterminal] = local_node

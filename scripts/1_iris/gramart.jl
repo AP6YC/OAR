@@ -14,6 +14,15 @@ using DrWatson
 @quickactivate :OAR
 
 # -----------------------------------------------------------------------------
+# PARSE ARGS
+# -----------------------------------------------------------------------------
+
+# Parse the arguments provided to this script
+pargs = OAR.exp_parse(
+    "1_iris/gramart.jl: GramART for clustering the real-valued Iris dataset."
+)
+
+# -----------------------------------------------------------------------------
 # IRIS DATASET
 # -----------------------------------------------------------------------------
 
@@ -23,9 +32,12 @@ fs, bnf = OAR.symbolic_iris()
 # Initialize the GramART module
 gramart = OAR.GramART(bnf)
 
+# Initalize the first node of the module``
+OAR.add_node!(gramart)
+
 @info gramart
 
 # Process the statements
 for statement in fs.train_x
-    OAR.process_statement!(gramart, statement)
+    OAR.process_statement!(gramart, statement, 1)
 end

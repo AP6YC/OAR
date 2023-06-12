@@ -3,6 +3,9 @@
 
 # Description
 File operation utilities, such as for loading simulation options and parsing arguments.
+
+# Authors
+- Sasha Petrenko <sap625@mst.edu>
 """
 
 # -----------------------------------------------------------------------------
@@ -24,13 +27,8 @@ function load_opts(file::AbstractString)
     return file_opts
 end
 
-const ARG_ARG_DESCRIPTION = """
-# Arguments
-- `description::AbstractString`: optional positional, the script description for the parser
 """
-
-"""
-Common function for how `ArgParseSettings` are generated in the project.
+Common function for how `ArgParse.ArgParseSettings` are generated in the project.
 
 $ARG_ARG_DESCRIPTION
 """

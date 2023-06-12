@@ -9,15 +9,6 @@ This file extends DrWatson workflow functionality such as by adding additional c
 """
 
 # -----------------------------------------------------------------------------
-# COMMON DOCSTRINGS
-# -----------------------------------------------------------------------------
-
-const DRWATSON_ARGS_DOC = """
-# Arguments
-- `args...`: the string directories to append to the directory.
-"""
-
-# -----------------------------------------------------------------------------
 # CUSTOM DRWATSON DIRECTORY DEFINITIONS
 # -----------------------------------------------------------------------------
 

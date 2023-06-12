@@ -2,7 +2,7 @@
     lib.jl
 
 # Description
-Aggregates all common types and functions that are used throughout `AdaptiveResonance.jl`.
+Aggregates all common types and functions that are used throughout the `OAR` project.
 
 # Authors
 - Sasha Petrenko <sap625@mst.edu>
