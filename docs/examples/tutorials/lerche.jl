@@ -59,7 +59,7 @@ iris_parser = Lark(
     parser="lalr",
     lexer="standard",
     transformer=GramARTTree()
-)
+);
 
 # We can then set some sample text as the input statement:
 

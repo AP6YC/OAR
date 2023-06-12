@@ -39,5 +39,6 @@ OAR.add_node!(gramart)
 
 # Process the statements
 for statement in fs.train_x
-    OAR.process_statement!(gramart, statement, 1)
+    # OAR.process_statement!(gramart, statement, 1)
+    OAR.train!(gramart, statement)
 end

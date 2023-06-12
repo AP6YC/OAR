@@ -34,7 +34,8 @@ using
     DocStringExtensions,    # Docstring utilities
     DrWatson,
     NumericalTypeAliases,   # RealMatrix, IntegerVector, etc.
-    Pkg                    # Version
+    Parameters,             # @with_kw
+    Pkg                     # Version
 
 # Precompile concrete type methods
 using PrecompileSignatures: @precompile_signatures

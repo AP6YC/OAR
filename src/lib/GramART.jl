@@ -112,6 +112,16 @@ mutable struct TreeNode <: ARTNode
 end
 
 """
+GramART options struct.
+"""
+@with_kw mutable struct opts_GramART @deftype Float
+    """
+    Vigilance parameter: ρ ∈ [0, 1]
+    """
+    rho = 0.7; @assert rho >= 0.0 && rho <= 1.0
+end
+
+"""
 Definition of a GramART module.
 
 Contains the proto nodes, tree nodes, and grammar that is used.
@@ -131,6 +141,11 @@ struct GramART
     The [`OAR.CFG`](@ref) (Context-Free Grammar) used for processing data (statements).
     """
     grammar::CFG
+
+    """
+    The [`OAR.opts_GramART`](@ref) hyperparameters of the GramART module.
+    """
+    opts::opts_GramART
 end
 
 # -----------------------------------------------------------------------------
@@ -143,10 +158,10 @@ Constructor for a [`OAR.GramART`](@ref) module that takes a CFG grammar and auto
 function GramART(grammar::CFG)
     # Instantiate the GramART module
     gramart = GramART(
-        # ProtoNode(grammar.T),
         Vector{ProtoNode}(),
         Vector{TreeNode}(),
         grammar,
+        opts_GramART(),
     )
 
     # # Iterate over the production rules
@@ -332,6 +347,7 @@ function train!(gramart::GramART, statement::Statement)
         add_node!(gramart)
         process_statement!(gramart, statement, 1)
     end
+
     # for ix in eachindex(statement)
     #     inc_update_symbols!(gramart.protonodes, gramart.grammar.S[ix], statement[ix])
     # end
