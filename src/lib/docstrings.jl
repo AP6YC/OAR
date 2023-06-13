@@ -61,9 +61,16 @@ const DRWATSON_ARGS_DOC = """
 """
 
 """
-Common docs, the arguments to argparse functions taking a description.
+Common docstring, the arguments to argparse functions taking a description.
 """
 const ARG_ARG_DESCRIPTION = """
 # Arguments
 - `description::AbstractString`: optional positional, the script description for the parser
+"""
+
+"""
+Common docstring, a CFG grammar argument.
+"""
+const ARG_CFG = """
+- `grammar::CFG`: the [`OAR.CFG`] context-free grammar to use.
 """

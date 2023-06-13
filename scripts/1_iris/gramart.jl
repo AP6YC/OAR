@@ -36,6 +36,7 @@ gramart = OAR.GramART(bnf)
 # OAR.add_node!(gramart)
 
 @info gramart
+gramart.opts.rho = 0.5
 
 # Process the statements
 for statement in fs.train_x

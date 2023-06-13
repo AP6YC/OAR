@@ -152,32 +152,33 @@ end
 # METHODS
 # -----------------------------------------------------------------------------
 
+function GramART(grammar::CFG ; kwargs...)
+    opts = opts_GramART(;kwargs...)
+
+end
+
 """
 Constructor for a [`OAR.GramART`](@ref) module that takes a CFG grammar and automatically sets up the [`ProtoNode`](@ref) tree.
+
+# Arguments
+$ARG_CFG
+- `opts::opts_GramART`: a custom set of GramART options to use.
 """
-function GramART(grammar::CFG)
-    # Instantiate the GramART module
-    gramart = GramART(
+function GramART(grammar::CFG, opts::opts_GramART)
+    # Instantiate and return the GramART module
+    GramART(
         Vector{ProtoNode}(),
         Vector{TreeNode}(),
         grammar,
+        opts,
+    )
+end
+
+function GramART(grammar::CFG)
+    GramART(
+        grammar,
         opts_GramART(),
     )
-
-    # # Iterate over the production rules
-    # for (nonterminal, prod_rule) in grammar.P
-    #     # Add a node for each non-terminal place
-    #     local_node = ProtoNode(grammar.T)
-    #     # Add a node for each terminal
-    #     for terminal in prod_rule
-    #         local_node.children[terminal] = ProtoNode(grammar.T)
-    #     end
-    #     # Add the node with nodes to the top node
-    #     gramart.protonodes.children[nonterminal] = local_node
-    # end
-
-    # Return the initialized GramART module
-    return gramart
 end
 
 """
@@ -388,7 +389,6 @@ function train!(gramart::GramART, statement::Statement)
     #     inc_update_symbols!(gramart.protonodes, gramart.grammar.S[ix], statement[ix])
     # end
 end
-
 
 """
 """
