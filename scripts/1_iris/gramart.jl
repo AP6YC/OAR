@@ -33,7 +33,7 @@ fs, bnf = OAR.symbolic_iris()
 gramart = OAR.GramART(bnf)
 
 # Initalize the first node of the module
-OAR.add_node!(gramart)
+# OAR.add_node!(gramart)
 
 @info gramart
 
@@ -42,3 +42,7 @@ for statement in fs.train_x
     # OAR.process_statement!(gramart, statement, 1)
     OAR.train!(gramart, statement)
 end
+# s = fs.train_x[1]
+# OAR.train!(gramart, s)
+
+@info gramart.protonodes[1].stats

@@ -334,8 +334,16 @@ function process_statement!(gramart::GramART, statement::Statement, index::Int)
     end
 end
 
+function activation(node::ProtoNode, statement::Statement)
+    local_sum = 0.0
+    for symb in statement
+        local_sum += node.dist[symb]
+    end
+    return local_sum
+end
+
 """
-Processes a statement for a [`OAR.GramART`](@ref) module.
+Trains [`OAR.GramART`](@ref) module on a statement from the GramART's grammar.
 
 # Arguments
 - `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
@@ -346,8 +354,36 @@ function train!(gramart::GramART, statement::Statement)
     if isempty(gramart.protonodes)
         add_node!(gramart)
         process_statement!(gramart, statement, 1)
+        return
     end
 
+    # Activation
+    n_nodes = length(gramart.protonodes)
+    activations = zeros(n_nodes)
+    for ix = 1:n_nodes
+        activations[ix] = activation(gramart.protonodes[ix], statement)
+    end
+
+    # Sort by highest activation
+    index = sortperm(activations, rev=true)
+    mismatch_flag = true
+    for jx = 1:n_nodes
+        # Get the best-matching unit
+        bmu = index[jx]
+        if activations[bmu] >= gramart.opts.rho
+            process_statement!(gramart, statement, bmu)
+            mismatch_flag = false
+        end
+    end
+
+    # If we triggered a mismatch
+    if mismatch_flag
+        bmu = n_nodes + 1
+        add_node!(gramart)
+        process_statement!(gramart, statement, bmu)
+    end
+
+    # @info activations
     # for ix in eachindex(statement)
     #     inc_update_symbols!(gramart.protonodes, gramart.grammar.S[ix], statement[ix])
     # end

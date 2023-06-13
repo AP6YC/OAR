@@ -67,7 +67,7 @@ gramart = OAR.GramART(bnf)
 begin
 	# Process the statements
 	for statement in fs.train_x
-	    OAR.process_statement!(gramart, statement)
+	    OAR.train!(gramart, statement)
 	end
 	@info gramart
 end
