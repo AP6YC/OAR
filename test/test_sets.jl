@@ -6,13 +6,26 @@ The main collection of tests for the OAR.jl package.
 This file loads common utilities and aggregates all other unit tests files.
 """
 
+# -----------------------------------------------------------------------------
+# PREAMBLE
+# -----------------------------------------------------------------------------
+
 # Preamble for all project scripts
-using DrWatson
-@quickactivate :OAR
+# using DrWatson
+# @quickactivate :OAR
+using OAR
+
+# -----------------------------------------------------------------------------
+# DEPENDENCIES
+# -----------------------------------------------------------------------------
 
 using
     Logging,
     Test
+
+# -----------------------------------------------------------------------------
+# DrWatson tests
+# -----------------------------------------------------------------------------
 
 @testset "DrWatson Modifications" begin
     # Temp dir for
@@ -21,7 +34,16 @@ using
     @info OAR.results_dir(test_dir)
 end
 
-@testset "EBNF" begin
+# -----------------------------------------------------------------------------
+# Grammar tests
+# -----------------------------------------------------------------------------
+
+
+# -----------------------------------------------------------------------------
+# Iris grammar tests
+# -----------------------------------------------------------------------------
+
+@testset "IRIS" begin
     # Declare the IRIS categories and bins
     N = [
         "SL", "SW", "PL", "PW",
@@ -39,6 +61,31 @@ end
     @assert bnf isa OAR.CFG
     @assert statement isa OAR.Statement
 end
+
+# -----------------------------------------------------------------------------
+# GramART tests
+# -----------------------------------------------------------------------------
+
+@testset "GramART" begin
+    # Get the symbolic IRIS dataset
+    fs, bnf = OAR.symbolic_iris()
+
+    # Test the constructors
+
+    # Just the grammar
+    art = OAR.GramART(bnf)
+
+    # With preconstructed options
+    opts = OAR.opts_GramART()
+    art = OAR.GramART(bnf, opts)
+
+    # With keyword arguments
+    art = OAR.GramART(bnf, rho=0.8)
+end
+
+# -----------------------------------------------------------------------------
+# Data utility tests
+# -----------------------------------------------------------------------------
 
 @testset "data_utils" begin
     # Declare the IRIS categories and bins

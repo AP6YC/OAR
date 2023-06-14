@@ -152,13 +152,8 @@ end
 # METHODS
 # -----------------------------------------------------------------------------
 
-function GramART(grammar::CFG ; kwargs...)
-    opts = opts_GramART(;kwargs...)
-
-end
-
 """
-Constructor for a [`OAR.GramART`](@ref) module that takes a CFG grammar and automatically sets up the [`ProtoNode`](@ref) tree.
+Constructor for an [`OAR.GramART`](@ref) module that takes a CFG grammar and automatically sets up the [`ProtoNode`](@ref) tree.
 
 # Arguments
 $ARG_CFG
@@ -167,17 +162,28 @@ $ARG_CFG
 function GramART(grammar::CFG, opts::opts_GramART)
     # Instantiate and return the GramART module
     GramART(
-        Vector{ProtoNode}(),
-        Vector{TreeNode}(),
-        grammar,
-        opts,
+        Vector{ProtoNode}(),    # protonodes
+        Vector{TreeNode}(),     # treenodes
+        grammar,                # grammar
+        opts,                   # opts
     )
 end
 
-function GramART(grammar::CFG)
+"""
+Constructor for an [`OAR.GramART`](@ref) module that takes a CFG grammar and an optional list of keyword arguments for the options.
+
+# Arguments
+$ARG_CFG
+- `kwargs...`: a list of keyword arguments for the [`OAR.opts_GramART`] options struct.
+"""
+function GramART(grammar::CFG; kwargs...)
+    # Construct the GramART options from the keyword arguments
+    opts = opts_GramART(;kwargs...)
+
+    # Construct and return the GramART module
     GramART(
         grammar,
-        opts_GramART(),
+        opts,
     )
 end
 
@@ -185,6 +191,7 @@ end
 Empty constructor for the mutable options and stats component of a ProtoNode.
 """
 function ProtoNodeStats()
+    # Construct and return the protonode statistics struct
     ProtoNodeStats(
         0,
         false,
@@ -213,11 +220,13 @@ Constructor for a zero-initialized Gramart ProtoNode.
 function ProtoNode(symbols::SymbolSet)
     # Initialize an empty ProtoNode
     pn = ProtoNode()
+
     # Init counts and distributions for all terminal symbols
     for terminal in symbols
         pn.N[terminal] = 0
         pn.dist[terminal] = 0.0
     end
+
     # Return the zero-initialized protonode
     return pn
 end
@@ -229,6 +238,7 @@ Empty constructor for a GramART TreeNode.
 - `name::String`: the string name of the symbol to instantiate the TreeNode with.
 """
 function TreeNode(name::String)
+    # Construct and return the tree node
     TreeNode(
         GramARTSymbol(name),    # t
         Vector{TreeNode}(),     # children
@@ -335,6 +345,13 @@ function process_statement!(gramart::GramART, statement::Statement, index::Int)
     end
 end
 
+"""
+Computes the ART activation of a statement on an [`OAR.ProtoNode`](@ref).
+
+# Arguments
+- `node::ProtoNode`: the [`OAR.ProtoNode`](@ref) node to compute the activation for.
+- `statement::Statement`: the [`OAR.Statement`](@ref) used for computing the activation.
+"""
 function activation(node::ProtoNode, statement::Statement)
     local_sum = 0.0
     for symb in statement
@@ -358,7 +375,7 @@ function train!(gramart::GramART, statement::Statement)
         return
     end
 
-    # Activation
+    # Compute the activations
     n_nodes = length(gramart.protonodes)
     activations = zeros(n_nodes)
     for ix = 1:n_nodes
@@ -374,62 +391,29 @@ function train!(gramart::GramART, statement::Statement)
         if activations[bmu] >= gramart.opts.rho
             process_statement!(gramart, statement, bmu)
             mismatch_flag = false
+            break
         end
     end
 
-    # If we triggered a mismatch
+    # If we triggered a mismatch, add a node
     if mismatch_flag
         bmu = n_nodes + 1
         add_node!(gramart)
         process_statement!(gramart, statement, bmu)
     end
-
-    # @info activations
-    # for ix in eachindex(statement)
-    #     inc_update_symbols!(gramart.protonodes, gramart.grammar.S[ix], statement[ix])
-    # end
 end
 
 """
 """
-function trace!(A::TreeNode, B::ProtoNode, sum::RealFP, size::Integer)
-# function trace!(A::TreeNode, B::ProtoNode)
-    sum += B.dist[A.t]
-    @warn "UNIMPLEMENTED"
-    return
-end
+function classify(gramart::GramART, statement::Statement ; get_bmu::Bool=false)
+    # Compute the activations
+    n_nodes = length(gramart.protonodes)
+    activations = zeros(n_nodes)
+    for ix = 1:n_nodes
+        activations[ix] = activation(gramart.protonodes[ix], statement)
+    end
 
-"""
-"""
-function new_weight(dist::TerminalDist, N::SymbolCount)
-    @warn "UNIMPLEMENTED"
-    return
-end
+    # Sort by highest activation
+    index = sortperm(activations, rev=true)
 
-"""
-"""
-function update_node!(A::TreeNode, B::ProtoNode)
-    @warn "UNIMPLEMENTED"
-    return
 end
-
-# IRIS CFG grammar, Meuth dissertation p.48, Table 4.6
-# N = {SL, SW, PL, PW}
-# T = {SL1, SL2, SL3, SL4, SL5, SL6, SL7, SL8, SL9, SL10,
-# SW1, SW2, SW3, SW4, SW5, SW6, SW7, SW8, SW9, SW10,
-# PL1, PL2, PL3, PL4, PL5, PL6, PL7, PL8, PL9, PL10,
-# PW1, PW2, PW3, PW4, PW5, PW6, PW7, PW8, PW9, PW10,}
-# S = <SL> <SW> <PL> <PW>
-# P can be represented as:
-# 1. <SL> ::=
-# {SL1 | SL2 | SL3 | SL4 | SL5 |
-# SL6 | SL7 | SL8 | SL9 | SL10}
-# 2. <SW> ::=
-# {SW1 | SW2 | SW3 | SW4 | SW5 |
-# SW6 | SW7 | SW8 | SW9 | SW10}
-# 3. <PL> ::=
-# {PL1 | PL2 | PL3 | PL4 | PL5 |
-# PL6 | PL7 | PL8 | PL9 | PL10}
-# 4. <PW> ::=
-# {PW1 | PW2 | PW3 | PW4 | PW5 |
-# PW6 | PW7 | PW8 | PW9 | PW10}
