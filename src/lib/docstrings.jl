@@ -5,7 +5,7 @@
 A collection of common docstrings and docstring templates for the package.
 
 # Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 
 # -----------------------------------------------------------------------------

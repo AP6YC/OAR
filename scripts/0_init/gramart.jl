@@ -5,7 +5,7 @@
 This script is used in the early development of GramART.
 
 # Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 
 # -----------------------------------------------------------------------------

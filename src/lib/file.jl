@@ -5,7 +5,7 @@
 File operation utilities, such as for loading simulation options and parsing arguments.
 
 # Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 
 # -----------------------------------------------------------------------------

@@ -7,7 +7,7 @@ This is a set of extensions that are meant to be used in Pluto notebooks and wit
 **NOTE**: this script is designed to be imported as part of the preamble to Pluto notebooks, so it is not added to the `OAR` project dependencies to reduce recompilation overhead for all other scripts that do not use Pluto.
 
 # Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 
 # -----------------------------------------------------------------------------

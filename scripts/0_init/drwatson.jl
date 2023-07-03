@@ -5,7 +5,7 @@
 This script tinkers with the various DrWatson.jl directory locations as well as
 
 # Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 
 # -----------------------------------------------------------------------------

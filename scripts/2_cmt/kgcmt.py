@@ -4,7 +4,7 @@
     kgcmt.py
 
 # Description
-This file is a modification of the `knowledge_graph_cmt_orig.py` experiment originally authors by Dr. Daniel Hier <dbhier@dbhier.com> and modified by Sasha Petrenko <sap625@mst.edu>
+This file is a modification of the `knowledge_graph_cmt_orig.py` experiment originally authors by Dr. Daniel Hier <dbhier@dbhier.com> and modified by Sasha Petrenko <petrenkos@mst.edu>
 
 # Authors
 - Dr. Daniel Hier <dbhier@dbhier.com>

@@ -7,7 +7,7 @@ This file implements the structs, methods, and functions for GramART's functiona
 # Attribution
 
 ## Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 
 ## Citations
 - Meuth, Ryan J., "Adaptive multi-vehicle mission planning for search area coverage" (2007). Masters Theses. 44. https://scholarsmine.mst.edu/masters_theses/44

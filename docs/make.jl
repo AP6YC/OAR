@@ -5,7 +5,7 @@
 This file builds the documentation for the `OAR` project using Documenter.jl and other tools.
 
 # Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 
 # -----------------------------------------------------------------------------

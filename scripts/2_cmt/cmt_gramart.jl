@@ -5,7 +5,7 @@
 This script shows how to use a GramART to cluster on the Iris dataset.
 
 # Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 
 # -----------------------------------------------------------------------------
@@ -41,7 +41,7 @@ pargs = OAR.exp_parse(
 This script uses the Lerche parsing library for parsing Iris dataset statements into symbolic trees.
 
 # Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 # -----------------------------------------------------------------------------
 # PREAMBLE

@@ -164,7 +164,7 @@ This section contains several categories of links to useful resources when worki
 
 ### Authors
 
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 
 ### Images
 

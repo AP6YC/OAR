@@ -5,7 +5,7 @@
 This script uses the Lerche parsing library for parsing Iris dataset statements into symbolic trees.
 
 # Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 # -----------------------------------------------------------------------------
 # PREAMBLE

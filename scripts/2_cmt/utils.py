@@ -5,7 +5,7 @@
 A collection of common Python utilities for the 2_cmt experiment.
 
 # Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 
 from pathlib import Path

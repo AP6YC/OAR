@@ -5,7 +5,7 @@
 This file extends DrWatson workflow functionality such as by adding additional custom directory functions.
 
 # Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 
 # -----------------------------------------------------------------------------

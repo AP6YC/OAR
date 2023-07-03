@@ -3,7 +3,7 @@
 #
 # File: init.sh
 #
-# Author: Sasha Petrenko <sap625@mst.edu>
+# Author: Sasha Petrenko <petrenkos@mst.edu>
 # Date: 5/3/2023
 #
 # Description:

@@ -5,7 +5,7 @@
 Aggregates all common types and functions that are used throughout the `OAR` project.
 
 # Authors
-- Sasha Petrenko <sap625@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 
 # -----------------------------------------------------------------------------
