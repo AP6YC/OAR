@@ -1,0 +1,3788 @@
+Node: disease
+category: disease
+class_type: class
+
+Node: gene
+category: gene
+class_type: class
+
+Node: inheritance
+category: inheritance
+class_type: class
+
+Node: protein
+category: protein
+class_type: class
+
+Node: gene_location
+category: gene_location
+class_type: class
+
+Node: phenotype
+category: phenotype
+class_type: class
+
+Node: protein_class
+category: protein_class
+class_type: class
+
+Node: biologic_process
+category: biologic_process
+class_type: class
+
+Node: molecular_function
+category: molecular_function
+class_type: class
+
+Node: disease_involvement
+category: disease_involvement
+class_type: class
+
+Node: protein_location
+category: protein_location
+class_type: class
+
+Node: protein_domain
+category: protein_domain
+class_type: class
+
+Node: protein_motif
+category: protein_motif
+class_type: class
+
+Node: chromosome
+category: chromosome
+class_type: class
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2A2A
+category: disease
+MIM: 609260
+class_type: individual
+
+Node: 1p36.22
+category: gene_location
+class_type: individual
+
+Node: MFN2
+category: gene
+MIM: 608507
+gene_location: 1p36.22
+class_type: individual
+
+Node: AD
+category: inheritance
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2A2B
+category: disease
+MIM: 617087
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2CC
+category: disease
+MIM: 616924
+class_type: individual
+
+Node: 22q12.2
+category: gene_location
+class_type: individual
+
+Node: NEFH
+category: gene
+MIM: 162230
+gene_location: 22q12.2
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2DD
+category: disease
+MIM: 618036
+class_type: individual
+
+Node: 1p13.1
+category: gene_location
+class_type: individual
+
+Node: ATP1A1
+category: gene
+MIM: 182310
+gene_location: 1p13.1
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2EE
+category: disease
+MIM: 618400
+class_type: individual
+
+Node: 2p23.3
+category: gene_location
+class_type: individual
+
+Node: MPV17
+category: gene
+MIM: 137960
+gene_location: 2p23.3
+class_type: individual
+
+Node: AR
+category: inheritance
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2F
+category: disease
+MIM: 606595
+class_type: individual
+
+Node: 7q11.23
+category: gene_location
+class_type: individual
+
+Node: HSPB1
+category: gene
+MIM: 602195
+gene_location: 7q11.23
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2FF
+category: disease
+MIM: 619519
+class_type: individual
+
+Node: 1q23.2
+category: gene_location
+class_type: individual
+
+Node: CADM3
+category: gene
+MIM: 609743
+gene_location: 1q23.2
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2GG
+category: disease
+MIM: 606483
+class_type: individual
+
+Node: 10q24.32
+category: gene_location
+class_type: individual
+
+Node: GBF1
+category: gene
+MIM: 603698
+gene_location: 10q24.32
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2H
+category: disease
+MIM: 607731
+class_type: individual
+
+Node: 8q13_q23
+category: gene_location
+class_type: individual
+
+Node: CMT2H
+category: gene
+MIM: 607731
+gene_location: 8q13_q23
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2HH
+category: disease
+MIM: 619574
+class_type: individual
+
+Node: 20p12.2
+category: gene_location
+class_type: individual
+
+Node: JAG1
+category: gene
+MIM: 601920
+gene_location: 20p12.2
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2II
+category: disease
+MIM: 620068
+class_type: individual
+
+Node: 15q14
+category: gene_location
+class_type: individual
+
+Node: SLC12A6
+category: gene
+MIM: 604878
+gene_location: 15q14
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2K
+category: disease
+MIM: 607831
+class_type: individual
+
+Node: 8q21.11
+category: gene_location
+class_type: individual
+
+Node: JPH1
+category: gene
+MIM: 605266
+gene_location: 8q21.11
+class_type: individual
+
+Node: GDAP1
+category: gene
+MIM: 606598
+gene_location: 8q21.11
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2L
+category: disease
+MIM: 608673
+class_type: individual
+
+Node: 12q24.23
+category: gene_location
+class_type: individual
+
+Node: HSPB8
+category: gene
+MIM: 608014
+gene_location: 12q24.23
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2M
+category: disease
+MIM: 606482
+class_type: individual
+
+Node: 19p13.2
+category: gene_location
+class_type: individual
+
+Node: DNM2
+category: gene
+MIM: 602378
+gene_location: 19p13.2
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2N
+category: disease
+MIM: 613287
+class_type: individual
+
+Node: 16q22.1
+category: gene_location
+class_type: individual
+
+Node: AARS1
+category: gene
+MIM: 601065
+gene_location: 16q22.1
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2O
+category: disease
+MIM: 614228
+class_type: individual
+
+Node: 14q32.31
+category: gene_location
+class_type: individual
+
+Node: DYNC1H1
+category: gene
+MIM: 600112
+gene_location: 14q32.31
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2P
+category: disease
+MIM: 614436
+class_type: individual
+
+Node: 9q33.3_q34.11
+category: gene_location
+class_type: individual
+
+Node: LRSAM1
+category: gene
+MIM: 610933
+gene_location: 9q33.3_q34.11
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2Q
+category: disease
+MIM: 615025
+class_type: individual
+
+Node: 10p14
+category: gene_location
+class_type: individual
+
+Node: DHTKD1
+category: gene
+MIM: 614984
+gene_location: 10p14
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2S
+category: disease
+MIM: 616155
+class_type: individual
+
+Node: 11q13.3
+category: gene_location
+class_type: individual
+
+Node: IGHMBP2
+category: gene
+MIM: 600502
+gene_location: 11q13.3
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2T
+category: disease
+MIM: 617017
+class_type: individual
+
+Node: 3q25.2
+category: gene_location
+class_type: individual
+
+Node: MME
+category: gene
+MIM: 120520
+gene_location: 3q25.2
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2U
+category: disease
+MIM: 616280
+class_type: individual
+
+Node: 12q13.3
+category: gene_location
+class_type: individual
+
+Node: MARS1
+category: gene
+MIM: 156560
+gene_location: 12q13.3
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2V
+category: disease
+MIM: 616491
+class_type: individual
+
+Node: 17q21.2
+category: gene_location
+class_type: individual
+
+Node: NAGLU
+category: gene
+MIM: 609701
+gene_location: 17q21.2
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2W
+category: disease
+MIM: 616625
+class_type: individual
+
+Node: 5q31.3
+category: gene_location
+class_type: individual
+
+Node: HARS1
+category: gene
+MIM: 142810
+gene_location: 5q31.3
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2X
+category: disease
+MIM: 616668
+class_type: individual
+
+Node: 15q21.1
+category: gene_location
+class_type: individual
+
+Node: SPG11
+category: gene
+MIM: 610844
+gene_location: 15q21.1
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_type_2Z
+category: disease
+MIM: 616688
+class_type: individual
+
+Node: MORC2
+category: gene
+MIM: 616661
+gene_location: 22q12.2
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_axonal_with_vocal_cord_paresis
+category: disease
+MIM: 607706
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_demyelinating_type_1G
+category: disease
+MIM: 618279
+class_type: individual
+
+Node: 8q21.13
+category: gene_location
+class_type: individual
+
+Node: PMP2
+category: gene
+MIM: 170715
+gene_location: 8q21.13
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_demyelinating_type_1H
+category: disease
+MIM: 619764
+class_type: individual
+
+Node: 14q32.12
+category: gene_location
+class_type: individual
+
+Node: FBLN5
+category: gene
+MIM: 604580
+gene_location: 14q32.12
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_demyelinating_type_1I
+category: disease
+MIM: 619742
+class_type: individual
+
+Node: 12q23.3
+category: gene_location
+class_type: individual
+
+Node: POLR3B
+category: gene
+MIM: 614366
+gene_location: 12q23.3
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_demyelinating_type_1J
+category: disease
+MIM: 620111
+class_type: individual
+
+Node: 6p21.31
+category: gene_location
+class_type: individual
+
+Node: ITPR3
+category: gene
+MIM: 147267
+gene_location: 6p21.31
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_dominant_intermediate_B
+category: disease
+MIM: 606482
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_dominant_intermediate_C
+category: disease
+MIM: 608323
+class_type: individual
+
+Node: 1p35.1
+category: gene_location
+class_type: individual
+
+Node: YARS1
+category: gene
+MIM: 603623
+gene_location: 1p35.1
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_dominant_intermediate_D
+category: disease
+MIM: 607791
+class_type: individual
+
+Node: 1q23.3
+category: gene_location
+class_type: individual
+
+Node: MPZ
+category: gene
+MIM: 159440
+gene_location: 1q23.3
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_dominant_intermediate_E
+category: disease
+MIM: 614455
+class_type: individual
+
+Node: 14q32.33
+category: gene_location
+class_type: individual
+
+Node: INF2
+category: gene
+MIM: 610982
+gene_location: 14q32.33
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_dominant_intermediate_F
+category: disease
+MIM: 615185
+class_type: individual
+
+Node: 3q26.33
+category: gene_location
+class_type: individual
+
+Node: GNB4
+category: gene
+MIM: 610863
+gene_location: 3q26.33
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_dominant_intermediate_G
+category: disease
+MIM: 617882
+class_type: individual
+
+Node: 8p21.2
+category: gene_location
+class_type: individual
+
+Node: NEFL
+category: gene
+MIM: 162280
+gene_location: 8p21.2
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_recessive_intermediate_A
+category: disease
+MIM: 608340
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_recessive_intermediate_B
+category: disease
+MIM: 613641
+class_type: individual
+
+Node: 16q23.1
+category: gene_location
+class_type: individual
+
+Node: KARS1
+category: gene
+MIM: 601421
+gene_location: 16q23.1
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_recessive_intermediate_C
+category: disease
+MIM: 615376
+class_type: individual
+
+Node: 1p36.31
+category: gene_location
+class_type: individual
+
+Node: PLEKHG5
+category: gene
+MIM: 611101
+gene_location: 1p36.31
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_recessive_intermediate_D
+category: disease
+MIM: 616039
+class_type: individual
+
+Node: 12q24.31
+category: gene_location
+class_type: individual
+
+Node: COX6A1
+category: gene
+MIM: 602072
+gene_location: 12q24.31
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_1A
+category: disease
+MIM: 118220
+class_type: individual
+
+Node: 17p12
+category: gene_location
+class_type: individual
+
+Node: PMP22
+category: gene
+MIM: 601097
+gene_location: 17p12
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_1B
+category: disease
+MIM: 118200
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_1C
+category: disease
+MIM: 601098
+class_type: individual
+
+Node: 16p13.13
+category: gene_location
+class_type: individual
+
+Node: LITAF
+category: gene
+MIM: 603795
+gene_location: 16p13.13
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_1D
+category: disease
+MIM: 607678
+class_type: individual
+
+Node: 10q21.3
+category: gene_location
+class_type: individual
+
+Node: EGR2
+category: gene
+MIM: 129010
+gene_location: 10q21.3
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_1E
+category: disease
+MIM: 118300
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_1F
+category: disease
+MIM: 607734
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_2A1
+category: disease
+MIM: 118210
+class_type: individual
+
+Node: KIF1B
+category: gene
+MIM: 605995
+gene_location: 1p36.22
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_2B
+category: disease
+MIM: 600882
+class_type: individual
+
+Node: 3q21.3
+category: gene_location
+class_type: individual
+
+Node: RAB7A
+category: gene
+MIM: 602298
+gene_location: 3q21.3
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_2B1
+category: disease
+MIM: 605588
+class_type: individual
+
+Node: 1q22
+category: gene_location
+class_type: individual
+
+Node: LMNA
+category: gene
+MIM: 150330
+gene_location: 1q22
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_2B2
+category: disease
+MIM: 605589
+class_type: individual
+
+Node: 19q13.33
+category: gene_location
+class_type: individual
+
+Node: PNKP
+category: gene
+MIM: 605610
+gene_location: 19q13.33
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_2D
+category: disease
+MIM: 601472
+class_type: individual
+
+Node: 7p14.3
+category: gene_location
+class_type: individual
+
+Node: GARS1
+category: gene
+MIM: 600287
+gene_location: 7p14.3
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_2E
+category: disease
+MIM: 607684
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_2I
+category: disease
+MIM: 607677
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_2J
+category: disease
+MIM: 607736
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_2R
+category: disease
+MIM: 615490
+class_type: individual
+
+Node: 4q31.3
+category: gene_location
+class_type: individual
+
+Node: TRIM2
+category: gene
+MIM: 614141
+gene_location: 4q31.3
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_2Y
+category: disease
+MIM: 616687
+class_type: individual
+
+Node: 9p13.3
+category: gene_location
+class_type: individual
+
+Node: VCP
+category: gene
+MIM: 601023
+gene_location: 9p13.3
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_4A
+category: disease
+MIM: 214400
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_4B1
+category: disease
+MIM: 601382
+class_type: individual
+
+Node: 11q21
+category: gene_location
+class_type: individual
+
+Node: MTMR2
+category: gene
+MIM: 603557
+gene_location: 11q21
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_4B2
+category: disease
+MIM: 604563
+class_type: individual
+
+Node: 11p15.4
+category: gene_location
+class_type: individual
+
+Node: SBF2
+category: gene
+MIM: 607697
+gene_location: 11p15.4
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_4B3
+category: disease
+MIM: 615284
+class_type: individual
+
+Node: 22q13.33
+category: gene_location
+class_type: individual
+
+Node: SBF1
+category: gene
+MIM: 603560
+gene_location: 22q13.33
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_4C
+category: disease
+MIM: 601596
+class_type: individual
+
+Node: 5q32
+category: gene_location
+class_type: individual
+
+Node: SH3TC2
+category: gene
+MIM: 608206
+gene_location: 5q32
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_4D
+category: disease
+MIM: 601455
+class_type: individual
+
+Node: 8q24.22
+category: gene_location
+class_type: individual
+
+Node: NDRG1
+category: gene
+MIM: 605262
+gene_location: 8q24.22
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_4F
+category: disease
+MIM: 614895
+class_type: individual
+
+Node: 19q13.2
+category: gene_location
+class_type: individual
+
+Node: PRX
+category: gene
+MIM: 605725
+gene_location: 19q13.2
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_4H
+category: disease
+MIM: 609311
+class_type: individual
+
+Node: 12p11.21
+category: gene_location
+class_type: individual
+
+Node: FGD4
+category: gene
+MIM: 611104
+gene_location: 12p11.21
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_4J
+category: disease
+MIM: 611228
+class_type: individual
+
+Node: 6q21
+category: gene_location
+class_type: individual
+
+Node: FIG4
+category: gene
+MIM: 609390
+gene_location: 6q21
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_type_4K
+category: disease
+MIM: 616684
+class_type: individual
+
+Node: 9q34.2
+category: gene_location
+class_type: individual
+
+Node: SURF1
+category: gene
+MIM: 185620
+gene_location: 9q34.2
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_X_linked_dominant_6
+category: disease
+MIM: 300905
+class_type: individual
+
+Node: Xp22.11
+category: gene_location
+class_type: individual
+
+Node: PDK3
+category: gene
+MIM: 300906
+gene_location: Xp22.11
+class_type: individual
+
+Node: XLD
+category: inheritance
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease_X_linked_recessive_5
+category: disease
+MIM: 311070
+class_type: individual
+
+Node: Xq22.3
+category: gene_location
+class_type: individual
+
+Node: PRPS1
+category: gene
+MIM: 311850
+gene_location: Xq22.3
+class_type: individual
+
+Node: XLR
+category: inheritance
+class_type: individual
+
+Node: Charcot_Marie_Tooth_neuropathy_X_linked_dominant_1
+category: disease
+MIM: 302800
+class_type: individual
+
+Node: Xq13.1
+category: gene_location
+class_type: individual
+
+Node: GJB1
+category: gene
+MIM: 304040
+gene_location: Xq13.1
+class_type: individual
+
+Node: Charcot_Marie_Tooth_neuropathy_X_linked_recessive_2
+category: disease
+MIM: 302801
+class_type: individual
+
+Node: Xp22.2
+category: gene_location
+class_type: individual
+
+Node: CMTX2
+category: gene
+MIM: 302801
+gene_location: Xp22.2
+class_type: individual
+
+Node: Charcot_Marie_Tooth_neuropathy_X_linked_recessive_3
+category: disease
+MIM: 302802
+class_type: individual
+
+Node: Xq26
+category: gene_location
+class_type: individual
+
+Node: CMTX3
+category: gene
+MIM: 302802
+gene_location: Xq26
+class_type: individual
+
+Node: Cowchock_syndrome
+category: disease
+MIM: 310490
+class_type: individual
+
+Node: Xq26.1
+category: gene_location
+class_type: individual
+
+Node: AIFM1
+category: gene
+MIM: 300169
+gene_location: Xq26.1
+class_type: individual
+
+Node: Dejerine_Sottas_disease
+category: disease
+MIM: 145900
+class_type: individual
+
+Node: Hereditary_motor_and_sensory_neuropathy_type_IIC
+category: disease
+MIM: 606071
+class_type: individual
+
+Node: 12q24.11
+category: gene_location
+class_type: individual
+
+Node: TRPV4
+category: gene
+MIM: 605427
+gene_location: 12q24.11
+class_type: individual
+
+Node: Hereditary_motor_and_sensory_neuropathy_VIA
+category: disease
+MIM: 601152
+class_type: individual
+
+Node: Hypomyelinating_neuropathy_congenital_1
+category: disease
+MIM: 605253
+class_type: individual
+
+Node: Neuropathy_hereditary_motor_and_sensory_Russe_type
+category: disease
+MIM: 605285
+class_type: individual
+
+Node: 10q22.1
+category: gene_location
+class_type: individual
+
+Node: HK1
+category: gene
+MIM: 142600
+gene_location: 10q22.1
+class_type: individual
+
+Node: Hearing_impairment
+category: phenotype
+hpo_id: HP:0000365
+class_type: individual
+
+Node: Gait_disturbance
+category: phenotype
+hpo_id: HP:0001288
+class_type: individual
+
+Node: Pes_cavus
+category: phenotype
+hpo_id: HP:0001761
+class_type: individual
+
+Node: Distal_amyotrophy
+category: phenotype
+hpo_id: HP:0003693
+class_type: individual
+
+Node: Polyneuropathy
+category: phenotype
+hpo_id: HP:0001271
+class_type: individual
+
+Node: Onion_bulb_formation
+category: phenotype
+hpo_id: HP:0003383
+class_type: individual
+
+Node: Distal_muscle_weakness
+category: phenotype
+hpo_id: HP:0002460
+class_type: individual
+
+Node: Segmental_peripheral_demyelination_remyelination
+category: phenotype
+hpo_id: HP:0003481
+class_type: individual
+
+Node: Motor_delay
+category: phenotype
+hpo_id: HP:0001270
+class_type: individual
+
+Node: Decreased_phosphoribosylpyrophosphate_synthetase_level
+category: phenotype
+hpo_id: HP:0032460
+class_type: individual
+
+Node: Progressive_visual_loss
+category: phenotype
+hpo_id: HP:0000529
+class_type: individual
+
+Node: Childhood_onset
+category: phenotype
+hpo_id: HP:0011463
+class_type: individual
+
+Node: Sensorineural_hearing_impairment
+category: phenotype
+hpo_id: HP:0000407
+class_type: individual
+
+Node: X_linked_recessive_inheritance
+category: phenotype
+hpo_id: HP:0001419
+class_type: individual
+
+Node: Variable_expressivity
+category: phenotype
+hpo_id: HP:0003828
+class_type: individual
+
+Node: Distal_sensory_impairment
+category: phenotype
+hpo_id: HP:0002936
+class_type: individual
+
+Node: Optic_atrophy
+category: phenotype
+hpo_id: HP:0000648
+class_type: individual
+
+Node: Rod_cone_dystrophy
+category: phenotype
+hpo_id: HP:0000510
+class_type: individual
+
+Node: Areflexia_of_lower_limbs
+category: phenotype
+hpo_id: HP:0002522
+class_type: individual
+
+Node: Decreased_motor_nerve_conduction_velocity
+category: phenotype
+hpo_id: HP:0003431
+class_type: individual
+
+Node: Steppage_gait
+category: phenotype
+hpo_id: HP:0003376
+class_type: individual
+
+Node: Gait_ataxia
+category: phenotype
+hpo_id: HP:0002066
+class_type: individual
+
+Node: Limb_muscle_weakness
+category: phenotype
+hpo_id: HP:0003690
+class_type: individual
+
+Node: Enlarged_cisterna_magna
+category: phenotype
+hpo_id: HP:0002280
+class_type: individual
+
+Node: Vocal_cord_paresis
+category: phenotype
+hpo_id: HP:0001604
+class_type: individual
+
+Node: Intrinsic_hand_muscle_atrophy
+category: phenotype
+hpo_id: HP:0008954
+class_type: individual
+
+Node: Basal_lamina_onion_bulb_formation
+category: phenotype
+hpo_id: HP:0003400
+class_type: individual
+
+Node: Difficulty_walking
+category: phenotype
+hpo_id: HP:0002355
+class_type: individual
+
+Node: Skeletal_muscle_atrophy
+category: phenotype
+hpo_id: HP:0003202
+class_type: individual
+
+Node: Broad_based_gait
+category: phenotype
+hpo_id: HP:0002136
+class_type: individual
+
+Node: Decreased_number_of_large_peripheral_myelinated_nerve_fibers
+category: phenotype
+hpo_id: HP:0003387
+class_type: individual
+
+Node: Scoliosis
+category: phenotype
+hpo_id: HP:0002650
+class_type: individual
+
+Node: Areflexia
+category: phenotype
+hpo_id: HP:0001284
+class_type: individual
+
+Node: Decreased_number_of_peripheral_myelinated_nerve_fibers
+category: phenotype
+hpo_id: HP:0003380
+class_type: individual
+
+Node: Sensory_ataxia
+category: phenotype
+hpo_id: HP:0010871
+class_type: individual
+
+Node: Peripheral_demyelination
+category: phenotype
+hpo_id: HP:0011096
+class_type: individual
+
+Node: Autosomal_recessive_inheritance
+category: phenotype
+hpo_id: HP:0000007
+class_type: individual
+
+Node: Loss_of_ambulation
+category: phenotype
+hpo_id: HP:0002505
+class_type: individual
+
+Node: Slowly_progressive
+category: phenotype
+hpo_id: HP:0003677
+class_type: individual
+
+Node: Axonal_degeneration_regeneration
+category: phenotype
+hpo_id: HP:0003378
+class_type: individual
+
+Node: Hyporeflexia
+category: phenotype
+hpo_id: HP:0001265
+class_type: individual
+
+Node: Peripheral_axonal_neuropathy
+category: phenotype
+hpo_id: HP:0003477
+class_type: individual
+
+Node: Facial_palsy
+category: phenotype
+hpo_id: HP:0010628
+class_type: individual
+
+Node: Middle_age_onset
+category: phenotype
+hpo_id: HP:0003596
+class_type: individual
+
+Node: Peripheral_axonal_atrophy
+category: phenotype
+hpo_id: HP:0003384
+class_type: individual
+
+Node: Foot_dorsiflexor_weakness
+category: phenotype
+hpo_id: HP:0009027
+class_type: individual
+
+Node: Peripheral_neuropathy
+category: phenotype
+hpo_id: HP:0009830
+class_type: individual
+
+Node: Autosomal_dominant_inheritance
+category: phenotype
+hpo_id: HP:0000006
+class_type: individual
+
+Node: Hammertoe
+category: phenotype
+hpo_id: HP:0001765
+class_type: individual
+
+Node: Thenar_muscle_atrophy
+category: phenotype
+hpo_id: HP:0003393
+class_type: individual
+
+Node: Young_adult_onset
+category: phenotype
+hpo_id: HP:0011462
+class_type: individual
+
+Node: Upper_limb_muscle_weakness
+category: phenotype
+hpo_id: HP:0003484
+class_type: individual
+
+Node: Hypertonia
+category: phenotype
+hpo_id: HP:0001276
+class_type: individual
+
+Node: Hypotonia
+category: phenotype
+hpo_id: HP:0001252
+class_type: individual
+
+Node: Muscle_spasm
+category: phenotype
+hpo_id: HP:0003394
+class_type: individual
+
+Node: Urinary_incontinence
+category: phenotype
+hpo_id: HP:0000020
+class_type: individual
+
+Node: Ataxia
+category: phenotype
+hpo_id: HP:0001251
+class_type: individual
+
+Node: Fasciculations
+category: phenotype
+hpo_id: HP:0002380
+class_type: individual
+
+Node: Wrist_drop
+category: phenotype
+hpo_id: HP:0031189
+class_type: individual
+
+Node: Split_hand
+category: phenotype
+hpo_id: HP:0001171
+class_type: individual
+
+Node: Proximal_muscle_weakness
+category: phenotype
+hpo_id: HP:0003701
+class_type: individual
+
+Node: High_pitched_voice
+category: phenotype
+hpo_id: HP:0001620
+class_type: individual
+
+Node: Pes_planus
+category: phenotype
+hpo_id: HP:0001763
+class_type: individual
+
+Node: Incoordination
+category: phenotype
+hpo_id: HP:0002311
+class_type: individual
+
+Node: Clumsiness
+category: phenotype
+hpo_id: HP:0002312
+class_type: individual
+
+Node: Juvenile_onset
+category: phenotype
+hpo_id: HP:0003621
+class_type: individual
+
+Node: Myokymia
+category: phenotype
+hpo_id: HP:0002411
+class_type: individual
+
+Node: Impaired_distal_proprioception
+category: phenotype
+hpo_id: HP:0006858
+class_type: individual
+
+Node: Babinski_sign
+category: phenotype
+hpo_id: HP:0003487
+class_type: individual
+
+Node: Impaired_distal_tactile_sensation
+category: phenotype
+hpo_id: HP:0006937
+class_type: individual
+
+Node: Global_developmental_delay
+category: phenotype
+hpo_id: HP:0001263
+class_type: individual
+
+Node: Decreased_amplitude_of_sensory_action_potentials
+category: phenotype
+hpo_id: HP:0007078
+class_type: individual
+
+Node: Abnormal_pyramidal_sign
+category: phenotype
+hpo_id: HP:0007256
+class_type: individual
+
+Node: Absent_Achilles_reflex
+category: phenotype
+hpo_id: HP:0003438
+class_type: individual
+
+Node: Impaired_distal_vibration_sensation
+category: phenotype
+hpo_id: HP:0006886
+class_type: individual
+
+Node: Muscle_fiber_splitting
+category: phenotype
+hpo_id: HP:0003555
+class_type: individual
+
+Node: Elevated_circulating_creatine_kinase_concentration
+category: phenotype
+hpo_id: HP:0003236
+class_type: individual
+
+Node: Progressive
+category: phenotype
+hpo_id: HP:0003676
+class_type: individual
+
+Node: Pyloric_stenosis
+category: phenotype
+hpo_id: HP:0002021
+class_type: individual
+
+Node: Myopathy
+category: phenotype
+hpo_id: HP:0003198
+class_type: individual
+
+Node: Somatic_sensory_dysfunction
+category: phenotype
+hpo_id: HP:0003474
+class_type: individual
+
+Node: Sensory_axonal_neuropathy
+category: phenotype
+hpo_id: HP:0003390
+class_type: individual
+
+Node: Sensorimotor_neuropathy
+category: phenotype
+hpo_id: HP:0007141
+class_type: individual
+
+Node: Lower_limb_muscle_weakness
+category: phenotype
+hpo_id: HP:0007340
+class_type: individual
+
+Node: Rimmed_vacuoles
+category: phenotype
+hpo_id: HP:0003805
+class_type: individual
+
+Node: Waddling_gait
+category: phenotype
+hpo_id: HP:0002515
+class_type: individual
+
+Node: Frequent_falls
+category: phenotype
+hpo_id: HP:0002359
+class_type: individual
+
+Node: Upper_limb_amyotrophy
+category: phenotype
+hpo_id: HP:0009129
+class_type: individual
+
+Node: EMG:_neuropathic_changes
+category: phenotype
+hpo_id: HP:0003445
+class_type: individual
+
+Node: Ragged_red_muscle_fibers
+category: phenotype
+hpo_id: HP:0003200
+class_type: individual
+
+Node: Impaired_vibratory_sensation
+category: phenotype
+hpo_id: HP:0002495
+class_type: individual
+
+Node: Lower_limb_amyotrophy
+category: phenotype
+hpo_id: HP:0007210
+class_type: individual
+
+Node: Increased_variability_in_muscle_fiber_diameter
+category: phenotype
+hpo_id: HP:0003557
+class_type: individual
+
+Node: EMG:_chronic_denervation_signs
+category: phenotype
+hpo_id: HP:0003444
+class_type: individual
+
+Node: Microcephaly
+category: phenotype
+hpo_id: HP:0000252
+class_type: individual
+
+Node: Delayed_speech_and_language_development
+category: phenotype
+hpo_id: HP:0000750
+class_type: individual
+
+Node: Delayed_CNS_myelination
+category: phenotype
+hpo_id: HP:0002188
+class_type: individual
+
+Node: Delayed_ability_to_walk
+category: phenotype
+hpo_id: HP:0031936
+class_type: individual
+
+Node: Cerebellar_atrophy
+category: phenotype
+hpo_id: HP:0001272
+class_type: individual
+
+Node: Seizure
+category: phenotype
+hpo_id: HP:0001250
+class_type: individual
+
+Node: Dysarthria
+category: phenotype
+hpo_id: HP:0001260
+class_type: individual
+
+Node: Spastic_gait
+category: phenotype
+hpo_id: HP:0002064
+class_type: individual
+
+Node: Infantile_onset
+category: phenotype
+hpo_id: HP:0003593
+class_type: individual
+
+Node: Impairment_of_activities_of_daily_living
+category: phenotype
+hpo_id: HP:0031058
+class_type: individual
+
+Node: Chiari_type_I_malformation
+category: phenotype
+hpo_id: HP:0007099
+class_type: individual
+
+Node: Spasticity
+category: phenotype
+hpo_id: HP:0001257
+class_type: individual
+
+Node: Intellectual_disability
+category: disease_involvement
+hpo_id: HP:0001249
+class_type: individual
+
+Node: Demyelinating_peripheral_neuropathy
+category: phenotype
+hpo_id: HP:0007108
+class_type: individual
+
+Node: Hyperreflexia
+category: phenotype
+hpo_id: HP:0001347
+class_type: individual
+
+Node: Abnormality_of_the_hand
+category: phenotype
+hpo_id: HP:0001155
+class_type: individual
+
+Node: Talipes_cavus_equinovarus
+category: phenotype
+hpo_id: HP:0004696
+class_type: individual
+
+Node: Abnormal_auditory_evoked_potentials
+category: phenotype
+hpo_id: HP:0006958
+class_type: individual
+
+Node: Intraaxonal_accumulation_of_curvilinear_autofluorescent_lipopigment_storage_material
+category: phenotype
+hpo_id: HP:0006916
+class_type: individual
+
+Node: Abnormality_of_visual_evoked_potentials
+category: phenotype
+hpo_id: HP:0000649
+class_type: individual
+
+Node: Decreased_nerve_conduction_velocity
+category: phenotype
+hpo_id: HP:0000762
+class_type: individual
+
+Node: Axonal_loss
+category: phenotype
+hpo_id: HP:0003447
+class_type: individual
+
+Node: Hip_dysplasia
+category: phenotype
+hpo_id: HP:0001385
+class_type: individual
+
+Node: Paraparesis
+category: phenotype
+hpo_id: HP:0002385
+class_type: individual
+
+Node: EMG:_axonal_abnormality
+category: phenotype
+hpo_id: HP:0003482
+class_type: individual
+
+Node: Congenital_onset
+category: phenotype
+hpo_id: HP:0003577
+class_type: individual
+
+Node: Stridor
+category: phenotype
+hpo_id: HP:0010307
+class_type: individual
+
+Node: Short_stature
+category: phenotype
+hpo_id: HP:0004322
+class_type: individual
+
+Node: Proximal_upper_limb_amyotrophy
+category: phenotype
+hpo_id: HP:0008948
+class_type: individual
+
+Node: Oculomotor_nerve_palsy
+category: phenotype
+hpo_id: HP:0012246
+class_type: individual
+
+Node: Typified_by_incomplete_penetrance
+category: phenotype
+hpo_id: HP:0003829
+class_type: individual
+
+Node: Respiratory_failure
+category: phenotype
+hpo_id: HP:0002878
+class_type: individual
+
+Node: Distal_upper_limb_amyotrophy
+category: phenotype
+hpo_id: HP:0007149
+class_type: individual
+
+Node: Shoulder_girdle_muscle_atrophy
+category: phenotype
+hpo_id: HP:0003724
+class_type: individual
+
+Node: Intercostal_muscle_weakness
+category: phenotype
+hpo_id: HP:0004878
+class_type: individual
+
+Node: Down_sloping_shoulders
+category: phenotype
+hpo_id: HP:0200021
+class_type: individual
+
+Node: Abducens_palsy
+category: phenotype
+hpo_id: HP:0006897
+class_type: individual
+
+Node: Proximal_muscle_weakness_in_upper_limbs
+category: phenotype
+hpo_id: HP:0008997
+class_type: individual
+
+Node: Obstructive_sleep_apnea
+category: phenotype
+hpo_id: HP:0002870
+class_type: individual
+
+Node: Urinary_urgency
+category: phenotype
+hpo_id: HP:0000012
+class_type: individual
+
+Node: Distal_upper_limb_muscle_weakness
+category: phenotype
+hpo_id: HP:0008959
+class_type: individual
+
+Node: Hand_muscle_atrophy
+category: phenotype
+hpo_id: HP:0009130
+class_type: individual
+
+Node: Distal_lower_limb_muscle_weakness
+category: phenotype
+hpo_id: HP:0009053
+class_type: individual
+
+Node: Decreased_distal_sensory_nerve_action_potential
+category: phenotype
+hpo_id: HP:0007230
+class_type: individual
+
+Node: Diaphragmatic_weakness
+category: phenotype
+hpo_id: HP:0009113
+class_type: individual
+
+Node: Sensory_neuropathy
+category: phenotype
+hpo_id: HP:0000763
+class_type: individual
+
+Node: Distal_lower_limb_amyotrophy
+category: phenotype
+hpo_id: HP:0008944
+class_type: individual
+
+Node: Ulnar_claw
+category: phenotype
+hpo_id: HP:0001178
+class_type: individual
+
+Node: Tonic_pupil
+category: phenotype
+hpo_id: HP:0012074
+class_type: individual
+
+Node: Cold_induced_muscle_cramps
+category: phenotype
+hpo_id: HP:0003449
+class_type: individual
+
+Node: Kyphoscoliosis
+category: phenotype
+hpo_id: HP:0002751
+class_type: individual
+
+Node: Myelin_outfoldings
+category: phenotype
+hpo_id: HP:0004336
+class_type: individual
+
+Node: Insidious_onset
+category: phenotype
+hpo_id: HP:0003587
+class_type: individual
+
+Node: Hypertrophic_nerve_changes
+category: phenotype
+hpo_id: HP:0003382
+class_type: individual
+
+Node: Achilles_tendon_contracture
+category: phenotype
+hpo_id: HP:0001771
+class_type: individual
+
+Node: Hand_muscle_weakness
+category: phenotype
+hpo_id: HP:0030237
+class_type: individual
+
+Node: Dysmetria
+category: phenotype
+hpo_id: HP:0001310
+class_type: individual
+
+Node: Nystagmus
+category: phenotype
+hpo_id: HP:0000639
+class_type: individual
+
+Node: Axonal_degeneration
+category: phenotype
+hpo_id: HP:0040078
+class_type: individual
+
+Node: X_linked_dominant_inheritance
+category: phenotype
+hpo_id: HP:0001423
+class_type: individual
+
+Node: Dysphagia
+category: phenotype
+hpo_id: HP:0002015
+class_type: individual
+
+Node: Hand_tremor
+category: phenotype
+hpo_id: HP:0002378
+class_type: individual
+
+Node: Lower_limb_hyperreflexia
+category: phenotype
+hpo_id: HP:0002395
+class_type: individual
+
+Node: Expressive_aphasia
+category: phenotype
+hpo_id: HP:0002427
+class_type: individual
+
+Node: Tip_toe_gait
+category: phenotype
+hpo_id: HP:0030051
+class_type: individual
+
+Node: Abnormal_cerebral_white_matter_morphology
+category: phenotype
+hpo_id: HP:0002500
+class_type: individual
+
+Node: Tremor
+category: phenotype
+hpo_id: HP:0001337
+class_type: individual
+
+Node: Peripheral_axonal_degeneration
+category: phenotype
+hpo_id: HP:0000764
+class_type: individual
+
+Node: Axonal_regeneration
+category: phenotype
+hpo_id: HP:0003450
+class_type: individual
+
+Node: Impaired_pain_sensation
+category: phenotype
+hpo_id: HP:0007328
+class_type: individual
+
+Node: Absent_patellar_reflexes
+category: phenotype
+hpo_id: HP:0006844
+class_type: individual
+
+Node: Decreased_compound_muscle_action_potential_amplitude
+category: phenotype
+hpo_id: HP:0033383
+class_type: individual
+
+Node: Vestibular_schwannoma
+category: phenotype
+hpo_id: HP:0009588
+class_type: individual
+
+Node: Self_injurious_behavior
+category: phenotype
+hpo_id: HP:0100716
+class_type: individual
+
+Node: Autoamputation_of_foot
+category: phenotype
+hpo_id: HP:0001868
+class_type: individual
+
+Node: Foot_osteomyelitis
+category: phenotype
+hpo_id: HP:0001886
+class_type: individual
+
+Node: Autoamputation
+category: phenotype
+hpo_id: HP:0001218
+class_type: individual
+
+Node: Dystrophic_toenail
+category: phenotype
+hpo_id: HP:0001810
+class_type: individual
+
+Node: Flexion_contracture
+category: phenotype
+hpo_id: HP:0001371
+class_type: individual
+
+Node: Increased_connective_tissue
+category: phenotype
+hpo_id: HP:0009025
+class_type: individual
+
+Node: High_palate
+category: phenotype
+hpo_id: HP:0000218
+class_type: individual
+
+Node: Ptosis
+category: phenotype
+hpo_id: HP:0000508
+class_type: individual
+
+Node: Nemaline_bodies
+category: phenotype
+hpo_id: HP:0003798
+class_type: individual
+
+Node: Paralysis
+category: phenotype
+hpo_id: HP:0003470
+class_type: individual
+
+Node: Claw_hand_deformity
+category: phenotype
+hpo_id: HP:0034337
+class_type: individual
+
+Node: Peripheral_hypomyelination
+category: phenotype
+hpo_id: HP:0007182
+class_type: individual
+
+Node: Dysphonia
+category: phenotype
+hpo_id: HP:0001618
+class_type: individual
+
+Node: Delayed_gross_motor_development
+category: phenotype
+hpo_id: HP:0002194
+class_type: individual
+
+Node: Kyphosis
+category: phenotype
+hpo_id: HP:0002808
+class_type: individual
+
+Node: Respiratory_insufficiency_due_to_muscle_weakness
+category: phenotype
+hpo_id: HP:0002747
+class_type: individual
+
+Node: Optic_disc_pallor
+category: phenotype
+hpo_id: HP:0000543
+class_type: individual
+
+Node: Weak_grip
+category: phenotype
+hpo_id: HP:0033466
+class_type: individual
+
+Node: Weakness_of_facial_musculature
+category: phenotype
+hpo_id: HP:0030319
+class_type: individual
+
+Node: Weakness_of_the_intrinsic_hand_muscles
+category: phenotype
+hpo_id: HP:0009005
+class_type: individual
+
+Node: Patent_ductus_arteriosus
+category: phenotype
+hpo_id: HP:0001643
+class_type: individual
+
+Node: Brisk_reflexes
+category: phenotype
+hpo_id: HP:0001348
+class_type: individual
+
+Node: Wrist_flexion_contracture
+category: phenotype
+hpo_id: HP:0001239
+class_type: individual
+
+Node: Abnormal_cranial_nerve_morphology
+category: phenotype
+hpo_id: HP:0001291
+class_type: individual
+
+Node: Respiratory_insufficiency
+category: phenotype
+hpo_id: HP:0002093
+class_type: individual
+
+Node: Neonatal_hypotonia
+category: phenotype
+hpo_id: HP:0001319
+class_type: individual
+
+Node: Talipes
+category: phenotype
+hpo_id: HP:0001883
+class_type: individual
+
+Node: Difficulty_running
+category: phenotype
+hpo_id: HP:0009046
+class_type: individual
+
+Node: Talipes_equinovarus
+category: phenotype
+hpo_id: HP:0001762
+class_type: individual
+
+Node: Glaucoma
+category: phenotype
+hpo_id: HP:0000501
+class_type: individual
+
+Node: Irregular_myelin_loops
+category: phenotype
+hpo_id: HP:0007208
+class_type: individual
+
+Node: Inability_to_walk
+category: phenotype
+hpo_id: HP:0002540
+class_type: individual
+
+Node: Decreased_muscle_mass
+category: phenotype
+hpo_id: HP:0003199
+class_type: individual
+
+Node: Knee_flexion_contracture
+category: phenotype
+hpo_id: HP:0006380
+class_type: individual
+
+Node: Tracheomalacia
+category: phenotype
+hpo_id: HP:0002779
+class_type: individual
+
+Node: Vocal_cord_paralysis
+category: phenotype
+hpo_id: HP:0001605
+class_type: individual
+
+Node: Muscle_weakness
+category: phenotype
+hpo_id: HP:0001324
+class_type: individual
+
+Node: Hyperactive_patellar_reflex
+category: phenotype
+hpo_id: HP:0007083
+class_type: individual
+
+Node: Hyperreflexia_in_upper_limbs
+category: phenotype
+hpo_id: HP:0007350
+class_type: individual
+
+Node: Tinnitus
+category: phenotype
+hpo_id: HP:0000360
+class_type: individual
+
+Node: Lumbar_hyperlordosis
+category: phenotype
+hpo_id: HP:0002938
+class_type: individual
+
+Node: Anosmia
+category: phenotype
+hpo_id: HP:0000458
+class_type: individual
+
+Node: Distal_sensory_impairment_of_all_modalities
+category: phenotype
+hpo_id: HP:0003409
+class_type: individual
+
+Node: Slow_decrease_in_visual_acuity
+category: phenotype
+hpo_id: HP:0007924
+class_type: individual
+
+Node: Color_vision_defect
+category: phenotype
+hpo_id: HP:0000551
+class_type: individual
+
+Node: Mild_neurosensory_hearing_impairment
+category: phenotype
+hpo_id: HP:0008587
+class_type: individual
+
+Node: Central_scotoma
+category: phenotype
+hpo_id: HP:0000603
+class_type: individual
+
+Node: Positive_Romberg_sign
+category: phenotype
+hpo_id: HP:0002403
+class_type: individual
+
+Node: Dysmetric_saccades
+category: phenotype
+hpo_id: HP:0000641
+class_type: individual
+
+Node: Decreased_Achilles_reflex
+category: phenotype
+hpo_id: HP:0009072
+class_type: individual
+
+Node: Talipes_calcaneovalgus
+category: phenotype
+hpo_id: HP:0001884
+class_type: individual
+
+Node: Clusters_of_axonal_regeneration
+category: phenotype
+hpo_id: HP:0007233
+class_type: individual
+
+Node: Prolonged_brainstem_auditory_evoked_potentials
+category: phenotype
+hpo_id: HP:0004466
+class_type: individual
+
+Node: Tongue_atrophy
+category: phenotype
+hpo_id: HP:0012473
+class_type: individual
+
+Node: Tongue_fasciculations
+category: phenotype
+hpo_id: HP:0001308
+class_type: individual
+
+Node: Segmental_peripheral_demyelination
+category: phenotype
+hpo_id: HP:0007107
+class_type: individual
+
+Node: Greater_auricular_nerve_thickening
+category: phenotype
+hpo_id: HP:0034347
+class_type: individual
+
+Node: Abnormal_pupillary_light_reflex
+category: phenotype
+hpo_id: HP:0007695
+class_type: individual
+
+Node: Hepatic_steatosis
+category: phenotype
+hpo_id: HP:0001397
+class_type: individual
+
+Node: Increased_CSF_lactate
+category: phenotype
+hpo_id: HP:0002490
+class_type: individual
+
+Node: Mildly_elevated_creatine_kinase
+category: phenotype
+hpo_id: HP:0008180
+class_type: individual
+
+Node: Elevated_hepatic_transaminase
+category: phenotype
+hpo_id: HP:0002910
+class_type: individual
+
+Node: Slow_pupillary_light_response
+category: phenotype
+hpo_id: HP:0030211
+class_type: individual
+
+Node: Progressive_sensorineural_hearing_impairment
+category: phenotype
+hpo_id: HP:0000408
+class_type: individual
+
+Node: Recurrent_coughing_spasms
+category: phenotype
+hpo_id: HP:0033362
+class_type: individual
+
+Node: Cognitive_impairment
+category: phenotype
+hpo_id: HP:0100543
+class_type: individual
+
+Node: Motor_axonal_neuropathy
+category: phenotype
+hpo_id: HP:0007002
+class_type: individual
+
+Node: Increased_circulating_lactate_dehydrogenase_concentration
+category: phenotype
+hpo_id: HP:0025435
+class_type: individual
+
+Node: Strabismus
+category: phenotype
+hpo_id: HP:0000486
+class_type: individual
+
+Node: Brain_atrophy
+category: phenotype
+hpo_id: HP:0012444
+class_type: individual
+
+Node: Muscle_fibrillation
+category: phenotype
+hpo_id: HP:0010546
+class_type: individual
+
+Node: Ophthalmoplegia
+category: phenotype
+hpo_id: HP:0000602
+class_type: individual
+
+Node: Syndactyly
+category: phenotype
+hpo_id: HP:0001159
+class_type: individual
+
+Node: Hoarse_voice
+category: phenotype
+hpo_id: HP:0001609
+class_type: individual
+
+Node: Proximal_muscle_weakness_in_lower_limbs
+category: phenotype
+hpo_id: HP:0008994
+class_type: individual
+
+Node: Neuropathic_spinal_arthropathy
+category: phenotype
+hpo_id: HP:0008443
+class_type: individual
+
+Node: Hypoesthesia
+category: phenotype
+hpo_id: HP:0033748
+class_type: individual
+
+Node: Small_thenar_eminence
+category: phenotype
+hpo_id: HP:0001245
+class_type: individual
+
+Node: Small_hypothenar_eminence
+category: phenotype
+hpo_id: HP:0010487
+class_type: individual
+
+Node: Unsteady_gait
+category: phenotype
+hpo_id: HP:0002317
+class_type: individual
+
+Node: Adult_onset
+category: phenotype
+hpo_id: HP:0003581
+class_type: individual
+
+Node: Inability_to_walk_by_childhood_adolescence
+category: phenotype
+hpo_id: HP:0006915
+class_type: individual
+
+Node: CNS_hypomyelination
+category: phenotype
+hpo_id: HP:0003429
+class_type: individual
+
+Node: Decreased_sensory_nerve_conduction_velocity
+category: phenotype
+hpo_id: HP:0003448
+class_type: individual
+
+Node: Rapidly_progressive
+category: phenotype
+hpo_id: HP:0003678
+class_type: individual
+
+Node: Late_onset
+category: phenotype
+hpo_id: HP:0003584
+class_type: individual
+
+Node: Chronic_axonal_neuropathy
+category: phenotype
+hpo_id: HP:0007267
+class_type: individual
+
+Node: Late_young_adult_onset
+category: phenotype
+hpo_id: HP:0025710
+class_type: individual
+
+Node: Hyporeflexia_of_upper_limbs
+category: phenotype
+hpo_id: HP:0012391
+class_type: individual
+
+Node: Distal_arthrogryposis
+category: phenotype
+hpo_id: HP:0005684
+class_type: individual
+
+Node: Ankle_flexion_contracture
+category: phenotype
+hpo_id: HP:0006466
+class_type: individual
+
+Node: Pain
+category: phenotype
+hpo_id: HP:0012531
+class_type: individual
+
+Node: Mental_deterioration
+category: phenotype
+hpo_id: HP:0001268
+class_type: individual
+
+Node: Gowers_sign
+category: phenotype
+hpo_id: HP:0003391
+class_type: individual
+
+Node: Areflexia_of_upper_limbs
+category: phenotype
+hpo_id: HP:0012046
+class_type: individual
+
+Node: Proximal_lower_limb_amyotrophy
+category: phenotype
+hpo_id: HP:0008956
+class_type: individual
+
+Node: Hypoplasia_of_the_corpus_callosum
+category: phenotype
+hpo_id: HP:0002079
+class_type: individual
+
+Node: Postural_tremor
+category: phenotype
+hpo_id: HP:0002174
+class_type: individual
+
+Node: Calf_muscle_hypertrophy
+category: phenotype
+hpo_id: HP:0008981
+class_type: individual
+
+Node: First_dorsal_interossei_muscle_weakness
+category: phenotype
+hpo_id: HP:0003392
+class_type: individual
+
+Node: Postural_instability
+category: phenotype
+hpo_id: HP:0002172
+class_type: individual
+
+Node: First_dorsal_interossei_muscle_atrophy
+category: phenotype
+hpo_id: HP:0003426
+class_type: individual
+
+Node: Thenar_muscle_weakness
+category: phenotype
+hpo_id: HP:0003427
+class_type: individual
+
+Node: Cold_induced_hand_cramps
+category: phenotype
+hpo_id: HP:0003435
+class_type: individual
+
+Node: Macular_degeneration
+category: phenotype
+hpo_id: HP:0000608
+class_type: individual
+
+Node: Hyperextensible_skin
+category: phenotype
+hpo_id: HP:0000974
+class_type: individual
+
+Node: Myelin_tomacula
+category: phenotype
+hpo_id: HP:0030175
+class_type: individual
+
+Node: Increased_CSF_protein_concentration
+category: phenotype
+hpo_id: HP:0002922
+class_type: individual
+
+Node: Stage_5_chronic_kidney_disease
+category: phenotype
+hpo_id: HP:0003774
+class_type: individual
+
+Node: Focal_segmental_glomerulosclerosis
+category: phenotype
+hpo_id: HP:0000097
+class_type: individual
+
+Node: Proteinuria
+category: phenotype
+hpo_id: HP:0000093
+class_type: individual
+
+Node: Dystonia
+category: phenotype
+hpo_id: HP:0001332
+class_type: individual
+
+Node: Easy_fatigability
+category: phenotype
+hpo_id: HP:0003388
+class_type: individual
+
+Node: Increased_serum_lactate
+category: phenotype
+hpo_id: HP:0002151
+class_type: individual
+
+Node: Horizontal_nystagmus
+category: phenotype
+hpo_id: HP:0000666
+class_type: individual
+
+Node: Triceps_weakness
+category: phenotype
+hpo_id: HP:0031108
+class_type: individual
+
+Node: Impaired_tandem_gait
+category: phenotype
+hpo_id: HP:0031629
+class_type: individual
+
+Node: Impaired_temperature_sensation
+category: phenotype
+hpo_id: HP:0010829
+class_type: individual
+
+Node: Polyminimyoclonus
+category: phenotype
+hpo_id: HP:0031986
+class_type: individual
+
+Node: Centrally_nucleated_skeletal_muscle_fibers
+category: phenotype
+hpo_id: HP:0003687
+class_type: individual
+
+Node: Migraine
+category: phenotype
+hpo_id: HP:0002076
+class_type: individual
+
+Node: Night_sweats
+category: phenotype
+hpo_id: HP:0030166
+class_type: individual
+
+Node: Edema
+category: phenotype
+hpo_id: HP:0000969
+class_type: individual
+
+Node: Clubbing_of_fingers
+category: phenotype
+hpo_id: HP:0100759
+class_type: individual
+
+Node: Abnormal_foot_morphology
+category: phenotype
+hpo_id: HP:0001760
+class_type: individual
+
+Node: Intermediate_young_adult_onset
+category: phenotype
+hpo_id: HP:0025709
+class_type: individual
+
+Node: Abolished_vibration_sense
+category: phenotype
+hpo_id: HP:0006944
+class_type: individual
+
+Node: Increased_endomysial_connective_tissue
+category: phenotype
+hpo_id: HP:0100297
+class_type: individual
+
+Node: Abnormal_circulating_creatine_kinase_concentration
+category: phenotype
+hpo_id: HP:0040081
+class_type: individual
+
+Node: Proximal_amyotrophy
+category: phenotype
+hpo_id: HP:0007126
+class_type: individual
+
+Node: Paresthesia
+category: phenotype
+hpo_id: HP:0003401
+class_type: individual
+
+Node: Dementia
+category: phenotype
+hpo_id: HP:0000726
+class_type: individual
+
+Node: Sleep_disturbance
+category: phenotype
+hpo_id: HP:0002360
+class_type: individual
+
+Node: Lower_limb_pain
+category: phenotype
+hpo_id: HP:0012514
+class_type: individual
+
+Node: Fatty_replacement_of_skeletal_muscle
+category: phenotype
+hpo_id: HP:0012548
+class_type: individual
+
+Node: Early_young_adult_onset
+category: phenotype
+hpo_id: HP:0025708
+class_type: individual
+
+Node: 16
+category: chromosome
+class_type: individual
+
+Node: Alanyl_tRNA_synthetase_1
+category: protein
+uniprot: P49588
+class_type: individual
+molecular_weight: 107
+protein_length: 968
+
+Node: Disease_related_genes
+category: protein_class
+class_type: individual
+
+Node: Enzymes
+category: protein_class
+class_type: individual
+
+Node: Human_disease_related_genes
+category: protein_class
+class_type: individual
+
+Node: Metabolic_proteins
+category: protein_class
+class_type: individual
+
+Node: Plasma_proteins
+category: protein_class
+class_type: individual
+
+Node: Potential_drug_targets
+category: protein_class
+class_type: individual
+
+Node: Predicted_intracellular_proteins
+category: protein_class
+class_type: individual
+
+Node: Protein_biosynthesis
+category: biologic_process
+class_type: individual
+
+Node: Aminoacyl_tRNA_synthetase
+category: molecular_function
+class_type: individual
+
+Node: Ligase
+category: molecular_function
+class_type: individual
+
+Node: RNA_binding
+category: molecular_function
+class_type: individual
+
+Node: tRNA_binding
+category: molecular_function
+class_type: individual
+
+Node: Charcot_Marie_Tooth_disease
+category: disease_involvement
+class_type: individual
+
+Node: Disease_variant
+category: disease_involvement
+class_type: individual
+
+Node: Epilepsy
+category: disease_involvement
+class_type: individual
+
+Node: Neurodegeneration
+category: disease_involvement
+class_type: individual
+
+Node: Neuropathy
+category: disease_involvement
+class_type: individual
+
+Node: AAA
+category: protein_domain
+class_type: individual
+
+Node: CC
+category: protein_motif
+class_type: individual
+
+Node: cytoplasm
+category: protein_location
+class_type: individual
+
+Node: X
+category: chromosome
+class_type: individual
+
+Node: Apoptosis_inducing_factor_mitochondria_associated_1
+category: protein
+uniprot: O95831
+class_type: individual
+molecular_weight: 67
+protein_length: 613
+
+Node: Predicted_membrane_proteins
+category: protein_class
+class_type: individual
+
+Node: Apoptosis
+category: biologic_process
+class_type: individual
+
+Node: DNA_binding
+category: molecular_function
+class_type: individual
+
+Node: Oxidoreductase
+category: molecular_function
+class_type: individual
+
+Node: Deafness
+category: disease_involvement
+class_type: individual
+
+Node: Dwarfism
+category: disease_involvement
+class_type: individual
+
+Node: Primary_mitochondrial_disease
+category: disease_involvement
+class_type: individual
+
+Node: 1
+category: chromosome
+class_type: individual
+
+Node: ATPase_Na+_K+_transporting_subunit_alpha_1
+category: protein
+uniprot: P05023
+class_type: individual
+molecular_weight: 113
+protein_length: 103
+
+Node: Cancer_related_genes
+category: disease_involvement
+class_type: individual
+
+Node: FDA_approved_drug_targets
+category: disease_involvement
+class_type: individual
+
+Node: Transporters
+category: protein_class
+class_type: individual
+
+Node: Ion_transport
+category: biologic_process
+class_type: individual
+
+Node: Potassium_transport
+category: biologic_process
+class_type: individual
+
+Node: Sodium_transport
+category: biologic_process
+class_type: individual
+
+Node: Sodium_potassium_transport
+category: biologic_process
+class_type: individual
+
+Node: Transport
+category: biologic_process
+class_type: individual
+
+Node: Translocase
+category: molecular_function
+class_type: individual
+
+Node: Primary_hypomagnesemia
+category: disease_involvement
+class_type: individual
+
+Node: Cell_adhesion_molecule_3
+category: protein
+uniprot: Q8N126
+class_type: individual
+molecular_weight: 43
+protein_length: 398
+
+Node: Cell_adhesion
+category: biologic_process
+class_type: individual
+
+Node: TM
+category: protein_domain
+class_type: individual
+
+Node: perioxisome
+category: protein_location
+class_type: individual
+
+Node: mitochondrion
+category: protein_location
+class_type: individual
+
+Node: 12
+category: chromosome
+class_type: individual
+
+Node: Cytochrome_c_oxidase_subunit_6A1
+category: protein
+uniprot: P12074
+class_type: individual
+molecular_weight: 12
+protein_length: 109
+
+Node: 10
+category: chromosome
+class_type: individual
+
+Node: Dehydrogenase_E1_and_transketolase_domain_containing_1
+category: protein
+uniprot: Q96HY7
+class_type: individual
+molecular_weight: 103
+protein_length: 919
+
+Node: Glycolysis
+category: biologic_process
+class_type: individual
+
+Node: 19
+category: chromosome
+class_type: individual
+
+Node: Dynamin_2
+category: protein
+uniprot: P50570
+class_type: individual
+molecular_weight: 98
+protein_length: 870
+
+Node: Endocytosis
+category: biologic_process
+class_type: individual
+
+Node: Phagocytosis
+category: biologic_process
+class_type: individual
+
+Node: Hydrolase
+category: molecular_function
+class_type: individual
+
+Node: Motor_protein
+category: molecular_function
+class_type: individual
+
+Node: LRR
+category: protein_domain
+class_type: individual
+
+Node: RING
+category: protein_domain
+class_type: individual
+
+Node: LZ
+category: protein_motif
+class_type: individual
+
+Node: NLS
+category: protein_motif
+class_type: individual
+
+Node: 14
+category: chromosome
+class_type: individual
+
+Node: Dynein_cytoplasmic_1_heavy_chain_1
+category: protein
+uniprot: Q14204
+class_type: individual
+molecular_weight: 531
+protein_length: 4646
+
+Node: Cell_cycle
+category: biologic_process
+class_type: individual
+
+Node: Cell_division
+category: biologic_process
+class_type: individual
+
+Node: Mitosis
+category: biologic_process
+class_type: individual
+
+Node: plasma_membrane
+category: protein_location
+class_type: individual
+
+Node: Early_growth_response_2
+category: protein
+uniprot: P11161
+class_type: individual
+molecular_weight: 50
+protein_length: 476
+
+Node: Transcription_factors
+category: protein_class
+class_type: individual
+
+Node: Transcription
+category: biologic_process
+class_type: individual
+
+Node: Transcription_regulation
+category: biologic_process
+class_type: individual
+
+Node: Ubl_conjugation_pathway
+category: biologic_process
+class_type: individual
+
+Node: Activator
+category: molecular_function
+class_type: individual
+
+Node: Transferase
+category: molecular_function
+class_type: individual
+
+Node: Dejerine_Sottas_syndrome
+category: disease_involvement
+class_type: individual
+
+Node: ig_LIKE
+category: protein_domain
+class_type: individual
+
+Node: IGC2
+category: protein_domain
+class_type: individual
+
+Node: Band_4.1
+category: protein_domain
+class_type: individual
+
+Node: SP
+category: protein_motif
+class_type: individual
+
+Node: Fibulin_5
+category: protein
+uniprot: Q9UBX5
+class_type: individual
+molecular_weight: 50
+protein_length: 448
+
+Node: Predicted_secreted_proteins
+category: protein_class
+class_type: individual
+
+Node: Age_related_macular_degeneration
+category: disease_involvement
+class_type: individual
+
+Node: IGV
+category: protein_domain
+class_type: individual
+
+Node: FYVE__RhoGEF_and_PH_domain_containing_4
+category: protein
+uniprot: Q96M96
+class_type: individual
+molecular_weight: 87
+protein_length: 776
+
+Node: Actin_binding
+category: molecular_function
+class_type: individual
+
+Node: Guanine_nucleotide_releasing_factor
+category: molecular_function
+class_type: individual
+
+Node: 6
+category: chromosome
+class_type: individual
+
+Node: FIG4_phosphoinositide_5_phosphatase
+category: protein
+uniprot: Q92562
+class_type: individual
+molecular_weight: 104
+protein_length: 907
+
+Node: Amyotrophic_lateral_sclerosis
+category: disease_involvement
+class_type: individual
+
+Node: FH2
+category: protein_domain
+class_type: individual
+
+Node: nucleus_cytoplasm
+category: protein_location
+class_type: individual
+
+Node: 7
+category: chromosome
+class_type: individual
+
+Node: Glycyl_tRNA_synthetase_1
+category: protein
+uniprot: P41250
+class_type: individual
+molecular_weight: 83
+protein_length: 739
+
+Node: unknown
+category: protein_location
+class_type: individual
+
+Node: Golgi_brefeldin_A_resistant_guanine_nucleotide_exchange_factor_1
+category: protein
+uniprot: Q92538
+class_type: individual
+molecular_weight: 206
+protein_length: 1859
+
+Node: Host_virus_interaction
+category: biologic_process
+class_type: individual
+
+Node: Protein_transport
+category: biologic_process
+class_type: individual
+
+Node: 8
+category: chromosome
+class_type: individual
+
+Node: Ganglioside_induced_differentiation_associated_protein_1
+category: protein
+uniprot: Q8TB36
+class_type: individual
+molecular_weight: 41
+protein_length: 358
+
+Node: none
+category: chromosome
+class_type: individual
+
+Node: Gap_junction_protein_beta_1
+category: protein
+uniprot: P08034
+class_type: individual
+molecular_weight: 32
+protein_length: 283
+
+Node: lysosome
+category: protein_location
+class_type: individual
+
+Node: 3
+category: chromosome
+class_type: individual
+
+Node: G_protein_subunit_beta_4
+category: protein
+uniprot: Q9HAV0
+class_type: individual
+molecular_weight: 38
+protein_length: 340
+
+Node: RAS_pathway_related_proteins
+category: protein_class
+class_type: individual
+
+Node: Transducer
+category: molecular_function
+class_type: individual
+
+Node: BBOX
+category: protein_domain
+class_type: individual
+
+Node: BBC
+category: protein_domain
+class_type: individual
+
+Node: IGFLMN
+category: protein_domain
+class_type: individual
+
+Node: 5
+category: chromosome
+class_type: individual
+
+Node: Histidyl_tRNA_synthetase_1
+category: protein
+uniprot: P12081
+class_type: individual
+molecular_weight: 57
+protein_length: 509
+
+Node: Retinitis_pigmentosa
+category: disease_involvement
+class_type: individual
+
+Node: Usher_syndrome
+category: disease_involvement
+class_type: individual
+
+Node: PH
+category: protein_domain
+class_type: individual
+
+Node: DYNC
+category: protein_domain
+class_type: individual
+
+Node: GED
+category: protein_domain
+class_type: individual
+
+Node: cytoskeleton
+category: protein_location
+class_type: individual
+
+Node: Hexokinase_1
+category: protein
+uniprot: P19367
+class_type: individual
+molecular_weight: 102
+protein_length: 917
+
+Node: Immunity
+category: biologic_process
+class_type: individual
+
+Node: Inflammatory_response
+category: biologic_process
+class_type: individual
+
+Node: Innate_immunity
+category: biologic_process
+class_type: individual
+
+Node: Allosteric_enzyme
+category: molecular_function
+class_type: individual
+
+Node: Kinase
+category: molecular_function
+class_type: individual
+
+Node: Heat_shock_protein_family_B_small_member_1
+category: protein
+uniprot: P04792
+class_type: individual
+molecular_weight: 23
+protein_length: 205
+
+Node: Stress_response
+category: biologic_process
+class_type: individual
+
+Node: Chaperone
+category: molecular_function
+class_type: individual
+
+Node: Sec7
+category: protein_domain
+class_type: individual
+
+Node: Golgi_apparatus
+category: protein_location
+class_type: individual
+
+Node: Heat_shock_protein_family_B_small_member_8
+category: protein
+uniprot: Q9UJY1
+class_type: individual
+molecular_weight: 22
+protein_length: 196
+
+Node: 11
+category: chromosome
+class_type: individual
+
+Node: Immunoglobulin_mu_DNA_binding_protein_2
+category: protein
+uniprot: P38935
+class_type: individual
+molecular_weight: 109
+protein_length: 993
+
+Node: Helicase
+category: molecular_function
+class_type: individual
+
+Node: Ribonucleoprotein
+category: molecular_function
+class_type: individual
+
+Node: Inverted_formin_2
+category: protein
+uniprot: Q27J81
+class_type: individual
+molecular_weight: 135
+protein_length: 1249
+
+Node: Inositol_1_4_5_trisphosphate_receptor_type_3
+category: protein
+uniprot: Q14573
+class_type: individual
+molecular_weight: 304
+protein_length: 2671
+
+Node: Calcium_transport
+category: biologic_process
+class_type: individual
+
+Node: Calcium_channel
+category: molecular_function
+class_type: individual
+
+Node: Ion_channel
+category: molecular_function
+class_type: individual
+
+Node: Ligand_gated_ion_channel
+category: molecular_function
+class_type: individual
+
+Node: Receptor
+category: molecular_function
+class_type: individual
+
+Node: 20
+category: chromosome
+class_type: individual
+
+Node: Jagged_canonical_Notch_ligand_1
+category: protein
+uniprot: P78504
+class_type: individual
+molecular_weight: 134
+protein_length: 1218
+
+Node: CD_markers
+category: protein_class
+class_type: individual
+
+Node: Notch_signaling_pathway
+category: biologic_process
+class_type: individual
+
+Node: Developmental_protein
+category: molecular_function
+class_type: individual
+
+Node: Junctophilin_1
+category: protein
+uniprot: Q9HDC5
+class_type: individual
+molecular_weight: 72
+protein_length: 661
+
+Node: Lysyl_tRNA_synthetase_1
+category: protein
+uniprot: Q15046
+class_type: individual
+molecular_weight: 68
+protein_length: 597
+
+Node: Non_syndromic_deafness
+category: disease_involvement
+class_type: individual
+
+Node: RHOGEF
+category: protein_domain
+class_type: individual
+
+Node: FYVE
+category: protein_domain
+class_type: individual
+
+Node: Kinesin_family_member_1B
+category: protein
+uniprot: O60333
+class_type: individual
+molecular_weight: 204
+protein_length: 1816
+
+Node: nucleus
+category: protein_location
+class_type: individual
+
+Node: Lipopolysaccharide_induced_TNF_factor
+category: protein
+uniprot: Q99732
+class_type: individual
+molecular_weight: 17
+protein_length: 161
+
+Node: WD40
+category: protein_domain
+class_type: individual
+
+Node: Lamin_A_C
+category: protein
+uniprot: P02545
+class_type: individual
+molecular_weight: 74
+protein_length: 664
+
+Node: Cardiomyopathy
+category: disease_involvement
+class_type: individual
+
+Node: Congenital_muscular_dystrophy
+category: disease_involvement
+class_type: individual
+
+Node: Emery_Dreifuss_muscular_dystrophy
+category: disease_involvement
+class_type: individual
+
+Node: Limb_girdle_muscular_dystrophy
+category: disease_involvement
+class_type: individual
+
+Node: 9
+category: chromosome
+class_type: individual
+
+Node: Leucine_rich_repeat_and_sterile_alpha_motif_containing_1
+category: protein
+uniprot: Q6UWE0
+class_type: individual
+molecular_weight: 83
+protein_length: 723
+
+Node: Autophagy
+category: biologic_process
+class_type: individual
+
+Node: ANK
+category: protein_domain
+class_type: individual
+
+Node: Methionyl_tRNA_synthetase_1
+category: protein
+uniprot: P56192
+class_type: individual
+molecular_weight: 101
+protein_length: 900
+
+Node: Mitofusin_2
+category: protein
+uniprot: O95140
+class_type: individual
+molecular_weight: 86
+protein_length: 757
+
+Node: Unfolded_protein_response
+category: biologic_process
+class_type: individual
+
+Node: MIR
+category: protein_domain
+class_type: individual
+
+Node: TM_RYDR
+category: protein_domain
+class_type: individual
+
+Node: Membrane_metalloendopeptidase
+category: protein
+uniprot: P08473
+class_type: individual
+molecular_weight: 54
+protein_length: 470
+
+Node: Candidate_cardiovascular_disease_genes
+category: protein_class
+class_type: individual
+
+Node: Metalloprotease
+category: molecular_function
+class_type: individual
+
+Node: Protease
+category: molecular_function
+class_type: individual
+
+Node: Spinocerebellar_ataxia
+category: disease_involvement
+class_type: individual
+
+Node: 22
+category: chromosome
+class_type: individual
+
+Node: MORC_family_CW_type_zinc_finger_2
+category: protein
+uniprot: Q9Y6X9
+class_type: individual
+molecular_weight: 118
+protein_length: 1032
+
+Node: Fatty_acid_metabolism
+category: biologic_process
+class_type: individual
+
+Node: Lipid_metabolism
+category: biologic_process
+class_type: individual
+
+Node: DSL
+category: protein_domain
+class_type: individual
+
+Node: EGFL
+category: protein_domain
+class_type: individual
+
+Node: VWC
+category: protein_domain
+class_type: individual
+
+Node: EGFCA
+category: protein_domain
+class_type: individual
+
+Node: 2
+category: chromosome
+class_type: individual
+
+Node: Mitochondrial_inner_membrane_protein_MPV17
+category: protein
+uniprot: P39210
+class_type: individual
+molecular_weight: 20
+protein_length: 176
+
+Node: Myelin_protein_zero
+category: protein
+uniprot: P25189
+class_type: individual
+molecular_weight: 28
+protein_length: 248
+
+Node: Myotubularin_related_protein_2
+category: protein
+uniprot: Q13614
+class_type: individual
+molecular_weight: 73
+protein_length: 643
+
+Node: MORN_TM
+category: protein_domain
+class_type: individual
+
+Node: endoplasmic_reticulum
+category: protein_location
+class_type: individual
+
+Node: 17
+category: chromosome
+class_type: individual
+
+Node: N_acetyl_alpha_glucosaminidase
+category: protein
+uniprot: P54802
+class_type: individual
+molecular_weight: 82
+protein_length: 743
+
+Node: Glycosidase
+category: molecular_function
+class_type: individual
+
+Node: Mucopolysaccharidosis
+category: disease_involvement
+class_type: individual
+
+Node: N_myc_downstream_regulated_1
+category: protein
+uniprot: Q92597
+class_type: individual
+molecular_weight: 43
+protein_length: 394
+
+Node: Neurofilament_heavy
+category: protein
+uniprot: P12036
+class_type: individual
+molecular_weight: 112
+protein_length: 1026
+
+Node: Neurofilament_light
+category: protein
+uniprot: P07196
+class_type: individual
+molecular_weight: 33
+protein_length: 284
+
+Node: Pyruvate_dehydrogenase_kinase_3
+category: protein
+uniprot: Q15120
+class_type: individual
+molecular_weight: 47
+protein_length: 406
+
+Node: Carbohydrate_metabolism
+category: biologic_process
+class_type: individual
+
+Node: Glucose_metabolism
+category: biologic_process
+class_type: individual
+
+Node: Pleckstrin_homology_and_RhoGEF_domain_containing_G5
+category: protein
+uniprot: O94827
+class_type: individual
+molecular_weight: 111
+protein_length: 1006
+
+Node: FHA
+category: protein_domain
+class_type: individual
+
+Node: Peripheral_myelin_protein_2
+category: protein
+uniprot: P02689
+class_type: individual
+molecular_weight: 15
+protein_length: 132
+
+Node: Peripheral_myelin_protein_22
+category: protein
+uniprot: Q01453
+class_type: individual
+molecular_weight: 18
+protein_length: 160
+
+Node: Polynucleotide_kinase_3'_phosphatase
+category: protein
+uniprot: Q96T60
+class_type: individual
+molecular_weight: 57
+protein_length: 521
+
+Node: DNA_damage
+category: biologic_process
+class_type: individual
+
+Node: DNA_repair
+category: biologic_process
+class_type: individual
+
+Node: Multifunctional_enzyme
+category: molecular_function
+class_type: individual
+
+Node: Primary_microcephaly
+category: disease_involvement
+class_type: individual
+
+Node: RNA_polymerase_III_subunit_B
+category: protein
+uniprot: Q9NW08
+class_type: individual
+molecular_weight: 128
+protein_length: 1133
+
+Node: RNA_polymerase_related_proteins
+category: protein_class
+class_type: individual
+
+Node: Antiviral_defense
+category: biologic_process
+class_type: individual
+
+Node: Nucleotidyltransferase
+category: molecular_function
+class_type: individual
+
+Node: Leukodystrophy
+category: disease_involvement
+class_type: individual
+
+Node: Phosphoribosyl_pyrophosphate_synthetase_1
+category: protein
+uniprot: P60891
+class_type: individual
+molecular_weight: 35
+protein_length: 318
+
+Node: Nucleotide_biosynthesis
+category: biologic_process
+class_type: individual
+
+Node: Gout
+category: disease_involvement
+class_type: individual
+
+Node: Periaxin
+category: protein
+uniprot: Q9BXM0
+class_type: individual
+molecular_weight: 155
+protein_length: 1461
+
+Node: PDZ
+category: protein_domain
+class_type: individual
+
+Node: RAB7A_member_RAS_oncogene_family
+category: protein
+uniprot: P51149
+class_type: individual
+molecular_weight: 24
+protein_length: 207
+
+Node: Lipid_degradation
+category: biologic_process
+class_type: individual
+
+Node: SET_binding_factor_1
+category: protein
+uniprot: O95248
+class_type: individual
+molecular_weight: 208
+protein_length: 1868
+
+Node: SET_binding_factor_2
+category: protein
+uniprot: Q86WG5
+class_type: individual
+molecular_weight: 208
+protein_length: 1849
+
+Node: DEXDc
+category: protein_domain
+class_type: individual
+
+Node: R3H
+category: protein_domain
+class_type: individual
+
+Node: ZNFAN
+category: protein_domain
+class_type: individual
+
+Node: SH3_domain_and_tetratricopeptide_repeats_2
+category: protein
+uniprot: Q8TF17
+class_type: individual
+molecular_weight: 145
+protein_length: 1288
+
+Node: RAB
+category: protein_domain
+class_type: individual
+
+Node: endosome
+category: protein_location
+class_type: individual
+
+Node: 15
+category: chromosome
+class_type: individual
+
+Node: Solute_carrier_family_12_member_6
+category: protein
+uniprot: Q9UHW9
+class_type: individual
+molecular_weight: 127
+protein_length: 1150
+
+Node: Symport
+category: biologic_process
+class_type: individual
+
+Node: GRAM
+category: protein_domain
+class_type: individual
+
+Node: SPG11_vesicle_trafficking_associated__spatacsin
+category: protein
+uniprot: Q96JI7
+class_type: individual
+molecular_weight: 279
+protein_length: 2243
+
+Node: Hereditary_spastic_paraplegia
+category: disease_involvement
+class_type: individual
+
+Node: SURF1_cytochrome_c_oxidase_assembly_factor
+category: protein
+uniprot: Q15526
+class_type: individual
+molecular_weight: 33
+protein_length: 300
+
+Node: Leigh_syndrome
+category: disease_involvement
+class_type: individual
+
+Node: TP
+category: protein_domain
+class_type: individual
+
+Node: SH3
+category: protein_domain
+class_type: individual
+
+Node: 4
+category: chromosome
+class_type: individual
+
+Node: Tripartite_motif_containing_2
+category: protein
+uniprot: Q9C040
+class_type: individual
+molecular_weight: 81
+protein_length: 747
+
+Node: nucleolus
+category: protein_location
+class_type: individual
+
+Node: perinuclear_region
+category: protein_location
+class_type: individual
+
+Node: Transient_receptor_potential_cation_channel_subfamily_V_member_4
+category: protein
+uniprot: Q9HBA0
+class_type: individual
+molecular_weight: 98
+protein_length: 871
+
+Node: Voltage_gated_ion_channels
+category: protein_class
+class_type: individual
+
+Node: Calmodulin_binding
+category: molecular_function
+class_type: individual
+
+Node: Valosin_containing_protein
+category: protein
+uniprot: P55072
+class_type: individual
+molecular_weight: 89
+protein_length: 806
+
+Node: KISC
+category: protein_domain
+class_type: individual
+
+Node: Tyrosyl_tRNA_synthetase_1
+category: protein
+uniprot: P54577
+class_type: individual
+molecular_weight: 59
+protein_length: 528
+
+Node: RGD
+category: protein_motif
+class_type: individual
+
+Node: extracellular
+category: protein_location
+class_type: individual
+
