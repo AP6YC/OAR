@@ -23,6 +23,13 @@ using OAR
 using Lerche
 
 # -----------------------------------------------------------------------------
+# VARIABLES
+# -----------------------------------------------------------------------------
+
+# Location of the edge attributes file, formatted for Lerch parsing
+edge_file = OAR.results_dir("2_cmt", "edge_attributes_lerche.txt")
+
+# -----------------------------------------------------------------------------
 # PARSE ARGS
 # -----------------------------------------------------------------------------
 
@@ -35,24 +42,19 @@ pargs = OAR.exp_parse(
 # CMT DATASET
 # -----------------------------------------------------------------------------
 
-# SUBJECT     : /[^']+/
-# PREDICATE   : /[^']+/
-# OBJECT      : /[^']+/
-
 # Declare the rules of the symbolic Iris grammar
 cmt_edge_grammar = raw"""
     ?start: statement
 
     statement: subject predicate object
 
-    subject     : SUBJECT -> cmt_symb
-    predicate   : PREDICATE -> cmt_symb
-    object      : OBJECT -> cmt_symb
+    subject     : string -> cmt_symb
+    predicate   : string -> cmt_symb
+    object      : string -> cmt_symb
 
-    SUBJECT     : /(\w)+/
-    PREDICATE   : /(\w)+/
-    OBJECT      : /(\w)+/
+    string      : ESCAPED_STRING
 
+    %import common.ESCAPED_STRING
     %import common.WS
     %ignore WS
 """
@@ -61,8 +63,13 @@ cmt_edge_grammar = raw"""
 struct GramARTTree <: Transformer end
 
 # The rules turn the terminals into `OAR` grammar symbols and statements into vectors
-# @rule iris_symb(t::GramARTTree, p) = OAR.GSymbol{String}(p[1], true)
-# @rule statement(t::GramARTTree, p) = Vector(p)
+
+# Turn statements into Julia Vectors
+@rule statement(t::GramARTTree, p) = Vector(p)
+# Remove backslashes in escaped strings
+@inline_rule string(t::GramARTTree, s) = replace(s[2:end-1],"\\\""=>"\"")
+# Define the datatype for the strings themselves
+@rule cmt_symb(t::GramARTTree, p) = OAR.GSymbol{String}(p[1], true)
 
 # Create the parser from these rules
 cmt_parser = Lark(
@@ -73,11 +80,22 @@ cmt_parser = Lark(
 )
 
 # Set some sample text as the input statement
-text = raw"Periaxin is_a protein"
+text = raw"\"Periaxin\" \"is_a\" \"protein\""
 
 # Parse the statement
 k = Lerche.parse(cmt_parser, text)
 
+# Open the file
+open(edge_file) do f
+    line = 0
+    while ! eof(f)
+        s = readline(f)
+        line += 1
+        println("$line : $s")
+        k = Lerche.parse(cmt_parser, s)
+        println(k)
+    end
+end
 
 # # All-in-one function
 # fs, bnf = OAR.symbolic_iris()
