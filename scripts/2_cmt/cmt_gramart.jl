@@ -19,6 +19,7 @@ using OAR
 # ADDITIONAL DEPENDENCIES
 # -----------------------------------------------------------------------------
 
+# Parsing library
 using Lerche
 
 # -----------------------------------------------------------------------------
@@ -34,49 +35,23 @@ pargs = OAR.exp_parse(
 # CMT DATASET
 # -----------------------------------------------------------------------------
 
-"""
-    lerche-iris-symb.jl
-
-# Description
-This script uses the Lerche parsing library for parsing Iris dataset statements into symbolic trees.
-
-# Authors
-- Sasha Petrenko <petrenkos@mst.edu>
-"""
-# -----------------------------------------------------------------------------
-# PREAMBLE
-# -----------------------------------------------------------------------------
-
-using Revise
-using DrWatson
-@quickactivate :OAR
-
-# -----------------------------------------------------------------------------
-# DEPENDENCIES
-# -----------------------------------------------------------------------------
-
-# Parsing library
-using Lerche
-
-# -----------------------------------------------------------------------------
-# EXPERIMENT
-# -----------------------------------------------------------------------------
+# SUBJECT     : /[^']+/
+# PREDICATE   : /[^']+/
+# OBJECT      : /[^']+/
 
 # Declare the rules of the symbolic Iris grammar
 cmt_edge_grammar = raw"""
     ?start: statement
 
-    statement: sl sw pl pw
+    statement: subject predicate object
 
-    sl : SL -> iris_symb
-    sw : SW -> iris_symb
-    pl : PL -> iris_symb
-    pw : PW -> iris_symb
+    subject     : SUBJECT -> cmt_symb
+    predicate   : PREDICATE -> cmt_symb
+    object      : OBJECT -> cmt_symb
 
-    SL : /SL[1-9]?[0-9]?/
-    SW : /SW[1-9]?[0-9]?/
-    PL : /PL[1-9]?[0-9]?/
-    PW : /PW[1-9]?[0-9]?/
+    SUBJECT     : /(\w)+/
+    PREDICATE   : /(\w)+/
+    OBJECT      : /(\w)+/
 
     %import common.WS
     %ignore WS
@@ -86,22 +61,22 @@ cmt_edge_grammar = raw"""
 struct GramARTTree <: Transformer end
 
 # The rules turn the terminals into `OAR` grammar symbols and statements into vectors
-@rule iris_symb(t::GramARTTree, p) = OAR.GSymbol{String}(p[1], true)
-@rule statement(t::GramARTTree, p) = Vector(p)
+# @rule iris_symb(t::GramARTTree, p) = OAR.GSymbol{String}(p[1], true)
+# @rule statement(t::GramARTTree, p) = Vector(p)
 
 # Create the parser from these rules
-iris_parser = Lark(
-    iris_grammar,
+cmt_parser = Lark(
+    cmt_edge_grammar,
     parser="lalr",
     lexer="standard",
     transformer=GramARTTree()
 )
 
 # Set some sample text as the input statement
-text = raw"SL1 SW3 PL4 PW8"
+text = raw"Periaxin is_a protein"
 
 # Parse the statement
-k = Lerche.parse(iris_parser, text)
+k = Lerche.parse(cmt_parser, text)
 
 
 # # All-in-one function

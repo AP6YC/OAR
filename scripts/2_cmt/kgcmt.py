@@ -627,6 +627,7 @@ with open(LERCHE_EDGE_ATTRIBUTES, 'w') as file:
         attributes = G.get_edge_data(*edge)
         if attributes:
             # Write in a convenient
-            file.write(f"'{edge[0]}' '{attributes['relation']}' '{edge[1]}'\n")
+            # file.write(f"'{edge[0]}' '{attributes['relation']}' '{edge[1]}'\n")
+            file.write(f"{edge[0]} {attributes['relation']} {edge[1]}\n")
 
 print(LERCHE_EDGE_ATTRIBUTES)
