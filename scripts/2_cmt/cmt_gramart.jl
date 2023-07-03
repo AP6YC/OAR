@@ -44,18 +44,27 @@ text = raw"\"Periaxin\" \"is_a\" \"protein\""
 # Parse the statement
 k = OAR.run_parser(cmt_parser, text)
 
-# Open the edge attributes file
+# Initialize the statements vector
+statements = Vector{OAR.CMTStatement}()
+# Open the edge attributes file and parse
 open(edge_file) do f
     line = 0
     while ! eof(f)
         s = readline(f)
         line += 1
         k = OAR.run_parser(cmt_parser, s)
-        @info "$line : $k"
+        push!(statements, k)
+        # @info "$line : $k"
     end
 end
 
-
+# Collect the unique terminals in the dataset
+terminals = Set{OAR.CMTSymbol}()
+for statement in statements
+    for symb in statement
+        push!(terminals, symb)
+    end
+end
 
 # # All-in-one function
 # fs, bnf = OAR.symbolic_iris()

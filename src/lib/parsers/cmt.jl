@@ -8,9 +8,17 @@ Implements the parser used for the CMT edge attributes data.
 # The grammar tree subtypes from a Lerche Transformer
 struct CMTGramARTTree <: Transformer end
 
-# The rules turn the terminals into `OAR` grammar symbols and statements into vectors
+"""
+Alias stating that a CMT grammar symbol is a string.
+"""
 const CMTSymbol = GSymbol{String}
 
+"""
+Alias stating that CMT statements are vectors of CMT grammar symbols.
+"""
+const CMTStatement = Vector{CMTSymbol}
+
+# The rules turn the terminals into `OAR` grammar symbols and statements into vectors
 # Turn statements into Julia Vectors
 @rule statement(t::CMTGramARTTree, p) = Vector{CMTSymbol}(p)
 # Remove backslashes in escaped strings
