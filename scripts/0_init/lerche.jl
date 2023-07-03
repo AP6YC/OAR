@@ -1,3 +1,11 @@
+"""
+    lerche.jl
+
+# Description
+This file demonstrates the usage of the Lerch.jl package for parsing statements.
+"""
+
+
 using Revise
 using Lerche
 

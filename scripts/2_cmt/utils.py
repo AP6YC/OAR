@@ -1,3 +1,13 @@
+"""
+    utils.py
+
+# Description
+A collection of common Python utilities for the 2_cmt experiment.
+
+# Authors
+- Sasha Petrenko <sap625@mst.edu>
+"""
+
 from pathlib import Path
 
 

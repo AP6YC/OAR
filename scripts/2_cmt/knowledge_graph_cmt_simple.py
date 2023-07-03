@@ -5,7 +5,7 @@
 This file is a transcription of the original experiment authored by Dr. Daniel Hier.
 
 # Authors
-- Dr. Daniel Hier <dhier@mst.edu>
+- Dr. Daniel Hier <dbhier@dbhier.com>
 - Sasha Petrenko <petrenkos@mst.edu>
 """
 
