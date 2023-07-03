@@ -404,6 +404,12 @@ function train!(gramart::GramART, statement::Statement)
 end
 
 """
+Classifies the statement into one of GramART's internal categories.
+
+# Arguments
+- `gramart::GramART`: the [`OAR.GramART`](@ref) to use in classification/inference.
+- `statement::Statement`: the statement to classify.
+- `get_bmu::Bool=false`: optional, whether to get the best matching unit in the case of complete mismatch.
 """
 function classify(gramart::GramART, statement::Statement ; get_bmu::Bool=false)
     # Compute the activations
