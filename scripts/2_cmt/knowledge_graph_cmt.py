@@ -9,7 +9,6 @@ This file is a transcription of the original experiment authored by Dr. Daniel H
 - Sasha Petrenko <petrenkos@mst.edu>
 """
 
-import os
 import networkx as nx
 from rdflib import (
     Graph,
@@ -24,6 +23,7 @@ from rdflib.namespace import Namespace
 # Local utilities
 from utils import results_dir
 
+# import os
 # os.chdir("../../work/data/cmt/")
 # os.chdir("work/data/cmt/")
 

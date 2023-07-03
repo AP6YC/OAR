@@ -95,84 +95,83 @@ for d in CMT_variants:
     if gene_location not in gene_locations:
         gene_locations.append(gene_location)    # gene_locations is a list of gene)location (n=61
     G.add_node(gene_location, category='gene_location', class_type='individual')
-    G.add_edge(gene_location, 'gene_location', relation ='is_a')
+    G.add_edge(gene_location, 'gene_location', relation='is_a')
     G.add_edge(gene, gene_location, relation='has_gene_location')
-    G.add_node(gene, category='gene', MIM = gene_MIM, gene_location = gene_location, class_type='individual') # add each gene as a node
-    G.add_edge(disease, gene, relation ='is_caused_by') #add an edge between disease and causative gene
-    G.add_edge(gene, 'gene', relation ='is_a')
+    G.add_node(gene, category='gene', MIM=gene_MIM, gene_location=gene_location, class_type='individual')   # add each gene as a node
+    G.add_edge(disease, gene, relation='is_caused_by')  # add an edge between disease and causative gene
+    G.add_edge(gene, 'gene', relation='is_a')
     if gene not in gene_list:
-        gene_list.append(gene)   #Useful list of all genes in knowledge graph
-    inherit=[]
-    inherit =inheritance.split('|') #Some diseases have multiple inheritances.  We use pipe charactder to separate multiple inheritances
+        gene_list.append(gene)  # Useful list of all genes in knowledge graph
+    inherit = []
+    inherit = inheritance.split('|')    # Some diseases have multiple inheritances.  We use pipe charactder to separate multiple inheritances
     for inherit_type in inherit:
-        G.add_node(inherit_type, category='inheritance', class_type='individual') #Each form of inheritance is a node
-        G.add_edge(inherit_type, 'inheritance', relation ='is_a')
-        G.add_edge(disease, inherit_type, relation= 'inherited_by') #add an edge between the disease and how it is inherited
+        G.add_node(inherit_type, category='inheritance', class_type='individual')   # Each form of inheritance is a node
+        G.add_edge(inherit_type, 'inheritance', relation='is_a')
+        G.add_edge(disease, inherit_type, relation='inherited_by')  # add an edge between the disease and how it is inherited
         if inherit_type not in inheritance_list:
             inheritance_list.append(inherit_type)
 #######################################################################################################################
-#ADD PHENOTYPE DATA                                                                                                   #
+# ADD PHENOTYPE DATA                                                                                                   #
 #  The file HP)_to_tag.csv relates the HPO accession number to the text name of a phenotype feature                   #
 #######################################################################################################################
 hpo_to_phenotype = pd.read_csv(data_dir('HPO_to_tag.csv'))
 # hpo_to_phenotype = pd.read_csv('HPO_to_tag.csv')
 hpo_tags = hpo_to_phenotype.values.tolist()   # The is a list of HP numbers and text tags for phenotypes (n=20958)
 # hpo_tags maps an HPO number to a text tag describing a phenotype
-phenotype_tags=[]
-phenotypes=[]
-phenotype_file =pd.read_csv(data_dir("Phenotype_by_disease.csv"))
+phenotype_tags = []
+phenotypes = []
+phenotype_file = pd.read_csv(data_dir("Phenotype_by_disease.csv"))
 # phenotype_file =pd.read_csv("Phenotype_by_disease.csv")
 phenotype_by_disease = phenotype_file.values.tolist()
 ###################################################################
 #      [0]            [1]           [2]
 # [disease_MIM]    [disease]      [hpo_ID]
 #########################################################################################################################
-for p in phenotype_by_disease:            #phenotype by disease has a length of 255,541
-    disease_MIM =p[0]
+for p in phenotype_by_disease:            # phenotype by disease has a length of 255,541
+    disease_MIM = p[0]
     disease = p[1]
     hpo_ID = p[2]
 #      print(disease, disease_MIM)
-    if disease_MIM in disease_MIMs:  #Disease MIMs is a list of 81 variants of CMT
+    if disease_MIM in disease_MIMs:     # Disease MIMs is a list of 81 variants of CMT
         for h in hpo_tags:
             hpo = h[0]
             phenotype = h[1]
             if hpo == hpo_ID:
                 if phenotype not in phenotype_list:
                     phenotype_list.append(phenotype)
-                    G.add_node(phenotype, category ='phenotype', hpo_id = hpo_ID, class_type='individual')
+                    G.add_node(phenotype, category='phenotype', hpo_id=hpo_ID, class_type='individual')
                     G.add_edge(phenotype, 'phenotype', relation='is_a')
-                    G.add_edge(disease, phenotype, relation ='has_a_phenotype')
-
+                    G.add_edge(disease, phenotype, relation='has_a_phenotype')
 
 
 ####################################################################################################################################################################################
-#ADD PROTEIN DATA                                                                                                                                                                  #
+# ADD PROTEIN DATA                                                                                                                                                                  #
 #  The file proteinatlas.csv has tabular data on different protein characteristics                                                                                                 #
 # data is on 20,090 proteins that links gene to protein name                                                                                                                       #
 # [0]  |    [1]        |       [2]      |      [3]    |       [4]       |     [5]           |            [6]      |         [7]       |   [8]  | [9]   | [10]  | 11 |     |12    | #
 # Gene |Protein Name   |	Uniprot_num Protein Class |	Biologic process |Molecular function |Disease involvement  | Protein_location  |    MW  | domain|motif  |location | length| #
 ####################################################################################################################################################################################
 
-df_cmt_proteins =pd.read_csv(data_dir('protein_list_CMT.csv'))
+df_cmt_proteins = pd.read_csv(data_dir('protein_list_CMT.csv'))
 # df_cmt_proteins =pd.read_csv('protein_list_CMT.csv')
 cmt_proteins = df_cmt_proteins.values.tolist()
 for p in cmt_proteins:
-    gene=p[0]
-    protein =p[1]
+    gene = p[0]
+    protein = p[1]
     uniprot = p[2]
-    chromosome=p[3]
-    chromosome__location=p[4]
-    protein_class= p[5]
-    biologic_process=p[6]
-    molecular_function =p[7]
-    disease_involvement =p[8]
-    MW =p[9]
-    domain=p[10]
-    motif=p[11]
-    protein_location=p[12]
-    length=p[13]
+    chromosome = p[3]
+    chromosome__location = p[4]
+    protein_class = p[5]
+    biologic_process = p[6]
+    molecular_function = p[7]
+    disease_involvement = p[8]
+    MW = p[9]
+    domain = p[10]
+    motif = p[11]
+    protein_location = p[12]
+    length = p[13]
     G.add_node(chromosome, category='chromosome', class_type='individual')
-    G.add_edge(chromosome, 'chromosome', relation = 'is_a')
+    G.add_edge(chromosome, 'chromosome', relation='is_a')
     G.add_edge(gene, chromosome, relation='is_on_chromosome')
     G.add_node(protein, category='protein', uniprot=uniprot, class_type='individual')
     G.add_edge(protein, 'protein', relation='is_a')
@@ -182,58 +181,58 @@ for p in cmt_proteins:
         for pc in protein_classes:
             G.add_node(pc, category='protein_class', class_type='individual')
             G.add_edge(pc, 'protein_class', relation='is_a')
-            G.add_edge(protein, pc, relation ='has_protein_class')
+            G.add_edge(protein, pc, relation='has_protein_class')
     if 'none' not in biologic_process:
         biological_processes = biologic_process.split('|')
         for bp in biological_processes:
-            G.add_node(bp,category='biologic_process', class_type='individual')
+            G.add_node(bp, category='biologic_process', class_type='individual')
             G.add_edge(protein, bp, relation='has_biologic_process')
-            G.add_edge(bp, 'biologic_process', relation ='is_a')
+            G.add_edge(bp, 'biologic_process', relation='is_a')
     if 'none' not in molecular_function:
-        molecular_functions=molecular_function.split('|')
+        molecular_functions = molecular_function.split('|')
         for mf in molecular_functions:
-            G.add_node(mf, category ='molecular_function', class_type='individual')
-            G.add_edge(protein, mf, relation= "has_molecular_function")
-            G.add_edge(mf,'molecular_function', relation ='is_a')
+            G.add_node(mf, category='molecular_function', class_type='individual')
+            G.add_edge(protein, mf, relation="has_molecular_function")
+            G.add_edge(mf, 'molecular_function', relation='is_a')
     if 'none' not in disease_involvement:
         diseases_involved = disease_involvement.split('|')
         for di in diseases_involved:
-            G.add_node(di, category ='disease_involvement', class_type='individual')
-            G.add_edge(protein, di,relation ='has_disease_involvement')
-            G.add_edge(di,'disease_involvement',relation = 'is_a')
-    G.add_edge(gene, protein, relation= 'codes_for')
-    protein_domain=domain.split('|')
+            G.add_node(di, category='disease_involvement', class_type='individual')
+            G.add_edge(protein, di, relation='has_disease_involvement')
+            G.add_edge(di, 'disease_involvement', relation='is_a')
+    G.add_edge(gene, protein, relation='codes_for')
+    protein_domain = domain.split('|')
     if 'none' not in protein_domain:
         for p_d in protein_domain:
-            G.add_node(p_d, category= 'protein_domain', class_type ='individual')
-            G.add_edge(p_d, 'protein_domain',relation ='is_a')
-            G.add_edge(protein, p_d, relation ='has_a_domain')
+            G.add_node(p_d, category='protein_domain', class_type='individual')
+            G.add_edge(p_d, 'protein_domain', relation='is_a')
+            G.add_edge(protein, p_d, relation='has_a_domain')
 
-    protein_motif=motif.split('|')
+    protein_motif = motif.split('|')
     if 'none' not in protein_motif:
         for pm in protein_motif:
-            G.add_node(pm, category= 'protein_motif', class_type ='individual')
-            G.add_edge(pm, 'protein_motif',relation ='is_a')
+            G.add_node(pm, category='protein_motif', class_type='individual')
+            G.add_edge(pm, 'protein_motif', relation='is_a')
             G.add_edge(protein, pm, relation='has_a_motif')
 
-    protein_locations=protein_location.split('|')
+    protein_locations = protein_location.split('|')
     if 'none' not in protein_location:
         for pl in protein_locations:
-            G.add_node(pl, category= 'protein_location', class_type ='individual')
-            G.add_edge(pl, 'protein_location',relation ='is_a')
-            G.add_edge(protein, pl, relation = 'is_located_at')
+            G.add_node(pl, category='protein_location', class_type='individual')
+            G.add_edge(pl, 'protein_location', relation='is_a')
+            G.add_edge(protein, pl, relation='is_located_at')
 
-    nx.set_node_attributes(G, { protein: { "molecular_weight": MW } })
-    nx.set_node_attributes(G, { protein: { "protein_length": length} })
+    nx.set_node_attributes(G, {protein: {"molecular_weight": MW}})
+    nx.set_node_attributes(G, {protein: {"protein_length": length}})
 # You can access the attribute using the `nodes` dictionary
- #   print(G.nodes[protein]["molecular_weight"])
-  #  print(G.nodes[protein]["protein_length"])
+#   print(G.nodes[protein]["molecular_weight"])
+#  print(G.nodes[protein]["protein_length"])
 
 
-#Draw a low-resolution graph
+# Draw a low-resolution graph
 nx.draw_networkx(G, with_labels=False)
 
-#Write the graph to file in graphml format for GEPHI
+# Write the graph to file in graphml format for GEPHI
 nx.write_graphml(G, results_dir('cmt.graphml'))
 # nx.write_graphml(G, 'cmt.graphml')
 # Find nodes without any edges
@@ -255,8 +254,6 @@ with open(results_dir('graph_attributes.txt'), 'w') as file:
         for attr, value in attributes.items():
             file.write(f"{attr}: {value}\n")
         file.write('\n')  # Add a blank line between nodes
-
-
 
 
 # Assuming you already have a graph G
@@ -281,26 +278,23 @@ file.close()
 # Close the file
 file.close()
 # Print the isolated nodes
-print('isolated_nodes: ',isolated_nodes)
-edge_attributes =[]
+print('isolated_nodes: ', isolated_nodes)
+edge_attributes = []
 # Traverse edges and retrieve attributes
 for u, v, attributes in G.edges.data():
     if attributes not in edge_attributes:
         edge_attributes.append(attributes)
 
 
-
 # Print the list of edge attributes
 print('edge attributes:', edge_attributes)
 
-#number of nodes
+# number of nodes
 number_of_nodes = nx.number_of_nodes(G)
-print ('Number of nodes: ', number_of_nodes)
+print('Number of nodes: ', number_of_nodes)
 
-number_of_edges =nx.number_of_edges(G)
+number_of_edges = nx.number_of_edges(G)
 print("number_of_edges: ", number_of_edges)
-
-
 
 
 # Create a new RDF graph
@@ -330,71 +324,69 @@ phenotype = ex["phenotype"]
 class_list = [molecular_function, protein_location, biologic_process, protein_class, protein_motif,
               gene_location, protein_domain, chromosome, inheritance, protein, gene, disease, phenotype]
 
-#Add classes
+# Add classes
 for c in class_list:
-    if c !='':
+    if c != '':
         g.add((c, RDF.type, OWL.Class))
 
 for n in G.nodes.data():
-   # print(n)
-    node_type=''
-    node_type= n[1].get('class_type',0)
-    if node_type=='individual':
-       #   print(n[0])
-          class_name = n[1].get('category',0)
-          if class_name !=0:
-              individual_name = n[0]
-              individual_name_uri = ex[individual_name]
-              class_name_uri =ex[class_name]
-              g.add((individual_name_uri, RDF.type,class_name_uri ))
+    # print(n)
+    node_type = ''
+    node_type = n[1].get('class_type', 0)
+    if node_type == 'individual':
+        # print(n[0])
+        class_name = n[1].get('category', 0)
+        if class_name != 0:
+            individual_name = n[0]
+            individual_name_uri = ex[individual_name]
+            class_name_uri = ex[class_name]
+            g.add((individual_name_uri, RDF.type, class_name_uri))
 
 
-
-
-#ADD OBJECT RELATIONSHIPS
+# ADD OBJECT RELATIONSHIPS
 relations = set()
-start_nodes_set=set()
-end_nodes_set=set()
-i=1
-start_list=[]
+start_nodes_set = set()
+end_nodes_set = set()
+i = 1
+start_list = []
 for e in G.edges.data():
     start_node = e[0]
     attributes = G.nodes[start_node]
-  #  print("Start Node:", start_node)
-  #  print("Attributes:", attributes)
-    class_type_num= G.nodes[start_node].get('class_type',0)
-    if class_type_num =='individual':
-        print(start_node,'>', class_type_num)
+    # print("Start Node:", start_node)
+    # print("Attributes:", attributes)
+    class_type_num = G.nodes[start_node].get('class_type', 0)
+    if class_type_num == 'individual':
+        print(start_node, '>', class_type_num)
         start_uri = ex[e[0]]
-        start_node= e[0]
+        start_node = e[0]
         start_nodes_set.add(start_node)
-        end_node=e[1]
-        if (end_node != 'none' or''):
-            if (start_node !='none' or ''):
+        end_node = e[1]
+        if (end_node != 'none' or ''):
+            if (start_node != 'none' or ''):
                 end_uri = ex[e[1]]
                 end_nodes_set.add(end_node)
                 object_property_dict = e[2]
-                object_property = object_property_dict.get('relation',0)
-                end_value = G.nodes[end_node].get('category',0)
-           #     end_node_category = end_node.get('category', 0)
-            #    print(end_node_category)
+                object_property = object_property_dict.get('relation', 0)
+                end_value = G.nodes[end_node].get('category', 0)
+                # end_node_category = end_node.get('category', 0)
+                # print(end_node_category)
                 relations.add(object_property)
-             #   relations.discard('is_a')
+                # relations.discard('is_a')
                 relations.discard(0)
                 object_property_list = list(relations)
                 if object_property in object_property_list:      # print(object_property)
-                  range_value =G.nodes[end_node].get("category", 0)
-                  domain_value = G.nodes[start_node].get("category",0)
-              #    print('<<',i,'>>',start_uri,'>>', end_uri, '>>',object_property,'>>', start_node, '>>',domain_value, '>>', range_value)
-                  i+=1
-                  object_property_uri = ex[object_property]
-                  range_uri=ex[range_value]
-                  domain_uri =ex[domain_value]
-                  g.add((object_property_uri, RDF.type, RDF.Property))
-                  g.add((object_property_uri, RDFS.domain, domain_uri))
-                  g.add((object_property_uri, RDFS.range, range_uri))
-                  g.add((start_uri, object_property_uri,end_uri))
-                  start_list.append(start_uri)
+                    range_value = G.nodes[end_node].get("category", 0)
+                    domain_value = G.nodes[start_node].get("category", 0)
+                #    print('<<',i,'>>',start_uri,'>>', end_uri, '>>',object_property,'>>', start_node, '>>',domain_value, '>>', range_value)
+                    i += 1
+                    object_property_uri = ex[object_property]
+                    range_uri = ex[range_value]
+                    domain_uri = ex[domain_value]
+                    g.add((object_property_uri, RDF.type, RDF.Property))
+                    g.add((object_property_uri, RDFS.domain, domain_uri))
+                    g.add((object_property_uri, RDFS.range, range_uri))
+                    g.add((start_uri, object_property_uri, end_uri))
+                    start_list.append(start_uri)
 
 
 ################################################################
@@ -404,25 +396,25 @@ for e in G.edges.data():
 # create list of proteins and their molecular weights and lengths
 MW_list = []
 length_list = []
-uniprot_list=[]
+uniprot_list = []
 for p in G.nodes:
     if p != 'protein':
         cat = G.nodes[p].get('category', 0)
         if str(cat) == 'protein':
             uniprot = ''
-            uniprot = G.nodes[p].get('uniprot',0)
-            uniprot_pair =[]
+            uniprot = G.nodes[p].get('uniprot', 0)
+            uniprot_pair = []
             uniprot_pair.append(p)
             uniprot_pair.append(uniprot)
             uniprot_list.append(uniprot_pair)
             MW = 0
-            MW = G.nodes[p].get('molecular_weight',0)
+            MW = G.nodes[p].get('molecular_weight', 0)
             MW_pair = []
             MW_pair.append(p)
             MW_pair.append(MW)
             MW_list.append(MW_pair)
             length = 0
-            length = G.nodes[p].get('protein_length',0)
+            length = G.nodes[p].get('protein_length', 0)
             print(length)
             length_pair = []
             length_pair.append(p)
@@ -457,10 +449,10 @@ g.add((protein_length_uri, RDF.type, OWL.DatatypeProperty))
 g.add((protein_length_uri, RDFS.domain, ex.protein))
 g.add((protein_length_uri, RDFS.range, XSD.string))
 for p in length_list:
-#    print(p, ex[p[0]], p[1])
+    # print(p, ex[p[0]], p[1])
     protein_uri = ex[p[0]]
     length_aa = p[1]
- #   print(protein_uri, length_aa)
+    # print(protein_uri, length_aa)
     g.add((protein_uri, protein_length_uri, Literal(
         length_aa, datatype=XSD.string)))
 
@@ -472,29 +464,28 @@ g.add((uniprot_uri, RDF.type, OWL.DatatypeProperty))
 g.add((uniprot_uri, RDFS.domain, ex.protein))
 g.add((uniprot_uri, RDFS.range, XSD.string))
 for p in uniprot_list:
-   # print(p[0],'>>', p[1])
+    # print(p[0],'>>', p[1])
     protein_uri = ex[p[0]]
-    uniprot= p[1]
-  #  print(protein_uri, length_aa)
+    uniprot = p[1]
+    # print(protein_uri, length_aa)
     g.add((protein_uri, uniprot_uri, Literal(
         uniprot, datatype=XSD.string)))
-
 
 
 ################################
 # Data properities for Genes
 ###############################
 
-gene_MIM_list=[]
+gene_MIM_list = []
 for w in G.nodes:
-        cat = G.nodes[w].get('category', 0)
-        if str(cat) == 'gene':
-            gene_MIM = ''
-            gene_MIM = G.nodes[w].get('MIM',0)
-            gene_pair =[]
-            gene_pair.append(w)
-            gene_pair.append(gene_MIM)
-            gene_MIM_list.append(gene_pair)
+    cat = G.nodes[w].get('category', 0)
+    if str(cat) == 'gene':
+        gene_MIM = ''
+        gene_MIM = G.nodes[w].get('MIM', 0)
+        gene_pair = []
+        gene_pair.append(w)
+        gene_pair.append(gene_MIM)
+        gene_MIM_list.append(gene_pair)
 
 gene_MIM_uri = ex['gene_MIM']
 g.add((gene_MIM_uri, RDFS.label, Literal("gene_MIM")))
@@ -502,10 +493,9 @@ g.add((gene_MIM_uri, RDF.type, OWL.DatatypeProperty))
 g.add((gene_MIM_uri, RDFS.domain, ex.gene))
 g.add((gene_MIM_uri, RDFS.range, XSD.string))
 for w in gene_MIM_list:
-    gene_uri=ex[w[0]]
-    MIM= w[1]
+    gene_uri = ex[w[0]]
+    MIM = w[1]
     g.add((gene_uri, gene_MIM_uri, Literal(MIM, datatype=XSD.string)))
-
 
 
 ##############################
