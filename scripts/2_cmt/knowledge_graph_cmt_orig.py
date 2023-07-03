@@ -582,7 +582,8 @@ print("CMT Ontology written to", file_out)
 # Assuming you already have a graph G
 
 # Open a file in write mode
-with open('graph_attributes.txt', 'w') as file:
+# with open('graph_attributes.txt', 'w') as file:
+with open(results_dir('graph_attributes.txt'), 'w') as file:
     # Iterate through all nodes in the graph
     for node in G.nodes():
         # Retrieve the attributes of the node
