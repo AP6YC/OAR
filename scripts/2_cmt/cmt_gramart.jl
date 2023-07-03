@@ -16,13 +16,6 @@ using Revise
 using OAR
 
 # -----------------------------------------------------------------------------
-# ADDITIONAL DEPENDENCIES
-# -----------------------------------------------------------------------------
-
-# Parsing library
-using Lerche
-
-# -----------------------------------------------------------------------------
 # VARIABLES
 # -----------------------------------------------------------------------------
 
@@ -42,26 +35,27 @@ pargs = OAR.exp_parse(
 # CMT DATASET
 # -----------------------------------------------------------------------------
 
-
+# Construct the CMT parser
 cmt_parser = OAR.get_cmt_parser()
 
 # Set some sample text as the input statement
 text = raw"\"Periaxin\" \"is_a\" \"protein\""
 
 # Parse the statement
-k = Lerche.parse(cmt_parser, text)
+k = OAR.run_parser(cmt_parser, text)
 
-# Open the file
+# Open the edge attributes file
 open(edge_file) do f
     line = 0
     while ! eof(f)
         s = readline(f)
         line += 1
-        println("$line : $s")
-        k = Lerche.parse(cmt_parser, s)
-        println(k)
+        k = OAR.run_parser(cmt_parser, s)
+        @info "$line : $k"
     end
 end
+
+
 
 # # All-in-one function
 # fs, bnf = OAR.symbolic_iris()

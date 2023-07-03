@@ -2,19 +2,21 @@
     cmt.jl
 
 # Description
+Implements the parser used for the CMT edge attributes data.
 """
 
 # The grammar tree subtypes from a Lerche Transformer
 struct CMTGramARTTree <: Transformer end
 
 # The rules turn the terminals into `OAR` grammar symbols and statements into vectors
+const CMTSymbol = GSymbol{String}
 
 # Turn statements into Julia Vectors
-@rule statement(t::CMTGramARTTree, p) = Vector(p)
+@rule statement(t::CMTGramARTTree, p) = Vector{CMTSymbol}(p)
 # Remove backslashes in escaped strings
 @inline_rule string(t::CMTGramARTTree, s) = replace(s[2:end-1],"\\\""=>"\"")
 # Define the datatype for the strings themselves
-@rule cmt_symb(t::CMTGramARTTree, p) = OAR.GSymbol{String}(p[1], true)
+@rule cmt_symb(t::CMTGramARTTree, p) = CMTSymbol(p[1], true)
 
 """
 Constructs and returns a parser for the CMT edge attributes data.

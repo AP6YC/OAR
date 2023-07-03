@@ -10,13 +10,10 @@ This file loads common utilities and aggregates all other unit tests files.
 # PREAMBLE
 # -----------------------------------------------------------------------------
 
-# Preamble for all project scripts
-# using DrWatson
-# @quickactivate :OAR
 using OAR
 
 # -----------------------------------------------------------------------------
-# DEPENDENCIES
+# ADDITIONAL DEPENDENCIES
 # -----------------------------------------------------------------------------
 
 using
@@ -38,6 +35,27 @@ end
 # Grammar tests
 # -----------------------------------------------------------------------------
 
+@testset "IRIS Parser" begin
+    # Construct the symbolic IRIS dataset parser
+    iris_parser = OAR.get_iris_parser()
+
+    # Set some sample text as the input statement
+    text = raw"SL1 SW3 PL4 PW8"
+
+    # Parse the statement
+    k = OAR.run_parser(iris_parser, text)
+end
+
+@testset "CMT Parser" begin
+    # Construct the CMT dataset parser
+    cmt_parser = OAR.get_cmt_parser()
+
+    # Set some sample text as the input statement
+    text = raw"\"Periaxin\" \"is_a\" \"protein\""
+
+    # Parse the statement
+    k = OAR.run_parser(cmt_parser, text)
+end
 
 # -----------------------------------------------------------------------------
 # Iris grammar tests
@@ -75,6 +93,8 @@ end
     # Just the grammar
     art = OAR.GramART(bnf)
 
+    @assert art isa OAR.GramART
+
     # With preconstructed options
     opts = OAR.opts_GramART()
     art = OAR.GramART(bnf, opts)
@@ -103,20 +123,4 @@ end
     # Verify that the statements are a vectored datasplit
     @assert statements isa OAR.VectoredDataSplit
     @assert bnf isa OAR.CFG
-end
-
-@testset "GramART" begin
-    # All-in-one function
-    fs, bnf = OAR.symbolic_iris()
-
-    # Initialize the GramART module
-    gramart = OAR.GramART(bnf)
-
-    @assert gramart isa OAR.GramART
-
-    # Process the statements
-    n_positions = length(bnf.S)
-    # for statement in fs.train_x
-    #     OAR.process_statement!(gramart, statement)
-    # end
 end
