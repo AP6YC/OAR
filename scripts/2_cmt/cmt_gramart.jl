@@ -50,8 +50,10 @@ statements = Vector{OAR.CMTStatement}()
 open(edge_file) do f
     line = 0
     while ! eof(f)
+        # Read the line from the file
         s = readline(f)
         line += 1
+        # Parse the line into a structured statement
         k = OAR.run_parser(cmt_parser, s)
         push!(statements, k)
         # @info "$line : $k"

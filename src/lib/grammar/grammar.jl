@@ -18,16 +18,19 @@ abstract type Grammar end
 # TYPE ALIASES
 # -----------------------------------------------------------------------------
 
+# Type alias (`SymbolSet{T} = Set{[OAR.GSymbol](@ref)}`), a set of grammar symbols is implemented as a Julia set.
 """
 Type alias (`SymbolSet = Set{[OAR.GSymbol](@ref)}`), a set of grammar symbols is implemented as a Julia set.
 """
 const SymbolSet = Set{GSymbol}
+# const SymbolSet{T} = Set{GSymbol{T}}
 
 # const Statement = SymbolSet
 """
 Type alias (`Statement = Vector{[OAR.GSymbol](@ref)}`), a statement is a vector of grammar symbols.
 """
 const Statement = Vector{GSymbol}
+# const Statement{T} = Vector{GSymbol{T}}
 
 """
 Type alias (`ProductionRule = [OAR.SymbolSet](@ref)`), a grammar production rule is a set of symbols.
@@ -103,6 +106,42 @@ end
 # -----------------------------------------------------------------------------
 # FUNCTIONS
 # -----------------------------------------------------------------------------
+
+"""
+Generates a set of unique terminal symbols from a list of statements.
+"""
+function get_terminals(statements::Vector{Statement})
+    # Collect the unique terminals in the dataset
+    # terminals = Set{OAR.CMTSymbol}()
+    terminals = Set{eltype(eltype(statements))}()
+    for statement in statements
+        for symb in statement
+            push!(terminals, symb)
+        end
+    end
+    return terminals
+end
+
+# function get_production_rules(N::Vector{GSymbol}, statements::Vector{Statement})
+
+    # P =
+
+# end
+
+"""
+Constructs a context-free grammar that uses only simple subject-predicate-object statements.
+"""
+function SPOCFG(statements::Vector{Statement})
+    ordered_nonterminals = [
+        GSymbol("subject", false),
+        GSymbol("predicate", false),
+        GSymbol("object", false),
+    ]
+    N = Set(ordered_nonterminals)
+    T = get_terminals(statements)
+    # P =
+    return
+end
 
 """
 Creates a [`OAR.Statement`](@ref) from a vector of elements of arbitrary type.
