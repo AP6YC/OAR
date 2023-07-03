@@ -10,7 +10,6 @@ This file is the original experiment authored by Dr. Daniel Hier.
 """
 
 import os
-os.chdir("../../work/data/cmt/")
 import networkx as nx
 from rdflib import (
     Graph,
@@ -21,6 +20,18 @@ from rdflib import (
     XSD,
 )
 from rdflib.namespace import Namespace
+from pathlib import Path
+
+
+def results_dir(*args) -> Path:
+    results_path = Path("work", "results", "2_cmt")
+    results_path.mkdir(parents=True, exist_ok=True)
+    return results_path.joinpath(*args)
+
+
+# os.chdir("../../work/data/cmt/")
+# os.chdir("work/data/cmt/")
+
 genes = ('nefl', 'tor1a', 'mapt')
 proteins = ('neurofilament_light', 'torsin_1A', 'tau')
 MW = (61, 38, 55)
@@ -61,6 +72,64 @@ for gene, protein, mw in zip(genes, proteins, MW):
     )
 
 # Save the networkx graph g to disk
-graph_file = 'small_kg.graphml'
+# graph_file = 'small_kg.graphml'
+graph_file = results_dir('small_kg.graphml')
 nx.write_graphml(g, graph_file)
 print(f"{graph_file} saved as as file.")
+
+# Convert NetworkX graph to RDFLib graph
+G = Graph()
+
+# Namespaces
+ex = Namespace("http://example.org/")
+# Add data property molecular weight to graph G
+molecular_weight_uri = ex['molecular_weight']
+G.add((molecular_weight_uri, RDFS.label, Literal("molecular_weight")))
+G.add((molecular_weight_uri, RDF.type, OWL.DatatypeProperty))
+G.add((molecular_weight_uri, RDFS.domain, ex.protein))
+G.add((molecular_weight_uri, RDFS.range, XSD.integer))
+# Add object property "codes_for" to G
+object_property_uri = ex['codes_for']
+range_uri = ex['protein']
+domain_uri = ex['gene']
+G.add((object_property_uri, RDF.type, RDF.Property))
+G.add((object_property_uri, RDFS.domain, domain_uri))
+G.add((object_property_uri, RDFS.range, range_uri))
+# Add nodes and their attributes
+for node, data in g.nodes(data=True):
+    type_of_class = data['class_type']
+    category_name = data['category']
+    if type_of_class == 'instance':
+        instance_name_uri = ex[node]
+        category_name_uri = ex[category_name]
+        G.add((instance_name_uri, RDF.type, category_name_uri))
+        if category_name == 'protein':
+            mw = data['molecular_weight']
+            instance_name_uri = ex[node]
+            G.add((instance_name_uri, ex['molecular_weight'], Literal(mw)))
+
+# Add edges and their attributes
+for start_node, end_node, attribute in g.edges(data=True):
+    if attribute['relation'] == 'codes_for':
+        G.add((ex[start_node], ex['codes_for'], ex[end_node]))
+
+# Save RDFLib graph G to OWL file
+# ontology_file = 'small_ontology.owl'
+ontology_file = results_dir('small_ontology.owl')
+G.serialize(destination=ontology_file, format='xml')
+print(f"Ontology saved to {ontology_file} in OWL format.")
+
+# Define SPARQL query to find proteins with MW > 10
+
+query = """
+    PREFIX ex: <http://example.org/>
+    SELECT ?protein ?mw
+    WHERE {
+        ?protein a ex:protein;
+            ex:molecular_weight ?mw.
+        FILTER (?mw > 10)
+    }
+"""
+
+# Execute the query on the graph G
+results = G.query(query)
