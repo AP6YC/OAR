@@ -6,8 +6,8 @@ work/**
 !work/*
 # Except for the gitkeeps in these subfolders
 !work/**/.gitkeep
-# # Except for the unpacked data folder
-# !work/data/**
+# Except for the unpacked data folder
+!work/data/**
 
 # Development/scratch folder
 _dev/
