@@ -42,42 +42,8 @@ pargs = OAR.exp_parse(
 # CMT DATASET
 # -----------------------------------------------------------------------------
 
-# Declare the rules of the symbolic Iris grammar
-cmt_edge_grammar = raw"""
-    ?start: statement
 
-    statement: subject predicate object
-
-    subject     : string -> cmt_symb
-    predicate   : string -> cmt_symb
-    object      : string -> cmt_symb
-
-    string      : ESCAPED_STRING
-
-    %import common.ESCAPED_STRING
-    %import common.WS
-    %ignore WS
-"""
-
-# The grammar tree subtypes from a Lerche Transformer
-struct GramARTTree <: Transformer end
-
-# The rules turn the terminals into `OAR` grammar symbols and statements into vectors
-
-# Turn statements into Julia Vectors
-@rule statement(t::GramARTTree, p) = Vector(p)
-# Remove backslashes in escaped strings
-@inline_rule string(t::GramARTTree, s) = replace(s[2:end-1],"\\\""=>"\"")
-# Define the datatype for the strings themselves
-@rule cmt_symb(t::GramARTTree, p) = OAR.GSymbol{String}(p[1], true)
-
-# Create the parser from these rules
-cmt_parser = Lark(
-    cmt_edge_grammar,
-    parser="lalr",
-    lexer="standard",
-    transformer=GramARTTree()
-)
+cmt_parser = OAR.get_cmt_parser()
 
 # Set some sample text as the input statement
 text = raw"\"Periaxin\" \"is_a\" \"protein\""

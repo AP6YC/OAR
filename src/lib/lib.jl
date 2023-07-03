@@ -9,7 +9,7 @@ Aggregates all common types and functions that are used throughout the `OAR` pro
 """
 
 # -----------------------------------------------------------------------------
-# DEPENDENCIES
+# INCLUDES
 # -----------------------------------------------------------------------------
 
 # Version of the package as a constant
@@ -27,6 +27,9 @@ include("grammar/lib.jl")
 
 # GramART Julia implementation
 include("GramART.jl")
+
+# Lerche parsers
+include("parsers/lib.jl")
 
 # Data utilities
 include("data_utils.jl")

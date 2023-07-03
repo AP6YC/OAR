@@ -19,7 +19,7 @@ $DRWATSON_ARGS_DOC
 """
 function work_dir(args...)
     newdir(args...) = projectdir("work", args...)
-    mkpath(newdir(args...))
+    # mkpath(newdir(args...))
     return newdir(args...)
 end
 
@@ -30,7 +30,7 @@ $DRWATSON_ARGS_DOC
 """
 function results_dir(args...)
     newdir(args...) = work_dir("results", args...)
-    mkpath(newdir(args...))
+    # mkpath(newdir(args...))
     return newdir(args...)
 end
 
@@ -41,6 +41,6 @@ $DRWATSON_ARGS_DOC
 """
 function data_dir(args...)
     newdir(args...) = work_dir("data", args...)
-    mkpath(newdir(args...))
+    # mkpath(newdir(args...))
     return newdir(args...)
 end

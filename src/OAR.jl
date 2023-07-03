@@ -33,6 +33,7 @@ using
     ArgParse,
     DocStringExtensions,    # Docstring utilities
     DrWatson,
+    Lerche,                 # Parsers
     NumericalTypeAliases,   # RealMatrix, IntegerVector, etc.
     Parameters,             # @with_kw
     Pkg                     # Version
