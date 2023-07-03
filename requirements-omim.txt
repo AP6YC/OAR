@@ -3,3 +3,5 @@ networkx
 rdflib
 jupyterlab
 owlready2
+matplotlib
+scipy

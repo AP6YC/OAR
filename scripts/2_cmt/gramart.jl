@@ -10,8 +10,7 @@ This script shows how to use a GramART to cluster on the Iris dataset.
 # -----------------------------------------------------------------------------
 
 using Revise
-using DrWatson
-@quickactivate :OAR
+using OAR
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS

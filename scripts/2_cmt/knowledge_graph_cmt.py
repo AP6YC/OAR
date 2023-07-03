@@ -2,7 +2,7 @@
     knowledge_graph_cmt.py
 
 # Description
-This file is the original experiment authored by Dr. Daniel Hier.
+This file is a transcription of the original experiment authored by Dr. Daniel Hier.
 
 # Authors
 - Dr. Daniel Hier <dhier@mst.edu>
@@ -20,14 +20,9 @@ from rdflib import (
     XSD,
 )
 from rdflib.namespace import Namespace
-from pathlib import Path
 
-
-def results_dir(*args) -> Path:
-    results_path = Path("work", "results", "2_cmt")
-    results_path.mkdir(parents=True, exist_ok=True)
-    return results_path.joinpath(*args)
-
+# Local utilities
+from utils import results_dir
 
 # os.chdir("../../work/data/cmt/")
 # os.chdir("work/data/cmt/")
