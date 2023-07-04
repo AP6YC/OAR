@@ -60,4 +60,31 @@ function get_cmt_parser()
     return cmt_parser
 end
 
-# function
+"""
+Loads the CMT edge data file, parses the lines, and returns a vector of statements for GramART.
+
+# Arguments
+- `file::AbstractString`: the location of the edge data file.
+"""
+function get_cmt_statements(file::AbstractString)
+    # Construct the CMT parser
+    cmt_parser = OAR.get_cmt_parser()
+
+    # Initialize the statements vector
+    statements = Vector{OAR.CMTStatement}()
+
+    # Open the edge attributes file and parse
+    open(file) do f
+        while ! eof(f)
+            # Read the line from the file
+            s = readline(f)
+            # Parse the line into a structured statement
+            k = OAR.run_parser(cmt_parser, s)
+            # Push the statement to the vector of statements
+            push!(statements, k)
+        end
+    end
+
+    # Return the vector of parsed statements
+    return statements
+end
