@@ -80,11 +80,11 @@ end
 Returns a new [`OAR.GSymbol`](@ref) by adding a suffix.
 
 # Arguments
-- `symb::GSymbol`: the original symbol to append a suffix to.
+- `symb::GSymbol{T} where T <: AbstractString`: the original symbol to append a suffix to.
 - `num::Integer`: the integer to add as a suffix to the symbol.
 - `terminal::Bool=true`: optional (default true), to set the new symbol as terminal.
 """
-function join_gsymbol(symb::GSymbol, num::Integer ; terminal::Bool=true)
+function join_gsymbol(symb::GSymbol{T}, num::Integer ; terminal::Bool=true) where T <: AbstractString
     return GSymbol{String}(
         symb.data * string(num),
         terminal,
