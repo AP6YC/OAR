@@ -19,17 +19,17 @@ abstract type Grammar{T} end
 # -----------------------------------------------------------------------------
 
 """
-Type alias (`SymbolSet{T} = Set{[OAR.GSymbol{T}](@ref)}`), a set of grammar symbols is implemented as a Julia set.
+Type alias (`SymbolSet{T} = Set{[OAR.GSymbol](@ref){T}}`), a set of grammar symbols is implemented as a Julia set.
 """
 const SymbolSet{T} = Set{GSymbol{T}}
 
 """
-Type alias (`Statement{T} = Vector{[OAR.GSymbol{T}](@ref)}`), a statement is a vector of grammar symbols.
+Type alias (`Statement{T} = Vector{[OAR.GSymbol](@ref){T}}`), a statement is a vector of grammar symbols.
 """
 const Statement{T} = Vector{GSymbol{T}}
 
 """
-Type alias (`Statements{T} = Vector{[Statement{T}](@ref)}`), statements are a vector of the statement type.
+Type alias (`Statements{T} = Vector{[Statement](@ref){T}}`), statements are a vector of the statement type.
 """
 const Statements{T} = Vector{Statement{T}}
 
@@ -39,7 +39,7 @@ Type alias (`ProductionRule{T} = [OAR.SymbolSet{T}](@ref)`), a grammar productio
 const ProductionRule{T} = SymbolSet{T}
 
 """
-Type alias (`ProductionRuleSet{T} = Dict{[OAR.GSymbol{T}](@ref), [OAR.ProductionRule{T}](@ref)}`), a production rule set is a dictionary mapping grammar symbols to production rules.
+Type alias (`ProductionRuleSet{T} = Dict{[OAR.GSymbol](@ref){T}, [OAR.ProductionRule](@ref){T}}`), a production rule set is a dictionary mapping grammar symbols to production rules.
 """
 const ProductionRuleSet{T} = Dict{GSymbol{T}, ProductionRule{T}}
 

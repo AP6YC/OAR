@@ -174,7 +174,7 @@ Constructor for an [`OAR.GramART`](@ref) module that takes a CFG grammar and an 
 
 # Arguments
 $ARG_CFG
-- `kwargs...`: a list of keyword arguments for the [`OAR.opts_GramART`] options struct.
+- `kwargs...`: a list of keyword arguments for the [`OAR.opts_GramART`](@ref) options struct.
 """
 function GramART(grammar::CFG; kwargs...)
     # Construct the GramART options from the keyword arguments
@@ -337,9 +337,9 @@ Processes a statement for a [`OAR.GramART`](@ref) module.
 
 # Arguments
 - `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
-- `statement::Statement`: the grammar statement to process.
+- `statement::Statement{T} where T <: Any`: the grammar statement to process.
 """
-function process_statement!(gramart::GramART, statement::Statement, index::Int)
+function process_statement!(gramart::GramART, statement::Statement{T}, index::Int) where T <: Any
     for ix in eachindex(statement)
         inc_update_symbols!(gramart.protonodes[index], gramart.grammar.S[ix], statement[ix])
     end
