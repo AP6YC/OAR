@@ -25,8 +25,7 @@ end
 begin
 	using Revise
 	using OAR
-	using PlutoUI
-	pluto_utils = "src/lib/pluto.jl"
+	pluto_utils = "src/lib/utils/pluto.jl"
 	include(pluto_utils)
 end
 
