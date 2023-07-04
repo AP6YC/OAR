@@ -14,6 +14,3 @@ include("symbols.jl")
 
 # Grammar definitions
 include("grammar.jl")
-
-# Parsers definitions
-include("parser.jl")
