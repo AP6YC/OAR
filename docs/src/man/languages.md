@@ -10,12 +10,25 @@ The [`Julia`](https://julialang.org/) (usage documentation [here](https://docs.j
 - Datasets for experiments and the destination for subsequent results are under `work`.
 
 This repo is also structured as its own project for common code under `src/`.
-As such, experiments being with the following preamble to initialize `DrWatson` and load the `OAR` libary code:
+As such, most experiments begin with the following preamble to load `Revise` and `OAR`:
+
+```julia
+using Revise
+using OAR
+```
+
+`Revise.jl` is used here because it affords the ability to change functions and modules in scripts without having to reload the `Julia` session every time that a change is made.
+`OAR` is loaded as its own module because it contains most of the driver code for experiments.
+
+Some other experiments follow the `DrWatson` usage with the following preamble, which initializes `DrWatson` and loads the `OAR` libary code:
 
 ```julia
 using DrWatson
 @quickactivate :OAR
 ```
+
+The `@quickactivate` macro simply makes sure that the activate project is the `OAR` project and loads it.
+This usage is only necessary if running the experiment from some directory outside the project, but the assumption is made for most experiments that the script is run from the top of the `OAR` project
 
 ### Testing
 
@@ -24,7 +37,7 @@ Testing is done in the usual `Julia` workflow through the `Julia` REPL:
 
 ```julia-repl
 julia> ]
-(@v1.8) pkg> activate .
+(@v1.9) pkg> activate .
 (OAR) pkg> test
 ```
 
@@ -56,7 +69,7 @@ Pip requirements are listed in `requirements.txt`, and Python 3.11 is used.
 ## Rust
 
 The [`Rust`](https://www.rust-lang.org/) component of the project is contained with its own `oar/` folder.
-Until the `Rust` component becomes more sophisticated, its usage simply follows the usual compile-execute method with `cargo`:
+Until the `Rust` component becomes more sophisticated, its usage simply follows the usual binary project compile-execute method with `cargo run`:
 
 ```shell
 cd oar

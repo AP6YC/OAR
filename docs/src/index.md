@@ -12,6 +12,12 @@ end
 
 These pages serve as the official documentation for the `OAR` (*Ontologies with Adaptive Resonance*) project.
 
+The `OAR` project is a development workspace for experiments targeting ontologies and knowledge graphs with Adaptive Resonance Theory (ART) algorithms.
+Due to the broad nature of the research, many tools and types of experiments are involved, from medical ontologies to NLP parsing with tokenizers and deep model embeddings.
+As a result, please see the relevant documentation sections about the various programming languages, tools, and experiments involved throughout the repository.
+
+This repository is developed and maintained by Sasha Petrenko <petrenkos@mst.edu> on behalf of the Missouri University of Science and Technology (MS&T) Applied Computational Intelligence Laboratory (ACIL).
+
 ## Manual Outline
 
 This documentation is split into the following sections:

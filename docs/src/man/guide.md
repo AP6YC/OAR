@@ -8,7 +8,7 @@ To work with the `OAR` project, you should know:
 
 ## [Installation](@id installation)
 
-Because it is an experimental research repository, the OAR package is not registered on JuliaHub.
+Because it is an experimental research repository, the `OAR` package is not registered on JuliaHub.
 To set `Julia` component the project up, you must:
 
 - [Download a `Julia`](https://julialang.org/downloads/) distribution and install it on your system
