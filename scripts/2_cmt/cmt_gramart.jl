@@ -60,14 +60,7 @@ open(edge_file) do f
     end
 end
 
-# Collect the unique terminals in the dataset
-terminals = Set{OAR.CMTSymbol}()
-for statement in statements
-    for symb in statement
-        push!(terminals, symb)
-    end
-end
-
+# Generate a simple subject-predicate-object grammar from the statements
 grammar = OAR.SPOCFG(statements)
 
 # # All-in-one function

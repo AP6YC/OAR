@@ -169,7 +169,7 @@ function get_production_rules(N::Statement{T}, statements::Statements{T}) where 
         end
     end
 
-    return
+    return P
 end
 
 """
