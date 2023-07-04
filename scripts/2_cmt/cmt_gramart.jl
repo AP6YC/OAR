@@ -16,6 +16,12 @@ using Revise
 using OAR
 
 # -----------------------------------------------------------------------------
+# ADDITIONAL DEPENDENCIES
+# -----------------------------------------------------------------------------
+
+using ProgressMeter
+
+# -----------------------------------------------------------------------------
 # VARIABLES
 # -----------------------------------------------------------------------------
 
@@ -44,15 +50,15 @@ grammar = OAR.SPOCFG(statements)
 # # All-in-one function
 # fs, bnf = OAR.symbolic_iris()
 
-# # Initialize the GramART module
-# gramart = OAR.GramART(bnf)
-# gramart.opts.rho = 0.5
-# @info gramart
+# Initialize the GramART module
+gramart = OAR.GramART(grammar)
+gramart.opts.rho = 0.1
+@info gramart
 
-# # Process the statements
-# for statement in fs.train_x
-#     # OAR.process_statement!(gramart, statement, 1)
-#     OAR.train!(gramart, statement)
-# end
+# Process the statements
+@showprogress for statement in statements
+    # OAR.process_statement!(gramart, statement, 1)
+    OAR.train!(gramart, statement)
+end
 # # s = fs.train_x[1]
 # # OAR.train!(gramart, s)
