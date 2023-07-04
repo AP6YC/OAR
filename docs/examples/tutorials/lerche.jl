@@ -10,7 +10,7 @@
 
 # ## Overview
 
-# This example shows how the the `Lerche.jl` parsing library works, which provides the necessary machinery to define `lark`-like grammars and parse statements into arbitrary Julia structures to interface with the GramART tools in this project.
+# This example shows how the the [`Lerche.jl`](https://jamesrhester.github.io/Lerche.jl/dev/) parsing library works, which provides the necessary machinery to define `lark`-like grammars and parse statements into arbitrary Julia structures to interface with the GramART tools in this project.
 # These tools are demonstrated on the how to parse approximate symbolic statements of the real-valued Iris dataset back into a tree that can be used in GramART.
 
 # ## Setup

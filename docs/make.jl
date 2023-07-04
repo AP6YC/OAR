@@ -12,6 +12,8 @@ This file builds the documentation for the `OAR` project using Documenter.jl and
 # DEPENDENCIES
 # -----------------------------------------------------------------------------
 
+using Revise
+
 using
     Documenter,
     DemoCards,

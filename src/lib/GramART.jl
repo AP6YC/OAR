@@ -337,7 +337,7 @@ Processes a statement for a [`OAR.GramART`](@ref) module.
 
 # Arguments
 - `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
-- `statement::Statement{T} where T <: Any`: the grammar statement to process.
+- `statement::Statement{T} where T <: Any`: the grammar [`OAR.Statement`](@ref) to process.
 """
 function process_statement!(gramart::GramART, statement::Statement{T}, index::Int) where T <: Any
     for ix in eachindex(statement)
