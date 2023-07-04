@@ -3,6 +3,9 @@
 
 # Description
 Definition of the `OAR` module, which encapsulates experiment driver code.
+
+# Authors
+- Sasha Petrenko <petrenkos@mst.edu>
 """
 
 """

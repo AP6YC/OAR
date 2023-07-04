@@ -7,13 +7,13 @@ This script uses the Lerche parsing library for parsing Iris dataset statements 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
 """
+
 # -----------------------------------------------------------------------------
 # PREAMBLE
 # -----------------------------------------------------------------------------
 
 using Revise
-using DrWatson
-@quickactivate :OAR
+using OAR
 
 # -----------------------------------------------------------------------------
 # DEPENDENCIES

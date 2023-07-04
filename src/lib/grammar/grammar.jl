@@ -73,7 +73,7 @@ Context-Free [`Grammar`](@ref OAR.Grammar).
 
 Consists of a set of terminal symbols, non-terminal symbols, and production rules of Backus-Naur Form.
 """
-struct CFG{M} <: Grammar{U}
+struct CFG{U} <: Grammar{U}
     """
     Non-terminal symbols of the grammar.
     """

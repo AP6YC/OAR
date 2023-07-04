@@ -13,8 +13,7 @@ Demo experiment with an extended Backus-Naur form grammar.
 # -----------------------------------------------------------------------------
 
 using Revise
-using DrWatson
-@quickactivate :OAR
+using OAR
 
 # -----------------------------------------------------------------------------
 # EXPERIMENT

@@ -10,8 +10,7 @@ This script is a place to tinker with the development of grammar symbols in the 
 # -----------------------------------------------------------------------------
 
 using Revise
-using DrWatson
-@quickactivate :OAR
+using OAR
 
 # -----------------------------------------------------------------------------
 # SYMBOLS EXPERIMENT

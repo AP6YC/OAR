@@ -13,8 +13,7 @@ This script is used in the early development of GramART.
 # -----------------------------------------------------------------------------
 
 using Revise
-using DrWatson
-@quickactivate :OAR
+using OAR
 
 # -----------------------------------------------------------------------------
 # IRIS DATASET

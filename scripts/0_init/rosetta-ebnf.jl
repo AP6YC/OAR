@@ -6,6 +6,10 @@ The following is taken from the Rosetta Code article on parsing EBNF grammars wi
 https://rosettacode.org/wiki/Parse_EBNF#Julia
 """
 
+# -----------------------------------------------------------------------------
+# EXPERIMENT
+# -----------------------------------------------------------------------------
+
 struct Grammar
     regex::Regex
     rules::Dict{Symbol,Regex}

@@ -13,8 +13,13 @@ This script tinkers with the various DrWatson.jl directory locations as well as
 # -----------------------------------------------------------------------------
 
 using Revise
+using OAR
+
+# -----------------------------------------------------------------------------
+# ADDITIONAL DEPENDENCIES
+# -----------------------------------------------------------------------------
+
 using DrWatson
-@quickactivate :OAR
 
 # -----------------------------------------------------------------------------
 # DRWATSON BASE DIR COMMANDS

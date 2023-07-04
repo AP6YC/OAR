@@ -13,8 +13,7 @@ This script is a place to develop the symbolic version of the Iris dataset for v
 # -----------------------------------------------------------------------------
 
 using Revise
-using DrWatson
-@quickactivate :OAR
+using OAR
 
 # -----------------------------------------------------------------------------
 # IRIS DATASET
