@@ -68,6 +68,8 @@ for statement in statements
     end
 end
 
+grammar = OAR.SPOCFG(statements)
+
 # # All-in-one function
 # fs, bnf = OAR.symbolic_iris()
 
