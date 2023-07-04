@@ -112,7 +112,7 @@ mutable struct TreeNode <: ARTNode
 end
 
 """
-GramART options struct.
+GramART options struct as a `Parameters.jl` `@with_kw` object.
 """
 @with_kw mutable struct opts_GramART @deftype Float
     """

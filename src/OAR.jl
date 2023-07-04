@@ -34,6 +34,8 @@ using Reexport              # @reexport
 using
     AdaptiveResonance,      # ART algorithms
     ArgParse,               # ArgParseSettings
+    MLDatasets,             # Iris dataset
+    MLDataUtils,            # # Data utilities, splitting, etc.
     DocStringExtensions,    # Docstring utilities
     DrWatson,               # Project directory utilities
     Lerche,                 # Parsers
