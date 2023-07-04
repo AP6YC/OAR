@@ -18,3 +18,5 @@ Note that not all files are used in the experiment as some files are maintained 
 - `knowledge_graph_cmt_orig.py`: Dr. Hier's original script generating `node_attributes.txt`, `edge_attributes.txt`, and `OWL` files from the CMT OMIM data.
 - `knowledge_graph_cmt_simple.py`: Dr. Hier's original script implementing a simple knowledge graph and ontology for visualization.
 - `kgcmt.py`: A modification of `knowledge_graph_cmt_orig.py`, used for generating `edge_attributes_lerche.txt` for parsing in Julia with Lerche.jl.
+- `README.md`: this document.
+- `utils.py`: A collection of Python utility definitions and functions for the Python experiments withint his folder

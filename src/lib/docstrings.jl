@@ -63,7 +63,7 @@ const DRWATSON_ARGS_DOC = """
 """
 Common docstring, the arguments to argparse functions taking a description.
 """
-const ARG_ARG_DESCRIPTION = """
+const ARG_ARGPARSE_DESCRIPTION = """
 # Arguments
 - `description::AbstractString`: optional positional, the script description for the parser
 """

@@ -33,9 +33,9 @@ using Reexport              # @reexport
 # Full usings (which supports comma-separated import notation)
 using
     AdaptiveResonance,      # ART algorithms
-    ArgParse,
+    ArgParse,               # ArgParseSettings
     DocStringExtensions,    # Docstring utilities
-    DrWatson,
+    DrWatson,               # Project directory utilities
     Lerche,                 # Parsers
     NumericalTypeAliases,   # RealMatrix, IntegerVector, etc.
     Parameters,             # @with_kw

@@ -30,7 +30,7 @@ end
 """
 Common function for how `ArgParse.ArgParseSettings` are generated in the project.
 
-$ARG_ARG_DESCRIPTION
+$ARG_ARGPARSE_DESCRIPTION
 """
 function get_argparsesettings(description::AbstractString="")
     # Set up the parse settings
@@ -46,7 +46,7 @@ end
 """
 Parses the command line for common options in serial (non-distributed) experiments.
 
-$ARG_ARG_DESCRIPTION
+$ARG_ARGPARSE_DESCRIPTION
 """
 function exp_parse(description::AbstractString="An OAR experiment script.")
     # Set up the parse settings
@@ -71,7 +71,7 @@ end
 """
 Parses the command line for common options in distributed experiments.
 
-$ARG_ARG_DESCRIPTION
+$ARG_ARGPARSE_DESCRIPTION
 """
 function dist_exp_parse(description::AbstractString="A distributed OAR experiment script.")
     # Set up the parse settings

@@ -41,12 +41,12 @@ julia> ]
 (OAR) pkg> test
 ```
 
-These unit tests are also automated through [GitHub workflows]https://docs.github.com/en/actions/using-workflows.
+These unit tests are also automated through [GitHub workflows](https://docs.github.com/en/actions/using-workflows).
 
 ### Documentation
 
 The [`Documenter.jl`](https://documenter.juliadocs.org/stable/) package is used to generate documentation with examples being generated with [`DemoCards.jl`](https://democards.juliadocs.org/stable/).
-This documentation is generated and hosted with [GitHub workflows]https://docs.github.com/en/actions/using-workflows for the project.
+This documentation is generated and hosted with [GitHub workflows](https://docs.github.com/en/actions/using-workflows) for the project.
 To generate the documentation locally, change your terminal directory to the `docs/` directory and run Julia with the following REPL commands:
 
 ```julia-repl

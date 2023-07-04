@@ -92,7 +92,7 @@ struct ProtoNode <: ARTNode
 end
 
 """
-Alias for how ProtoNode children are indexed.
+Alias for how ProtoNode children are indexed (`ProtoChildren = Dict{GramARTSymbol, ProtoNode}`).
 """
 const ProtoChildren = Dict{GramARTSymbol, ProtoNode}
 
