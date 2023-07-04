@@ -5,7 +5,9 @@
 Implements the parser used for the CMT edge attributes data.
 """
 
-# The grammar tree subtypes from a Lerche Transformer
+"""
+The CMT grammar tree subtypes from a Lerche Transformer.
+"""
 struct CMTGramARTTree <: Transformer end
 
 """

@@ -25,9 +25,14 @@ fs, bnf = OAR.symbolic_iris()
 # Initialize the GramART module
 gramart = OAR.GramART(bnf)
 
+# Set the vigilance parameter and show
+gramart.opts.rho = 0.5
 @info gramart
 
 # Process the statements
 for statement in fs.train_x
-    OAR.process_statement!(gramart, statement)
+    OAR.train!(gramart, statement)
 end
+
+# See the statistics fo the first protonode
+@info gramart.protonodes[1].stats

@@ -10,3 +10,4 @@ Loosely, this folder contains scripts for the development of:
 - Non-`Lerch.jl` custom grammar data definitions using Extended Bachus-Naur forms production rules.
 - Transforming real-valued datasets like the Iris dataset into symbolic approximate representations.
 - Grammar symbol definitions and Julia types that implement the above.
+- `GramART` itself, including the data utilities that format data to be usable by `GramART`.

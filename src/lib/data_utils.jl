@@ -218,12 +218,12 @@ function real_to_symb(data::DataSplit, labels::Vector{String} ; bins::Int=10)
     end
 
     # bnf = OAR.DescretizedCFG(OAR.quick_statement(labels), bins=bins)
-    statements = Vector{Vector{GSymbol}}()
+    statements = Vector{Vector{GSymbol{String}}}()
 
     # Iterate over every sample
     for jx = 1:n_samples
         # Create an empty vector for the statement
-        local_st = Vector{GSymbol}()
+        local_st = Vector{GSymbol{String}}()
         for ix = 1:dim
             # Get the symbol for the feature dimension
             label = GSymbol{String}(labels[ix], true)
@@ -244,7 +244,7 @@ function real_to_symb(data::DataSplit, labels::Vector{String} ; bins::Int=10)
     st_test = statements[n_train + 1:end]
 
     # Create the split struct
-    vs_symbs = VectoredDataSplit{GSymbol, Int}(
+    vs_symbs = VectoredDataSplit{GSymbol{String}, Int}(
         st_train,
         st_test,
         data.train_y,

@@ -5,10 +5,14 @@
 Implements the parser used for the IRIS dataset.
 """
 
-
-# The grammar tree subtypes from a Lerche Transformer
+"""
+The IRIS grammar tree subtypes from a Lerche Transformer.
+"""
 struct IRISGramARTTree <: Transformer end
 
+"""
+Type alias stating that a symbolic IRIS dataset symbol is a string
+"""
 const IRISSymbol = GSymbol{String}
 
 # The rules turn the terminals into `OAR` grammar symbols and statements into vectors

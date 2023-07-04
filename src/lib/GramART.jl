@@ -157,7 +157,7 @@ Constructor for an [`OAR.GramART`](@ref) module that takes a CFG grammar and aut
 
 # Arguments
 $ARG_CFG
-- `opts::opts_GramART`: a custom set of [`OAR.GramART`](ref) options to use.
+- `opts::opts_GramART`: a custom set of [`OAR.GramART`](@ref) options to use.
 """
 function GramART(grammar::CFG, opts::opts_GramART)
     # Instantiate and return the GramART module
