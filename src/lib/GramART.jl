@@ -71,7 +71,6 @@ struct ProtoNode <: ARTNode
     The distribution over all symbols at this node.
     """
     dist::TerminalDist
-    # dist::Vector{Float}
 
     """
     The update counters for each symbol.
@@ -82,8 +81,6 @@ struct ProtoNode <: ARTNode
     The children on this node.
     """
     children::Dict{GramARTSymbol, ProtoNode}
-    # children::ProtoChildren
-    # children::Vector{ProtoNode}
 
     """
     The mutable options and stats of the ProtoNode.
@@ -132,10 +129,10 @@ struct GramART
     """
     protonodes::Vector{ProtoNode}
 
-    """
-    The [`OAR.TreeNode`](@ref)s of the GramART module.
-    """
-    treenodes::Vector{TreeNode}
+    # """
+    # The [`OAR.TreeNode`](@ref)s of the GramART module.
+    # """
+    # treenodes::Vector{TreeNode}
 
     """
     The [`OAR.CFG`](@ref) (Context-Free Grammar) used for processing data (statements).
@@ -163,7 +160,7 @@ function GramART(grammar::CFG, opts::opts_GramART)
     # Instantiate and return the GramART module
     GramART(
         Vector{ProtoNode}(),    # protonodes
-        Vector{TreeNode}(),     # treenodes
+        # Vector{TreeNode}(),     # treenodes
         grammar,                # grammar
         opts,                   # opts
     )

@@ -47,12 +47,9 @@ statements = OAR.get_cmt_statements(edge_file)
 # Generate a simple subject-predicate-object grammar from the statements
 grammar = OAR.SPOCFG(statements)
 
-# # All-in-one function
-# fs, bnf = OAR.symbolic_iris()
-
 # Initialize the GramART module
 gramart = OAR.GramART(grammar)
-gramart.opts.rho = 0.1
+gramart.opts.rho = 0.1  # ~12GB
 @info gramart
 
 # Process the statements
@@ -60,5 +57,3 @@ gramart.opts.rho = 0.1
     # OAR.process_statement!(gramart, statement, 1)
     OAR.train!(gramart, statement)
 end
-# # s = fs.train_x[1]
-# # OAR.train!(gramart, s)
