@@ -24,7 +24,7 @@ const CMTStatement = Vector{CMTSymbol}
 # Turn statements into Julia Vectors
 @rule statement(t::CMTGramARTTree, p) = Vector{CMTSymbol}(p)
 # Remove backslashes in escaped strings
-@inline_rule string(t::CMTGramARTTree, s) = replace(s[2:end-1],"\\\""=>"\"")
+@inline_rule gstring(t::CMTGramARTTree, s) = replace(s[2:end-1],"\\\""=>"\"")
 # Define the datatype for the strings themselves
 @rule cmt_symb(t::CMTGramARTTree, p) = CMTSymbol(p[1], true)
 
@@ -38,11 +38,11 @@ function get_cmt_parser()
 
         statement: subject predicate object
 
-        subject     : string -> cmt_symb
-        predicate   : string -> cmt_symb
-        object      : string -> cmt_symb
+        subject     : gstring -> cmt_symb
+        predicate   : gstring -> cmt_symb
+        object      : gstring -> cmt_symb
 
-        string      : ESCAPED_STRING
+        gstring      : ESCAPED_STRING
 
         %import common.ESCAPED_STRING
         %import common.WS
