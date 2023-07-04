@@ -14,17 +14,17 @@ This file is a modification of the `knowledge_graph_cmt_orig.py` experiment orig
 Created on Fri Mar 31 10:04:34 2023
 
 @author: danielhier
-What this program does?
-This is a python program that uses the networkx library
-It creates a knowledge graph based on 81 cases of Charcot-Marie-Tooth disease
-Cases are from the CMT phenotypic series in the OMIM (On-Line Mendelian Inheritance of Man)
-The graph is a bipartite graph with major nodes as disease variants (n=81) and genes (n=64)
-The disease variants are in the disease_list (n=81)
-The genes are in the gene_list (n=64)
-Genes are mapped to proteins
+What does this program do?
+This is a python program that uses the networkx library.
+It creates a knowledge graph based on 81 cases of Charcot-Marie-Tooth disease.
+Cases are from the CMT phenotypic series in the OMIM (On-Line Mendelian Inheritance of Man).
+The graph is a bipartite graph with major nodes as disease variants (n=81) and genes (n=64).
+The disease variants are in the disease_list (n=81).
+The genes are in the gene_list (n=64).
+Genes are mapped to proteins.
 Proteins are in the gene_protein_map which is a list of 60 sublists (n=60) which maps 60 genes(first element)
- to 60 proteins (second element)
-The inheritance list (n=4) lists the four modes of genetic inheritance [AR,AD, XLD, and XLR]
+ to 60 proteins (second element).
+The inheritance list (n=4) lists the four modes of genetic inheritance [AR,AD, XLD, and XLR].
 """
 
 # -----------------------------------------------------------------------------
@@ -90,7 +90,10 @@ df = pd.read_csv(CMT_DATA, header=0)
 #                        [0]            [1]                [2]           [3]      [4]         [5]               #
 # Column headers are [Gene_Location]	[Disease_variant]	[Disease_MIM]	[Gene]	[Gene_MIM] [inheritance]         #
 ################################################################################################################
-CMT_variants = df.values.tolist()  # Converts df to a list of 81 variants
+
+# Converts df to a list of 81 variants
+CMT_variants = df.values.tolist()
+
 # Create supernodes
 G.add_node('disease', category='disease', class_type='class')
 G.add_node('gene', category='gene', class_type='class')
