@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-    kgcmt.py
+    kg_cmt.py
 
 # Description
 This file is a modification of the `knowledge_graph_cmt_orig.py` experiment originally authors by Dr. Daniel Hier <dbhier@dbhier.com> and modified by Sasha Petrenko <petrenkos@mst.edu>
