@@ -31,7 +31,7 @@ def results_dir(*args) -> Path:
     """
 
     # Point to the experiment's results path
-    results_path = Path("work", "results", "2_cmt")
+    results_path = Path("work", "results", "2_kg_gramart", "cmt")
 
     # Verirfy that the directory exists
     results_path.mkdir(parents=True, exist_ok=True)

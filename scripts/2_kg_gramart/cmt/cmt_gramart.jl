@@ -26,7 +26,7 @@ using ProgressMeter
 # -----------------------------------------------------------------------------
 
 # Location of the edge attributes file, formatted for Lerch parsing
-edge_file = OAR.results_dir("2_cmt", "edge_attributes_lerche.txt")
+edge_file = OAR.results_dir("2_kg_gramart", "cmt", "edge_attributes_lerche.txt")
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -51,6 +51,7 @@ grammar = OAR.SPOCFG(statements)
 gramart = OAR.GramART(
     grammar,
     rho=0.1,    # ~12GB
+    terminated=false,
 )
 @info gramart
 

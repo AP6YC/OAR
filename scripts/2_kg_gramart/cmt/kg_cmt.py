@@ -58,12 +58,15 @@ EDGE_ATTRIBUTES = results_dir('edge_attributes.txt')
 RDF_OWL = results_dir('cmt.owl')
 LERCHE_EDGE_ATTRIBUTES = results_dir('edge_attributes_lerche.txt')
 
+REFLEXIVE = False
+
 # -----------------------------------------------------------------------------
 # EXPERIMENT
 # -----------------------------------------------------------------------------
 
 # G is the Graph object for CMT
 G = nx.DiGraph()
+# G = nx.Graph()
 phenotype_list = []
 gene_list = []
 gene_protein_map = []
@@ -125,14 +128,17 @@ for d in CMT_variants:
         disease_list.append(disease)
     G.add_node(disease, category='disease', MIM=disease_MIM, class_type='individual')   # the name of the disease variant
     disease_MIMs.append(disease_MIM)     # append disease_MIM to a list of disease_MIMs
+    # if REFLEXIVE:
     G.add_edge(disease, 'disease', relation='is_a')     # 'disease' is a supernode--all diseases are linked to this supernode
     if gene_location not in gene_locations:
         gene_locations.append(gene_location)    # gene_locations is a list of gene)location (n=61
     G.add_node(gene_location, category='gene_location', class_type='individual')
+    # if REFLEXIVE:
     G.add_edge(gene_location, 'gene_location', relation='is_a')
     G.add_edge(gene, gene_location, relation='has_gene_location')
     G.add_node(gene, category='gene', MIM=gene_MIM, gene_location=gene_location, class_type='individual')   # add each gene as a node
     G.add_edge(disease, gene, relation='is_caused_by')  # add an edge between disease and causative gene
+    # if REFLEXIVE:
     G.add_edge(gene, 'gene', relation='is_a')
     if gene not in gene_list:
         gene_list.append(gene)  # Useful list of all genes in knowledge graph
@@ -140,6 +146,7 @@ for d in CMT_variants:
     inherit = inheritance.split('|')    # Some diseases have multiple inheritances.  We use pipe charactder to separate multiple inheritances
     for inherit_type in inherit:
         G.add_node(inherit_type, category='inheritance', class_type='individual')   # Each form of inheritance is a node
+        # if REFLEXIVE:
         G.add_edge(inherit_type, 'inheritance', relation='is_a')
         G.add_edge(disease, inherit_type, relation='inherited_by')  # add an edge between the disease and how it is inherited
         if inherit_type not in inheritance_list:
@@ -175,6 +182,7 @@ for p in phenotype_by_disease:            # phenotype by disease has a length of
                 if phenotype not in phenotype_list:
                     phenotype_list.append(phenotype)
                     G.add_node(phenotype, category='phenotype', hpo_id=hpo_ID, class_type='individual')
+                    # if REFLEXIVE:
                     G.add_edge(phenotype, 'phenotype', relation='is_a')
                     G.add_edge(disease, phenotype, relation='has_a_phenotype')
 
@@ -205,9 +213,11 @@ for p in cmt_proteins:
     protein_location = p[12]
     length = p[13]
     G.add_node(chromosome, category='chromosome', class_type='individual')
+    # if REFLEXIVE:
     G.add_edge(chromosome, 'chromosome', relation='is_a')
     G.add_edge(gene, chromosome, relation='is_on_chromosome')
     G.add_node(protein, category='protein', uniprot=uniprot, class_type='individual')
+    # if REFLEXIVE:
     G.add_edge(protein, 'protein', relation='is_a')
     G.add_edge(gene, protein, relation='codes_for')
     protein_classes = protein_class.split('|')

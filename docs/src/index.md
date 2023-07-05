@@ -8,6 +8,8 @@ end
 <img src="assets/logo.png" width="300">
 ```
 
+# OAR
+
 ---
 
 These pages serve as the official documentation for the `OAR` (*Ontologies with Adaptive Resonance*) project.

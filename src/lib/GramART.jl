@@ -116,6 +116,11 @@ GramART options struct as a `Parameters.jl` `@with_kw` object.
     Vigilance parameter: ρ ∈ [0, 1]
     """
     rho = 0.7; @assert rho >= 0.0 && rho <= 1.0
+
+    """
+    Flag for generating nodes at the terminal distributions below their nonterminal positions.
+    """
+    terminated::Bool = false
 end
 
 """
@@ -259,9 +264,11 @@ function add_node!(gramart::GramART)
     for (nonterminal, prod_rule) in gramart.grammar.P
         # Add a node for each non-terminal place
         local_node = ProtoNode(gramart.grammar.T)
-        # Add a node for each terminal
-        for terminal in prod_rule
-            local_node.children[terminal] = ProtoNode(gramart.grammar.T)
+        if gramart.opts.terminated
+            # Add a node for each terminal
+            for terminal in prod_rule
+                local_node.children[terminal] = ProtoNode(gramart.grammar.T)
+            end
         end
         # Add the node with nodes to the top node
         top_node.children[nonterminal] = local_node
@@ -315,7 +322,12 @@ Updates the tree of protonodes from a single terminal.
 - `nonterminal::GramARTSymbol`: the nonterminal symbol of the statement to update at.
 - `symb::GramARTSymbol`: the terminal symbol to update everywhere.
 """
-function inc_update_symbols!(pn::ProtoNode, nonterminal::GramARTSymbol, symb::GramARTSymbol)
+function inc_update_symbols!(
+    pn::ProtoNode,
+    nonterminal::GramARTSymbol,
+    symb::GramARTSymbol,
+    terminated::Bool
+)
     # function inc_update_symbols!(pn::ProtoNode, symb::GSymbol, position::Integer)
     # Update the top node
     update_dist!(pn, symb)
@@ -323,7 +335,9 @@ function inc_update_symbols!(pn::ProtoNode, nonterminal::GramARTSymbol, symb::Gr
     middle_node = pn.children[nonterminal]
     update_dist!(middle_node, symb)
     # Update the corresponding terminal node
-    update_dist!(middle_node.children[symb], symb)
+    if terminated
+        update_dist!(middle_node.children[symb], symb)
+    end
 
     # Explicity empty return
     return
@@ -336,9 +350,13 @@ Processes a statement for a [`OAR.GramART`](@ref) module.
 - `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
 - `statement::Statement{T} where T <: Any`: the grammar [`OAR.Statement`](@ref) to process.
 """
-function process_statement!(gramart::GramART, statement::Statement{T}, index::Int) where T <: Any
+function process_statement!(
+    gramart::GramART,
+    statement::Statement{T},
+    index::Int
+) where T <: Any
     for ix in eachindex(statement)
-        inc_update_symbols!(gramart.protonodes[index], gramart.grammar.S[ix], statement[ix])
+        inc_update_symbols!(gramart.protonodes[index], gramart.grammar.S[ix], statement[ix], gramart.opts.terminated)
     end
 end
 
