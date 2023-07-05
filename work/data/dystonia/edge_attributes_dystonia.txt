@@ -1,0 +1,4056 @@
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_1', 'disease')
+relation: is_a
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_1', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_1', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_1', 'Dysphagia')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_1', 'Myokymia')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_1', 'Paroxysmal_dystonia')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_1', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_1', 'Childhood_onset')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_1', 'Paroxysmal_choreoathetosis')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_1', 'Facial_grimacing')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_1', 'Infantile_onset')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_1', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('2q35', 'gene_location')
+relation: is_a
+
+Edge: ('PNKD', 'Paroxysmal_nonkinesigenic_dyskinesia_1')
+relation: causes
+
+Edge: ('PNKD', 'gene')
+relation: is_a
+
+Edge: ('PNKD', '2q35')
+relation: has_gene_location
+
+Edge: ('PNKD', '218270392_218346793')
+relation: has_gene_location
+
+Edge: ('PNKD', 'PNKD_metallo_beta_lactamase_domain_containing')
+relation: codes_for
+
+Edge: ('AD', 'inheritance')
+relation: is_a
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Hypertonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Facial_palsy')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Inability_to_walk')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Middle_age_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Cerebellar_atrophy')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Hypotonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Generalized_hypotonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Motor_delay')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Oromandibular_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Depression')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Typified_by_incomplete_penetrance')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Hyperlordosis')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Generalized_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Abnormal_posturing')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Torsion_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Hyperreflexia')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Neonatal_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Dysphagia')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Writer_s_cramp')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Scoliosis')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Babinski_sign')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Kyphosis')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Multiple_joint_contractures')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Absent_Achilles_reflex')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_1_torsion_autosomal_dominant', 'Blepharospasm')
+relation: has_phenotype
+
+Edge: ('9q34.11', 'gene_location')
+relation: is_a
+
+Edge: ('TOR1A', 'Dystonia_1_torsion_autosomal_dominant')
+relation: causes
+
+Edge: ('TOR1A', 'gene')
+relation: is_a
+
+Edge: ('TOR1A', '9q34.11')
+relation: has_gene_location
+
+Edge: ('TOR1A', '9')
+relation: is_on_chromosome
+
+Edge: ('TOR1A', '129812942_129824244')
+relation: has_gene_location
+
+Edge: ('TOR1A', 'Torsin_family_1_member_A')
+relation: codes_for
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Narrow_face')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Dysphagia')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Sunken_cheeks')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Limb_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Gait_ataxia')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Hemidystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Dysphonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Young_adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Generalized_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Slender_build')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_4_torsion_autosomal_dominant', 'Torsion_dystonia')
+relation: has_phenotype
+
+Edge: ('19p13.3', 'gene_location')
+relation: is_a
+
+Edge: ('TUBB4A', 'Dystonia_4_torsion_autosomal_dominant')
+relation: causes
+
+Edge: ('TUBB4A', 'gene')
+relation: is_a
+
+Edge: ('TUBB4A', '19p13.3')
+relation: has_gene_location
+
+Edge: ('TUBB4A', '6494319_6502848')
+relation: has_gene_location
+
+Edge: ('TUBB4A', 'Tubulin_beta_4A_class_IVa')
+relation: codes_for
+
+Edge: ('Episodic_kinesigenic_dyskinesia_1', 'disease')
+relation: is_a
+
+Edge: ('Episodic_kinesigenic_dyskinesia_1', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Episodic_kinesigenic_dyskinesia_1', 'Paroxysmal_dystonia')
+relation: has_phenotype
+
+Edge: ('Episodic_kinesigenic_dyskinesia_1', 'Orofacial_dyskinesia')
+relation: has_phenotype
+
+Edge: ('Episodic_kinesigenic_dyskinesia_1', 'Abnormality_of_the_face')
+relation: has_phenotype
+
+Edge: ('Episodic_kinesigenic_dyskinesia_1', 'Seizure')
+relation: has_phenotype
+
+Edge: ('Episodic_kinesigenic_dyskinesia_1', 'Paroxysmal_choreoathetosis')
+relation: has_phenotype
+
+Edge: ('Episodic_kinesigenic_dyskinesia_1', 'Typified_by_incomplete_penetrance')
+relation: has_phenotype
+
+Edge: ('Episodic_kinesigenic_dyskinesia_1', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('16p11.2', 'gene_location')
+relation: is_a
+
+Edge: ('PRRT2', 'Episodic_kinesigenic_dyskinesia_1')
+relation: causes
+
+Edge: ('PRRT2', 'gene')
+relation: is_a
+
+Edge: ('PRRT2', '16p11.2')
+relation: has_gene_location
+
+Edge: ('PRRT2', '16')
+relation: is_on_chromosome
+
+Edge: ('PRRT2', '29811382_29815892')
+relation: has_gene_location
+
+Edge: ('PRRT2', 'Proline_rich_transmembrane_protein_2')
+relation: codes_for
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'AR')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Resting_tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Gaze_evoked_horizontal_nystagmus')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Bradykinesia')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Gait_ataxia')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Transient_hyperphenylalaninemia')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Childhood_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Hyperreflexia')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Incoordination')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Writer_s_cramp')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Scoliosis')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Talipes_equinovarus')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Babinski_sign')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Pes_cavus')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Cogwheel_rigidity')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Postural_tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Dysdiadochokinesis')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Jaw_hyperreflexia')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Autosomal_recessive_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Parkinsonism_with_favorable_response_to_dopaminergic_medication')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Spasticity')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Impaired_distal_vibration_sensation')
+relation: has_phenotype
+
+Edge: ('Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('14q22.2', 'gene_location')
+relation: is_a
+
+Edge: ('GCH1', 'Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia')
+relation: causes
+
+Edge: ('GCH1', 'gene')
+relation: is_a
+
+Edge: ('GCH1', '14q22.2')
+relation: has_gene_location
+
+Edge: ('GCH1', '14')
+relation: is_on_chromosome
+
+Edge: ('GCH1', '54842008_54902826')
+relation: has_gene_location
+
+Edge: ('GCH1', 'GTP_cyclohydrolase_1')
+relation: codes_for
+
+Edge: ('AR', 'inheritance')
+relation: is_a
+
+Edge: ('Dystonia_12', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_12', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_12', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Mutism')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Dysphagia')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Parkinsonism')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Bradykinesia')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Bulbar_signs')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Postural_instability')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Depression')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Childhood_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Young_adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Anxiety')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Typified_by_incomplete_penetrance')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Hypomimic_face')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Emotional_lability')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Unsteady_gait')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Drooling')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_12', 'Tremor')
+relation: has_phenotype
+
+Edge: ('19q13.2', 'gene_location')
+relation: is_a
+
+Edge: ('ATP1A3', 'Dystonia_12')
+relation: causes
+
+Edge: ('ATP1A3', 'gene')
+relation: is_a
+
+Edge: ('ATP1A3', '19q13.2')
+relation: has_gene_location
+
+Edge: ('ATP1A3', '41966582_41997497')
+relation: has_gene_location
+
+Edge: ('ATP1A3', 'ATPase_Na+_K+_transporting_subunit_alpha_3')
+relation: codes_for
+
+Edge: ('Dystonia_11_myoclonic', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_11_myoclonic', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_11_myoclonic', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Writer_s_cramp')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Panic_attack')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Hypotonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Alcoholism')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Depression')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Childhood_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Anxiety')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Typified_by_incomplete_penetrance')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Agoraphobia')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_11_myoclonic', 'Myoclonus')
+relation: has_phenotype
+
+Edge: ('7q21.3', 'gene_location')
+relation: is_a
+
+Edge: ('SGCE', 'Dystonia_11_myoclonic')
+relation: causes
+
+Edge: ('SGCE', 'gene')
+relation: is_a
+
+Edge: ('SGCE', '7q21.3')
+relation: has_gene_location
+
+Edge: ('SGCE', '7')
+relation: is_on_chromosome
+
+Edge: ('SGCE', '94524204_94656572')
+relation: has_gene_location
+
+Edge: ('SGCE', 'Sarcoglycan_epsilon')
+relation: codes_for
+
+Edge: ('Dystonia_2_torsion_autosomal_recessive', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_2_torsion_autosomal_recessive', 'AR')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_2_torsion_autosomal_recessive', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_2_torsion_autosomal_recessive', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_2_torsion_autosomal_recessive', 'Dysphagia')
+relation: has_phenotype
+
+Edge: ('Dystonia_2_torsion_autosomal_recessive', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Dystonia_2_torsion_autosomal_recessive', 'Autosomal_recessive_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_2_torsion_autosomal_recessive', 'Torsion_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_2_torsion_autosomal_recessive', 'Tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_2_torsion_autosomal_recessive', 'Slowly_progressive')
+relation: has_phenotype
+
+Edge: ('Dystonia_2_torsion_autosomal_recessive', 'Blepharospasm')
+relation: has_phenotype
+
+Edge: ('1p35.1', 'gene_location')
+relation: is_a
+
+Edge: ('HPCA', 'Dystonia_2_torsion_autosomal_recessive')
+relation: causes
+
+Edge: ('HPCA', 'gene')
+relation: is_a
+
+Edge: ('HPCA', '1p35.1')
+relation: has_gene_location
+
+Edge: ('HPCA', '32885994_32898441')
+relation: has_gene_location
+
+Edge: ('HPCA', 'Hippocalcin')
+relation: codes_for
+
+Edge: ('Dystonia_3_torsion_X_linked', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_3_torsion_X_linked', 'XLR')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_3_torsion_X_linked', 'X_linked_recessive_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_3_torsion_X_linked', 'Adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_3_torsion_X_linked', 'Chorea')
+relation: has_phenotype
+
+Edge: ('Dystonia_3_torsion_X_linked', 'Parkinsonism_with_favorable_response_to_dopaminergic_medication')
+relation: has_phenotype
+
+Edge: ('Dystonia_3_torsion_X_linked', 'Torsion_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_3_torsion_X_linked', 'Tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_3_torsion_X_linked', 'Myoclonus')
+relation: has_phenotype
+
+Edge: ('Xq13.1', 'gene_location')
+relation: is_a
+
+Edge: ('TAF1', 'Dystonia_3_torsion_X_linked')
+relation: causes
+
+Edge: ('TAF1', 'gene')
+relation: is_a
+
+Edge: ('TAF1', 'Xq13.1')
+relation: has_gene_location
+
+Edge: ('TAF1', 'X')
+relation: is_on_chromosome
+
+Edge: ('TAF1', '71366264_71532374')
+relation: has_gene_location
+
+Edge: ('TAF1', 'TATA_box_binding_protein_associated_factor_1')
+relation: codes_for
+
+Edge: ('XLR', 'inheritance')
+relation: is_a
+
+Edge: ('Dystonia_9', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_9', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_9', 'Paresthesia')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Diplopia')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Choreoathetosis')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Episodic_ataxia')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Migraine')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Morphological_abnormality_of_the_pyramidal_tract')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Dyskinesia')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Cognitive_impairment')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Abnormal_pyramidal_sign')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Spastic_paraplegia')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Headache')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_9', 'Hyperreflexia')
+relation: has_phenotype
+
+Edge: ('1p34.2', 'gene_location')
+relation: is_a
+
+Edge: ('SLC2A1', 'Dystonia_9')
+relation: causes
+
+Edge: ('SLC2A1', 'gene')
+relation: is_a
+
+Edge: ('SLC2A1', '1p34.2')
+relation: has_gene_location
+
+Edge: ('SLC2A1', 'Glut1_deficiency_syndrome_2')
+relation: causes
+
+Edge: ('SLC2A1', '42925353_42958893')
+relation: has_gene_location
+
+Edge: ('SLC2A1', 'Solute_carrier_family_2_member_1')
+relation: codes_for
+
+Edge: ('Dystonia_7_torsion', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_7_torsion', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_7_torsion', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_7_torsion', 'Clumsiness')
+relation: has_phenotype
+
+Edge: ('Dystonia_7_torsion', 'Writer_s_cramp')
+relation: has_phenotype
+
+Edge: ('Dystonia_7_torsion', 'Hand_tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_7_torsion', 'Dysphonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_7_torsion', 'Oromandibular_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_7_torsion', 'Skeletal_muscle_hypertrophy')
+relation: has_phenotype
+
+Edge: ('Dystonia_7_torsion', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_7_torsion', 'Torsion_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_7_torsion', 'Blepharospasm')
+relation: has_phenotype
+
+Edge: ('18p', 'gene_location')
+relation: is_a
+
+Edge: ('DYT7', 'Dystonia_7_torsion')
+relation: causes
+
+Edge: ('DYT7', 'gene')
+relation: is_a
+
+Edge: ('DYT7', '18p')
+relation: has_gene_location
+
+Edge: ('DYT7', 'none')
+relation: codes_for
+
+Edge: ('Dystonia_6_torsion', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_6_torsion', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_6_torsion', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Writer_s_cramp')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Limb_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Oromandibular_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Laryngeal_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Lingual_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Dysphonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Young_adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Typified_by_incomplete_penetrance')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Torsion_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_6_torsion', 'Myoclonus')
+relation: has_phenotype
+
+Edge: ('8p11.21', 'gene_location')
+relation: is_a
+
+Edge: ('THAP1', 'Dystonia_6_torsion')
+relation: causes
+
+Edge: ('THAP1', 'gene')
+relation: is_a
+
+Edge: ('THAP1', '8p11.21')
+relation: has_gene_location
+
+Edge: ('THAP1', '8')
+relation: is_on_chromosome
+
+Edge: ('THAP1', '42836674_42843325')
+relation: has_gene_location
+
+Edge: ('THAP1', 'THAP_domain_containing_1')
+relation: codes_for
+
+Edge: ('Dystonia_15_myoclonic', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_15_myoclonic', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_15_myoclonic', 'Writer_s_cramp')
+relation: has_phenotype
+
+Edge: ('Dystonia_15_myoclonic', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_15_myoclonic', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_15_myoclonic', 'Myoclonus')
+relation: has_phenotype
+
+Edge: ('18p11', 'gene_location')
+relation: is_a
+
+Edge: ('DYT15', 'Dystonia_15_myoclonic')
+relation: causes
+
+Edge: ('DYT15', 'gene')
+relation: is_a
+
+Edge: ('DYT15', '18p11')
+relation: has_gene_location
+
+Edge: ('DYT15', 'none')
+relation: codes_for
+
+Edge: ('Dystonia_13_torsion', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_13_torsion', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_13_torsion', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_13_torsion', 'Writer_s_cramp')
+relation: has_phenotype
+
+Edge: ('Dystonia_13_torsion', 'Limb_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_13_torsion', 'Oromandibular_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_13_torsion', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_13_torsion', 'Torsion_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_13_torsion', 'Tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_13_torsion', 'Blepharospasm')
+relation: has_phenotype
+
+Edge: ('1p36.32_p36.13', 'gene_location')
+relation: is_a
+
+Edge: ('DYT13', 'Dystonia_13_torsion')
+relation: causes
+
+Edge: ('DYT13', 'gene')
+relation: is_a
+
+Edge: ('DYT13', '1p36.32_p36.13')
+relation: has_gene_location
+
+Edge: ('DYT13', 'none')
+relation: codes_for
+
+Edge: ('Episodic_kinesigenic_dyskinesia_2', 'disease')
+relation: is_a
+
+Edge: ('Episodic_kinesigenic_dyskinesia_2', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Episodic_kinesigenic_dyskinesia_2', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Episodic_kinesigenic_dyskinesia_2', 'Paroxysmal_dyskinesia')
+relation: has_phenotype
+
+Edge: ('Episodic_kinesigenic_dyskinesia_2', 'Chorea')
+relation: has_phenotype
+
+Edge: ('Episodic_kinesigenic_dyskinesia_2', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Episodic_kinesigenic_dyskinesia_2', 'Involuntary_movements')
+relation: has_phenotype
+
+Edge: ('Episodic_kinesigenic_dyskinesia_2', 'Dyskinesia')
+relation: has_phenotype
+
+Edge: ('16q13_q22.1', 'gene_location')
+relation: is_a
+
+Edge: ('EKD2', 'Episodic_kinesigenic_dyskinesia_2')
+relation: causes
+
+Edge: ('EKD2', 'gene')
+relation: is_a
+
+Edge: ('EKD2', '16q13_q22.1')
+relation: has_gene_location
+
+Edge: ('EKD2', 'none')
+relation: codes_for
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_2', 'disease')
+relation: is_a
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_2', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_2', 'Paroxysmal_dystonia')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_2', 'Seizure')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_2', 'Migraine')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_2', 'Typified_by_incomplete_penetrance')
+relation: has_phenotype
+
+Edge: ('Paroxysmal_nonkinesigenic_dyskinesia_2', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('2q31', 'gene_location')
+relation: is_a
+
+Edge: ('PNKD2', 'Paroxysmal_nonkinesigenic_dyskinesia_2')
+relation: causes
+
+Edge: ('PNKD2', 'gene')
+relation: is_a
+
+Edge: ('PNKD2', '2q31')
+relation: has_gene_location
+
+Edge: ('PNKD2', 'none')
+relation: codes_for
+
+Edge: ('Dystonia_16', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_16', 'AR')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_16', 'Progressive')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Bradykinesia')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Morphological_abnormality_of_the_pyramidal_tract')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Motor_delay')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Laryngeal_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Cognitive_impairment')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Childhood_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Limb_pain')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Generalized_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Hyperreflexia')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Dysphagia')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Parkinsonism')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Delayed_speech_and_language_development')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Gait_disturbance')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Limb_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Postural_tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Lower_limb_pain')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Dyskinesia')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Early_young_adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Dysphonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Autosomal_recessive_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Abnormal_pyramidal_sign')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Retrocollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_16', 'Involuntary_movements')
+relation: has_phenotype
+
+Edge: ('2q31.2', 'gene_location')
+relation: is_a
+
+Edge: ('PRKRA', 'Dystonia_16')
+relation: causes
+
+Edge: ('PRKRA', 'gene')
+relation: is_a
+
+Edge: ('PRKRA', '2q31.2')
+relation: has_gene_location
+
+Edge: ('PRKRA', '178431292_178451512')
+relation: has_gene_location
+
+Edge: ('PRKRA', 'Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2')
+relation: codes_for
+
+Edge: ('Glut1_deficiency_syndrome_2', 'disease')
+relation: is_a
+
+Edge: ('Glut1_deficiency_syndrome_2', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Reduced_haptoglobin_level')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Cerebral_atrophy')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'EEG_abnormality')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Choreoathetosis')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Migraine')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Seizure')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Global_developmental_delay')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Ataxia')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Infantile_onset')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Increased_CSF_lactate')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Hypoglycorrhachia')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Dyskinesia')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Irritability')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Typified_by_incomplete_penetrance')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Hemolytic_anemia')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Reticulocytosis')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Tremor')
+relation: has_phenotype
+
+Edge: ('Glut1_deficiency_syndrome_2', 'Splenomegaly')
+relation: has_phenotype
+
+Edge: ('Dystonia_17_torsion_autosomal_recessive', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_17_torsion_autosomal_recessive', 'AR')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_17_torsion_autosomal_recessive', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_17_torsion_autosomal_recessive', 'Dysphonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_17_torsion_autosomal_recessive', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Dystonia_17_torsion_autosomal_recessive', 'Focal_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_17_torsion_autosomal_recessive', 'Autosomal_recessive_inheritance')
+relation: has_phenotype
+
+Edge: ('20p11.2_q13.12', 'gene_location')
+relation: is_a
+
+Edge: ('DYT17', 'Dystonia_17_torsion_autosomal_recessive')
+relation: causes
+
+Edge: ('DYT17', 'gene')
+relation: is_a
+
+Edge: ('DYT17', '20p11.2_q13.12')
+relation: has_gene_location
+
+Edge: ('DYT17', 'none')
+relation: codes_for
+
+Edge: ('Dystonia_21', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_21', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_21', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_21', 'Young_adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_21', 'Laryngeal_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_21', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_21', 'Blepharospasm')
+relation: has_phenotype
+
+Edge: ('2q14.3_q21.3', 'gene_location')
+relation: is_a
+
+Edge: ('DYT21', 'Dystonia_21')
+relation: causes
+
+Edge: ('DYT21', 'gene')
+relation: is_a
+
+Edge: ('DYT21', '2q14.3_q21.3')
+relation: has_gene_location
+
+Edge: ('DYT21', 'none')
+relation: codes_for
+
+Edge: ('Dystonia_23', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_23', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_23', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Writer_s_cramp')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Progressive')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Axial_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Gait_disturbance')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Cerebellar_atrophy')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Cerebral_cortical_atrophy')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Limb_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Arrhythmia')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Dysphonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Head_tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_23', 'Myoclonus')
+relation: has_phenotype
+
+Edge: ('9q34', 'gene_location')
+relation: is_a
+
+Edge: ('DYT23', 'Dystonia_23')
+relation: causes
+
+Edge: ('DYT23', 'gene')
+relation: is_a
+
+Edge: ('DYT23', '9q34')
+relation: has_gene_location
+
+Edge: ('DYT23', 'none')
+relation: codes_for
+
+Edge: ('Dystonia_24', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_24', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_24', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_24', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_24', 'Young_adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_24', 'Typified_by_incomplete_penetrance')
+relation: has_phenotype
+
+Edge: ('Dystonia_24', 'Arm_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_24', 'Oromandibular_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_24', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_24', 'Head_tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_24', 'Blepharospasm')
+relation: has_phenotype
+
+Edge: ('Dystonia_24', 'Limb_tremor')
+relation: has_phenotype
+
+Edge: ('11p14.3_p14.2', 'gene_location')
+relation: is_a
+
+Edge: ('ANO3', 'Dystonia_24')
+relation: causes
+
+Edge: ('ANO3', 'gene')
+relation: is_a
+
+Edge: ('ANO3', '11p14.3_p14.2')
+relation: has_gene_location
+
+Edge: ('ANO3', '11')
+relation: is_on_chromosome
+
+Edge: ('ANO3', '26188842_26663289')
+relation: has_gene_location
+
+Edge: ('ANO3', 'Anoctamin_3')
+relation: codes_for
+
+Edge: ('Dystonia_25', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_25', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_25', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_25', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_25', 'Dysphonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_25', 'Limb_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_25', 'Adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_25', 'Laryngeal_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_25', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_25', 'Lingual_dystonia')
+relation: has_phenotype
+
+Edge: ('18p11.21', 'gene_location')
+relation: is_a
+
+Edge: ('GNAL', 'Dystonia_25')
+relation: causes
+
+Edge: ('GNAL', 'gene')
+relation: is_a
+
+Edge: ('GNAL', '18p11.21')
+relation: has_gene_location
+
+Edge: ('GNAL', '18')
+relation: is_on_chromosome
+
+Edge: ('GNAL', '11689264_11885685')
+relation: has_gene_location
+
+Edge: ('GNAL', 'G_protein_subunit_alpha_L')
+relation: codes_for
+
+Edge: ('Dystonia_26_myoclonic', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_26_myoclonic', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_26_myoclonic', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Progressive')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Laryngeal_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Early_young_adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Dysphonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Depression')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Childhood_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Anxiety')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Blepharospasm')
+relation: has_phenotype
+
+Edge: ('Dystonia_26_myoclonic', 'Myoclonus')
+relation: has_phenotype
+
+Edge: ('22q12.3', 'gene_location')
+relation: is_a
+
+Edge: ('KCTD17', 'Dystonia_26_myoclonic')
+relation: causes
+
+Edge: ('KCTD17', 'gene')
+relation: is_a
+
+Edge: ('KCTD17', '22q12.3')
+relation: has_gene_location
+
+Edge: ('KCTD17', '22')
+relation: is_on_chromosome
+
+Edge: ('KCTD17', '37051736_37063390')
+relation: has_gene_location
+
+Edge: ('KCTD17', 'Potassium_channel_tetramerization_domain_containing_17')
+relation: codes_for
+
+Edge: ('Dystonia_27', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_27', 'AR')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_27', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_27', 'Action_tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_27', 'Writer_s_cramp')
+relation: has_phenotype
+
+Edge: ('Dystonia_27', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_27', 'Limb_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_27', 'Young_adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_27', 'Postural_tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_27', 'Autosomal_recessive_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_27', 'Oromandibular_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_27', 'Laryngeal_dystonia')
+relation: has_phenotype
+
+Edge: ('2q37.3', 'gene_location')
+relation: is_a
+
+Edge: ('COL6A3', 'Dystonia_27')
+relation: causes
+
+Edge: ('COL6A3', 'gene')
+relation: is_a
+
+Edge: ('COL6A3', '2q37.3')
+relation: has_gene_location
+
+Edge: ('COL6A3', '2')
+relation: is_on_chromosome
+
+Edge: ('COL6A3', '237324003_237414207')
+relation: has_gene_location
+
+Edge: ('COL6A3', 'Collagen_type_VI_alpha_3_chain')
+relation: codes_for
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'AR')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Progressive')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Rigidity')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Hypotonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Pigmentary_retinopathy')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Ataxia')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Craniofacial_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Nystagmus')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Failure_to_thrive')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Childhood_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Paroxysmal_dyskinesia')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Slow_saccadic_eye_movements')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Reduced_visual_acuity')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Hyperreflexia')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Dysphagia')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Clumsiness')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Gait_disturbance')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Babinski_sign')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Limb_joint_contracture')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Feeding_difficulties')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Esophoria')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Chorea')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Delayed_gross_motor_development')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Dyskinesia')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Autosomal_recessive_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Visual_impairment')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Optic_atrophy')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Loss_of_ambulation')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Optic_disc_pallor')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Spasticity')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Athetosis')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Involuntary_movements')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Myoclonus')
+relation: has_phenotype
+
+Edge: ('Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities', 'Blepharospasm')
+relation: has_phenotype
+
+Edge: ('1p35.3', 'gene_location')
+relation: is_a
+
+Edge: ('MECR', 'Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities')
+relation: causes
+
+Edge: ('MECR', 'gene')
+relation: is_a
+
+Edge: ('MECR', '1p35.3')
+relation: has_gene_location
+
+Edge: ('MECR', '1')
+relation: is_on_chromosome
+
+Edge: ('MECR', '29192657_29230942')
+relation: has_gene_location
+
+Edge: ('MECR', 'Mitochondrial_trans_2_enoyl_CoA_reductase')
+relation: codes_for
+
+Edge: ('Dystonia_28_childhood_onset', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_28_childhood_onset', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_28_childhood_onset', 'Astigmatism')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Progressive')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Intellectual_disability_mild')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Strabismus')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Short_stature')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Motor_delay')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Oromandibular_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Laryngeal_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Cognitive_impairment')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Craniofacial_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Childhood_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Typified_by_incomplete_penetrance')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Bulbous_nose')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Microcephaly')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Delayed_speech_and_language_development')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Abnormality_of_eye_movement')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Gait_disturbance')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Global_developmental_delay')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Dysphonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Tip_toe_gait')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Spasticity')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Retrocollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_28_childhood_onset', 'Myoclonus')
+relation: has_phenotype
+
+Edge: ('19q13.12', 'gene_location')
+relation: is_a
+
+Edge: ('KMT2B', 'Dystonia_28_childhood_onset')
+relation: causes
+
+Edge: ('KMT2B', 'gene')
+relation: is_a
+
+Edge: ('KMT2B', '19q13.12')
+relation: has_gene_location
+
+Edge: ('KMT2B', '19')
+relation: is_on_chromosome
+
+Edge: ('KMT2B', '35717973_35738878')
+relation: has_gene_location
+
+Edge: ('KMT2B', 'Lysine_methyltransferase_2B')
+relation: codes_for
+
+Edge: ('Dystonia_30', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_30', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_30', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Writer_s_cramp')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Hypothalamic_hamartoma')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Intellectual_disability_mild')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Intellectual_disability_moderate')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Middle_age_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Leg_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Seizure')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Arm_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Globus_pallidus_hypointensity_on_susceptibility_weighted_imaging')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Oromandibular_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Impulsivity')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Childhood_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Aggressive_behavior')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Young_adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Diffuse_cerebral_atrophy')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Bipolar_affective_disorder')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Loss_of_ambulation')
+relation: has_phenotype
+
+Edge: ('Dystonia_30', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('20p13', 'gene_location')
+relation: is_a
+
+Edge: ('VPS16', 'Dystonia_30')
+relation: causes
+
+Edge: ('VPS16', 'gene')
+relation: is_a
+
+Edge: ('VPS16', '20p13')
+relation: has_gene_location
+
+Edge: ('VPS16', '20')
+relation: is_on_chromosome
+
+Edge: ('VPS16', '2840703_2866732')
+relation: has_gene_location
+
+Edge: ('VPS16', 'VPS16_core_subunit_of_CORVET_and_HOPS_complexes')
+relation: codes_for
+
+Edge: ('Dystonia_31', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_31', 'AR')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_31', 'Difficulty_walking')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Writer_s_cramp')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Dysphagia')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Parkinsonism')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Muscle_stiffness')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Leg_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Arm_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Craniofacial_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Depression')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Young_adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Autosomal_recessive_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Generalized_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Weak_voice')
+relation: has_phenotype
+
+Edge: ('Dystonia_31', 'Abnormal_posturing')
+relation: has_phenotype
+
+Edge: ('9q22.32', 'gene_location')
+relation: is_a
+
+Edge: ('AOPEP', 'Dystonia_31')
+relation: causes
+
+Edge: ('AOPEP', 'gene')
+relation: is_a
+
+Edge: ('AOPEP', '9q22.32')
+relation: has_gene_location
+
+Edge: ('AOPEP', '94726604_95087159')
+relation: has_gene_location
+
+Edge: ('AOPEP', 'Aminopeptidase_O_putative')
+relation: codes_for
+
+Edge: ('Dystonia_32', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_32', 'AR')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_32', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_32', 'Dysphagia')
+relation: has_phenotype
+
+Edge: ('Dystonia_32', 'Lower_limb_hyperreflexia')
+relation: has_phenotype
+
+Edge: ('Dystonia_32', 'Limb_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_32', 'Dysarthria')
+relation: has_phenotype
+
+Edge: ('Dystonia_32', 'Young_adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_32', 'Autosomal_recessive_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_32', 'Brain_atrophy')
+relation: has_phenotype
+
+Edge: ('Dystonia_32', 'Laryngeal_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_32', 'T2_hypointense_basal_ganglia')
+relation: has_phenotype
+
+Edge: ('11q23.3', 'gene_location')
+relation: is_a
+
+Edge: ('VPS11', 'Dystonia_32')
+relation: causes
+
+Edge: ('VPS11', 'gene')
+relation: is_a
+
+Edge: ('VPS11', '11q23.3')
+relation: has_gene_location
+
+Edge: ('VPS11', '119067818_119081972')
+relation: has_gene_location
+
+Edge: ('VPS11', 'VPS11_core_subunit_of_CORVET_and_HOPS_complexes')
+relation: codes_for
+
+Edge: ('Dystonia_33', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_33', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_33', 'AR')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_33', 'Axial_hypotonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Axial_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Babinski_sign')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Pes_cavus')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Limb_dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Neonatal_seizure')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Global_developmental_delay')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Early_young_adult_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Childhood_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Spasticity')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Intellectual_disability')
+relation: has_phenotype
+
+Edge: ('Dystonia_33', 'Vertical_supranuclear_gaze_palsy')
+relation: has_phenotype
+
+Edge: ('2p22.2', 'gene_location')
+relation: is_a
+
+Edge: ('EIF2AK2', 'Dystonia_33')
+relation: causes
+
+Edge: ('EIF2AK2', 'gene')
+relation: is_a
+
+Edge: ('EIF2AK2', '2p22.2')
+relation: has_gene_location
+
+Edge: ('EIF2AK2', '37099210_37157522')
+relation: has_gene_location
+
+Edge: ('EIF2AK2', 'Eukaryotic_translation_initiation_factor_2_alpha_kinase_2')
+relation: codes_for
+
+Edge: ('Dystonia_34_myoclonic', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_34_myoclonic', 'AD')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_34_myoclonic', 'Torticollis')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Rotary_nystagmus')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Hand_tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Juvenile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Writer_s_cramp')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Impaired_tandem_gait')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Ptosis')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Amblyopia')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Impaired_smooth_pursuit')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Duane_anomaly')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Autosomal_dominant_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Head_tremor')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Hypermetric_saccades')
+relation: has_phenotype
+
+Edge: ('Dystonia_34_myoclonic', 'Myoclonus')
+relation: has_phenotype
+
+Edge: ('5q22.3', 'gene_location')
+relation: is_a
+
+Edge: ('KCNN2', 'Dystonia_34_myoclonic')
+relation: causes
+
+Edge: ('KCNN2', 'gene')
+relation: is_a
+
+Edge: ('KCNN2', '5q22.3')
+relation: has_gene_location
+
+Edge: ('KCNN2', '5')
+relation: is_on_chromosome
+
+Edge: ('KCNN2', '114055926_114496500')
+relation: has_gene_location
+
+Edge: ('KCNN2', 'Potassium_calcium_activated_channel_subfamily_N_member_2')
+relation: codes_for
+
+Edge: ('Dystonia_35_childhood_onset', 'disease')
+relation: is_a
+
+Edge: ('Dystonia_35_childhood_onset', 'AR')
+relation: has_inheritance_by
+
+Edge: ('Dystonia_35_childhood_onset', 'Dystonia')
+relation: has_phenotype
+
+Edge: ('Dystonia_35_childhood_onset', 'Global_developmental_delay')
+relation: has_phenotype
+
+Edge: ('Dystonia_35_childhood_onset', 'Infantile_onset')
+relation: has_phenotype
+
+Edge: ('Dystonia_35_childhood_onset', 'Autosomal_recessive_inheritance')
+relation: has_phenotype
+
+Edge: ('Dystonia_35_childhood_onset', 'Intellectual_disability')
+relation: has_phenotype
+
+Edge: ('3p13', 'gene_location')
+relation: is_a
+
+Edge: ('SHQ1', 'Dystonia_35_childhood_onset')
+relation: causes
+
+Edge: ('SHQ1', 'gene')
+relation: is_a
+
+Edge: ('SHQ1', '3p13')
+relation: has_gene_location
+
+Edge: ('SHQ1', '3')
+relation: is_on_chromosome
+
+Edge: ('SHQ1', '72749277_72861914')
+relation: has_gene_location
+
+Edge: ('SHQ1', 'SHQ1_H_ACA_ribonucleoprotein_assembly_factor')
+relation: codes_for
+
+Edge: ('Episodic_kinesigenic_dyskinesia_3', 'disease')
+relation: is_a
+
+Edge: ('Episodic_kinesigenic_dyskinesia_3', 'AD')
+relation: has_inheritance_by
+
+Edge: ('11q13.2', 'gene_location')
+relation: is_a
+
+Edge: ('TMEM151A', 'Episodic_kinesigenic_dyskinesia_3')
+relation: causes
+
+Edge: ('TMEM151A', 'gene')
+relation: is_a
+
+Edge: ('TMEM151A', '11q13.2')
+relation: has_gene_location
+
+Edge: ('TMEM151A', '66291894_66296664')
+relation: has_gene_location
+
+Edge: ('TMEM151A', 'Transmembrane_protein_151A')
+relation: codes_for
+
+Edge: ('Torticollis', 'phenotype')
+relation: is_a
+
+Edge: ('Writer_s_cramp', 'phenotype')
+relation: is_a
+
+Edge: ('Juvenile_onset', 'phenotype')
+relation: is_a
+
+Edge: ('Dysarthria', 'phenotype')
+relation: is_a
+
+Edge: ('Limb_dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Oromandibular_dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Laryngeal_dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Lingual_dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Dysphonia', 'phenotype')
+relation: is_a
+
+Edge: ('Young_adult_onset', 'phenotype')
+relation: is_a
+
+Edge: ('Typified_by_incomplete_penetrance', 'phenotype')
+relation: is_a
+
+Edge: ('Autosomal_dominant_inheritance', 'phenotype')
+relation: is_a
+
+Edge: ('Torsion_dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Myoclonus', 'phenotype')
+relation: is_a
+
+Edge: ('Focal_dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Autosomal_recessive_inheritance', 'phenotype')
+relation: is_a
+
+Edge: ('Paresthesia', 'phenotype')
+relation: is_a
+
+Edge: ('Diplopia', 'phenotype')
+relation: is_a
+
+Edge: ('Choreoathetosis', 'phenotype')
+relation: is_a
+
+Edge: ('Dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Episodic_ataxia', 'phenotype')
+relation: is_a
+
+Edge: ('Migraine', 'phenotype')
+relation: is_a
+
+Edge: ('Morphological_abnormality_of_the_pyramidal_tract', 'phenotype')
+relation: is_a
+
+Edge: ('Dyskinesia', 'phenotype')
+relation: is_a
+
+Edge: ('Cognitive_impairment', 'phenotype')
+relation: is_a
+
+Edge: ('Abnormal_pyramidal_sign', 'phenotype')
+relation: is_a
+
+Edge: ('Spastic_paraplegia', 'phenotype')
+relation: is_a
+
+Edge: ('Headache', 'phenotype')
+relation: is_a
+
+Edge: ('Hyperreflexia', 'phenotype')
+relation: is_a
+
+Edge: ('Arm_dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Head_tremor', 'phenotype')
+relation: is_a
+
+Edge: ('Blepharospasm', 'phenotype')
+relation: is_a
+
+Edge: ('Limb_tremor', 'phenotype')
+relation: is_a
+
+Edge: ('Narrow_face', 'phenotype')
+relation: is_a
+
+Edge: ('Dysphagia', 'phenotype')
+relation: is_a
+
+Edge: ('Sunken_cheeks', 'phenotype')
+relation: is_a
+
+Edge: ('Gait_ataxia', 'phenotype')
+relation: is_a
+
+Edge: ('Hemidystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Generalized_dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Slender_build', 'phenotype')
+relation: is_a
+
+Edge: ('X_linked_recessive_inheritance', 'phenotype')
+relation: is_a
+
+Edge: ('Adult_onset', 'phenotype')
+relation: is_a
+
+Edge: ('Chorea', 'phenotype')
+relation: is_a
+
+Edge: ('Parkinsonism_with_favorable_response_to_dopaminergic_medication', 'phenotype')
+relation: is_a
+
+Edge: ('Tremor', 'phenotype')
+relation: is_a
+
+Edge: ('Hypertonia', 'phenotype')
+relation: is_a
+
+Edge: ('Facial_palsy', 'phenotype')
+relation: is_a
+
+Edge: ('Inability_to_walk', 'phenotype')
+relation: is_a
+
+Edge: ('Middle_age_onset', 'phenotype')
+relation: is_a
+
+Edge: ('Cerebellar_atrophy', 'phenotype')
+relation: is_a
+
+Edge: ('Hypotonia', 'phenotype')
+relation: is_a
+
+Edge: ('Generalized_hypotonia', 'phenotype')
+relation: is_a
+
+Edge: ('Motor_delay', 'phenotype')
+relation: is_a
+
+Edge: ('Depression', 'phenotype')
+relation: is_a
+
+Edge: ('Hyperlordosis', 'phenotype')
+relation: is_a
+
+Edge: ('Abnormal_posturing', 'phenotype')
+relation: is_a
+
+Edge: ('Neonatal_onset', 'phenotype')
+relation: is_a
+
+Edge: ('Scoliosis', 'phenotype')
+relation: is_a
+
+Edge: ('Babinski_sign', 'phenotype')
+relation: is_a
+
+Edge: ('Kyphosis', 'phenotype')
+relation: is_a
+
+Edge: ('Multiple_joint_contractures', 'phenotype')
+relation: is_a
+
+Edge: ('Absent_Achilles_reflex', 'phenotype')
+relation: is_a
+
+Edge: ('Lower_limb_hyperreflexia', 'phenotype')
+relation: is_a
+
+Edge: ('Brain_atrophy', 'phenotype')
+relation: is_a
+
+Edge: ('T2_hypointense_basal_ganglia', 'phenotype')
+relation: is_a
+
+Edge: ('Paroxysmal_dyskinesia', 'phenotype')
+relation: is_a
+
+Edge: ('Involuntary_movements', 'phenotype')
+relation: is_a
+
+Edge: ('Astigmatism', 'phenotype')
+relation: is_a
+
+Edge: ('Progressive', 'phenotype')
+relation: is_a
+
+Edge: ('Intellectual_disability_mild', 'phenotype')
+relation: is_a
+
+Edge: ('Strabismus', 'phenotype')
+relation: is_a
+
+Edge: ('Short_stature', 'phenotype')
+relation: is_a
+
+Edge: ('Craniofacial_dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Childhood_onset', 'phenotype')
+relation: is_a
+
+Edge: ('Bulbous_nose', 'phenotype')
+relation: is_a
+
+Edge: ('Microcephaly', 'phenotype')
+relation: is_a
+
+Edge: ('Delayed_speech_and_language_development', 'phenotype')
+relation: is_a
+
+Edge: ('Abnormality_of_eye_movement', 'phenotype')
+relation: is_a
+
+Edge: ('Gait_disturbance', 'phenotype')
+relation: is_a
+
+Edge: ('Global_developmental_delay', 'phenotype')
+relation: is_a
+
+Edge: ('Tip_toe_gait', 'phenotype')
+relation: is_a
+
+Edge: ('Spasticity', 'phenotype')
+relation: is_a
+
+Edge: ('Retrocollis', 'phenotype')
+relation: is_a
+
+Edge: ('Early_young_adult_onset', 'phenotype')
+relation: is_a
+
+Edge: ('Anxiety', 'phenotype')
+relation: is_a
+
+Edge: ('Axial_hypotonia', 'phenotype')
+relation: is_a
+
+Edge: ('Axial_dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Pes_cavus', 'phenotype')
+relation: is_a
+
+Edge: ('Neonatal_seizure', 'phenotype')
+relation: is_a
+
+Edge: ('Intellectual_disability', 'phenotype')
+relation: is_a
+
+Edge: ('Vertical_supranuclear_gaze_palsy', 'phenotype')
+relation: is_a
+
+Edge: ('Rotary_nystagmus', 'phenotype')
+relation: is_a
+
+Edge: ('Hand_tremor', 'phenotype')
+relation: is_a
+
+Edge: ('Impaired_tandem_gait', 'phenotype')
+relation: is_a
+
+Edge: ('Ptosis', 'phenotype')
+relation: is_a
+
+Edge: ('Amblyopia', 'phenotype')
+relation: is_a
+
+Edge: ('Impaired_smooth_pursuit', 'phenotype')
+relation: is_a
+
+Edge: ('Duane_anomaly', 'phenotype')
+relation: is_a
+
+Edge: ('Hypermetric_saccades', 'phenotype')
+relation: is_a
+
+Edge: ('Paroxysmal_dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Seizure', 'phenotype')
+relation: is_a
+
+Edge: ('Orofacial_dyskinesia', 'phenotype')
+relation: is_a
+
+Edge: ('Abnormality_of_the_face', 'phenotype')
+relation: is_a
+
+Edge: ('Paroxysmal_choreoathetosis', 'phenotype')
+relation: is_a
+
+Edge: ('Rigidity', 'phenotype')
+relation: is_a
+
+Edge: ('Pigmentary_retinopathy', 'phenotype')
+relation: is_a
+
+Edge: ('Ataxia', 'phenotype')
+relation: is_a
+
+Edge: ('Nystagmus', 'phenotype')
+relation: is_a
+
+Edge: ('Failure_to_thrive', 'phenotype')
+relation: is_a
+
+Edge: ('Slow_saccadic_eye_movements', 'phenotype')
+relation: is_a
+
+Edge: ('Reduced_visual_acuity', 'phenotype')
+relation: is_a
+
+Edge: ('Clumsiness', 'phenotype')
+relation: is_a
+
+Edge: ('Limb_joint_contracture', 'phenotype')
+relation: is_a
+
+Edge: ('Feeding_difficulties', 'phenotype')
+relation: is_a
+
+Edge: ('Esophoria', 'phenotype')
+relation: is_a
+
+Edge: ('Delayed_gross_motor_development', 'phenotype')
+relation: is_a
+
+Edge: ('Visual_impairment', 'phenotype')
+relation: is_a
+
+Edge: ('Optic_atrophy', 'phenotype')
+relation: is_a
+
+Edge: ('Loss_of_ambulation', 'phenotype')
+relation: is_a
+
+Edge: ('Optic_disc_pallor', 'phenotype')
+relation: is_a
+
+Edge: ('Athetosis', 'phenotype')
+relation: is_a
+
+Edge: ('Bradykinesia', 'phenotype')
+relation: is_a
+
+Edge: ('Limb_pain', 'phenotype')
+relation: is_a
+
+Edge: ('Parkinsonism', 'phenotype')
+relation: is_a
+
+Edge: ('Postural_tremor', 'phenotype')
+relation: is_a
+
+Edge: ('Lower_limb_pain', 'phenotype')
+relation: is_a
+
+Edge: ('Action_tremor', 'phenotype')
+relation: is_a
+
+Edge: ('Hypothalamic_hamartoma', 'phenotype')
+relation: is_a
+
+Edge: ('Intellectual_disability_moderate', 'phenotype')
+relation: is_a
+
+Edge: ('Leg_dystonia', 'phenotype')
+relation: is_a
+
+Edge: ('Globus_pallidus_hypointensity_on_susceptibility_weighted_imaging', 'phenotype')
+relation: is_a
+
+Edge: ('Impulsivity', 'phenotype')
+relation: is_a
+
+Edge: ('Aggressive_behavior', 'phenotype')
+relation: is_a
+
+Edge: ('Diffuse_cerebral_atrophy', 'phenotype')
+relation: is_a
+
+Edge: ('Bipolar_affective_disorder', 'phenotype')
+relation: is_a
+
+Edge: ('Infantile_onset', 'phenotype')
+relation: is_a
+
+Edge: ('Skeletal_muscle_hypertrophy', 'phenotype')
+relation: is_a
+
+Edge: ('Resting_tremor', 'phenotype')
+relation: is_a
+
+Edge: ('Gaze_evoked_horizontal_nystagmus', 'phenotype')
+relation: is_a
+
+Edge: ('Transient_hyperphenylalaninemia', 'phenotype')
+relation: is_a
+
+Edge: ('Incoordination', 'phenotype')
+relation: is_a
+
+Edge: ('Talipes_equinovarus', 'phenotype')
+relation: is_a
+
+Edge: ('Cogwheel_rigidity', 'phenotype')
+relation: is_a
+
+Edge: ('Dysdiadochokinesis', 'phenotype')
+relation: is_a
+
+Edge: ('Jaw_hyperreflexia', 'phenotype')
+relation: is_a
+
+Edge: ('Impaired_distal_vibration_sensation', 'phenotype')
+relation: is_a
+
+Edge: ('Slowly_progressive', 'phenotype')
+relation: is_a
+
+Edge: ('Mutism', 'phenotype')
+relation: is_a
+
+Edge: ('Bulbar_signs', 'phenotype')
+relation: is_a
+
+Edge: ('Postural_instability', 'phenotype')
+relation: is_a
+
+Edge: ('Hypomimic_face', 'phenotype')
+relation: is_a
+
+Edge: ('Emotional_lability', 'phenotype')
+relation: is_a
+
+Edge: ('Unsteady_gait', 'phenotype')
+relation: is_a
+
+Edge: ('Drooling', 'phenotype')
+relation: is_a
+
+Edge: ('Reduced_haptoglobin_level', 'phenotype')
+relation: is_a
+
+Edge: ('Cerebral_atrophy', 'phenotype')
+relation: is_a
+
+Edge: ('EEG_abnormality', 'phenotype')
+relation: is_a
+
+Edge: ('Increased_CSF_lactate', 'phenotype')
+relation: is_a
+
+Edge: ('Hypoglycorrhachia', 'phenotype')
+relation: is_a
+
+Edge: ('Irritability', 'phenotype')
+relation: is_a
+
+Edge: ('Hemolytic_anemia', 'phenotype')
+relation: is_a
+
+Edge: ('Reticulocytosis', 'phenotype')
+relation: is_a
+
+Edge: ('Splenomegaly', 'phenotype')
+relation: is_a
+
+Edge: ('Difficulty_walking', 'phenotype')
+relation: is_a
+
+Edge: ('Muscle_stiffness', 'phenotype')
+relation: is_a
+
+Edge: ('Weak_voice', 'phenotype')
+relation: is_a
+
+Edge: ('Cerebral_cortical_atrophy', 'phenotype')
+relation: is_a
+
+Edge: ('Arrhythmia', 'phenotype')
+relation: is_a
+
+Edge: ('Myokymia', 'phenotype')
+relation: is_a
+
+Edge: ('Facial_grimacing', 'phenotype')
+relation: is_a
+
+Edge: ('Panic_attack', 'phenotype')
+relation: is_a
+
+Edge: ('Alcoholism', 'phenotype')
+relation: is_a
+
+Edge: ('Agoraphobia', 'phenotype')
+relation: is_a
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'protein')
+relation: is_a
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'Plasma_proteins')
+relation: is_of_protein_class
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'Predicted_secreted_proteins')
+relation: is_of_protein_class
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'Cell_adhesion')
+relation: has_biologic_process
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'Protease_inhibitor')
+relation: has_molecular_function
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'Serine_protease_inhibitor')
+relation: has_molecular_function
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'Congenital_muscular_dystrophy_involvement')
+relation: has_disease_involvement
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'Limb_girdle_muscular_dystrophy_involvement')
+relation: has_disease_involvement
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'extracellular')
+relation: has_cellular_location
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'VMA')
+relation: has_protein_domain
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'COLL')
+relation: has_protein_domain
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'KUNITZ')
+relation: has_protein_domain
+
+Edge: ('Collagen_type_VI_alpha_3_chain', 'SP')
+relation: has_protein_motif
+
+Edge: ('2', 'chromosome')
+relation: is_a
+
+Edge: ('Disease_related_genes', 'protein_class')
+relation: is_a
+
+Edge: ('Human_disease_related_genes', 'protein_class')
+relation: is_a
+
+Edge: ('Plasma_proteins', 'protein_class')
+relation: is_a
+
+Edge: ('Predicted_intracellular_proteins', 'protein_class')
+relation: is_a
+
+Edge: ('Predicted_secreted_proteins', 'protein_class')
+relation: is_a
+
+Edge: ('Cell_adhesion', 'biologic_process')
+relation: is_a
+
+Edge: ('Protease_inhibitor', 'molecular_function')
+relation: is_a
+
+Edge: ('Serine_protease_inhibitor', 'molecular_function')
+relation: is_a
+
+Edge: ('Congenital_muscular_dystrophy_involvement', 'disease_involvement')
+relation: is_a
+
+Edge: ('Disease_variant_involvement', 'disease_involvement')
+relation: is_a
+
+Edge: ('Dystonia_involvement', 'disease_involvement')
+relation: is_a
+
+Edge: ('Limb_girdle_muscular_dystrophy_involvement', 'disease_involvement')
+relation: is_a
+
+Edge: ('extracellular', 'protein_location')
+relation: is_a
+
+Edge: (<module 'pandas' from '/Users/danielhier/opt/anaconda3/lib/python3.9/site-packages/pandas/__init__.py'>, 'protein_domain')
+relation: is_a
+
+Edge: ('SP', 'protein_motif')
+relation: is_a
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'protein')
+relation: is_a
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Enzymes')
+relation: is_of_protein_class
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Metabolic_proteins')
+relation: is_of_protein_class
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Potential_drug_targets')
+relation: is_of_protein_class
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Fatty_acid_biosynthesis')
+relation: has_biologic_process
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Fatty_acid_metabolism')
+relation: has_biologic_process
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Lipid_biosynthesis')
+relation: has_biologic_process
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Lipid_metabolism')
+relation: has_biologic_process
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Oxidoreductase')
+relation: has_molecular_function
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'mitochondrion')
+relation: has_cellular_location
+
+Edge: ('Mitochondrial_trans_2_enoyl_CoA_reductase', 'SP')
+relation: has_protein_motif
+
+Edge: ('1', 'chromosome')
+relation: is_a
+
+Edge: ('Enzymes', 'protein_class')
+relation: is_a
+
+Edge: ('Metabolic_proteins', 'protein_class')
+relation: is_a
+
+Edge: ('Potential_drug_targets', 'protein_class')
+relation: is_a
+
+Edge: ('Fatty_acid_biosynthesis', 'biologic_process')
+relation: is_a
+
+Edge: ('Fatty_acid_metabolism', 'biologic_process')
+relation: is_a
+
+Edge: ('Lipid_biosynthesis', 'biologic_process')
+relation: is_a
+
+Edge: ('Lipid_metabolism', 'biologic_process')
+relation: is_a
+
+Edge: ('Oxidoreductase', 'molecular_function')
+relation: is_a
+
+Edge: ('mitochondrion', 'protein_location')
+relation: is_a
+
+Edge: ('Torsin_family_1_member_A', 'protein')
+relation: is_a
+
+Edge: ('Torsin_family_1_member_A', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Torsin_family_1_member_A', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Torsin_family_1_member_A', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Torsin_family_1_member_A', 'Chaperone')
+relation: has_molecular_function
+
+Edge: ('Torsin_family_1_member_A', 'Hydrolase')
+relation: has_molecular_function
+
+Edge: ('Torsin_family_1_member_A', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('Torsin_family_1_member_A', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Torsin_family_1_member_A', 'endoplasmic_reticulum')
+relation: has_cellular_location
+
+Edge: ('Torsin_family_1_member_A', 'SP')
+relation: has_protein_motif
+
+Edge: ('9', 'chromosome')
+relation: is_a
+
+Edge: ('Chaperone', 'molecular_function')
+relation: is_a
+
+Edge: ('Hydrolase', 'molecular_function')
+relation: is_a
+
+Edge: ('endoplasmic_reticulum', 'protein_location')
+relation: is_a
+
+Edge: ('Anoctamin_3', 'protein')
+relation: is_a
+
+Edge: ('Anoctamin_3', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Anoctamin_3', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Anoctamin_3', 'Potential_drug_targets')
+relation: is_of_protein_class
+
+Edge: ('Anoctamin_3', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Anoctamin_3', 'Predicted_membrane_proteins')
+relation: is_of_protein_class
+
+Edge: ('Anoctamin_3', 'Transporters')
+relation: is_of_protein_class
+
+Edge: ('Anoctamin_3', 'Lipid_transport')
+relation: has_biologic_process
+
+Edge: ('Anoctamin_3', 'Transport')
+relation: has_biologic_process
+
+Edge: ('Anoctamin_3', 'Ion_channel')
+relation: has_molecular_function
+
+Edge: ('Anoctamin_3', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('Anoctamin_3', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Anoctamin_3', 'plasma_membrane')
+relation: has_cellular_location
+
+Edge: ('Anoctamin_3', 'TM')
+relation: has_protein_domain
+
+Edge: ('11', 'chromosome')
+relation: is_a
+
+Edge: ('Predicted_membrane_proteins', 'protein_class')
+relation: is_a
+
+Edge: ('Transporters', 'protein_class')
+relation: is_a
+
+Edge: ('Lipid_transport', 'biologic_process')
+relation: is_a
+
+Edge: ('Transport', 'biologic_process')
+relation: is_a
+
+Edge: ('Ion_channel', 'molecular_function')
+relation: is_a
+
+Edge: ('plasma_membrane', 'protein_location')
+relation: is_a
+
+Edge: ('Aminopeptidase_O_putative', 'protein')
+relation: is_a
+
+Edge: ('Aminopeptidase_O_putative', 'Enzymes')
+relation: is_of_protein_class
+
+Edge: ('Aminopeptidase_O_putative', 'Plasma_proteins')
+relation: is_of_protein_class
+
+Edge: ('Aminopeptidase_O_putative', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Aminopeptidase_O_putative', 'Aminopeptidase')
+relation: has_molecular_function
+
+Edge: ('Aminopeptidase_O_putative', 'Hydrolase')
+relation: has_molecular_function
+
+Edge: ('Aminopeptidase_O_putative', 'Metalloprotease')
+relation: has_molecular_function
+
+Edge: ('Aminopeptidase_O_putative', 'Protease')
+relation: has_molecular_function
+
+Edge: ('Aminopeptidase_O_putative', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('Aminopeptidase_O_putative', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Aminopeptidase_O_putative', 'nucleus')
+relation: has_cellular_location
+
+Edge: ('Aminopeptidase', 'molecular_function')
+relation: is_a
+
+Edge: ('Metalloprotease', 'molecular_function')
+relation: is_a
+
+Edge: ('Protease', 'molecular_function')
+relation: is_a
+
+Edge: ('nucleus', 'protein_location')
+relation: is_a
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'protein')
+relation: is_a
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Enzymes')
+relation: is_of_protein_class
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Potential_drug_targets')
+relation: is_of_protein_class
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Antiviral_defense')
+relation: has_biologic_process
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Host_virus_interaction')
+relation: has_biologic_process
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Immunity')
+relation: has_biologic_process
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Innate_immunity')
+relation: has_biologic_process
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Transcription')
+relation: has_biologic_process
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Transcription_regulation')
+relation: has_biologic_process
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Kinase')
+relation: has_molecular_function
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'RNA_binding')
+relation: has_molecular_function
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Serine_threonine_protein_kinase')
+relation: has_molecular_function
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Transferase')
+relation: has_molecular_function
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'Tyrosine_protein_kinase')
+relation: has_molecular_function
+
+Edge: ('Eukaryotic_translation_initiation_factor_2_alpha_kinase_2', 'cytoplasm')
+relation: has_cellular_location
+
+Edge: ('Antiviral_defense', 'biologic_process')
+relation: is_a
+
+Edge: ('Host_virus_interaction', 'biologic_process')
+relation: is_a
+
+Edge: ('Immunity', 'biologic_process')
+relation: is_a
+
+Edge: ('Innate_immunity', 'biologic_process')
+relation: is_a
+
+Edge: ('Transcription', 'biologic_process')
+relation: is_a
+
+Edge: ('Transcription_regulation', 'biologic_process')
+relation: is_a
+
+Edge: ('Kinase', 'molecular_function')
+relation: is_a
+
+Edge: ('RNA_binding', 'molecular_function')
+relation: is_a
+
+Edge: ('Serine_threonine_protein_kinase', 'molecular_function')
+relation: is_a
+
+Edge: ('Transferase', 'molecular_function')
+relation: is_a
+
+Edge: ('Tyrosine_protein_kinase', 'molecular_function')
+relation: is_a
+
+Edge: ('cytoplasm', 'protein_location')
+relation: is_a
+
+Edge: ('GTP_cyclohydrolase_1', 'protein')
+relation: is_a
+
+Edge: ('GTP_cyclohydrolase_1', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('GTP_cyclohydrolase_1', 'Enzymes')
+relation: is_of_protein_class
+
+Edge: ('GTP_cyclohydrolase_1', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('GTP_cyclohydrolase_1', 'Metabolic_proteins')
+relation: is_of_protein_class
+
+Edge: ('GTP_cyclohydrolase_1', 'Potential_drug_targets')
+relation: is_of_protein_class
+
+Edge: ('GTP_cyclohydrolase_1', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('GTP_cyclohydrolase_1', 'Tetrahydrobiopterin_biosynthesis')
+relation: has_biologic_process
+
+Edge: ('GTP_cyclohydrolase_1', 'Allosteric_enzyme')
+relation: has_molecular_function
+
+Edge: ('GTP_cyclohydrolase_1', 'Hydrolase')
+relation: has_molecular_function
+
+Edge: ('GTP_cyclohydrolase_1', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('GTP_cyclohydrolase_1', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('GTP_cyclohydrolase_1', 'Parkinsonism_involvement')
+relation: has_disease_involvement
+
+Edge: ('GTP_cyclohydrolase_1', 'Phenylketonuria_involvement')
+relation: has_disease_involvement
+
+Edge: ('GTP_cyclohydrolase_1', 'cytoplasm')
+relation: has_cellular_location
+
+Edge: ('14', 'chromosome')
+relation: is_a
+
+Edge: ('Tetrahydrobiopterin_biosynthesis', 'biologic_process')
+relation: is_a
+
+Edge: ('Allosteric_enzyme', 'molecular_function')
+relation: is_a
+
+Edge: ('Parkinsonism_involvement', 'disease_involvement')
+relation: is_a
+
+Edge: ('Phenylketonuria_involvement', 'disease_involvement')
+relation: is_a
+
+Edge: ('Hippocalcin', 'protein')
+relation: is_a
+
+Edge: ('Hippocalcin', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Hippocalcin', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Hippocalcin', 'Plasma_proteins')
+relation: is_of_protein_class
+
+Edge: ('Hippocalcin', 'Potential_drug_targets')
+relation: is_of_protein_class
+
+Edge: ('Hippocalcin', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Hippocalcin', 'Transporters')
+relation: is_of_protein_class
+
+Edge: ('Hippocalcin', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('Hippocalcin', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Hippocalcin', 'cytoplasm')
+relation: has_cellular_location
+
+Edge: ('Hippocalcin', 'EF')
+relation: has_protein_domain
+
+Edge: ('Lysine_methyltransferase_2B', 'protein')
+relation: is_a
+
+Edge: ('Lysine_methyltransferase_2B', 'Cancer_related_genes')
+relation: has_disease_involvement
+
+Edge: ('Lysine_methyltransferase_2B', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Lysine_methyltransferase_2B', 'Enzymes')
+relation: is_of_protein_class
+
+Edge: ('Lysine_methyltransferase_2B', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Lysine_methyltransferase_2B', 'Metabolic_proteins')
+relation: is_of_protein_class
+
+Edge: ('Lysine_methyltransferase_2B', 'Potential_drug_targets')
+relation: is_of_protein_class
+
+Edge: ('Lysine_methyltransferase_2B', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Lysine_methyltransferase_2B', 'Transcription_factors')
+relation: is_of_protein_class
+
+Edge: ('Lysine_methyltransferase_2B', 'Transcription')
+relation: has_biologic_process
+
+Edge: ('Lysine_methyltransferase_2B', 'Transcription_regulation')
+relation: has_biologic_process
+
+Edge: ('Lysine_methyltransferase_2B', 'Chromatin_regulator')
+relation: has_molecular_function
+
+Edge: ('Lysine_methyltransferase_2B', 'DNA_binding')
+relation: has_molecular_function
+
+Edge: ('Lysine_methyltransferase_2B', 'Methyltransferase')
+relation: has_molecular_function
+
+Edge: ('Lysine_methyltransferase_2B', 'Transferase')
+relation: has_molecular_function
+
+Edge: ('Lysine_methyltransferase_2B', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('Lysine_methyltransferase_2B', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Lysine_methyltransferase_2B', 'nucleus')
+relation: has_cellular_location
+
+Edge: ('19', 'chromosome')
+relation: is_a
+
+Edge: ('Cancer_related_genes', 'protein_class')
+relation: is_a
+
+Edge: ('Cancer_related_genes', 'disease_involvement')
+relation: is_a
+
+Edge: ('Transcription_factors', 'protein_class')
+relation: is_a
+
+Edge: ('Chromatin_regulator', 'molecular_function')
+relation: is_a
+
+Edge: ('DNA_binding', 'molecular_function')
+relation: is_a
+
+Edge: ('Methyltransferase', 'molecular_function')
+relation: is_a
+
+Edge: ('PNKD_metallo_beta_lactamase_domain_containing', 'protein')
+relation: is_a
+
+Edge: ('PNKD_metallo_beta_lactamase_domain_containing', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('PNKD_metallo_beta_lactamase_domain_containing', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('PNKD_metallo_beta_lactamase_domain_containing', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('PNKD_metallo_beta_lactamase_domain_containing', 'Predicted_membrane_proteins')
+relation: is_of_protein_class
+
+Edge: ('PNKD_metallo_beta_lactamase_domain_containing', 'Hydrolase')
+relation: has_molecular_function
+
+Edge: ('PNKD_metallo_beta_lactamase_domain_containing', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('PNKD_metallo_beta_lactamase_domain_containing', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('PNKD_metallo_beta_lactamase_domain_containing', 'plasma_membrane')
+relation: has_cellular_location
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'protein')
+relation: is_a
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'Host_virus_interaction')
+relation: has_biologic_process
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'RNA_mediated_gene_silencing')
+relation: has_biologic_process
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'RNA_binding')
+relation: has_molecular_function
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'Parkinsonism_involvement')
+relation: has_disease_involvement
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'Phenylketonuria_involvement')
+relation: has_disease_involvement
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'cytoplasm')
+relation: has_cellular_location
+
+Edge: ('Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2', 'DSRM')
+relation: has_protein_domain
+
+Edge: ('RNA_mediated_gene_silencing', 'biologic_process')
+relation: is_a
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'protein')
+relation: is_a
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'Metabolic_proteins')
+relation: is_of_protein_class
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'Potential_drug_targets')
+relation: is_of_protein_class
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'Predicted_membrane_proteins')
+relation: is_of_protein_class
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'Transporters')
+relation: is_of_protein_class
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'Epilepsy_involvement')
+relation: has_disease_involvement
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'plasma_membrane')
+relation: has_cellular_location
+
+Edge: ('Proline_rich_transmembrane_protein_2', 'TM')
+relation: has_protein_domain
+
+Edge: ('16', 'chromosome')
+relation: is_a
+
+Edge: ('Epilepsy_involvement', 'disease_involvement')
+relation: is_a
+
+Edge: ('Sarcoglycan_epsilon', 'protein')
+relation: is_a
+
+Edge: ('Sarcoglycan_epsilon', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Sarcoglycan_epsilon', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Sarcoglycan_epsilon', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Sarcoglycan_epsilon', 'Predicted_membrane_proteins')
+relation: is_of_protein_class
+
+Edge: ('Sarcoglycan_epsilon', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('Sarcoglycan_epsilon', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Sarcoglycan_epsilon', 'plasma_membrane')
+relation: has_cellular_location
+
+Edge: ('Sarcoglycan_epsilon', 'TM')
+relation: has_protein_domain
+
+Edge: ('7', 'chromosome')
+relation: is_a
+
+Edge: ('Solute_carrier_family_2_member_1', 'protein')
+relation: is_a
+
+Edge: ('Solute_carrier_family_2_member_1', 'Cancer_related_genes')
+relation: has_disease_involvement
+
+Edge: ('Solute_carrier_family_2_member_1', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Solute_carrier_family_2_member_1', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Solute_carrier_family_2_member_1', 'Metabolic_proteins')
+relation: is_of_protein_class
+
+Edge: ('Solute_carrier_family_2_member_1', 'Plasma_proteins')
+relation: is_of_protein_class
+
+Edge: ('Solute_carrier_family_2_member_1', 'Potential_drug_targets')
+relation: is_of_protein_class
+
+Edge: ('Solute_carrier_family_2_member_1', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Solute_carrier_family_2_member_1', 'Predicted_membrane_proteins')
+relation: is_of_protein_class
+
+Edge: ('Solute_carrier_family_2_member_1', 'Transporters')
+relation: is_of_protein_class
+
+Edge: ('Solute_carrier_family_2_member_1', 'Sugar_transport')
+relation: has_biologic_process
+
+Edge: ('Solute_carrier_family_2_member_1', 'Transport')
+relation: has_biologic_process
+
+Edge: ('Solute_carrier_family_2_member_1', 'Glucose_transporter')
+relation: has_molecular_function
+
+Edge: ('Solute_carrier_family_2_member_1', 'Cataract_involvement')
+relation: has_disease_involvement
+
+Edge: ('Solute_carrier_family_2_member_1', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('Solute_carrier_family_2_member_1', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Solute_carrier_family_2_member_1', 'Epilepsy_involvement')
+relation: has_disease_involvement
+
+Edge: ('Solute_carrier_family_2_member_1', 'Hereditary_hemolytic_anemia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Solute_carrier_family_2_member_1', 'Intellectual_disability_involvement')
+relation: has_disease_involvement
+
+Edge: ('Solute_carrier_family_2_member_1', 'plasma_membrane')
+relation: has_cellular_location
+
+Edge: ('Solute_carrier_family_2_member_1', 'TM')
+relation: has_protein_domain
+
+Edge: ('Sugar_transport', 'biologic_process')
+relation: is_a
+
+Edge: ('Glucose_transporter', 'molecular_function')
+relation: is_a
+
+Edge: ('Cataract_involvement', 'disease_involvement')
+relation: is_a
+
+Edge: ('Hereditary_hemolytic_anemia_involvement', 'disease_involvement')
+relation: is_a
+
+Edge: ('Intellectual_disability_involvement', 'disease_involvement')
+relation: is_a
+
+Edge: ('Transmembrane_protein_151A', 'protein')
+relation: is_a
+
+Edge: ('Transmembrane_protein_151A', 'Predicted_membrane_proteins')
+relation: is_of_protein_class
+
+Edge: ('Transmembrane_protein_151A', 'plasma_membrane')
+relation: has_cellular_location
+
+Edge: ('Transmembrane_protein_151A', 'TM')
+relation: has_protein_domain
+
+Edge: ('Tubulin_beta_4A_class_IVa', 'protein')
+relation: is_a
+
+Edge: ('Tubulin_beta_4A_class_IVa', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Tubulin_beta_4A_class_IVa', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Tubulin_beta_4A_class_IVa', 'Plasma_proteins')
+relation: is_of_protein_class
+
+Edge: ('Tubulin_beta_4A_class_IVa', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Tubulin_beta_4A_class_IVa', 'cytoskeleton')
+relation: has_cellular_location
+
+Edge: ('Tubulin_beta_4A_class_IVa', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('Tubulin_beta_4A_class_IVa', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('Tubulin_beta_4A_class_IVa', 'Leukodystrophy_involvement')
+relation: has_disease_involvement
+
+Edge: ('cytoskeleton', 'molecular_function')
+relation: is_a
+
+Edge: ('cytoskeleton', 'protein_location')
+relation: is_a
+
+Edge: ('Leukodystrophy_involvement', 'disease_involvement')
+relation: is_a
+
+Edge: ('none', 'chromosome')
+relation: is_a
+
+Edge: ('THAP_domain_containing_1', 'protein')
+relation: is_a
+
+Edge: ('THAP_domain_containing_1', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('THAP_domain_containing_1', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('THAP_domain_containing_1', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('THAP_domain_containing_1', 'Transcription_factors')
+relation: is_of_protein_class
+
+Edge: ('THAP_domain_containing_1', 'Cell_cycle')
+relation: has_biologic_process
+
+Edge: ('THAP_domain_containing_1', 'Transcription')
+relation: has_biologic_process
+
+Edge: ('THAP_domain_containing_1', 'Transcription_regulation')
+relation: has_biologic_process
+
+Edge: ('THAP_domain_containing_1', 'DNA_binding')
+relation: has_molecular_function
+
+Edge: ('THAP_domain_containing_1', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('THAP_domain_containing_1', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('THAP_domain_containing_1', 'nucleus')
+relation: has_cellular_location
+
+Edge: ('THAP_domain_containing_1', 'DM3')
+relation: has_protein_domain
+
+Edge: ('THAP_domain_containing_1', 'CC')
+relation: has_protein_motif
+
+Edge: ('THAP_domain_containing_1', 'NLS')
+relation: has_protein_motif
+
+Edge: ('8', 'chromosome')
+relation: is_a
+
+Edge: ('Cell_cycle', 'biologic_process')
+relation: is_a
+
+Edge: ('CC', 'protein_motif')
+relation: is_a
+
+Edge: ('NLS', 'protein_motif')
+relation: is_a
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'protein')
+relation: is_a
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Enzymes')
+relation: is_of_protein_class
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Metabolic_proteins')
+relation: is_of_protein_class
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Potential_drug_targets')
+relation: is_of_protein_class
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Predicted_membrane_proteins')
+relation: is_of_protein_class
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Transporters')
+relation: is_of_protein_class
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Ion_transport')
+relation: has_biologic_process
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Potassium_transport')
+relation: has_biologic_process
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Sodium_transport')
+relation: has_biologic_process
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Sodium_potassium_transport')
+relation: has_biologic_process
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Transport')
+relation: has_biologic_process
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Translocase')
+relation: has_molecular_function
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Deafness_involvement')
+relation: has_disease_involvement
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Epilepsy_involvement')
+relation: has_disease_involvement
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Intellectual_disability_involvement')
+relation: has_disease_involvement
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'Parkinsonism_involvement')
+relation: has_disease_involvement
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'plasma_membrane')
+relation: has_cellular_location
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'TM')
+relation: has_protein_domain
+
+Edge: ('ATPase_Na+_K+_transporting_subunit_alpha_3', 'CC')
+relation: has_protein_motif
+
+Edge: ('Ion_transport', 'biologic_process')
+relation: is_a
+
+Edge: ('Potassium_transport', 'biologic_process')
+relation: is_a
+
+Edge: ('Sodium_transport', 'biologic_process')
+relation: is_a
+
+Edge: ('Sodium_potassium_transport', 'biologic_process')
+relation: is_a
+
+Edge: ('Translocase', 'molecular_function')
+relation: is_a
+
+Edge: ('Deafness_involvement', 'disease_involvement')
+relation: is_a
+
+Edge: ('G_protein_subunit_alpha_L', 'protein')
+relation: is_a
+
+Edge: ('G_protein_subunit_alpha_L', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('G_protein_subunit_alpha_L', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('G_protein_subunit_alpha_L', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('G_protein_subunit_alpha_L', 'Transducer')
+relation: has_molecular_function
+
+Edge: ('G_protein_subunit_alpha_L', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('G_protein_subunit_alpha_L', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('G_protein_subunit_alpha_L', 'secretory_granule')
+relation: has_cellular_location
+
+Edge: ('G_protein_subunit_alpha_L', 'CC')
+relation: has_protein_motif
+
+Edge: ('18', 'chromosome')
+relation: is_a
+
+Edge: ('Transducer', 'molecular_function')
+relation: is_a
+
+Edge: ('secretory_granule', 'protein_location')
+relation: is_a
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'protein')
+relation: is_a
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'FDA_approved_drug_targets')
+relation: has_disease_involvement
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'Plasma_proteins')
+relation: is_of_protein_class
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'Predicted_membrane_proteins')
+relation: is_of_protein_class
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'Transporters')
+relation: is_of_protein_class
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'Voltage_gated_ion_channels')
+relation: is_of_protein_class
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'Ion_transport')
+relation: has_biologic_process
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'Transport')
+relation: has_biologic_process
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'Calmodulin_binding')
+relation: has_molecular_function
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'Ion_channel')
+relation: has_molecular_function
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'plasma_membrane')
+relation: has_cellular_location
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'TM')
+relation: has_protein_domain
+
+Edge: ('Potassium_calcium_activated_channel_subfamily_N_member_2', 'CC')
+relation: has_protein_motif
+
+Edge: ('5', 'chromosome')
+relation: is_a
+
+Edge: ('FDA_approved_drug_targets', 'protein_class')
+relation: is_a
+
+Edge: ('FDA_approved_drug_targets', 'disease_involvement')
+relation: is_a
+
+Edge: ('Voltage_gated_ion_channels', 'protein_class')
+relation: is_a
+
+Edge: ('Calmodulin_binding', 'molecular_function')
+relation: is_a
+
+Edge: ('Potassium_channel_tetramerization_domain_containing_17', 'protein')
+relation: is_a
+
+Edge: ('Potassium_channel_tetramerization_domain_containing_17', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Potassium_channel_tetramerization_domain_containing_17', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('Potassium_channel_tetramerization_domain_containing_17', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('Potassium_channel_tetramerization_domain_containing_17', 'Cilium_biogenesis_degradation')
+relation: has_biologic_process
+
+Edge: ('Potassium_channel_tetramerization_domain_containing_17', 'Ubl_conjugation_pathway')
+relation: has_biologic_process
+
+Edge: ('Potassium_channel_tetramerization_domain_containing_17', 'Ion_channel')
+relation: has_molecular_function
+
+Edge: ('Potassium_channel_tetramerization_domain_containing_17', 'cytoplasm')
+relation: has_cellular_location
+
+Edge: ('Potassium_channel_tetramerization_domain_containing_17', 'BTB')
+relation: has_protein_domain
+
+Edge: ('Potassium_channel_tetramerization_domain_containing_17', 'CC')
+relation: has_protein_motif
+
+Edge: ('22', 'chromosome')
+relation: is_a
+
+Edge: ('Cilium_biogenesis_degradation', 'biologic_process')
+relation: is_a
+
+Edge: ('Ubl_conjugation_pathway', 'biologic_process')
+relation: is_a
+
+Edge: ('SHQ1_H_ACA_ribonucleoprotein_assembly_factor', 'protein')
+relation: is_a
+
+Edge: ('SHQ1_H_ACA_ribonucleoprotein_assembly_factor', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('SHQ1_H_ACA_ribonucleoprotein_assembly_factor', 'Assembly_of_ribosomes')
+relation: has_molecular_function
+
+Edge: ('SHQ1_H_ACA_ribonucleoprotein_assembly_factor', 'cytoplasm')
+relation: has_cellular_location
+
+Edge: ('SHQ1_H_ACA_ribonucleoprotein_assembly_factor', 'CC')
+relation: has_protein_motif
+
+Edge: ('3', 'chromosome')
+relation: is_a
+
+Edge: ('Assembly_of_ribosomes', 'molecular_function')
+relation: is_a
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'protein')
+relation: is_a
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Cancer_related_genes')
+relation: has_disease_involvement
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Enzymes')
+relation: is_of_protein_class
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Potential_drug_targets')
+relation: is_of_protein_class
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Transcription_factors')
+relation: is_of_protein_class
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Cell_cycle')
+relation: has_biologic_process
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Host_virus_interaction')
+relation: has_biologic_process
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Transcription')
+relation: has_biologic_process
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Transcription_regulation')
+relation: has_biologic_process
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Acyltransferase')
+relation: has_molecular_function
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'DNA_binding')
+relation: has_molecular_function
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Kinase')
+relation: has_molecular_function
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Serine_threonine_protein_kinase')
+relation: has_molecular_function
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Transferase')
+relation: has_molecular_function
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Intellectual_disability_involvement')
+relation: has_disease_involvement
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'Parkinsonism_involvement')
+relation: has_disease_involvement
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'nucleolus')
+relation: has_cellular_location
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'BROMO')
+relation: has_protein_domain
+
+Edge: ('TATA_box_binding_protein_associated_factor_1', 'CC')
+relation: has_protein_motif
+
+Edge: ('X', 'chromosome')
+relation: is_a
+
+Edge: ('Acyltransferase', 'molecular_function')
+relation: is_a
+
+Edge: ('nucleolus', 'protein_location')
+relation: is_a
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'protein')
+relation: is_a
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'Human_disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'Autophagy')
+relation: has_biologic_process
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'Protein_transport')
+relation: has_biologic_process
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'Transport')
+relation: has_biologic_process
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'Vesicle_sorting')
+relation: has_molecular_function
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'Leukodystrophy_involvement')
+relation: has_disease_involvement
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'endosome')
+relation: has_cellular_location
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'RING')
+relation: has_protein_domain
+
+Edge: ('VPS11_core_subunit_of_CORVET_and_HOPS_complexes', 'CC')
+relation: has_protein_motif
+
+Edge: ('Autophagy', 'biologic_process')
+relation: is_a
+
+Edge: ('Protein_transport', 'biologic_process')
+relation: is_a
+
+Edge: ('Vesicle_sorting', 'molecular_function')
+relation: is_a
+
+Edge: ('endosome', 'protein_location')
+relation: is_a
+
+Edge: ('VPS16_core_subunit_of_CORVET_and_HOPS_complexes', 'protein')
+relation: is_a
+
+Edge: ('VPS16_core_subunit_of_CORVET_and_HOPS_complexes', 'Disease_related_genes')
+relation: is_of_protein_class
+
+Edge: ('VPS16_core_subunit_of_CORVET_and_HOPS_complexes', 'Predicted_intracellular_proteins')
+relation: is_of_protein_class
+
+Edge: ('VPS16_core_subunit_of_CORVET_and_HOPS_complexes', 'Autophagy')
+relation: has_biologic_process
+
+Edge: ('VPS16_core_subunit_of_CORVET_and_HOPS_complexes', 'Protein_transport')
+relation: has_biologic_process
+
+Edge: ('VPS16_core_subunit_of_CORVET_and_HOPS_complexes', 'Transport')
+relation: has_biologic_process
+
+Edge: ('VPS16_core_subunit_of_CORVET_and_HOPS_complexes', 'Vesicle_sorting')
+relation: has_molecular_function
+
+Edge: ('VPS16_core_subunit_of_CORVET_and_HOPS_complexes', 'Disease_variant_involvement')
+relation: has_disease_involvement
+
+Edge: ('VPS16_core_subunit_of_CORVET_and_HOPS_complexes', 'Dystonia_involvement')
+relation: has_disease_involvement
+
+Edge: ('VPS16_core_subunit_of_CORVET_and_HOPS_complexes', 'endosome')
+relation: has_cellular_location
+
+Edge: ('VPS16_core_subunit_of_CORVET_and_HOPS_complexes', 'CC')
+relation: has_protein_motif
+
+Edge: ('20', 'chromosome')
+relation: is_a
+

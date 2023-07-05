@@ -1,0 +1,5132 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="relation" attr.type="string"/>
+<key id="d6" for="node" attr.name="protein_length" attr.type="string"/>
+<key id="d5" for="node" attr.name="molecular_weight" attr.type="long"/>
+<key id="d4" for="node" attr.name="uniprot" attr.type="string"/>
+<key id="d3" for="node" attr.name="hpo_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="MIM" attr.type="long"/>
+<key id="d1" for="node" attr.name="class_type" attr.type="string"/>
+<key id="d0" for="node" attr.name="category" attr.type="string"/>
+<graph edgedefault="directed"><node id="disease">
+  <data key="d0">disease</data>
+  <data key="d1">class</data>
+</node>
+<node id="gene">
+  <data key="d0">gene</data>
+  <data key="d1">class</data>
+</node>
+<node id="inheritance">
+  <data key="d0">inheritance</data>
+  <data key="d1">class</data>
+</node>
+<node id="protein">
+  <data key="d0">protein</data>
+  <data key="d1">class</data>
+</node>
+<node id="gene_location">
+  <data key="d0">gene_location</data>
+  <data key="d1">class</data>
+</node>
+<node id="phenotype">
+  <data key="d0">phenotype</data>
+  <data key="d1">class</data>
+</node>
+<node id="protein_class">
+  <data key="d0">protein_class</data>
+  <data key="d1">class</data>
+</node>
+<node id="biologic_process">
+  <data key="d0">biologic_process</data>
+  <data key="d1">class</data>
+</node>
+<node id="molecular_function">
+  <data key="d0">molecular_function</data>
+  <data key="d1">class</data>
+</node>
+<node id="disease_involvement">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">class</data>
+</node>
+<node id="protein_location">
+  <data key="d0">protein_location</data>
+  <data key="d1">class</data>
+</node>
+<node id="protein_domain">
+  <data key="d0">protein_domain</data>
+  <data key="d1">class</data>
+</node>
+<node id="protein_motif">
+  <data key="d0">protein_motif</data>
+  <data key="d1">class</data>
+</node>
+<node id="chromosome">
+  <data key="d0">chromosome</data>
+  <data key="d1">class</data>
+</node>
+<node id="Kufor_Rakeb_syndrome">
+  <data key="d0">disease</data>
+  <data key="d2">606693</data>
+  <data key="d1">individual</data>
+</node>
+<node id="1p36.13">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="ATP13A2">
+  <data key="d0">gene</data>
+  <data key="d2">610513</data>
+  <data key="d1">individual</data>
+</node>
+<node id="AR">
+  <data key="d0">inheritance</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_1">
+  <data key="d0">disease</data>
+  <data key="d2">168601</data>
+  <data key="d1">individual</data>
+</node>
+<node id="4q22.1">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="SNCA">
+  <data key="d0">gene</data>
+  <data key="d2">163890</data>
+  <data key="d1">individual</data>
+</node>
+<node id="AD">
+  <data key="d0">inheritance</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_10">
+  <data key="d0">disease</data>
+  <data key="d2">606852</data>
+  <data key="d1">individual</data>
+</node>
+<node id="1p32">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="PARK10">
+  <data key="d0">gene</data>
+  <data key="d2">606852</data>
+  <data key="d1">individual</data>
+</node>
+<node id="unknown">
+  <data key="d0">inheritance</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_11">
+  <data key="d0">disease</data>
+  <data key="d2">607688</data>
+  <data key="d1">individual</data>
+</node>
+<node id="2q37.1">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="GIGYF2">
+  <data key="d0">gene</data>
+  <data key="d2">612003</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_12">
+  <data key="d0">disease</data>
+  <data key="d2">300557</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Xq21-q25">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="PARK12">
+  <data key="d0">gene</data>
+  <data key="d2">300557</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_13">
+  <data key="d0">disease</data>
+  <data key="d2">610297</data>
+  <data key="d1">individual</data>
+</node>
+<node id="2p13.1">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="HTRA2">
+  <data key="d0">gene</data>
+  <data key="d2">606441</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_14_autosomal_recessive">
+  <data key="d0">disease</data>
+  <data key="d2">612953</data>
+  <data key="d1">individual</data>
+</node>
+<node id="22q13.1">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="PLA2G6">
+  <data key="d0">gene</data>
+  <data key="d2">603604</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_15_autosomal_recessive">
+  <data key="d0">disease</data>
+  <data key="d2">260300</data>
+  <data key="d1">individual</data>
+</node>
+<node id="22q12.3">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="FBXO7">
+  <data key="d0">gene</data>
+  <data key="d2">605648</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_16">
+  <data key="d0">disease</data>
+  <data key="d2">613164</data>
+  <data key="d1">individual</data>
+</node>
+<node id="1q32">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="PARK16">
+  <data key="d0">gene</data>
+  <data key="d2">613164</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_17">
+  <data key="d0">disease</data>
+  <data key="d2">614203</data>
+  <data key="d1">individual</data>
+</node>
+<node id="16q11.2">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="VPS35">
+  <data key="d0">gene</data>
+  <data key="d2">601501</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_18">
+  <data key="d0">disease</data>
+  <data key="d2">614251</data>
+  <data key="d1">individual</data>
+</node>
+<node id="3q27.1">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="EIF4G1">
+  <data key="d0">gene</data>
+  <data key="d2">600495</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_19a_juvenile_onset">
+  <data key="d0">disease</data>
+  <data key="d2">615528</data>
+  <data key="d1">individual</data>
+</node>
+<node id="1p31.3">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="DNAJC6">
+  <data key="d0">gene</data>
+  <data key="d2">608375</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_19b_early_onset">
+  <data key="d0">disease</data>
+  <data key="d2">615528</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_20_early_onset">
+  <data key="d0">disease</data>
+  <data key="d2">615530</data>
+  <data key="d1">individual</data>
+</node>
+<node id="21q22.11">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="SYNJ1">
+  <data key="d0">gene</data>
+  <data key="d2">604297</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_21">
+  <data key="d0">disease</data>
+  <data key="d2">616361</data>
+  <data key="d1">individual</data>
+</node>
+<node id="3q22">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="PARK21">
+  <data key="d0">gene</data>
+  <data key="d2">616361</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_22_autosomal_dominant">
+  <data key="d0">disease</data>
+  <data key="d2">616710</data>
+  <data key="d1">individual</data>
+</node>
+<node id="7p11.2">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="CHCHD2">
+  <data key="d0">gene</data>
+  <data key="d2">616244</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_23_autosomal_recessive_early_onset">
+  <data key="d0">disease</data>
+  <data key="d2">616840</data>
+  <data key="d1">individual</data>
+</node>
+<node id="15q22.2">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="VPS13C">
+  <data key="d0">gene</data>
+  <data key="d2">608879</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_3">
+  <data key="d0">disease</data>
+  <data key="d2">602404</data>
+  <data key="d1">individual</data>
+</node>
+<node id="2p13">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="PARK3">
+  <data key="d0">gene</data>
+  <data key="d2">602404</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_4">
+  <data key="d0">disease</data>
+  <data key="d2">605543</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_5_susceptibility_to">
+  <data key="d0">disease</data>
+  <data key="d2">613643</data>
+  <data key="d1">individual</data>
+</node>
+<node id="4p13">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="UCHL1">
+  <data key="d0">gene</data>
+  <data key="d2">191342</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_6_early_onset">
+  <data key="d0">disease</data>
+  <data key="d2">605909</data>
+  <data key="d1">individual</data>
+</node>
+<node id="1p36.12">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="PINK1">
+  <data key="d0">gene</data>
+  <data key="d2">608309</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_7_autosomal_recessive_early_onset">
+  <data key="d0">disease</data>
+  <data key="d2">606324</data>
+  <data key="d1">individual</data>
+</node>
+<node id="1p36.23">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="DJ1">
+  <data key="d0">gene</data>
+  <data key="d2">602533</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_8">
+  <data key="d0">disease</data>
+  <data key="d2">607060</data>
+  <data key="d1">individual</data>
+</node>
+<node id="12q12">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="LRRK2">
+  <data key="d0">gene</data>
+  <data key="d2">609007</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_age_of_onset_modifier">
+  <data key="d0">disease</data>
+  <data key="d2">168600</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Xq24">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="GLUD2">
+  <data key="d0">gene</data>
+  <data key="d2">300144</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Multifactorial">
+  <data key="d0">inheritance</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_juvenile_type_2">
+  <data key="d0">disease</data>
+  <data key="d2">600116</data>
+  <data key="d1">individual</data>
+</node>
+<node id="6q26">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="PRKN">
+  <data key="d0">gene</data>
+  <data key="d2">602544</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_late_onset_susceptibility_to_A">
+  <data key="d0">disease</data>
+  <data key="d2">168600</data>
+  <data key="d1">individual</data>
+</node>
+<node id="12q24.12">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="ATXN2">
+  <data key="d0">gene</data>
+  <data key="d2">601517</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_late_onset_susceptibility_to_B">
+  <data key="d0">disease</data>
+  <data key="d2">168600</data>
+  <data key="d1">individual</data>
+</node>
+<node id="1q22">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="GBA">
+  <data key="d0">gene</data>
+  <data key="d2">606463</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_susceptibility_to_A">
+  <data key="d0">disease</data>
+  <data key="d2">168600</data>
+  <data key="d1">individual</data>
+</node>
+<node id="4q23">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="ADH1C">
+  <data key="d0">gene</data>
+  <data key="d2">103730</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_susceptibility_to_B">
+  <data key="d0">disease</data>
+  <data key="d2">168600</data>
+  <data key="d1">individual</data>
+</node>
+<node id="17q21.31">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="MAPT">
+  <data key="d0">gene</data>
+  <data key="d2">157140</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_susceptibility_to_C">
+  <data key="d0">disease</data>
+  <data key="d2">168600</data>
+  <data key="d1">individual</data>
+</node>
+<node id="6q27">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="TBP">
+  <data key="d0">gene</data>
+  <data key="d2">600075</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinson_disease_susceptibility_to_D">
+  <data key="d0">disease</data>
+  <data key="d2">168600</data>
+  <data key="d1">individual</data>
+</node>
+<node id="13q21.33">
+  <data key="d0">gene_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="ATXN8OS">
+  <data key="d0">gene</data>
+  <data key="d2">603680</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Lewy_bodies">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0100315</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinsonism">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001300</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Orthostatic_hypotension">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001278</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Middle_age_onset">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003596</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Abnormal_autonomic_nervous_system_physiology">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0012332</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Hallucinations">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000738</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Dementia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000726</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Paranoia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0011999</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Weight_loss">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001824</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Autosomal_dominant_inheritance">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000006</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Rapidly_progressive">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003678</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Bradykinesia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002067</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Rigidity">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002063</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Typified_by_incomplete_penetrance">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003829</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Postural_instability">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002172</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinsonism_with_favorable_response_to_dopaminergic_medication">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002548</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Talipes_equinovarus">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001762</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Babinski_sign">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003487</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Dystonia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001332</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Dysarthria">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001260</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Lower_limb_spasticity">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002061</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Abnormality_of_extrapyramidal_motor_function">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002071</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Scissor_gait">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0012407</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Monotonic_speech">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0031435</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Childhood_onset">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0011463</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Hypomimic_face">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000338</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Slow_saccadic_eye_movements">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000514</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Autosomal_recessive_inheritance">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000007</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Slowly_progressive">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003677</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Tremor">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001337</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Hyperreflexia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001347</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Resting_tremor">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002322</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Progressive">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003676</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Cerebral_cortical_atrophy">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002120</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Limb_dystonia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002451</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Neurofibrillary_tangles">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002185</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Abnormal_pyramidal_sign">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0007256</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Akinesia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002304</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Mental_deterioration">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001268</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Spasticity">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001257</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Gait_disturbance">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001288</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Constipation">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002019</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Elevated_circulating_creatine_kinase_concentration">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003236</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Frontotemporal_dementia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002145</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Global_brain_atrophy">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002283</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Pill_rolling_tremor">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0025387</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Depression">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000716</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Nystagmus">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000639</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Aggressive_behavior">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000718</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Young_adult_onset">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0011462</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Frontotemporal_cerebral_atrophy">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0006892</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Eyelid_apraxia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000658</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Hemiparesis">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001269</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Personality_changes">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000751</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Brisk_reflexes">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001348</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Nocturia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000017</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Vertical_supranuclear_gaze_palsy">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000511</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Clumsiness">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002312</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Hand_tremor">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002378</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Juvenile_onset">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003621</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Axial_dystonia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002530</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Eyelid_myoclonus">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0025097</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Facial_tics">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0011468</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Ankle_clonus">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0011448</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Dyskinesia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0100660</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Hypometric_upward_saccades">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0031833</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Upper_limb_postural_tremor">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0007351</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Loss_of_ambulation">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002505</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Leg_muscle_stiffness">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0008969</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Shuffling_gait">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002362</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Staring_gaze">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0025401</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Late_young_adult_onset">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0025710</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Weak_voice">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001621</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Dysphagia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002015</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Fatigue">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0012378</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Intermediate_young_adult_onset">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0025709</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Supranuclear_gaze_palsy">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000605</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Short_stepped_shuffling_gait">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0007311</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Stooped_posture">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0025403</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Involuntary_movements">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0004305</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Cerebral_atrophy">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002059</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Substantia_nigra_gliosis">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0011960</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Late_onset">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003584</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Hyposmia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0004409</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Sleep_disturbance">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002360</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Micrographia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0031908</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Sporadic">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003745</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Insidious_onset">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003587</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Mask_like_facies">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000298</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Urinary_urgency">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000012</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Adult_onset">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003581</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Neuronal_loss_in_central_nervous_system">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002529</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Hypokinesia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002375</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Gliosis">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002171</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Myoclonus">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001336</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Infantile_onset">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0003593</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Anxiety">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000739</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Hypometric_saccades">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000571</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Seizure">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001250</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Glabellar_reflex">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0030904</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Cognitive_impairment">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0100543</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Limb_hypertonia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002509</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Intellectual_disability">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001249</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Hypertonia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001276</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Intellectual_disability_mild">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001256</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Paraparesis">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002385</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Ataxia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001251</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Distal_sensory_impairment">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002936</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Anosmia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000458</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Torticollis">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000473</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Palmomental_reflex">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0030902</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Psychotic_episodes">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000725</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Spastic_paraplegia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0001258</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Anarthria">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002425</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Leg_dystonia">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0031959</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Postural_tremor">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0002174</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Blepharospasm">
+  <data key="d0">phenotype</data>
+  <data key="d3">HP:0000643</data>
+  <data key="d1">individual</data>
+</node>
+<node id="4">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="Alcohol_dehydrogenase_1C_class_I__gamma_polypeptide">
+  <data key="d0">protein</data>
+  <data key="d4">P00326</data>
+  <data key="d1">individual</data>
+  <data key="d5">41</data>
+  <data key="d6">374</data>
+</node>
+<node id="Enzymes">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="FDA_approved_drug_targets">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Human_disease_related_genes">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Metabolic_proteins">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Plasma_proteins">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Predicted_intracellular_proteins">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Oxidoreductase">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Plasma_membrane">
+  <data key="d0">protein_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Cytosol">
+  <data key="d0">protein_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="1">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="ATPase_cation_transporting_13A2">
+  <data key="d0">protein</data>
+  <data key="d4">Q9NQ11</data>
+  <data key="d1">individual</data>
+  <data key="d5">129</data>
+  <data key="d6">1,184</data>
+</node>
+<node id="Disease_related_genes">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Potential_drug_targets">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Predicted_membrane_proteins">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Transporters">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Transport">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Translocase">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Disease_variant">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Hereditary_spastic_paraplegia">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Neurodegeneration">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Neuronal_ceroid_lipofuscinosis">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinsonism_involvement">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="TM">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Lysosome">
+  <data key="d0">protein_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="12">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="Ataxin_2">
+  <data key="d0">protein</data>
+  <data key="d4">Q99700</data>
+  <data key="d1">individual</data>
+  <data key="d5">140</data>
+  <data key="d6">1,313</data>
+</node>
+<node id="Amyotrophic_lateral_sclerosis_involvement">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Spinocerebellar_ataxia_involvement">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="SM">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="7">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="Coiled_coil_helix_coiled_coil_helix_domain_containing_2">
+  <data key="d0">protein</data>
+  <data key="d4">Q9Y6H1</data>
+  <data key="d1">individual</data>
+  <data key="d5">15</data>
+  <data key="d6">151</data>
+</node>
+<node id="Transcription">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Activator">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Parkinsonism_disease_involvement">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Mitochondria">
+  <data key="d0">protein_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="DnaJ_heat_shock_protein_family_Hsp40_member_C6">
+  <data key="d0">protein</data>
+  <data key="d4">O75061</data>
+  <data key="d1">individual</data>
+  <data key="d5">100</data>
+  <data key="d6">913</data>
+</node>
+<node id="Chaperone">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Hydrolase">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Protein_phosphatase">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="DNAJ">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="3">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="Eukaryotic_translation_initiation_factor_4_gamma_1">
+  <data key="d0">protein</data>
+  <data key="d4">Q04637</data>
+  <data key="d1">individual</data>
+  <data key="d5">175</data>
+  <data key="d6">1,599</data>
+</node>
+<node id="Cancer_related_genes">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Host_virus_interaction">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Protein_biosynthesis">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Translation_regulation">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Initiation_factor">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="RNA_binding">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Translational_shunt">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="MA3">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="MIF4G">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="CC">
+  <data key="d0">protein_motif</data>
+  <data key="d1">individual</data>
+</node>
+<node id="22">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="F_box_protein_7">
+  <data key="d0">protein</data>
+  <data key="d4">Q9Y3I1</data>
+  <data key="d1">individual</data>
+  <data key="d5">58</data>
+  <data key="d6">522</data>
+</node>
+<node id="Ubl_conjugation_pathway">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="F_BOX">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Nucleoplasm">
+  <data key="d0">protein_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Glucosylceramidase_beta">
+  <data key="d0">protein</data>
+  <data key="d4">P04062</data>
+  <data key="d1">individual</data>
+  <data key="d5">60</data>
+  <data key="d6">536</data>
+</node>
+<node id="Cholesterol_metabolism">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Lipid_metabolism">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Sphingolipid_metabolism">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Steroid_metabolism">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Sterol_metabolism">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Glycosidase">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Glycosyltransferase">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Transferase">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Gaucher_disease_involvement">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Ichthyosis">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="2">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="GRB10_interacting_GYF_protein_2">
+  <data key="d0">protein</data>
+  <data key="d4">Q6Y7W6</data>
+  <data key="d1">individual</data>
+  <data key="d5">150</data>
+  <data key="d6">1299</data>
+</node>
+<node id="X">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="Glutamate_dehydrogenase_2">
+  <data key="d0">protein</data>
+  <data key="d4">P49448</data>
+  <data key="d1">individual</data>
+  <data key="d5">61</data>
+  <data key="d6">558</data>
+</node>
+<node id="HtrA_serine_peptidase_2">
+  <data key="d0">protein</data>
+  <data key="d4">O43464</data>
+  <data key="d1">individual</data>
+  <data key="d5">49</data>
+  <data key="d6">458</data>
+</node>
+<node id="Apoptosis">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Protease">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Serine_protease">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Epilepsy_involvement">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="TRYPSIN">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="PDZ">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Leucine_rich_repeat_kinase_2">
+  <data key="d0">protein</data>
+  <data key="d4">Q5S007</data>
+  <data key="d1">individual</data>
+  <data key="d5">286</data>
+  <data key="d6">2,527</data>
+</node>
+<node id="Autophagy">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Differentiation">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="GTPase_activation">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Kinase">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Serine/threonine_protein_kinase">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="LRR">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="WD40">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="S_T_KINASE">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="SMALL_GTPASE">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Vesicles">
+  <data key="d0">protein_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="17">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="Microtubule_associated_protein_tau">
+  <data key="d0">protein</data>
+  <data key="d4">P10636</data>
+  <data key="d1">individual</data>
+  <data key="d5">79</data>
+  <data key="d6">758</data>
+</node>
+<node id="Candidate_cardiovascular_disease_genes">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Predicted_secreted_proteins">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Alzheimer_disease_involvement">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="PTEN_induced_kinase_1">
+  <data key="d0">protein</data>
+  <data key="d4">Q9BXM7</data>
+  <data key="d1">individual</data>
+  <data key="d5">63</data>
+  <data key="d6">581</data>
+</node>
+<node id="Primary_mitochondrial_disease">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="S_T_Y_KINASE">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Phospholipase_A2_group_VI">
+  <data key="d0">protein</data>
+  <data key="d4">O60733</data>
+  <data key="d1">individual</data>
+  <data key="d5">90</data>
+  <data key="d6">806</data>
+</node>
+<node id="RAS_pathway_related_proteins">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Chemotaxis">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Phospholipid_metabolism">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Calmodulin_binding">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Dystonia_involvement">
+  <data key="d0">disease_involvement</data>
+  <data key="d1">individual</data>
+</node>
+<node id="ANK">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Centriolar_satellite">
+  <data key="d0">protein_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="6">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="Parkin_RBR_E3_ubiquitin_protein_ligase">
+  <data key="d0">protein</data>
+  <data key="d4">O60260</data>
+  <data key="d1">individual</data>
+  <data key="d5">52</data>
+  <data key="d6">465</data>
+</node>
+<node id="Transcription_regulation">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="UBQ">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="IBR">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Nuclear_speckles">
+  <data key="d0">protein_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Synuclein_alpha">
+  <data key="d0">protein</data>
+  <data key="d4">P37840</data>
+  <data key="d1">individual</data>
+  <data key="d5">14</data>
+  <data key="d6">140</data>
+</node>
+<node id="SYNUC">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="21">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="Synaptojanin_1">
+  <data key="d0">protein</data>
+  <data key="d4">O43426</data>
+  <data key="d1">individual</data>
+  <data key="d5">170</data>
+  <data key="d6">1,573</data>
+</node>
+<node id="Endocytosis">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="I_PHOSPHATASE">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="TATA_box_binding_protein">
+  <data key="d0">protein</data>
+  <data key="d4">P20226</data>
+  <data key="d1">individual</data>
+  <data key="d5">38</data>
+  <data key="d6">339</data>
+</node>
+<node id="Transcription_factors">
+  <data key="d0">protein_class</data>
+  <data key="d1">individual</data>
+</node>
+<node id="DNA_binding">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="LISH">
+  <data key="d0">protein_domain</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Ubiquitin_C_terminal_hydrolase_L1">
+  <data key="d0">protein</data>
+  <data key="d4">P09936</data>
+  <data key="d1">individual</data>
+  <data key="d5">25</data>
+  <data key="d6">223</data>
+</node>
+<node id="Thiol_protease">
+  <data key="d0">molecular_function</data>
+  <data key="d1">individual</data>
+</node>
+<node id="15">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="Vacuolar_protein_sorting_13_homolog_C">
+  <data key="d0">protein</data>
+  <data key="d4">Q709C8</data>
+  <data key="d1">individual</data>
+  <data key="d5">422</data>
+  <data key="d6">3,753</data>
+</node>
+<node id="Lipid_transport">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Endoplasmic_reticulum">
+  <data key="d0">protein_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="Endosome">
+  <data key="d0">protein_location</data>
+  <data key="d1">individual</data>
+</node>
+<node id="16">
+  <data key="d1">individual</data>
+  <data key="d0">chromosome</data>
+</node>
+<node id="VPS35_retromer_complex_component">
+  <data key="d0">protein</data>
+  <data key="d4">Q96QK1</data>
+  <data key="d1">individual</data>
+  <data key="d5">92</data>
+  <data key="d6">796</data>
+</node>
+<node id="Protein_transport">
+  <data key="d0">biologic_process</data>
+  <data key="d1">individual</data>
+</node>
+<edge source="Kufor_Rakeb_syndrome" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="ATP13A2">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="AR">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Leg_muscle_stiffness">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Hypertonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Intellectual_disability_mild">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Dystonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Seizure">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Paraparesis">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Ataxia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Hallucinations">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Young_adult_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Aggressive_behavior">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Slow_saccadic_eye_movements">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Distal_sensory_impairment">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Anosmia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Brisk_reflexes">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Hyperreflexia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Torticollis">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Juvenile_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Dysphagia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Hypokinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Mask_like_facies">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Gait_disturbance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Babinski_sign">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Dysarthria">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Palmomental_reflex">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Fatigue">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Supranuclear_gaze_palsy">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Dementia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Hyposmia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Autosomal_recessive_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Psychotic_episodes">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Parkinsonism_with_favorable_response_to_dopaminergic_medication">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Spastic_paraplegia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Anarthria">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Akinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Spasticity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Rapidly_progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Kufor_Rakeb_syndrome" target="Myoclonus">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="1p36.13" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="ATP13A2" target="1p36.13">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="ATP13A2" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="ATP13A2" target="1">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="ATP13A2" target="ATPase_cation_transporting_13A2">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="AR" target="inheritance">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_1" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_1" target="SNCA">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_1" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Resting_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Dystonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Shuffling_gait">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Sleep_disturbance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Global_brain_atrophy">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Depression">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Hallucinations">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Young_adult_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Micrographia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Mental_deterioration">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Insidious_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Dysphagia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Hypokinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Gait_disturbance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Urinary_urgency">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Dysarthria">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Late_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Gliosis">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Lewy_bodies">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Dementia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Loss_of_ambulation">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Autosomal_dominant_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_1" target="Myoclonus">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="4q22.1" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="SNCA" target="4q22.1">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="SNCA" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="SNCA" target="4">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="SNCA" target="Synuclein_alpha">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="AD" target="inheritance">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_10" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_10" target="PARK10">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_10" target="unknown">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="1p32" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PARK10" target="1p32">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="PARK10" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="unknown" target="inheritance">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_11" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_11" target="GIGYF2">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_11" target="unknown">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_11" target="Resting_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_11" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_11" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_11" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_11" target="Parkinsonism_with_favorable_response_to_dopaminergic_medication">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_11" target="Autosomal_dominant_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="2q37.1" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="GIGYF2" target="2q37.1">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="GIGYF2" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="GIGYF2" target="2">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="GIGYF2" target="GRB10_interacting_GYF_protein_2">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_12" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_12" target="PARK12">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_12" target="unknown">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Xq21-q25" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PARK12" target="Xq21-q25">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="PARK12" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_13" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_13" target="HTRA2">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_13" target="unknown">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_13" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_13" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_13" target="Parkinsonism_with_favorable_response_to_dopaminergic_medication">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_13" target="Autosomal_dominant_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_13" target="Tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="2p13.1" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="HTRA2" target="2p13.1">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="HTRA2" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="HTRA2" target="2">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="HTRA2" target="HtrA_serine_peptidase_2">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="PLA2G6">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="AR">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Resting_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Elevated_circulating_creatine_kinase_concentration">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Dystonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Frontotemporal_dementia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Global_brain_atrophy">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Pill_rolling_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Depression">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Nystagmus">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Aggressive_behavior">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Young_adult_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Frontotemporal_cerebral_atrophy">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Hypomimic_face">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Eyelid_apraxia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Hemiparesis">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Mental_deterioration">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Personality_changes">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Brisk_reflexes">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Nocturia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Hyperreflexia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Vertical_supranuclear_gaze_palsy">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Clumsiness">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Hand_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Juvenile_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Axial_dystonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Eyelid_myoclonus">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Dysarthria">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Facial_tics">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Ankle_clonus">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Dyskinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Hypometric_upward_saccades">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Upper_limb_postural_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Autosomal_recessive_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Loss_of_ambulation">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Spasticity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_14_autosomal_recessive" target="Rapidly_progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="22q13.1" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PLA2G6" target="22q13.1">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="PLA2G6" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PLA2G6" target="22">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="PLA2G6" target="Phospholipase_A2_group_VI">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="FBXO7">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="AR">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Talipes_equinovarus">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Babinski_sign">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Dystonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Dysarthria">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Lower_limb_spasticity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Abnormality_of_extrapyramidal_motor_function">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Scissor_gait">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Monotonic_speech">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Childhood_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Hypomimic_face">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Slow_saccadic_eye_movements">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Autosomal_recessive_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Parkinsonism_with_favorable_response_to_dopaminergic_medication">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Slowly_progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_15_autosomal_recessive" target="Hyperreflexia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="22q12.3" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="FBXO7" target="22q12.3">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="FBXO7" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="FBXO7" target="22">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="FBXO7" target="F_box_protein_7">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_16" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_16" target="PARK16">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_16" target="unknown">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="1q32" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PARK16" target="1q32">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="PARK16" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_17" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_17" target="VPS35">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_17" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_17" target="Resting_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_17" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_17" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_17" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_17" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_17" target="Akinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_17" target="Autosomal_dominant_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_17" target="Tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_17" target="Dyskinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="16q11.2" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="VPS35" target="16q11.2">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="VPS35" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="VPS35" target="16">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="VPS35" target="VPS35_retromer_complex_component">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_18" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_18" target="EIF4G1">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_18" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_18" target="Insidious_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_18" target="Resting_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_18" target="Lewy_bodies">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_18" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_18" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_18" target="Middle_age_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_18" target="Late_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_18" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_18" target="Autosomal_dominant_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="3q27.1" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="EIF4G1" target="3q27.1">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="EIF4G1" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="EIF4G1" target="3">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="EIF4G1" target="Eukaryotic_translation_initiation_factor_4_gamma_1">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_19a_juvenile_onset" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_19a_juvenile_onset" target="DNAJC6">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_19a_juvenile_onset" target="AR">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="1p31.3" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="DNAJC6" target="1p31.3">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="DNAJC6" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="DNAJC6" target="1">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="DNAJC6" target="DnaJ_heat_shock_protein_family_Hsp40_member_C6">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="DNAJC6">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="AR">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Hypometric_saccades">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Juvenile_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Dystonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Seizure">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Shuffling_gait">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Dysarthria">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Pill_rolling_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Glabellar_reflex">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Cognitive_impairment">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Hallucinations">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Limb_hypertonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Hypomimic_face">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Abnormal_pyramidal_sign">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Autosomal_recessive_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Loss_of_ambulation">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Spasticity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Intellectual_disability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Slowly_progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_19b_early_onset" target="Rapidly_progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="SYNJ1">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="AR">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Leg_muscle_stiffness">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Dystonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Cerebral_cortical_atrophy">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Shuffling_gait">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Staring_gaze">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Eyelid_apraxia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Late_young_adult_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Weak_voice">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Mental_deterioration">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Dysphagia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Gait_disturbance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Dysarthria">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Fatigue">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Intermediate_young_adult_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Supranuclear_gaze_palsy">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Autosomal_recessive_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Short_stepped_shuffling_gait">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Stooped_posture">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Involuntary_movements">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_20_early_onset" target="Tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="21q22.11" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="SYNJ1" target="21q22.11">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="SYNJ1" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="SYNJ1" target="21">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="SYNJ1" target="Synaptojanin_1">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_21" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_21" target="PARK21">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_21" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_21" target="Lewy_bodies">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_21" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_21" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_21" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_21" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_21" target="Tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_21" target="Autosomal_dominant_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_21" target="Slowly_progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="3q22" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PARK21" target="3q22">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="PARK21" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_22_autosomal_dominant" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_22_autosomal_dominant" target="CHCHD2">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_22_autosomal_dominant" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_22_autosomal_dominant" target="Resting_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_22_autosomal_dominant" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_22_autosomal_dominant" target="Orthostatic_hypotension">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_22_autosomal_dominant" target="Gait_disturbance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_22_autosomal_dominant" target="Constipation">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_22_autosomal_dominant" target="Tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_22_autosomal_dominant" target="Autosomal_dominant_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_22_autosomal_dominant" target="Hyperreflexia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="7p11.2" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="CHCHD2" target="7p11.2">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="CHCHD2" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="CHCHD2" target="7">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="CHCHD2" target="Coiled_coil_helix_coiled_coil_helix_domain_containing_2">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="VPS13C">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="AR">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Resting_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Cerebral_cortical_atrophy">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Limb_dystonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Neurofibrillary_tangles">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Lewy_bodies">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Abnormal_autonomic_nervous_system_physiology">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Dementia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Autosomal_recessive_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Abnormal_pyramidal_sign">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Akinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Mental_deterioration">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Spasticity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_23_autosomal_recessive_early_onset" target="Hyperreflexia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="15q22.2" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="VPS13C" target="15q22.2">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="VPS13C" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="VPS13C" target="15">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="VPS13C" target="Vacuolar_protein_sorting_13_homolog_C">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_3" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_3" target="PARK3">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_3" target="unknown">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="2p13" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PARK3" target="2p13">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="PARK3" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_4" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_4" target="SNCA">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_4" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_4" target="Lewy_bodies">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_4" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_4" target="Orthostatic_hypotension">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_4" target="Middle_age_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_4" target="Abnormal_autonomic_nervous_system_physiology">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_4" target="Hallucinations">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_4" target="Dementia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_4" target="Paranoia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_4" target="Weight_loss">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_4" target="Autosomal_dominant_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_4" target="Rapidly_progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_5_susceptibility_to" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_5_susceptibility_to" target="UCHL1">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_5_susceptibility_to" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_5_susceptibility_to" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_5_susceptibility_to" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_5_susceptibility_to" target="Typified_by_incomplete_penetrance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_5_susceptibility_to" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_5_susceptibility_to" target="Parkinsonism_with_favorable_response_to_dopaminergic_medication">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_5_susceptibility_to" target="Autosomal_dominant_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="4p13" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="UCHL1" target="4p13">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="UCHL1" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="UCHL1" target="4">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="UCHL1" target="Ubiquitin_C_terminal_hydrolase_L1">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="PINK1">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="AR">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Resting_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Urinary_urgency">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Dystonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Infantile_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Depression">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Dementia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Anxiety">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Autosomal_recessive_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Slowly_progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_6_early_onset" target="Hyperreflexia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="1p36.12" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PINK1" target="1p36.12">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="PINK1" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PINK1" target="1">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="PINK1" target="PTEN_induced_kinase_1">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="DJ1">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="AR">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Resting_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Leg_dystonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Adult_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Postural_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Dyskinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Anxiety">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Autosomal_recessive_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Psychotic_episodes">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Parkinsonism_with_favorable_response_to_dopaminergic_medication">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Slowly_progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Brisk_reflexes">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_7_autosomal_recessive_early_onset" target="Blepharospasm">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="1p36.23" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="DJ1" target="1p36.23">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="DJ1" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_8" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_8" target="LRRK2">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_8" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Resting_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Late_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Substantia_nigra_gliosis">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Lewy_bodies">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Dementia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Typified_by_incomplete_penetrance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Hyposmia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Parkinsonism_with_favorable_response_to_dopaminergic_medication">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Autosomal_dominant_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_8" target="Slowly_progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="12q12" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="LRRK2" target="12q12">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="LRRK2" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="LRRK2" target="12">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="LRRK2" target="Leucine_rich_repeat_kinase_2">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_age_of_onset_modifier" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_age_of_onset_modifier" target="GLUD2">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_age_of_onset_modifier" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_age_of_onset_modifier" target="Multifactorial">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Xq24" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="GLUD2" target="Xq24">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="GLUD2" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="GLUD2" target="X">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="GLUD2" target="Glutamate_dehydrogenase_2">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Multifactorial" target="inheritance">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="PRKN">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="AR">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Juvenile_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Cerebral_atrophy">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Middle_age_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Dystonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Gait_disturbance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Substantia_nigra_gliosis">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Lewy_bodies">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Dementia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Young_adult_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Autosomal_recessive_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_juvenile_type_2" target="Hyperreflexia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="6q26" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PRKN" target="6q26">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="PRKN" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PRKN" target="6">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="PRKN" target="Parkin_RBR_E3_ubiquitin_protein_ligase">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_late_onset_susceptibility_to_A" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_late_onset_susceptibility_to_A" target="ATXN2">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_late_onset_susceptibility_to_A" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_late_onset_susceptibility_to_A" target="Multifactorial">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="12q24.12" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="ATXN2" target="12q24.12">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="ATXN2" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="ATXN2" target="12">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="ATXN2" target="Ataxin_2">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_late_onset_susceptibility_to_B" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_late_onset_susceptibility_to_B" target="GBA">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_late_onset_susceptibility_to_B" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_late_onset_susceptibility_to_B" target="Multifactorial">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="1q22" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="GBA" target="1q22">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="GBA" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="GBA" target="1">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="GBA" target="Glucosylceramidase_beta">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_A" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_A" target="ADH1C">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_A" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_A" target="Multifactorial">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="4q23" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="ADH1C" target="4q23">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="ADH1C" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="ADH1C" target="4">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="ADH1C" target="Alcohol_dehydrogenase_1C_class_I__gamma_polypeptide">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_B" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_B" target="MAPT">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_B" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_B" target="Multifactorial">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="17q21.31" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="MAPT" target="17q21.31">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="MAPT" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="MAPT" target="17">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="MAPT" target="Microtubule_associated_protein_tau">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_C" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_C" target="TBP">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_C" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_C" target="Multifactorial">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="6q27" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="TBP" target="6q27">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="TBP" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="TBP" target="6">
+  <data key="d7">is_on_chromosome</data>
+</edge>
+<edge source="TBP" target="TATA_box_binding_protein">
+  <data key="d7">codes_for</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="disease">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="ATXN8OS">
+  <data key="d7">is_caused_by</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="AD">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Multifactorial">
+  <data key="d7">inherited_by</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Resting_tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Progressive">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Bradykinesia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Dystonia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Rigidity">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Sleep_disturbance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Abnormal_autonomic_nervous_system_physiology">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Depression">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Hallucinations">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Micrographia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Sporadic">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Weak_voice">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Constipation">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Personality_changes">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Insidious_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Dysphagia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Parkinsonism">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Mask_like_facies">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Urinary_urgency">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Dysarthria">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Late_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Adult_onset">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Postural_instability">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Substantia_nigra_gliosis">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Lewy_bodies">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Dementia">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Neuronal_loss_in_central_nervous_system">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Short_stepped_shuffling_gait">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Autosomal_dominant_inheritance">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="Parkinson_disease_susceptibility_to_D" target="Tremor">
+  <data key="d7">has_a_phenotype</data>
+</edge>
+<edge source="13q21.33" target="gene_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="ATXN8OS" target="13q21.33">
+  <data key="d7">has_gene_location</data>
+</edge>
+<edge source="ATXN8OS" target="gene">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Lewy_bodies" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinsonism" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Orthostatic_hypotension" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Middle_age_onset" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Abnormal_autonomic_nervous_system_physiology" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Hallucinations" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Dementia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Paranoia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Weight_loss" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Autosomal_dominant_inheritance" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Rapidly_progressive" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Bradykinesia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Rigidity" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Typified_by_incomplete_penetrance" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Postural_instability" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinsonism_with_favorable_response_to_dopaminergic_medication" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Talipes_equinovarus" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Babinski_sign" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Dystonia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Dysarthria" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Lower_limb_spasticity" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Abnormality_of_extrapyramidal_motor_function" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Scissor_gait" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Monotonic_speech" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Childhood_onset" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Hypomimic_face" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Slow_saccadic_eye_movements" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Autosomal_recessive_inheritance" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Slowly_progressive" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Tremor" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Hyperreflexia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Resting_tremor" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Progressive" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Cerebral_cortical_atrophy" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Limb_dystonia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Neurofibrillary_tangles" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Abnormal_pyramidal_sign" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Akinesia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Mental_deterioration" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Spasticity" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Gait_disturbance" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Constipation" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Elevated_circulating_creatine_kinase_concentration" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Frontotemporal_dementia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Global_brain_atrophy" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Pill_rolling_tremor" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Depression" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Nystagmus" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Aggressive_behavior" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Young_adult_onset" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Frontotemporal_cerebral_atrophy" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Eyelid_apraxia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Hemiparesis" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Personality_changes" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Brisk_reflexes" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Nocturia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Vertical_supranuclear_gaze_palsy" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Clumsiness" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Hand_tremor" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Juvenile_onset" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Axial_dystonia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Eyelid_myoclonus" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Facial_tics" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Ankle_clonus" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Dyskinesia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Hypometric_upward_saccades" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Upper_limb_postural_tremor" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Loss_of_ambulation" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Leg_muscle_stiffness" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Shuffling_gait" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Staring_gaze" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Late_young_adult_onset" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Weak_voice" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Dysphagia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Fatigue" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Intermediate_young_adult_onset" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Supranuclear_gaze_palsy" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Short_stepped_shuffling_gait" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Stooped_posture" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Involuntary_movements" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Cerebral_atrophy" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Substantia_nigra_gliosis" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Late_onset" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Hyposmia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Sleep_disturbance" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Micrographia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Sporadic" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Insidious_onset" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Mask_like_facies" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Urinary_urgency" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Adult_onset" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Neuronal_loss_in_central_nervous_system" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Hypokinesia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Gliosis" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Myoclonus" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Infantile_onset" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Anxiety" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Hypometric_saccades" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Seizure" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Glabellar_reflex" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Cognitive_impairment" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Limb_hypertonia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Intellectual_disability" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Hypertonia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Intellectual_disability_mild" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Paraparesis" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Ataxia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Distal_sensory_impairment" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Anosmia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Torticollis" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Palmomental_reflex" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Psychotic_episodes" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Spastic_paraplegia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Anarthria" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Leg_dystonia" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Postural_tremor" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Blepharospasm" target="phenotype">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="4" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Alcohol_dehydrogenase_1C_class_I__gamma_polypeptide" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Alcohol_dehydrogenase_1C_class_I__gamma_polypeptide" target="Enzymes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Alcohol_dehydrogenase_1C_class_I__gamma_polypeptide" target="FDA_approved_drug_targets">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Alcohol_dehydrogenase_1C_class_I__gamma_polypeptide" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Alcohol_dehydrogenase_1C_class_I__gamma_polypeptide" target="Metabolic_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Alcohol_dehydrogenase_1C_class_I__gamma_polypeptide" target="Plasma_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Alcohol_dehydrogenase_1C_class_I__gamma_polypeptide" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Alcohol_dehydrogenase_1C_class_I__gamma_polypeptide" target="Oxidoreductase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Alcohol_dehydrogenase_1C_class_I__gamma_polypeptide" target="Plasma_membrane">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Alcohol_dehydrogenase_1C_class_I__gamma_polypeptide" target="Cytosol">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Enzymes" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="FDA_approved_drug_targets" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="FDA_approved_drug_targets" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Human_disease_related_genes" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Metabolic_proteins" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Plasma_proteins" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Predicted_intracellular_proteins" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Oxidoreductase" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Plasma_membrane" target="protein_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Cytosol" target="protein_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="1" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Plasma_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Potential_drug_targets">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Predicted_membrane_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Transporters">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Transport">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Translocase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Hereditary_spastic_paraplegia">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Neuronal_ceroid_lipofuscinosis">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="TM">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="ATPase_cation_transporting_13A2" target="Lysosome">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Disease_related_genes" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Potential_drug_targets" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Predicted_membrane_proteins" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Transporters" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Transport" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Translocase" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Disease_variant" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Hereditary_spastic_paraplegia" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Neurodegeneration" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Neuronal_ceroid_lipofuscinosis" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinsonism_involvement" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="TM" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Lysosome" target="protein_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="12" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Ataxin_2" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Ataxin_2" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Ataxin_2" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Ataxin_2" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Ataxin_2" target="Amyotrophic_lateral_sclerosis_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Ataxin_2" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Ataxin_2" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Ataxin_2" target="Spinocerebellar_ataxia_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Ataxin_2" target="SM">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="Ataxin_2" target="Cytosol">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Amyotrophic_lateral_sclerosis_involvement" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Spinocerebellar_ataxia_involvement" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="SM" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="7" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Coiled_coil_helix_coiled_coil_helix_domain_containing_2" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Coiled_coil_helix_coiled_coil_helix_domain_containing_2" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Coiled_coil_helix_coiled_coil_helix_domain_containing_2" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Coiled_coil_helix_coiled_coil_helix_domain_containing_2" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Coiled_coil_helix_coiled_coil_helix_domain_containing_2" target="Transcription">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Coiled_coil_helix_coiled_coil_helix_domain_containing_2" target="Activator">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Coiled_coil_helix_coiled_coil_helix_domain_containing_2" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Coiled_coil_helix_coiled_coil_helix_domain_containing_2" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Coiled_coil_helix_coiled_coil_helix_domain_containing_2" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Coiled_coil_helix_coiled_coil_helix_domain_containing_2" target="Mitochondria">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Transcription" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Activator" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkinsonism_disease_involvement" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Mitochondria" target="protein_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="Enzymes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="Potential_drug_targets">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="Chaperone">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="Hydrolase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="Protein_phosphatase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="DNAJ">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="DnaJ_heat_shock_protein_family_Hsp40_member_C6" target="Cytosol">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Chaperone" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Hydrolase" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Protein_phosphatase" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="DNAJ" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="3" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Cancer_related_genes">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Plasma_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Host_virus_interaction">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Protein_biosynthesis">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Translation_regulation">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Initiation_factor">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="RNA_binding">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Translational_shunt">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="MA3">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="MIF4G">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="CC">
+  <data key="d7">has_a_protein_motif</data>
+</edge>
+<edge source="Eukaryotic_translation_initiation_factor_4_gamma_1" target="Cytosol">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Cancer_related_genes" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Cancer_related_genes" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Host_virus_interaction" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Protein_biosynthesis" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Translation_regulation" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Initiation_factor" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="RNA_binding" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Translational_shunt" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="MA3" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="MIF4G" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="CC" target="protein_motif">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="22" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="F_box_protein_7" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="F_box_protein_7" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="F_box_protein_7" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="F_box_protein_7" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="F_box_protein_7" target="Ubl_conjugation_pathway">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="F_box_protein_7" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="F_box_protein_7" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="F_box_protein_7" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="F_box_protein_7" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="F_box_protein_7" target="F_BOX">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="F_box_protein_7" target="Nucleoplasm">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="F_box_protein_7" target="Cytosol">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Ubl_conjugation_pathway" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="F_BOX" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Nucleoplasm" target="protein_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Enzymes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Metabolic_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Potential_drug_targets">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Cholesterol_metabolism">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Lipid_metabolism">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Sphingolipid_metabolism">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Steroid_metabolism">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Sterol_metabolism">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Glycosidase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Glycosyltransferase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Hydrolase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Transferase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Gaucher_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Ichthyosis">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Glucosylceramidase_beta" target="Lysosome">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Cholesterol_metabolism" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Lipid_metabolism" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Sphingolipid_metabolism" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Steroid_metabolism" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Sterol_metabolism" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Glycosidase" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Glycosyltransferase" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Transferase" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Gaucher_disease_involvement" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Ichthyosis" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="2" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="GRB10_interacting_GYF_protein_2" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="GRB10_interacting_GYF_protein_2" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="GRB10_interacting_GYF_protein_2" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="GRB10_interacting_GYF_protein_2" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="GRB10_interacting_GYF_protein_2" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="GRB10_interacting_GYF_protein_2" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="GRB10_interacting_GYF_protein_2" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="GRB10_interacting_GYF_protein_2" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="GRB10_interacting_GYF_protein_2" target="CC">
+  <data key="d7">has_a_protein_motif</data>
+</edge>
+<edge source="GRB10_interacting_GYF_protein_2" target="Cytosol">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="X" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Glutamate_dehydrogenase_2" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Glutamate_dehydrogenase_2" target="Enzymes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Glutamate_dehydrogenase_2" target="Metabolic_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Glutamate_dehydrogenase_2" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Glutamate_dehydrogenase_2" target="Oxidoreductase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Glutamate_dehydrogenase_2" target="Mitochondria">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Enzymes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Plasma_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Potential_drug_targets">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Predicted_membrane_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Apoptosis">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Hydrolase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Protease">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Serine_protease">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Epilepsy_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="TM">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="TRYPSIN">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="PDZ">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="HtrA_serine_peptidase_2" target="Mitochondria">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Apoptosis" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Protease" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Serine_protease" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Epilepsy_involvement" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="TRYPSIN" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PDZ" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Cancer_related_genes">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Enzymes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Potential_drug_targets">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Autophagy">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Differentiation">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="GTPase_activation">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Hydrolase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Kinase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Serine/threonine_protein_kinase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Transferase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="LRR">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="WD40">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="S_T_KINASE">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="SMALL_GTPASE">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="Leucine_rich_repeat_kinase_2" target="Vesicles">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Autophagy" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Differentiation" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="GTPase_activation" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Kinase" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Serine/threonine_protein_kinase" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="LRR" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="WD40" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="S_T_KINASE" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="SMALL_GTPASE" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Vesicles" target="protein_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="17" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="Candidate_cardiovascular_disease_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="FDA_approved_drug_targets">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="Plasma_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="Predicted_secreted_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="Alzheimer_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Microtubule_associated_protein_tau" target="Plasma_membrane">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Candidate_cardiovascular_disease_genes" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Predicted_secreted_proteins" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Alzheimer_disease_involvement" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Enzymes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Potential_drug_targets">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Autophagy">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Kinase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Serine/threonine_protein_kinase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Transferase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Primary_mitochondrial_disease">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="S_T_Y_KINASE">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="PTEN_induced_kinase_1" target="Mitochondria">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Primary_mitochondrial_disease" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="S_T_Y_KINASE" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Enzymes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Metabolic_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Potential_drug_targets">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Predicted_membrane_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="RAS_pathway_related_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Chemotaxis">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Lipid_metabolism">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Phospholipid_metabolism">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Calmodulin_binding">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Hydrolase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Dystonia_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="ANK">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Centriolar_satellite">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Phospholipase_A2_group_VI" target="Cytosol">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="RAS_pathway_related_proteins" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Chemotaxis" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Phospholipid_metabolism" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Calmodulin_binding" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Dystonia_involvement" target="disease_involvement">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="ANK" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Centriolar_satellite" target="protein_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="6" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Enzymes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Metabolic_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Potential_drug_targets">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Autophagy">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Transcription">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Transcription_regulation">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Ubl_conjugation_pathway">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Transferase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="UBQ">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="IBR">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="Parkin_RBR_E3_ubiquitin_protein_ligase" target="Nuclear_speckles">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Transcription_regulation" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="UBQ" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="IBR" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Nuclear_speckles" target="protein_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Synuclein_alpha" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Synuclein_alpha" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Synuclein_alpha" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Synuclein_alpha" target="Plasma_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Synuclein_alpha" target="Potential_drug_targets">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Synuclein_alpha" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Synuclein_alpha" target="Transporters">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Synuclein_alpha" target="Alzheimer_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Synuclein_alpha" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Synuclein_alpha" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Synuclein_alpha" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Synuclein_alpha" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Synuclein_alpha" target="SYNUC">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="Synuclein_alpha" target="Cytosol">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="SYNUC" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="21" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Synaptojanin_1" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Synaptojanin_1" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Synaptojanin_1" target="Enzymes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Synaptojanin_1" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Synaptojanin_1" target="Metabolic_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Synaptojanin_1" target="Potential_drug_targets">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Synaptojanin_1" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Synaptojanin_1" target="Endocytosis">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Synaptojanin_1" target="Lipid_metabolism">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Synaptojanin_1" target="Hydrolase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Synaptojanin_1" target="RNA_binding">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Synaptojanin_1" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Synaptojanin_1" target="Epilepsy_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Synaptojanin_1" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Synaptojanin_1" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Synaptojanin_1" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Synaptojanin_1" target="I_PHOSPHATASE">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="Synaptojanin_1" target="Nucleoplasm">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Synaptojanin_1" target="Cytosol">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Endocytosis" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="I_PHOSPHATASE" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="Transcription_factors">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="Host_virus_interaction">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="Transcription">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="Transcription_regulation">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="DNA_binding">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="Spinocerebellar_ataxia_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="WD40">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="LISH">
+  <data key="d7">has_a_protein_domain</data>
+</edge>
+<edge source="TATA_box_binding_protein" target="Nucleoplasm">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Transcription_factors" target="protein_class">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="DNA_binding" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="LISH" target="protein_domain">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Enzymes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Plasma_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Potential_drug_targets">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Ubl_conjugation_pathway">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Hydrolase">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Protease">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Thiol_protease">
+  <data key="d7">has_molecular_function</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Hereditary_spastic_paraplegia">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Ubiquitin_C_terminal_hydrolase_L1" target="Cytosol">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Thiol_protease" target="molecular_function">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="15" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="Lipid_transport">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="Transport">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="Disease_variant">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="CC">
+  <data key="d7">has_a_protein_motif</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="Endoplasmic_reticulum">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Vacuolar_protein_sorting_13_homolog_C" target="Endosome">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Lipid_transport" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Endoplasmic_reticulum" target="protein_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="Endosome" target="protein_location">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="16" target="chromosome">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="protein">
+  <data key="d7">is_a</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Human_disease_related_genes">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Plasma_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Potential_drug_targets">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Predicted_intracellular_proteins">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Transporters">
+  <data key="d7">has_protein_class</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Host_virus_interaction">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Protein_transport">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Transport">
+  <data key="d7">has_biologic_process</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Neurodegeneration">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Parkinsonism_disease_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Parkinsonism_involvement">
+  <data key="d7">has_disease_involvement</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Endosome">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="VPS35_retromer_complex_component" target="Lysosome">
+  <data key="d7">is_located_at</data>
+</edge>
+<edge source="Protein_transport" target="biologic_process">
+  <data key="d7">is_a</data>
+</edge>
+</graph></graphml>

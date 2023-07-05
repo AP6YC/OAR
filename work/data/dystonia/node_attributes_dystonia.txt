@@ -1,0 +1,2137 @@
+Node: disease
+category: disease
+class_type: class
+
+Node: chromosome
+category: chromosome
+class_type: class
+
+Node: gene
+category: gene
+class_type: class
+
+Node: inheritance
+category: inheritance
+class_type: class
+
+Node: protein
+category: protein
+class_type: class
+
+Node: gene_location
+category: gene_location
+class_type: class
+
+Node: phenotype
+category: phenotype
+class_type: class
+
+Node: protein_class
+category: protein_class
+class_type: class
+
+Node: biologic_process
+category: biologic_process
+class_type: class
+
+Node: molecular_function
+category: molecular_function
+class_type: class
+
+Node: disease_involvement
+category: disease_involvement
+class_type: class
+
+Node: protein_location
+category: protein_location
+class_type: class
+
+Node: protein_domain
+category: protein_domain
+class_type: class
+
+Node: protein_motif
+category: protein_motif
+class_type: class
+
+Node: Paroxysmal_nonkinesigenic_dyskinesia_1
+category: disease
+MIM: 118800
+class_type: individual
+
+Node: 2q35
+category: gene_location
+class_type: individual
+
+Node: PNKD
+category: gene
+MIM: 609023
+class_type: individual
+
+Node: AD
+category: inheritance
+class_type: individual
+
+Node: Dystonia_1_torsion_autosomal_dominant
+category: disease
+MIM: 128100
+class_type: individual
+
+Node: 9q34.11
+category: gene_location
+class_type: individual
+
+Node: TOR1A
+category: gene
+MIM: 605204
+class_type: individual
+
+Node: Dystonia_4_torsion_autosomal_dominant
+category: disease
+MIM: 128101
+class_type: individual
+
+Node: 19p13.3
+category: gene_location
+class_type: individual
+
+Node: TUBB4A
+category: gene
+MIM: 602662
+class_type: individual
+
+Node: Episodic_kinesigenic_dyskinesia_1
+category: disease
+MIM: 128200
+class_type: individual
+
+Node: 16p11.2
+category: gene_location
+class_type: individual
+
+Node: PRRT2
+category: gene
+MIM: 614386
+class_type: individual
+
+Node: Dystonia_DOPA_responsive_with_or_without_hyperphenylalaninemia
+category: disease
+MIM: 128230
+class_type: individual
+
+Node: 14q22.2
+category: gene_location
+class_type: individual
+
+Node: GCH1
+category: gene
+MIM: 600225
+class_type: individual
+
+Node: AR
+category: inheritance
+class_type: individual
+
+Node: Dystonia_12
+category: disease
+MIM: 128235
+class_type: individual
+
+Node: 19q13.2
+category: gene_location
+class_type: individual
+
+Node: ATP1A3
+category: gene
+MIM: 182350
+class_type: individual
+
+Node: Dystonia_11_myoclonic
+category: disease
+MIM: 159900
+class_type: individual
+
+Node: 7q21.3
+category: gene_location
+class_type: individual
+
+Node: SGCE
+category: gene
+MIM: 604149
+class_type: individual
+
+Node: Dystonia_2_torsion_autosomal_recessive
+category: disease
+MIM: 224500
+class_type: individual
+
+Node: 1p35.1
+category: gene_location
+class_type: individual
+
+Node: HPCA
+category: gene
+MIM: 142622
+class_type: individual
+
+Node: Dystonia_3_torsion_X_linked
+category: disease
+MIM: 314250
+class_type: individual
+
+Node: Xq13.1
+category: gene_location
+class_type: individual
+
+Node: TAF1
+category: gene
+MIM: 313650
+class_type: individual
+
+Node: XLR
+category: inheritance
+class_type: individual
+
+Node: Dystonia_9
+category: disease
+MIM: 601042
+class_type: individual
+
+Node: 1p34.2
+category: gene_location
+class_type: individual
+
+Node: SLC2A1
+category: gene
+MIM: 138140
+class_type: individual
+
+Node: Dystonia_7_torsion
+category: disease
+MIM: 602124
+class_type: individual
+
+Node: 18p
+category: gene_location
+class_type: individual
+
+Node: DYT7
+category: gene
+MIM: 602124
+class_type: individual
+
+Node: Dystonia_6_torsion
+category: disease
+MIM: 602629
+class_type: individual
+
+Node: 8p11.21
+category: gene_location
+class_type: individual
+
+Node: THAP1
+category: gene
+MIM: 609520
+class_type: individual
+
+Node: Dystonia_15_myoclonic
+category: disease
+MIM: 607488
+class_type: individual
+
+Node: 18p11
+category: gene_location
+class_type: individual
+
+Node: DYT15
+category: gene
+MIM: 607488
+class_type: individual
+
+Node: Dystonia_13_torsion
+category: disease
+MIM: 607671
+class_type: individual
+
+Node: 1p36.32_p36.13
+category: gene_location
+class_type: individual
+
+Node: DYT13
+category: gene
+MIM: 607671
+class_type: individual
+
+Node: Episodic_kinesigenic_dyskinesia_2
+category: disease
+MIM: 611031
+class_type: individual
+
+Node: 16q13_q22.1
+category: gene_location
+class_type: individual
+
+Node: EKD2
+category: gene
+MIM: 611031
+class_type: individual
+
+Node: Paroxysmal_nonkinesigenic_dyskinesia_2
+category: disease
+MIM: 611147
+class_type: individual
+
+Node: 2q31
+category: gene_location
+class_type: individual
+
+Node: PNKD2
+category: gene
+MIM: 611147
+class_type: individual
+
+Node: Dystonia_16
+category: disease
+MIM: 612067
+class_type: individual
+
+Node: 2q31.2
+category: gene_location
+class_type: individual
+
+Node: PRKRA
+category: gene
+MIM: 603424
+class_type: individual
+
+Node: Glut1_deficiency_syndrome_2
+category: disease
+MIM: 612126
+class_type: individual
+
+Node: Dystonia_17_torsion_autosomal_recessive
+category: disease
+MIM: 612406
+class_type: individual
+
+Node: 20p11.2_q13.12
+category: gene_location
+class_type: individual
+
+Node: DYT17
+category: gene
+MIM: 612406
+class_type: individual
+
+Node: Dystonia_21
+category: disease
+MIM: 614588
+class_type: individual
+
+Node: 2q14.3_q21.3
+category: gene_location
+class_type: individual
+
+Node: DYT21
+category: gene
+MIM: 614588
+class_type: individual
+
+Node: Dystonia_23
+category: disease
+MIM: 614860
+class_type: individual
+
+Node: 9q34
+category: gene_location
+class_type: individual
+
+Node: DYT23
+category: gene
+MIM: 614860
+class_type: individual
+
+Node: Dystonia_24
+category: disease
+MIM: 615034
+class_type: individual
+
+Node: 11p14.3_p14.2
+category: gene_location
+class_type: individual
+
+Node: ANO3
+category: gene
+MIM: 610110
+class_type: individual
+
+Node: Dystonia_25
+category: disease
+MIM: 615073
+class_type: individual
+
+Node: 18p11.21
+category: gene_location
+class_type: individual
+
+Node: GNAL
+category: gene
+MIM: 139312
+class_type: individual
+
+Node: Dystonia_26_myoclonic
+category: disease
+MIM: 616398
+class_type: individual
+
+Node: 22q12.3
+category: gene_location
+class_type: individual
+
+Node: KCTD17
+category: gene
+MIM: 616386
+class_type: individual
+
+Node: Dystonia_27
+category: disease
+MIM: 616411
+class_type: individual
+
+Node: 2q37.3
+category: gene_location
+class_type: individual
+
+Node: COL6A3
+category: gene
+MIM: 120250
+class_type: individual
+
+Node: Dystonia_childhood_onset_with_optic_atrophy_and_basal_ganglia_abnormalities
+category: disease
+MIM: 617282
+class_type: individual
+
+Node: 1p35.3
+category: gene_location
+class_type: individual
+
+Node: MECR
+category: gene
+MIM: 608205
+class_type: individual
+
+Node: Dystonia_28_childhood_onset
+category: disease
+MIM: 617284
+class_type: individual
+
+Node: 19q13.12
+category: gene_location
+class_type: individual
+
+Node: KMT2B
+category: gene
+MIM: 606834
+class_type: individual
+
+Node: Dystonia_30
+category: disease
+MIM: 619291
+class_type: individual
+
+Node: 20p13
+category: gene_location
+class_type: individual
+
+Node: VPS16
+category: gene
+MIM: 608550
+class_type: individual
+
+Node: Dystonia_31
+category: disease
+MIM: 619565
+class_type: individual
+
+Node: 9q22.32
+category: gene_location
+class_type: individual
+
+Node: AOPEP
+category: gene
+MIM: 619600
+class_type: individual
+
+Node: Dystonia_32
+category: disease
+MIM: 619637
+class_type: individual
+
+Node: 11q23.3
+category: gene_location
+class_type: individual
+
+Node: VPS11
+category: gene
+MIM: 608549
+class_type: individual
+
+Node: Dystonia_33
+category: disease
+MIM: 619687
+class_type: individual
+
+Node: 2p22.2
+category: gene_location
+class_type: individual
+
+Node: EIF2AK2
+category: gene
+MIM: 176871
+class_type: individual
+
+Node: Dystonia_34_myoclonic
+category: disease
+MIM: 619724
+class_type: individual
+
+Node: 5q22.3
+category: gene_location
+class_type: individual
+
+Node: KCNN2
+category: gene
+MIM: 605879
+class_type: individual
+
+Node: Dystonia_35_childhood_onset
+category: disease
+MIM: 619921
+class_type: individual
+
+Node: 3p13
+category: gene_location
+class_type: individual
+
+Node: SHQ1
+category: gene
+MIM: 613663
+class_type: individual
+
+Node: Episodic_kinesigenic_dyskinesia_3
+category: disease
+MIM: 620245
+class_type: individual
+
+Node: 11q13.2
+category: gene_location
+class_type: individual
+
+Node: TMEM151A
+category: gene
+MIM: 620108
+class_type: individual
+
+Node: Torticollis
+category: phenotype
+hpo_id: HP:0000473
+class_type: individual
+
+Node: Writer_s_cramp
+category: phenotype
+hpo_id: HP:0002356
+class_type: individual
+
+Node: Juvenile_onset
+category: phenotype
+hpo_id: HP:0003621
+class_type: individual
+
+Node: Dysarthria
+category: phenotype
+hpo_id: HP:0001260
+class_type: individual
+
+Node: Limb_dystonia
+category: phenotype
+hpo_id: HP:0002451
+class_type: individual
+
+Node: Oromandibular_dystonia
+category: phenotype
+hpo_id: HP:0012048
+class_type: individual
+
+Node: Laryngeal_dystonia
+category: phenotype
+hpo_id: HP:0012049
+class_type: individual
+
+Node: Lingual_dystonia
+category: phenotype
+hpo_id: HP:0031008
+class_type: individual
+
+Node: Dysphonia
+category: phenotype
+hpo_id: HP:0001618
+class_type: individual
+
+Node: Young_adult_onset
+category: phenotype
+hpo_id: HP:0011462
+class_type: individual
+
+Node: Typified_by_incomplete_penetrance
+category: phenotype
+hpo_id: HP:0003829
+class_type: individual
+
+Node: Autosomal_dominant_inheritance
+category: phenotype
+hpo_id: HP:0000006
+class_type: individual
+
+Node: Torsion_dystonia
+category: phenotype
+hpo_id: HP:0001304
+class_type: individual
+
+Node: Myoclonus
+category: phenotype
+hpo_id: HP:0001336
+class_type: individual
+
+Node: Focal_dystonia
+category: phenotype
+hpo_id: HP:0004373
+class_type: individual
+
+Node: Autosomal_recessive_inheritance
+category: phenotype
+hpo_id: HP:0000007
+class_type: individual
+
+Node: Paresthesia
+category: phenotype
+hpo_id: HP:0003401
+class_type: individual
+
+Node: Diplopia
+category: phenotype
+hpo_id: HP:0000651
+class_type: individual
+
+Node: Choreoathetosis
+category: phenotype
+hpo_id: HP:0001266
+class_type: individual
+
+Node: Dystonia
+category: phenotype
+hpo_id: HP:0001332
+class_type: individual
+
+Node: Episodic_ataxia
+category: phenotype
+hpo_id: HP:0002131
+class_type: individual
+
+Node: Migraine
+category: phenotype
+hpo_id: HP:0002076
+class_type: individual
+
+Node: Morphological_abnormality_of_the_pyramidal_tract
+category: phenotype
+hpo_id: HP:0002062
+class_type: individual
+
+Node: Dyskinesia
+category: phenotype
+hpo_id: HP:0100660
+class_type: individual
+
+Node: Cognitive_impairment
+category: phenotype
+hpo_id: HP:0100543
+class_type: individual
+
+Node: Abnormal_pyramidal_sign
+category: phenotype
+hpo_id: HP:0007256
+class_type: individual
+
+Node: Spastic_paraplegia
+category: phenotype
+hpo_id: HP:0001258
+class_type: individual
+
+Node: Headache
+category: phenotype
+hpo_id: HP:0002315
+class_type: individual
+
+Node: Hyperreflexia
+category: phenotype
+hpo_id: HP:0001347
+class_type: individual
+
+Node: Arm_dystonia
+category: phenotype
+hpo_id: HP:0031960
+class_type: individual
+
+Node: Head_tremor
+category: phenotype
+hpo_id: HP:0002346
+class_type: individual
+
+Node: Blepharospasm
+category: phenotype
+hpo_id: HP:0000643
+class_type: individual
+
+Node: Limb_tremor
+category: phenotype
+hpo_id: HP:0200085
+class_type: individual
+
+Node: Narrow_face
+category: phenotype
+hpo_id: HP:0000275
+class_type: individual
+
+Node: Dysphagia
+category: phenotype
+hpo_id: HP:0002015
+class_type: individual
+
+Node: Sunken_cheeks
+category: phenotype
+hpo_id: HP:0009938
+class_type: individual
+
+Node: Gait_ataxia
+category: phenotype
+hpo_id: HP:0002066
+class_type: individual
+
+Node: Hemidystonia
+category: phenotype
+hpo_id: HP:0032005
+class_type: individual
+
+Node: Generalized_dystonia
+category: phenotype
+hpo_id: HP:0007325
+class_type: individual
+
+Node: Slender_build
+category: phenotype
+hpo_id: HP:0001533
+class_type: individual
+
+Node: X_linked_recessive_inheritance
+category: phenotype
+hpo_id: HP:0001419
+class_type: individual
+
+Node: Adult_onset
+category: phenotype
+hpo_id: HP:0003581
+class_type: individual
+
+Node: Chorea
+category: phenotype
+hpo_id: HP:0002072
+class_type: individual
+
+Node: Parkinsonism_with_favorable_response_to_dopaminergic_medication
+category: phenotype
+hpo_id: HP:0002548
+class_type: individual
+
+Node: Tremor
+category: phenotype
+hpo_id: HP:0001337
+class_type: individual
+
+Node: Hypertonia
+category: phenotype
+hpo_id: HP:0001276
+class_type: individual
+
+Node: Facial_palsy
+category: phenotype
+hpo_id: HP:0010628
+class_type: individual
+
+Node: Inability_to_walk
+category: phenotype
+hpo_id: HP:0002540
+class_type: individual
+
+Node: Middle_age_onset
+category: phenotype
+hpo_id: HP:0003596
+class_type: individual
+
+Node: Cerebellar_atrophy
+category: phenotype
+hpo_id: HP:0001272
+class_type: individual
+
+Node: Hypotonia
+category: phenotype
+hpo_id: HP:0001252
+class_type: individual
+
+Node: Generalized_hypotonia
+category: phenotype
+hpo_id: HP:0001290
+class_type: individual
+
+Node: Motor_delay
+category: phenotype
+hpo_id: HP:0001270
+class_type: individual
+
+Node: Depression
+category: phenotype
+hpo_id: HP:0000716
+class_type: individual
+
+Node: Hyperlordosis
+category: phenotype
+hpo_id: HP:0003307
+class_type: individual
+
+Node: Abnormal_posturing
+category: phenotype
+hpo_id: HP:0002533
+class_type: individual
+
+Node: Neonatal_onset
+category: phenotype
+hpo_id: HP:0003623
+class_type: individual
+
+Node: Scoliosis
+category: phenotype
+hpo_id: HP:0002650
+class_type: individual
+
+Node: Babinski_sign
+category: phenotype
+hpo_id: HP:0003487
+class_type: individual
+
+Node: Kyphosis
+category: phenotype
+hpo_id: HP:0002808
+class_type: individual
+
+Node: Multiple_joint_contractures
+category: phenotype
+hpo_id: HP:0002828
+class_type: individual
+
+Node: Absent_Achilles_reflex
+category: phenotype
+hpo_id: HP:0003438
+class_type: individual
+
+Node: Lower_limb_hyperreflexia
+category: phenotype
+hpo_id: HP:0002395
+class_type: individual
+
+Node: Brain_atrophy
+category: phenotype
+hpo_id: HP:0012444
+class_type: individual
+
+Node: T2_hypointense_basal_ganglia
+category: phenotype
+hpo_id: HP:0012753
+class_type: individual
+
+Node: Paroxysmal_dyskinesia
+category: phenotype
+hpo_id: HP:0007166
+class_type: individual
+
+Node: Involuntary_movements
+category: phenotype
+hpo_id: HP:0004305
+class_type: individual
+
+Node: Astigmatism
+category: phenotype
+hpo_id: HP:0000483
+class_type: individual
+
+Node: Progressive
+category: phenotype
+hpo_id: HP:0003676
+class_type: individual
+
+Node: Intellectual_disability_mild
+category: phenotype
+hpo_id: HP:0001256
+class_type: individual
+
+Node: Strabismus
+category: phenotype
+hpo_id: HP:0000486
+class_type: individual
+
+Node: Short_stature
+category: phenotype
+hpo_id: HP:0004322
+class_type: individual
+
+Node: Craniofacial_dystonia
+category: phenotype
+hpo_id: HP:0012179
+class_type: individual
+
+Node: Childhood_onset
+category: phenotype
+hpo_id: HP:0011463
+class_type: individual
+
+Node: Bulbous_nose
+category: phenotype
+hpo_id: HP:0000414
+class_type: individual
+
+Node: Microcephaly
+category: phenotype
+hpo_id: HP:0000252
+class_type: individual
+
+Node: Delayed_speech_and_language_development
+category: phenotype
+hpo_id: HP:0000750
+class_type: individual
+
+Node: Abnormality_of_eye_movement
+category: phenotype
+hpo_id: HP:0000496
+class_type: individual
+
+Node: Gait_disturbance
+category: phenotype
+hpo_id: HP:0001288
+class_type: individual
+
+Node: Global_developmental_delay
+category: phenotype
+hpo_id: HP:0001263
+class_type: individual
+
+Node: Tip_toe_gait
+category: phenotype
+hpo_id: HP:0030051
+class_type: individual
+
+Node: Spasticity
+category: phenotype
+hpo_id: HP:0001257
+class_type: individual
+
+Node: Retrocollis
+category: phenotype
+hpo_id: HP:0002544
+class_type: individual
+
+Node: Early_young_adult_onset
+category: phenotype
+hpo_id: HP:0025708
+class_type: individual
+
+Node: Anxiety
+category: phenotype
+hpo_id: HP:0000739
+class_type: individual
+
+Node: Axial_hypotonia
+category: phenotype
+hpo_id: HP:0008936
+class_type: individual
+
+Node: Axial_dystonia
+category: phenotype
+hpo_id: HP:0002530
+class_type: individual
+
+Node: Pes_cavus
+category: phenotype
+hpo_id: HP:0001761
+class_type: individual
+
+Node: Neonatal_seizure
+category: phenotype
+hpo_id: HP:0032807
+class_type: individual
+
+Node: Intellectual_disability
+category: phenotype
+hpo_id: HP:0001249
+class_type: individual
+
+Node: Vertical_supranuclear_gaze_palsy
+category: phenotype
+hpo_id: HP:0000511
+class_type: individual
+
+Node: Rotary_nystagmus
+category: phenotype
+hpo_id: HP:0001583
+class_type: individual
+
+Node: Hand_tremor
+category: phenotype
+hpo_id: HP:0002378
+class_type: individual
+
+Node: Impaired_tandem_gait
+category: phenotype
+hpo_id: HP:0031629
+class_type: individual
+
+Node: Ptosis
+category: phenotype
+hpo_id: HP:0000508
+class_type: individual
+
+Node: Amblyopia
+category: phenotype
+hpo_id: HP:0000646
+class_type: individual
+
+Node: Impaired_smooth_pursuit
+category: phenotype
+hpo_id: HP:0007772
+class_type: individual
+
+Node: Duane_anomaly
+category: phenotype
+hpo_id: HP:0009921
+class_type: individual
+
+Node: Hypermetric_saccades
+category: phenotype
+hpo_id: HP:0007338
+class_type: individual
+
+Node: Paroxysmal_dystonia
+category: phenotype
+hpo_id: HP:0002268
+class_type: individual
+
+Node: Seizure
+category: phenotype
+hpo_id: HP:0001250
+class_type: individual
+
+Node: Orofacial_dyskinesia
+category: phenotype
+hpo_id: HP:0002310
+class_type: individual
+
+Node: Abnormality_of_the_face
+category: phenotype
+hpo_id: HP:0000271
+class_type: individual
+
+Node: Paroxysmal_choreoathetosis
+category: phenotype
+hpo_id: HP:0007098
+class_type: individual
+
+Node: Rigidity
+category: phenotype
+hpo_id: HP:0002063
+class_type: individual
+
+Node: Pigmentary_retinopathy
+category: phenotype
+hpo_id: HP:0000580
+class_type: individual
+
+Node: Ataxia
+category: phenotype
+hpo_id: HP:0001251
+class_type: individual
+
+Node: Nystagmus
+category: phenotype
+hpo_id: HP:0000639
+class_type: individual
+
+Node: Failure_to_thrive
+category: phenotype
+hpo_id: HP:0001508
+class_type: individual
+
+Node: Slow_saccadic_eye_movements
+category: phenotype
+hpo_id: HP:0000514
+class_type: individual
+
+Node: Reduced_visual_acuity
+category: phenotype
+hpo_id: HP:0007663
+class_type: individual
+
+Node: Clumsiness
+category: phenotype
+hpo_id: HP:0002312
+class_type: individual
+
+Node: Limb_joint_contracture
+category: phenotype
+hpo_id: HP:0003121
+class_type: individual
+
+Node: Feeding_difficulties
+category: phenotype
+hpo_id: HP:0011968
+class_type: individual
+
+Node: Esophoria
+category: phenotype
+hpo_id: HP:0025312
+class_type: individual
+
+Node: Delayed_gross_motor_development
+category: phenotype
+hpo_id: HP:0002194
+class_type: individual
+
+Node: Visual_impairment
+category: phenotype
+hpo_id: HP:0000505
+class_type: individual
+
+Node: Optic_atrophy
+category: phenotype
+hpo_id: HP:0000648
+class_type: individual
+
+Node: Loss_of_ambulation
+category: phenotype
+hpo_id: HP:0002505
+class_type: individual
+
+Node: Optic_disc_pallor
+category: phenotype
+hpo_id: HP:0000543
+class_type: individual
+
+Node: Athetosis
+category: phenotype
+hpo_id: HP:0002305
+class_type: individual
+
+Node: Bradykinesia
+category: phenotype
+hpo_id: HP:0002067
+class_type: individual
+
+Node: Limb_pain
+category: phenotype
+hpo_id: HP:0009763
+class_type: individual
+
+Node: Parkinsonism
+category: phenotype
+hpo_id: HP:0001300
+class_type: individual
+
+Node: Postural_tremor
+category: phenotype
+hpo_id: HP:0002174
+class_type: individual
+
+Node: Lower_limb_pain
+category: phenotype
+hpo_id: HP:0012514
+class_type: individual
+
+Node: Action_tremor
+category: phenotype
+hpo_id: HP:0002345
+class_type: individual
+
+Node: Hypothalamic_hamartoma
+category: phenotype
+hpo_id: HP:0002444
+class_type: individual
+
+Node: Intellectual_disability_moderate
+category: phenotype
+hpo_id: HP:0002342
+class_type: individual
+
+Node: Leg_dystonia
+category: phenotype
+hpo_id: HP:0031959
+class_type: individual
+
+Node: Globus_pallidus_hypointensity_on_susceptibility_weighted_imaging
+category: phenotype
+hpo_id: HP:0033049
+class_type: individual
+
+Node: Impulsivity
+category: phenotype
+hpo_id: HP:0100710
+class_type: individual
+
+Node: Aggressive_behavior
+category: phenotype
+hpo_id: HP:0000718
+class_type: individual
+
+Node: Diffuse_cerebral_atrophy
+category: phenotype
+hpo_id: HP:0002506
+class_type: individual
+
+Node: Bipolar_affective_disorder
+category: phenotype
+hpo_id: HP:0007302
+class_type: individual
+
+Node: Infantile_onset
+category: phenotype
+hpo_id: HP:0003593
+class_type: individual
+
+Node: Skeletal_muscle_hypertrophy
+category: phenotype
+hpo_id: HP:0003712
+class_type: individual
+
+Node: Resting_tremor
+category: phenotype
+hpo_id: HP:0002322
+class_type: individual
+
+Node: Gaze_evoked_horizontal_nystagmus
+category: phenotype
+hpo_id: HP:0007979
+class_type: individual
+
+Node: Transient_hyperphenylalaninemia
+category: phenotype
+hpo_id: HP:0008297
+class_type: individual
+
+Node: Incoordination
+category: phenotype
+hpo_id: HP:0002311
+class_type: individual
+
+Node: Talipes_equinovarus
+category: phenotype
+hpo_id: HP:0001762
+class_type: individual
+
+Node: Cogwheel_rigidity
+category: phenotype
+hpo_id: HP:0002396
+class_type: individual
+
+Node: Dysdiadochokinesis
+category: phenotype
+hpo_id: HP:0002075
+class_type: individual
+
+Node: Jaw_hyperreflexia
+category: phenotype
+hpo_id: HP:0033683
+class_type: individual
+
+Node: Impaired_distal_vibration_sensation
+category: phenotype
+hpo_id: HP:0006886
+class_type: individual
+
+Node: Slowly_progressive
+category: phenotype
+hpo_id: HP:0003677
+class_type: individual
+
+Node: Mutism
+category: phenotype
+hpo_id: HP:0002300
+class_type: individual
+
+Node: Bulbar_signs
+category: phenotype
+hpo_id: HP:0002483
+class_type: individual
+
+Node: Postural_instability
+category: phenotype
+hpo_id: HP:0002172
+class_type: individual
+
+Node: Hypomimic_face
+category: phenotype
+hpo_id: HP:0000338
+class_type: individual
+
+Node: Emotional_lability
+category: phenotype
+hpo_id: HP:0000712
+class_type: individual
+
+Node: Unsteady_gait
+category: phenotype
+hpo_id: HP:0002317
+class_type: individual
+
+Node: Drooling
+category: phenotype
+hpo_id: HP:0002307
+class_type: individual
+
+Node: Reduced_haptoglobin_level
+category: phenotype
+hpo_id: HP:0020181
+class_type: individual
+
+Node: Cerebral_atrophy
+category: phenotype
+hpo_id: HP:0002059
+class_type: individual
+
+Node: EEG_abnormality
+category: phenotype
+hpo_id: HP:0002353
+class_type: individual
+
+Node: Increased_CSF_lactate
+category: phenotype
+hpo_id: HP:0002490
+class_type: individual
+
+Node: Hypoglycorrhachia
+category: phenotype
+hpo_id: HP:0011972
+class_type: individual
+
+Node: Irritability
+category: phenotype
+hpo_id: HP:0000737
+class_type: individual
+
+Node: Hemolytic_anemia
+category: phenotype
+hpo_id: HP:0001878
+class_type: individual
+
+Node: Reticulocytosis
+category: phenotype
+hpo_id: HP:0001923
+class_type: individual
+
+Node: Splenomegaly
+category: phenotype
+hpo_id: HP:0001744
+class_type: individual
+
+Node: Difficulty_walking
+category: phenotype
+hpo_id: HP:0002355
+class_type: individual
+
+Node: Muscle_stiffness
+category: phenotype
+hpo_id: HP:0003552
+class_type: individual
+
+Node: Weak_voice
+category: phenotype
+hpo_id: HP:0001621
+class_type: individual
+
+Node: Cerebral_cortical_atrophy
+category: phenotype
+hpo_id: HP:0002120
+class_type: individual
+
+Node: Arrhythmia
+category: phenotype
+hpo_id: HP:0011675
+class_type: individual
+
+Node: Myokymia
+category: phenotype
+hpo_id: HP:0002411
+class_type: individual
+
+Node: Facial_grimacing
+category: phenotype
+hpo_id: HP:0000273
+class_type: individual
+
+Node: Panic_attack
+category: phenotype
+hpo_id: HP:0025269
+class_type: individual
+
+Node: Alcoholism
+category: phenotype
+hpo_id: HP:0030955
+class_type: individual
+
+Node: Agoraphobia
+category: phenotype
+hpo_id: HP:0000756
+class_type: individual
+
+Node: Collagen_type_VI_alpha_3_chain
+category: protein
+uniprot: P12111
+molecular_weight: 344
+length: 3177
+class_type: individual
+
+Node: 2
+category: chromosome
+class_type: individual
+
+Node: 237324003_237414207
+category: gene_location
+class_type: individual
+
+Node: Disease_related_genes
+category: protein_class
+class_type: individual
+
+Node: Human_disease_related_genes
+category: protein_class
+class_type: individual
+
+Node: Plasma_proteins
+category: protein_class
+class_type: individual
+
+Node: Predicted_intracellular_proteins
+category: protein_class
+class_type: individual
+
+Node: Predicted_secreted_proteins
+category: protein_class
+class_type: individual
+
+Node: Cell_adhesion
+category: biologic_process
+class_type: individual
+
+Node: Protease_inhibitor
+category: molecular_function
+class_type: individual
+
+Node: Serine_protease_inhibitor
+category: molecular_function
+class_type: individual
+
+Node: Congenital_muscular_dystrophy_involvement
+category: disease_involvement
+class_type: individual
+
+Node: Disease_variant_involvement
+category: disease_involvement
+class_type: individual
+
+Node: Dystonia_involvement
+category: disease_involvement
+class_type: individual
+
+Node: Limb_girdle_muscular_dystrophy_involvement
+category: disease_involvement
+class_type: individual
+
+Node: extracellular
+category: protein_location
+class_type: individual
+
+Node: VMA
+category: protein_domain
+class_type: individual
+
+Node: <module 'pandas' from '/Users/danielhier/opt/anaconda3/lib/python3.9/site-packages/pandas/__init__.py'>
+
+Node: COLL
+category: protein_domain
+class_type: individual
+
+Node: KUNITZ
+category: protein_domain
+class_type: individual
+
+Node: SP
+category: protein_motif
+class_type: individual
+
+Node: Mitochondrial_trans_2_enoyl_CoA_reductase
+category: protein
+uniprot: Q9BV79
+molecular_weight: 40
+length: 373
+class_type: individual
+
+Node: 1
+category: chromosome
+class_type: individual
+
+Node: 29192657_29230942
+category: gene_location
+class_type: individual
+
+Node: Enzymes
+category: protein_class
+class_type: individual
+
+Node: Metabolic_proteins
+category: protein_class
+class_type: individual
+
+Node: Potential_drug_targets
+category: protein_class
+class_type: individual
+
+Node: Fatty_acid_biosynthesis
+category: biologic_process
+class_type: individual
+
+Node: Fatty_acid_metabolism
+category: biologic_process
+class_type: individual
+
+Node: Lipid_biosynthesis
+category: biologic_process
+class_type: individual
+
+Node: Lipid_metabolism
+category: biologic_process
+class_type: individual
+
+Node: Oxidoreductase
+category: molecular_function
+class_type: individual
+
+Node: mitochondrion
+category: protein_location
+class_type: individual
+
+Node: Torsin_family_1_member_A
+category: protein
+uniprot: O14656
+molecular_weight: 38
+length: 332
+class_type: individual
+
+Node: 9
+category: chromosome
+class_type: individual
+
+Node: 129812942_129824244
+category: gene_location
+class_type: individual
+
+Node: Chaperone
+category: molecular_function
+class_type: individual
+
+Node: Hydrolase
+category: molecular_function
+class_type: individual
+
+Node: endoplasmic_reticulum
+category: protein_location
+class_type: individual
+
+Node: Anoctamin_3
+category: protein
+uniprot: Q9BYT9
+molecular_weight: 115
+length: 986
+class_type: individual
+
+Node: 11
+category: chromosome
+class_type: individual
+
+Node: 26188842_26663289
+category: gene_location
+class_type: individual
+
+Node: Predicted_membrane_proteins
+category: protein_class
+class_type: individual
+
+Node: Transporters
+category: protein_class
+class_type: individual
+
+Node: Lipid_transport
+category: biologic_process
+class_type: individual
+
+Node: Transport
+category: biologic_process
+class_type: individual
+
+Node: Ion_channel
+category: molecular_function
+class_type: individual
+
+Node: plasma_membrane
+category: protein_location
+class_type: individual
+
+Node: TM
+category: protein_domain
+class_type: individual
+
+Node: Aminopeptidase_O_putative
+category: protein
+uniprot: Q8N6M6
+molecular_weight: 94
+length: 819
+class_type: individual
+
+Node: 94726604_95087159
+category: gene_location
+class_type: individual
+
+Node: Aminopeptidase
+category: molecular_function
+class_type: individual
+
+Node: Metalloprotease
+category: molecular_function
+class_type: individual
+
+Node: Protease
+category: molecular_function
+class_type: individual
+
+Node: nucleus
+category: protein_location
+class_type: individual
+
+Node: Eukaryotic_translation_initiation_factor_2_alpha_kinase_2
+category: protein
+uniprot: P19525
+molecular_weight: 62
+length: 551
+class_type: individual
+
+Node: 37099210_37157522
+category: gene_location
+class_type: individual
+
+Node: Antiviral_defense
+category: biologic_process
+class_type: individual
+
+Node: Host_virus_interaction
+category: biologic_process
+class_type: individual
+
+Node: Immunity
+category: biologic_process
+class_type: individual
+
+Node: Innate_immunity
+category: biologic_process
+class_type: individual
+
+Node: Transcription
+category: biologic_process
+class_type: individual
+
+Node: Transcription_regulation
+category: biologic_process
+class_type: individual
+
+Node: Kinase
+category: molecular_function
+class_type: individual
+
+Node: RNA_binding
+category: molecular_function
+class_type: individual
+
+Node: Serine_threonine_protein_kinase
+category: molecular_function
+class_type: individual
+
+Node: Transferase
+category: molecular_function
+class_type: individual
+
+Node: Tyrosine_protein_kinase
+category: molecular_function
+class_type: individual
+
+Node: cytoplasm
+category: protein_location
+class_type: individual
+
+Node: GTP_cyclohydrolase_1
+category: protein
+uniprot: P30793
+molecular_weight: 28
+length: 250
+class_type: individual
+
+Node: 14
+category: chromosome
+class_type: individual
+
+Node: 54842008_54902826
+category: gene_location
+class_type: individual
+
+Node: Tetrahydrobiopterin_biosynthesis
+category: biologic_process
+class_type: individual
+
+Node: Allosteric_enzyme
+category: molecular_function
+class_type: individual
+
+Node: Parkinsonism_involvement
+category: disease_involvement
+class_type: individual
+
+Node: Phenylketonuria_involvement
+category: disease_involvement
+class_type: individual
+
+Node: Hippocalcin
+category: protein
+uniprot: P84074
+molecular_weight: 22
+length: 193
+class_type: individual
+
+Node: 32885994_32898441
+category: gene_location
+class_type: individual
+
+Node: EF
+category: protein_domain
+class_type: individual
+
+Node: Lysine_methyltransferase_2B
+category: protein
+uniprot: Q9UMN6
+molecular_weight: 294
+length: 2715
+class_type: individual
+
+Node: 19
+category: chromosome
+class_type: individual
+
+Node: 35717973_35738878
+category: gene_location
+class_type: individual
+
+Node: Cancer_related_genes
+category: disease_involvement
+class_type: individual
+
+Node: Transcription_factors
+category: protein_class
+class_type: individual
+
+Node: Chromatin_regulator
+category: molecular_function
+class_type: individual
+
+Node: DNA_binding
+category: molecular_function
+class_type: individual
+
+Node: Methyltransferase
+category: molecular_function
+class_type: individual
+
+Node: PNKD_metallo_beta_lactamase_domain_containing
+category: protein
+uniprot: Q8N490
+molecular_weight: 43
+length: 385
+class_type: individual
+
+Node: 218270392_218346793
+category: gene_location
+class_type: individual
+
+Node: Protein_activator_of_interferon_induced_protein_kinase_EIF2AK2
+category: protein
+uniprot: O75569
+molecular_weight: 34
+length: 313
+class_type: individual
+
+Node: 178431292_178451512
+category: gene_location
+class_type: individual
+
+Node: RNA_mediated_gene_silencing
+category: biologic_process
+class_type: individual
+
+Node: DSRM
+category: protein_domain
+class_type: individual
+
+Node: Proline_rich_transmembrane_protein_2
+category: protein
+uniprot: Q7Z6L0
+molecular_weight: 35
+length: 340
+class_type: individual
+
+Node: 16
+category: chromosome
+class_type: individual
+
+Node: 29811382_29815892
+category: gene_location
+class_type: individual
+
+Node: Epilepsy_involvement
+category: disease_involvement
+class_type: individual
+
+Node: Sarcoglycan_epsilon
+category: protein
+uniprot: O43556
+molecular_weight: 53
+length: 437
+class_type: individual
+
+Node: 7
+category: chromosome
+class_type: individual
+
+Node: 94524204_94656572
+category: gene_location
+class_type: individual
+
+Node: Solute_carrier_family_2_member_1
+category: protein
+uniprot: P11166
+molecular_weight: 54
+length: 492
+class_type: individual
+
+Node: 42925353_42958893
+category: gene_location
+class_type: individual
+
+Node: Sugar_transport
+category: biologic_process
+class_type: individual
+
+Node: Glucose_transporter
+category: molecular_function
+class_type: individual
+
+Node: Cataract_involvement
+category: disease_involvement
+class_type: individual
+
+Node: Hereditary_hemolytic_anemia_involvement
+category: disease_involvement
+class_type: individual
+
+Node: Intellectual_disability_involvement
+category: disease_involvement
+class_type: individual
+
+Node: Transmembrane_protein_151A
+category: protein
+uniprot: Q8N4L1
+molecular_weight: 51
+length: 468
+class_type: individual
+
+Node: 66291894_66296664
+category: gene_location
+class_type: individual
+
+Node: Tubulin_beta_4A_class_IVa
+category: protein
+uniprot: P04350
+molecular_weight: 50
+length: 444
+class_type: individual
+
+Node: 6494319_6502848
+category: gene_location
+class_type: individual
+
+Node: cytoskeleton
+category: protein_location
+class_type: individual
+
+Node: Leukodystrophy_involvement
+category: disease_involvement
+class_type: individual
+
+Node: none
+category: gene_location
+class_type: individual
+
+Node: THAP_domain_containing_1
+category: protein
+uniprot: Q9NVV9
+molecular_weight: 25
+length: 213
+class_type: individual
+
+Node: 8
+category: chromosome
+class_type: individual
+
+Node: 42836674_42843325
+category: gene_location
+class_type: individual
+
+Node: Cell_cycle
+category: biologic_process
+class_type: individual
+
+Node: DM3
+category: protein_domain
+class_type: individual
+
+Node: CC
+category: protein_motif
+class_type: individual
+
+Node: NLS
+category: protein_motif
+class_type: individual
+
+Node: ATPase_Na+_K+_transporting_subunit_alpha_3
+category: protein
+uniprot: P13637
+molecular_weight: 112
+length: 1013
+class_type: individual
+
+Node: 41966582_41997497
+category: gene_location
+class_type: individual
+
+Node: Ion_transport
+category: biologic_process
+class_type: individual
+
+Node: Potassium_transport
+category: biologic_process
+class_type: individual
+
+Node: Sodium_transport
+category: biologic_process
+class_type: individual
+
+Node: Sodium_potassium_transport
+category: biologic_process
+class_type: individual
+
+Node: Translocase
+category: molecular_function
+class_type: individual
+
+Node: Deafness_involvement
+category: disease_involvement
+class_type: individual
+
+Node: G_protein_subunit_alpha_L
+category: protein
+uniprot: P38405
+molecular_weight: 44
+length: 381
+class_type: individual
+
+Node: 18
+category: chromosome
+class_type: individual
+
+Node: 11689264_11885685
+category: gene_location
+class_type: individual
+
+Node: Transducer
+category: molecular_function
+class_type: individual
+
+Node: secretory_granule
+category: protein_location
+class_type: individual
+
+Node: Potassium_calcium_activated_channel_subfamily_N_member_2
+category: protein
+uniprot: Q9H2S1
+molecular_weight: 64
+length: 579
+class_type: individual
+
+Node: 5
+category: chromosome
+class_type: individual
+
+Node: 114055926_114496500
+category: gene_location
+class_type: individual
+
+Node: FDA_approved_drug_targets
+category: disease_involvement
+class_type: individual
+
+Node: Voltage_gated_ion_channels
+category: protein_class
+class_type: individual
+
+Node: Calmodulin_binding
+category: molecular_function
+class_type: individual
+
+Node: Potassium_channel_tetramerization_domain_containing_17
+category: protein
+uniprot: Q8N5Z5
+molecular_weight: 36
+length: 321
+class_type: individual
+
+Node: 22
+category: chromosome
+class_type: individual
+
+Node: 37051736_37063390
+category: gene_location
+class_type: individual
+
+Node: Cilium_biogenesis_degradation
+category: biologic_process
+class_type: individual
+
+Node: Ubl_conjugation_pathway
+category: biologic_process
+class_type: individual
+
+Node: BTB
+category: protein_domain
+class_type: individual
+
+Node: SHQ1_H_ACA_ribonucleoprotein_assembly_factor
+category: protein
+uniprot: Q6PI26
+molecular_weight: 65
+length: 577
+class_type: individual
+
+Node: 3
+category: chromosome
+class_type: individual
+
+Node: 72749277_72861914
+category: gene_location
+class_type: individual
+
+Node: Assembly_of_ribosomes
+category: molecular_function
+class_type: individual
+
+Node: TATA_box_binding_protein_associated_factor_1
+category: protein
+uniprot: P21675
+molecular_weight: 213
+length: 1872
+class_type: individual
+
+Node: X
+category: chromosome
+class_type: individual
+
+Node: 71366264_71532374
+category: gene_location
+class_type: individual
+
+Node: Acyltransferase
+category: molecular_function
+class_type: individual
+
+Node: nucleolus
+category: protein_location
+class_type: individual
+
+Node: BROMO
+category: protein_domain
+class_type: individual
+
+Node: VPS11_core_subunit_of_CORVET_and_HOPS_complexes
+category: protein
+uniprot: Q9H270
+molecular_weight: 108
+length: 941
+class_type: individual
+
+Node: 119067818_119081972
+category: gene_location
+class_type: individual
+
+Node: Autophagy
+category: biologic_process
+class_type: individual
+
+Node: Protein_transport
+category: biologic_process
+class_type: individual
+
+Node: Vesicle_sorting
+category: molecular_function
+class_type: individual
+
+Node: endosome
+category: protein_location
+class_type: individual
+
+Node: RING
+category: protein_domain
+class_type: individual
+
+Node: VPS16_core_subunit_of_CORVET_and_HOPS_complexes
+category: protein
+uniprot: Q9H269
+molecular_weight: 95
+length: 839
+class_type: individual
+
+Node: 20
+category: chromosome
+class_type: individual
+
+Node: 2840703_2866732
+category: gene_location
+class_type: individual
+

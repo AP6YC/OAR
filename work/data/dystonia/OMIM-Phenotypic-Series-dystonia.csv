@@ -1,0 +1,35 @@
+﻿Location,Phenotype,Inheritance,Phenotype mapping key,Disease_MIM,Gene,Gene_MIM
+1p36.32-p36.13,"Dystonia 13, torsion",AD,2,607671,DYT13,607671
+1p35.3,"Dystonia, childhood-onset, with optic atrophy and basal ganglia abnormalities",AR,3,617282,"MECR, NRBF1, DYTOABG",608205
+1p35.1,"Dystonia 2, torsion, autosomal recessive",AR,3,224500,"HPCA, DYT2",142622
+1p34.2,Dystonia 9,AD,3,601042,"SLC2A1, GLUT1, HTLVR, DYT18, PED, GLUT1DS, EIG12, DYT9, SDCHCN",138140
+1p34.2,"GLUT1 deficiency syndrome 2, childhood onset",AD,3,612126,"SLC2A1, GLUT1, HTLVR, DYT18, PED, GLUT1DS, EIG12, DYT9, SDCHCN",138140
+2p22.2,Dystonia 33,"AD, AR",3,619687,"EIF2AK2, PRKR, LEUDEN, DYT33",176871
+2q14.3-q21.3,Dystonia 21,AD,2,614588,DYT21,614588
+2q31,Paroxysmal nonkinesigenic dyskinesia 2,AD,2,611147,PNKD2,611147
+2q31.2,Dystonia 16,AR,3,612067,"PRKRA, PACT, RAX, DYT16",603424
+2q35,Paroxysmal nonkinesigenic dyskinesia 1,AD,3,118800,"PNKD, R1, TAHCCP2, KIPP1184, BRP17, FPD1, PDC, DYT8",609023
+2q37.3,Dystonia 27,AR,3,616411,"COL6A3, DYT27, BTHLM1, UCMD1",120250
+3p13,"?Dystonia 35, childhood-onset",AR,3,619921,"SHQ1, DYT35, NEDDS",613663
+5q22.3,"?Dystonia 34, myoclonic",AD,3,619724,"KCNN2, SK2, DYT34, NEDMAB",605879
+7q21.3,"Dystonia-11, myoclonic",AD,3,159900,"SGCE, DYT11",604149
+8p11.21,"Dystonia 6, torsion",AD,3,602629,"THAP1, DYT6",609520
+9q22.32,Dystonia 31,AR,3,619565,"AOPEP, C9orf3, DYT31",619600
+9q34,Dystonia 23,AD,2,614860,DYT23,614860
+9q34.11,"Dystonia-1, torsion",AD,3,128100,"TOR1A, DYT1, AMC5",605204
+11p14.3-p14.2,Dystonia 24,AD,3,615034,"ANO3, TMEM16C, C11orf25, DYT24",610110
+11q13.2,Episodic kinesigenic dyskinesia 3,AD,3,620245,"TMEM151A, EKD3, DYT36",620108
+11q23.3,?Dystonia 32,AR,3,619637,"VPS11, HLD12; DYT32",608549
+14q22.2,"Dystonia, DOPA-responsive","AD, AR",3,128230,"GCH1, DYT5, HPABH4B",600225
+16p11.2,Episodic kinesigenic dyskinesia 1,AD,3,128200,"PRRT2, PKC, DYT10, EKD1, BFIS2, BFIC2, ICCA",614386
+16q13-q22.1,Episodic kinesigenic dyskinesia 2,AD,2,611031,EKD2,611031
+18p11,"Dystonia-15, myoclonic",AD,2,607488,DYT15,607488
+18p,"Dystonia-7, torsion",AD,2,602124,DYT7,602124
+18p11.21,Dystonia 25,AD,3,615073,"GNAL, DYT25",139312
+19p13.3,"Dystonia 4, torsion, autosomal dominant",AD,3,128101,"TUBB4A, DYT4, HLD6",602662
+19q13.12,"Dystonia 28, childhood-onset",AD,3,617284,"KMT2B, MLL4, KIAA0304, DYT28, MRD68",606834
+19q13.2,Dystonia-12,AD,3,128235,"ATP1A3, DYT12, RDP, AHC2, CAPOS, DEE99",182350
+20p13,Dystonia 30,AD,3,619291,"VPS16, DYT30",608550
+20p11.2-q13.12,"Dystonia-17, primary torsion",AR,2,612406,DYT17,612406
+22q12.3,"Dystonia 26, myoclonic",AD,3,616398,KCTD17,616386
+Xq13.1,"Dystonia-Parkinsonism, X-linked",XLR,3,314250,"TAF1, TAF2A, CCG1, BA2R, DYT3, MRXS33",313650
