@@ -6,7 +6,7 @@ This experiment runs the GramART method on parsed statements from a medical know
 
 This experiment is implemented with the following steps:
 
-1. `kgcmt.py`: Python script that generates `edge_attributes_lerche.txt` in `work/results/2_cmt/`.
+1. `kg_cmt.py`: Python script that generates `edge_attributes_lerche.txt` in `work/results/2_cmt/`.
 2. `cmt_gramart.jl`: Julia script that parses the statements into structured trees and a corresponding grammar and then clusters those statements with GramART.
 
 ## Files

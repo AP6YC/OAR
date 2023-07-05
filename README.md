@@ -100,7 +100,7 @@ This section contains several categories of links to useful resources when worki
 ### Citations
 
 - [GramART](https://scholarsmine.mst.edu/masters_theses/44):
-  - _Meuth, Ryan J., "Adaptive multi-vehicle mission planning for search area coverage" (2007). Masters Theses. 44. [https://scholarsmine.mst.edu/masters_theses/44_](https://scholarsmine.mst.edu/masters_theses/44_)
+  - _Meuth, Ryan J., "Adaptive multi-vehicle mission planning for search area coverage" (2007). Masters Theses. 44. [https://scholarsmine.mst.edu/masters_theses/44](https://scholarsmine.mst.edu/masters_theses/44)_
 
 ### Authors
 
