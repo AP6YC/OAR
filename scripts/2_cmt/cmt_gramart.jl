@@ -48,8 +48,10 @@ statements = OAR.get_cmt_statements(edge_file)
 grammar = OAR.SPOCFG(statements)
 
 # Initialize the GramART module
-gramart = OAR.GramART(grammar)
-gramart.opts.rho = 0.1  # ~12GB
+gramart = OAR.GramART(
+    grammar,
+    rho=0.1,    # ~12GB
+)
 @info gramart
 
 # Process the statements

@@ -146,7 +146,7 @@ for d in CMT_variants:
             inheritance_list.append(inherit_type)
 
 #######################################################################################################################
-# ADD PHENOTYPE DATA                                                                                                   #
+# ADD PHENOTYPE DATA                                                                                                  #
 #  The file HP)_to_tag.csv relates the HPO accession number to the text name of a phenotype feature                   #
 #######################################################################################################################
 
