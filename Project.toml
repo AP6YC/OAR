@@ -43,6 +43,7 @@ PrecompileSignatures = "3"
 ProgressMeter = "1"
 Reexport = "1"
 Revise = "3"
+StatsPlots = "0.15"
 YAML = "0.4"
 julia = "1"
 
