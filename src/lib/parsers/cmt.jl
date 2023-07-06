@@ -11,12 +11,12 @@ The CMT grammar tree subtypes from a Lerche Transformer.
 struct CMTGramARTTree <: Transformer end
 
 """
-Alias stating that a CMT grammar symbol is a string.
+Alias stating that a CMT grammar symbol is a string (`CMTSymbol = `[`GSymbol`](@ref)`{String}`).
 """
 const CMTSymbol = GSymbol{String}
 
 """
-Alias stating that CMT statements are vectors of CMT grammar symbols.
+Alias stating that CMT statements are vectors of CMT grammar symbols (`CMTStatement = Vector{[`CMTSymbol`](@ref)`}`).
 """
 const CMTStatement = Vector{CMTSymbol}
 

@@ -27,22 +27,22 @@ abstract type ARTNode end
 # -----------------------------------------------------------------------------
 
 """
-Definition of Terminal symbols used throughtout GramART.
+Definition of Terminal symbols used throughtout [`GramART`](@ref).
 """
 const GramARTSymbol = GSymbol{String}
 # const GramARTTerminal = String
 
 """
-Terminal Distribution definition that is a dictionary mapping from Terminals to probabilities.
+Terminal Distribution definition that is a dictionary mapping from terminal symbols to probabilities (`TerminalDist = Dict{`[`GramARTSymbol`](@ref)`, Float}`).
 """
 const TerminalDist = Dict{GramARTSymbol, Float}
 # const TerminalDist = Dict{GramARTTerminal, Float}
 
 """
-The structure of the counter for symbols in a ProtoNode.
+The structure of the counter for symbols in a ProtoNode (`SymbolCount = Dict{`[`GramARTSymbol`](@ref)`, Int}`).
 """
-# const SymbolCount = Vector{Int}
 const SymbolCount = Dict{GramARTSymbol, Int}
+# const SymbolCount = Vector{Int}
 
 # -----------------------------------------------------------------------------
 # STRUCTS
@@ -64,41 +64,41 @@ mutable struct ProtoNodeStats
 end
 
 """
-ProtoNode struct, used to generate tree prototypes, which are the templates of GramART.
+ProtoNode struct, used to generate tree prototypes, which are the templates of [`GramART`](@ref).
 """
 struct ProtoNode <: ARTNode
     """
-    The distribution over all symbols at this node.
+    The [`TerminalDist`](@ref) distribution over all symbols at this node.
     """
     dist::TerminalDist
 
     """
-    The update counters for each symbol.
+    The [`SymbolCount`](@ref) update counters for each symbol.
     """
     N::SymbolCount
 
     """
-    The children on this node.
+    The children of this node (`Dict{`[`GramARTSymbol`](@ref)`, ProtoNode}`).
     """
     children::Dict{GramARTSymbol, ProtoNode}
 
     """
-    The mutable options and stats of the ProtoNode.
+    The mutable [`ProtoNodeStats`](@ref) options and stats of the ProtoNode.
     """
     stats::ProtoNodeStats
 end
 
 """
-Alias for how ProtoNode children are indexed (`ProtoChildren = Dict{GramARTSymbol, ProtoNode}`).
+Alias for how ProtoNode children are indexed (`ProtoChildren = Dict{`[`GramARTSymbol`](@ref)`, `[`ProtoNode`](@ref)`}`).
 """
 const ProtoChildren = Dict{GramARTSymbol, ProtoNode}
 
 """
-Tree node for a GramART module.
+Tree node for a [`GramART`](@ref) module.
 """
 mutable struct TreeNode <: ARTNode
     """
-    The terminal symbol for the node.
+    The [`GramARTSymbol`](@ref) terminal symbol for the node.
     """
     t::GramARTSymbol
 
@@ -109,7 +109,7 @@ mutable struct TreeNode <: ARTNode
 end
 
 """
-GramART options struct as a `Parameters.jl` `@with_kw` object.
+[`GramART`](@ref) options struct as a `Parameters.jl` `@with_kw` object.
 """
 @with_kw mutable struct opts_GramART @deftype Float
     """
@@ -126,7 +126,7 @@ end
 """
 Definition of a GramART module.
 
-Contains the proto nodes, tree nodes, and grammar that is used.
+Contains the [`ProtoNode`](@ref)s and [`CFG`](@ref) grammar that is used for processing statements and generating nodes.
 """
 struct GramART
     """
@@ -155,7 +155,7 @@ end
 # -----------------------------------------------------------------------------
 
 """
-Constructor for an [`OAR.GramART`](@ref) module that takes a CFG grammar and automatically sets up the [`ProtoNode`](@ref) tree.
+Constructor for an [`OAR.GramART`](@ref) module that takes a [`CFG`](@ref) grammar and automatically sets up the [`ProtoNode`](@ref) tree.
 
 # Arguments
 $ARG_CFG
@@ -437,4 +437,15 @@ function classify(gramart::GramART, statement::Statement ; get_bmu::Bool=false)
     # Sort by highest activation
     index = sortperm(activations, rev=true)
 
+end
+
+"""
+GramART utility: gets the positive distribution
+"""
+function get_positive_dist(gramart::GramART, nonterminal::AbstractString, index::Integer)
+    pos_dist = filter(
+        p -> p.second > 0.0,
+        gramart.protonodes[index].children[GSymbol{String}(nonterminal, false)].dist
+    )
+    return pos_dist
 end
