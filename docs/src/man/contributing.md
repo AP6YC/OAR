@@ -87,9 +87,10 @@ The `OAR` package has the following file structure:
 ```console
 OAR
 ├── .github/workflows       // GitHub: workflows for testing and documentation.
+├── cluster                 // HPC: scripts and submission files for clusters.
+├── dockerfiles             // Docker: dockerfiles for experiment reproducibility.
 ├── docs                    // Docs: documentation for the module.
 │   └───src                 //      Documentation source files.
-├── examples                // Source: example usage scripts.
 ├── src                     // Source: majority of source code.
 │   └───lib                 //      Library for the OAR module.
 │       └───grammar         //      Grammar code implementions.

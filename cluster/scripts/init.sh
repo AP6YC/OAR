@@ -4,7 +4,7 @@
 # File: init.sh
 #
 # Author: Sasha Petrenko <petrenkos@mst.edu>
-# Date: 5/3/2023
+# Date: 7/14/2023
 #
 # Description:
 #

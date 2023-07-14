@@ -2,7 +2,7 @@
     test_sets.jl
 
 # Description
-The main collection of tests for the OAR.jl package.
+The main collection of tests for the `OAR` project.
 This file loads common utilities and aggregates all other unit tests files.
 """
 
