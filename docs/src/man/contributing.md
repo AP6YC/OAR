@@ -91,6 +91,10 @@ OAR
 ├── dockerfiles             // Docker: dockerfiles for experiment reproducibility.
 ├── docs                    // Docs: documentation for the module.
 │   └───src                 //      Documentation source files.
+├── notebooks               // Source: experiment notebooks.
+├── oar                     // Source: Rust component of the project.
+├── opts                    // Config: options and experiment configurations.
+├── scripts                 // Source: experiment scripts.
 ├── src                     // Source: majority of source code.
 │   └───lib                 //      Library for the OAR module.
 │       └───grammar         //      Grammar code implementions.
