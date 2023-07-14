@@ -34,13 +34,11 @@ grammar = OAR.SPOCFG(statements)
 # Initialize the GramART module
 gramart = OAR.GramART(
     grammar,
-    rho=0.1,    # ~12GB
+    rho=0.1,
     terminated=false,
 )
-@info gramart
 
 # Process the statements
-@showprogress for statement in statements
-    # OAR.process_statement!(gramart, statement, 1)
+for statement in statements
     OAR.train!(gramart, statement)
 end
