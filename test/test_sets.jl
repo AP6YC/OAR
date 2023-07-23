@@ -35,6 +35,11 @@ end
 # Grammar tests
 # -----------------------------------------------------------------------------
 
+@testset "Symbols" begin
+    @assert OAR.Terminal("a") isa OAR.GSymbol
+    @assert OAR.NonTerminal("b") isa OAR.GSymbol
+end
+
 @testset "IRIS Parser" begin
     # Construct the symbolic IRIS dataset parser
     iris_parser = OAR.get_iris_parser()

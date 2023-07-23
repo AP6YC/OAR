@@ -71,7 +71,11 @@ include("lib/lib.jl")
 
 # Export all public names
 export
-    # GramART
+    # Grammar names
+    GSymbol,
+
+    # GramART names
+    GramART,
     ProtoNode,
     TreeNode,
 

@@ -349,14 +349,21 @@ Processes a statement for a [`OAR.GramART`](@ref) module.
 # Arguments
 - `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
 - `statement::Statement{T} where T <: Any`: the grammar [`OAR.Statement`](@ref) to process.
+- `index::Integer`: the index of the [`OAR.ProtoNode`](@ref) to update.
 """
 function process_statement!(
     gramart::GramART,
     statement::Statement{T},
-    index::Int
+    index::Integer
 ) where T <: Any
+    # Update each position of the protonode at `index`
     for ix in eachindex(statement)
-        inc_update_symbols!(gramart.protonodes[index], gramart.grammar.S[ix], statement[ix], gramart.opts.terminated)
+        inc_update_symbols!(
+            gramart.protonodes[index],
+            gramart.grammar.S[ix],
+            statement[ix],
+            gramart.opts.terminated
+        )
     end
 end
 
@@ -426,7 +433,11 @@ Classifies the statement into one of GramART's internal categories.
 - `statement::Statement`: the statement to classify.
 - `get_bmu::Bool=false`: optional, whether to get the best matching unit in the case of complete mismatch.
 """
-function classify(gramart::GramART, statement::Statement ; get_bmu::Bool=false)
+function classify(
+    gramart::GramART,
+    statement::Statement ;
+    get_bmu::Bool=false
+)
     # Compute the activations
     n_nodes = length(gramart.protonodes)
     activations = zeros(n_nodes)
@@ -437,12 +448,43 @@ function classify(gramart::GramART, statement::Statement ; get_bmu::Bool=false)
     # Sort by highest activation
     index = sortperm(activations, rev=true)
 
+    # Default is mismatch
+    mismatch_flag = true
+    y_hat = -1
+    for jx in 1:n_nodes
+        bmu = index[jx]
+        # Vigilance check - pass
+        if activations[bmu] >= gramart.opts.rho
+            # Current winner
+            y_hat = bmu
+            mismatch_flag = false
+            break
+        end
+    end
+
+    # If we did not find a match
+    if mismatch_flag
+        # Report either the best matching unit or the mismatch label -1
+        bmu = index[1]
+        y_hat = get_bmu ? bmu : -1
+    end
+
+    return y_hat
 end
 
 """
-GramART utility: gets the positive distribution
+GramART utility: gets the positive distribution.
+
+# Arguments
+- `gramart::GramART`: the [`OAR.GramART`](@ref) module to analyze
+- `nonterminal::AbstractString`: the string name of the nonterminal position to analyze.
+- `index::Integer`: the index of the [`OAR.ProtoNode`](@ref) to analyze.
 """
-function get_positive_dist(gramart::GramART, nonterminal::AbstractString, index::Integer)
+function get_positive_dist(
+    gramart::GramART,
+    nonterminal::AbstractString,
+    index::Integer
+)
     pos_dist = filter(
         p -> p.second > 0.0,
         gramart.protonodes[index].children[GSymbol{String}(nonterminal, false)].dist
