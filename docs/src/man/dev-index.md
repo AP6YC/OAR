@@ -40,7 +40,7 @@ Modules = [OAR]
 Order   = [:type]
 ```
 
-### [Constants](@id dev-index-types)
+### [Constants](@id dev-index-constants)
 
 ```@index
 Pages   = ["dev-index.md"]
