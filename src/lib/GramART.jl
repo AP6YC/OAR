@@ -476,7 +476,7 @@ end
 GramART utility: gets the positive distribution.
 
 # Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) module to analyze
+- `gramart::GramART`: the [`OAR.GramART`](@ref) module to analyze.
 - `nonterminal::AbstractString`: the string name of the nonterminal position to analyze.
 - `index::Integer`: the index of the [`OAR.ProtoNode`](@ref) to analyze.
 """
@@ -485,9 +485,23 @@ function get_positive_dist(
     nonterminal::AbstractString,
     index::Integer
 )
+    # Filter the elements of each distribution that are greater than zero
     pos_dist = filter(
         p -> p.second > 0.0,
         gramart.protonodes[index].children[GSymbol{String}(nonterminal, false)].dist
     )
+
+    # Return a new distribution that doesn't contain zero elements
     return pos_dist
+end
+
+"""
+GramART utility: returns a list of the instance counts for each [`OAR.GramART`](@ref) prototype.
+
+# Arguments
+- `gramart::GramART`: the [`OAR.GramART`](@ref) module to analyze.
+"""
+function get_gramart_instance_counts(gramart::GramART)
+    # Return the instance counts for each of the top nodes
+    return [node.stats.m for node in gramart.protonodes]
 end

@@ -20,6 +20,9 @@ using OAR
 # -----------------------------------------------------------------------------
 
 using ProgressMeter
+# using DelimitedFiles
+using DataFrames
+using CSV
 
 # -----------------------------------------------------------------------------
 # VARIABLES
@@ -27,6 +30,9 @@ using ProgressMeter
 
 # Location of the edge attributes file, formatted for Lerch parsing
 edge_file = OAR.results_dir("2_kg_gramart", "cmt", "edge_attributes_lerche.txt")
+
+# Output CSV file
+output_file = OAR.results_dir("2_kg_gramart", "cmt", "cmt-clusters.csv")
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -60,3 +66,25 @@ gramart = OAR.GramART(
     OAR.train!(gramart, statement)
 end
 
+# Save the statements and their corresponding clusters to a CSV
+df = DataFrame(
+    subject = String[],
+    predicate = String[],
+    object = String[],
+    cluster = Int[],
+)
+
+# Classify and push each statement back into a CSV
+@showprogress for statement in statements
+    cluster = OAR.classify(gramart, statement, get_bmu=true)
+    new_element = [
+        statement[1].data,
+        statement[2].data,
+        statement[3].data,
+        cluster,
+    ]
+    push!(df, new_element)
+end
+
+# Save the clustered statements to a CSV file
+CSV.write(output_file, df)
