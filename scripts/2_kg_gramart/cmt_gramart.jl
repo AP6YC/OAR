@@ -34,7 +34,7 @@ edge_file = OAR.results_dir("2_kg_gramart", "cmt", "edge_attributes_lerche.txt")
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "2_cmt/gramart.jl: GramART for clustering a Charcot-Marie."
+    "2_kg/gramart.jl: GramART for clustering a disease knowledge graph."
 )
 
 # -----------------------------------------------------------------------------
@@ -57,6 +57,6 @@ gramart = OAR.GramART(
 
 # Process the statements
 @showprogress for statement in statements
-    # OAR.process_statement!(gramart, statement, 1)
     OAR.train!(gramart, statement)
 end
+
