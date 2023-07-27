@@ -49,7 +49,7 @@ const SymbolCount = Dict{GramARTSymbol, Int}
 # -----------------------------------------------------------------------------
 
 """
-The mutable components of a [`ProtoNode`](@ref), containing options and statistics of the node.
+The mutable components of a [`OAR.ProtoNode`](@ref), containing options and statistics of the node.
 """
 mutable struct ProtoNodeStats
     """
@@ -64,7 +64,7 @@ mutable struct ProtoNodeStats
 end
 
 """
-ProtoNode struct, used to generate tree prototypes, which are the templates of [`GramART`](@ref).
+ProtoNode struct, used to generate tree prototypes, which are the templates of [`OAR.GramART`](@ref).
 """
 struct ProtoNode <: ARTNode
     """
@@ -172,7 +172,7 @@ function GramART(grammar::CFG, opts::opts_GramART)
 end
 
 """
-Constructor for an [`OAR.GramART`](@ref) module that takes a CFG grammar and an optional list of keyword arguments for the options.
+Constructor for an [`OAR.GramART`](@ref) module that takes a [`OAR.CFG`](@ref) grammar and an optional list of keyword arguments for the options.
 
 # Arguments
 $ARG_CFG
@@ -190,7 +190,7 @@ function GramART(grammar::CFG; kwargs...)
 end
 
 """
-Empty constructor for the mutable options and stats component of a ProtoNode.
+Empty constructor for the mutable options and stats component of a [`OAR.ProtoNode`](@ref).
 """
 function ProtoNodeStats()
     # Construct and return the protonode statistics struct
@@ -201,7 +201,7 @@ function ProtoNodeStats()
 end
 
 """
-Empty constructor for a GramART Protonode.
+Empty constructor for a [`OAR.GramART`](@ref) [`OAR.Protonode`](@ref).
 """
 function ProtoNode()
     # Construct and return the ProtoNode
@@ -214,7 +214,7 @@ function ProtoNode()
 end
 
 """
-Constructor for a zero-initialized Gramart ProtoNode.
+Constructor for a zero-initialized [`OAR.GramART`](@ref) [`OAR.ProtoNode`](@ref).
 
 # Arguments
 - `symbols::SymbolSet`: the terminal symbols to initialize the node with.
@@ -234,7 +234,7 @@ function ProtoNode(symbols::SymbolSet)
 end
 
 """
-Empty constructor for a GramART TreeNode.
+Empty constructor for a [`OAR.GramART`](@ref) TreeNode.
 
 # Arguments
 - `name::String`: the string name of the symbol to instantiate the TreeNode with.
@@ -312,13 +312,15 @@ function update_dist!(pn::ProtoNode, symb::GramARTSymbol)
         # Repeated multiplication is faster than division
         pn.dist[key] = pn.N[key] * ratio
     end
+    # Explicit empty return
+    return
 end
 
 """
-Updates the tree of protonodes from a single terminal.
+Updates the tree of [`OAR.ProtoNode`](@ref) from a single terminal.
 
 # Arguments
-- `pn::ProtoNode`: the top of the protonode tree to update.
+- `pn::ProtoNode`: the top of the [`OAR.ProtoNode`](@ref) tree to update.
 - `nonterminal::GramARTSymbol`: the nonterminal symbol of the statement to update at.
 - `symb::GramARTSymbol`: the terminal symbol to update everywhere.
 """
