@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-    kg_cmt.py
+    kg_gen.py
 
 # Description
 This file is a modification of the `knowledge_graph_cmt_orig.py` experiment originally authors by Dr. Daniel Hier <dbhier@dbhier.com> and modified by Sasha Petrenko <petrenkos@mst.edu>
@@ -31,6 +31,9 @@ The inheritance list (n=4) lists the four modes of genetic inheritance [AR,AD, X
 # DEPENDENCIES
 # -----------------------------------------------------------------------------
 
+# Standard imports
+import argparse
+
 # Top-level imports
 import pandas as pd
 import networkx as nx
@@ -43,22 +46,69 @@ from utils import (
 )
 
 # -----------------------------------------------------------------------------
-# VARIABLES
+# TOP-LEVEL CONSTANTS
 # -----------------------------------------------------------------------------
 
+EXP_NAME = "2_kg_gramart"
+REFLEXIVE = False
+
+# -----------------------------------------------------------------------------
+# PARSE ARGUMENTS
+# -----------------------------------------------------------------------------
+
+parser = argparse.ArgumentParser(
+    prog='kg.py',
+    description='Generates a knowledge graph from disease data.',
+    epilog='TODO',
+)
+
+parser.add_argument(
+    'disease',
+    choices=[
+        "cmt",
+        "dystonia",
+        "parkinson",
+    ]
+)
+
+# parser.add_argument(
+#     '-c',
+#     '--count'
+# )      # option that takes a value
+# parser.add_argument(
+#     '-v',
+#     '--verbose',
+#     action='store_true'
+# )  # on/off flag
+
+args = parser.parse_args()
+
+# -----------------------------------------------------------------------------
+# DERIVED VARIABLES
+# -----------------------------------------------------------------------------
+
+local_data_dir = data_dir(args.disease)
+local_results_dir = results_dir(EXP_NAME, args.disease)
+
+
+def input_dir(file): return local_data_dir.joinpath(file)
+
+
+def output_dir(file): return local_results_dir.joinpath(file)
+
+
 # Data files
-CMT_DATA = data_dir("CMT_Location_Disease_Gene.csv")
-PHENOTYPE_DATA = data_dir("Phenotype_by_disease.csv")
-HPO_DATA = data_dir('HPO_to_tag.csv')
-PROTEIN_DATA = data_dir('protein_list_CMT.csv')
+CMT_DATA = input_dir("Location_Disease_Gene.csv")
+PHENOTYPE_DATA = input_dir("Phenotype_by_disease.csv")
+HPO_DATA = input_dir('HPO_to_tag.csv')
+PROTEIN_DATA = input_dir('protein_list.csv')
 
 # Output/result files
-GRAPH_ATTRIBUTES = results_dir('graph_attributes.txt')
-EDGE_ATTRIBUTES = results_dir('edge_attributes.txt')
-RDF_OWL = results_dir('cmt.owl')
-LERCHE_EDGE_ATTRIBUTES = results_dir('edge_attributes_lerche.txt')
-
-REFLEXIVE = False
+GRAPH_ATTRIBUTES = output_dir('graph_attributes.txt')
+EDGE_ATTRIBUTES = output_dir('edge_attributes.txt')
+RDF_OWL = output_dir('rdf.owl')
+LERCHE_EDGE_ATTRIBUTES = output_dir('edge_attributes_lerche.txt')
+GRAPHML_FILE = output_dir('gephy.graphml')
 
 # -----------------------------------------------------------------------------
 # EXPERIMENT
@@ -277,7 +327,7 @@ for p in cmt_proteins:
 nx.draw_networkx(G, with_labels=False)
 
 # Write the graph to file in graphml format for GEPHI
-nx.write_graphml(G, results_dir('cmt.graphml'))
+nx.write_graphml(G, GRAPHML_FILE)
 # nx.write_graphml(G, 'cmt.graphml')
 # Find nodes without any edges
 isolated_nodes = list(nx.isolates(G))

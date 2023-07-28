@@ -1,8 +1,8 @@
 """
-    gramart.jl
+    kg_gramart.jl
 
 # Description
-This script shows how to use a GramART to cluster on the Iris dataset.
+This script uses GramART to cluster disease knowledge graph statements.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
