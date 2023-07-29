@@ -15,8 +15,8 @@ Aggregates all parsers in the `OAR` project.
 # Common parsing definitions and functions
 include("common.jl")
 
-# The Charcot-Marie-Tooth parser
-include("cmt.jl")
+# The knowledge graph (e.g., Charcot-Marie-Tooth) parser
+include("kg.jl")
 
 # The symbolic IRIS dataset parser
 include("iris.jl")

@@ -43,11 +43,11 @@ pargs = OAR.exp_parse(
 )
 
 # -----------------------------------------------------------------------------
-# CMT DATASET
+# EXPERIMENT
 # -----------------------------------------------------------------------------
 
-# Load the CMT statements
-statements = OAR.get_cmt_statements(edge_file)
+# Load the KG statements
+statements = OAR.get_kg_statements(edge_file)
 
 # Generate a simple subject-predicate-object grammar from the statements
 grammar = OAR.SPOCFG(statements)

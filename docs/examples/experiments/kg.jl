@@ -1,11 +1,11 @@
 # ---
-# title: CMT and GramART
-# id: cmt-gramart
+# title: KG and GramART
+# id: kg-gramart
 # date: 2023-7-6
 # cover: ../assets/grammar.png
 # author: "[Sasha Petrenko](https://github.com/AP6YC)"
 # julia: 1.9
-# description: This demo demonstrates how to utilize a GramART module on a basic dataset.
+# description: This demo demonstrates how to utilize a GramART module on knowledge graph dataset.
 # ---
 
 # ## Overview
@@ -20,13 +20,13 @@
 ## Import the OAR project module
 using OAR
 
-# Next, we must should point to the location of the dataset containing the prepro
+# Next, we must should point to the location of the dataset containing the preprocessed knowledge graph statements
 
 ## Location of the edge attributes file, formatted for Lerch parsing
 edge_file = joinpath("..", "assets", "edge_attributes_lerche.txt")
 
-# Load the CMT statements
-statements = OAR.get_cmt_statements(edge_file)
+# Load the KG statements
+statements = OAR.get_kg_statements(edge_file)
 
 # Generate a simple subject-predicate-object grammar from the statements
 grammar = OAR.SPOCFG(statements)
