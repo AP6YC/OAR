@@ -87,7 +87,7 @@ args = parser.parse_args()
 # DERIVED VARIABLES
 # -----------------------------------------------------------------------------
 
-local_data_dir = data_dir(args.disease)
+local_data_dir = data_dir("kg", args.disease)
 local_results_dir = results_dir(EXP_NAME, args.disease)
 
 
