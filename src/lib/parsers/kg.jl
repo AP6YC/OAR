@@ -32,7 +32,7 @@ const KGStatement = Vector{KGSymbol}
 Constructs and returns a parser for the KG edge attributes data.
 """
 function get_kg_parser()
-    # Declare the rules of the symbolic Iris grammar
+    # Declare the rules of the knowledge graph statement grammar
     kg_edge_grammar = raw"""
         ?start: statement
 

@@ -75,6 +75,7 @@ function load_cmt(file::AbstractString)
         "weakness",
     ]
 
+    # Generate a new column of piped elements
     phenotype_column = Vector{String}()
     for row in eachrow(df)
         element = ""
@@ -86,8 +87,9 @@ function load_cmt(file::AbstractString)
         push!(phenotype_column, element)
     end
 
+    # Add the phenotypes column to the dataframe
     df.phenotypes = phenotype_column
-
+    # Return the sanitized dataframe
     return df
 end
 
@@ -100,5 +102,51 @@ function load_cmt_dict(file::AbstractString)
     return df_dict
 end
 
+function protein_df_to_strings(df::DataFrame)
+    columns = [
+        "gene_location",
+        "disease_MIM",
+        "gene",
+        "gene_MIM",
+        "inheritance",
+        "protein",
+        "uniprot",
+        "chromosome",
+        "chromosome_location",
+        "protein_class",
+        "biologic_process",
+        "molecular_function",
+        "disease_involvement",
+        "MW",
+        "domain",
+        "motif",
+        "protein_location",
+        "length",
+        "disease_MIM2",
+        "weight_tag",
+        "length_tag",
+        "phenotypes",
+    ]
+
+    statements = Vector{String}()
+
+    for row in eachrow(df)
+        statement = raw""
+        for column in columns
+            statement *= "'" * string(row[column]) * "' "
+        end
+        push!(statements, statement)
+    end
+
+    return statements
+end
+
 df = load_cmt(input_file)
 df_dict = load_cmt_dict(data_dict_file)
+
+
+statements = protein_df_to_strings(df)
+
+parser = OAR.get_cmt_parser()
+
+OAR.run_parser(parser, statements[1])

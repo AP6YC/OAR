@@ -27,17 +27,38 @@ const CMTSymbol = GSymbol{String}
 Constructs and returns a parser for the KG edge attributes data.
 """
 function get_cmt_parser()
-    # Declare the rules of the symbolic Iris grammar
-    cmt_edge_grammar = raw"""
+    # Declare the rules of the CMT protein data parser
+    cmt_grammar = raw"""
         ?start: statement
 
-        statement: subject predicate object
+        statement: gene_location disease_mim gene gene_mim inheritance protein uniprot chromosome chromosome_location protein_class biologic_process molecular_function disease_involvement mw domain motif protein_location length disease_mim2 weight_tag length_tag phenotypes
 
-        subject     : gstring -> kg_symb
-        predicate   : gstring -> kg_symb
-        object      : gstring -> kg_symb
+        gene_location       : quoted_string
+        disease_mim         : quoted_string
+        gene                : quoted_string
+        gene_mim            : quoted_string
+        inheritance         : quoted_string
+        protein             : quoted_string
+        uniprot             : quoted_string
+        chromosome          : quoted_string
+        chromosome_location : quoted_string
+        protein_class       : quoted_string
+        biologic_process    : quoted_string
+        molecular_function  : quoted_string
+        disease_involvement : quoted_string
+        mw                  : quoted_string
+        domain              : quoted_string
+        motif               : quoted_string
+        protein_location    : quoted_string
+        length              : quoted_string
+        disease_mim2        : quoted_string
+        weight_tag          : quoted_string
+        length_tag          : quoted_string
+        phenotypes          : quoted_string
 
-        gstring      : ESCAPED_STRING
+        quoted_string       : "'" inner_string "'"
+        inner_string        : gstring -> cmt_symb
+        gstring             : ESCAPED_STRING
 
         %import common.ESCAPED_STRING
         %import common.WS
@@ -46,7 +67,7 @@ function get_cmt_parser()
 
     # Create the parser from these rules
     cmt_parser = Lark(
-        cmt_edge_grammar,
+        cmt_grammar,
         parser="lalr",
         lexer="standard",
         transformer=CMTGramARTTree()
