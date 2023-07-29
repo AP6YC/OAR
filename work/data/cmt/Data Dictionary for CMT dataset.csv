@@ -1,0 +1,49 @@
+﻿Variable,Description,Type,Use,pipes
+num,code,integer,meta,
+gene_location,where gene is located on chromosome,string,feature,
+disease,name of disease,string,target,
+disease_MIM,disease code,integer,meta,
+gene,name of gene,string,feature,
+gene_MIM,gene code,integer,meta,
+inheritance,mode of inheritance,string,feature,yes
+protein,name of protein,string,feature,
+uniprot,protein_code,string,meta,
+chromosome,number of the chromosome,string,feature,
+chromosome_location,where gene is located on chromosome,string,feature,
+protein_class,class of protein (multiple),string,feature,yes
+biologic_process,biologic process of protein (multiple),string,feature,yes
+molecular_function,molecular function of protein (multiple),string,feature,yes
+disease_involvement,disease associated with gene,string,feature,yes
+MW,moledular weight,integer,meta,
+domain,protein domain (multiple),string,feature,yes
+motif,motif of protein (multiple),string,feature,yes
+protein_location,where protein is in cell (multiple),string,feature,yes
+length,length of protein in AA units,integer,meta,
+disease_MIM,disease code,integer,meta,
+ataxia,phenotype,binary,feature,
+atrophy,phenotype,binary,feature,
+auditory,phenotype,binary,feature,
+autonomic,phenotype,binary,feature,
+behavior,phenotype,binary,feature,
+cognitive,phenotype,binary,feature,
+cranial_nerve,phenotype,binary,feature,
+deformity,phenotype,binary,feature,
+dystonia,phenotype,binary,feature,
+gait,phenotype,binary,feature,
+hyperkinesia,phenotype,binary,feature,
+hyperreflexia,phenotype,binary,feature,
+hypertonia,phenotype,binary,feature,
+hypertrophy,phenotype,binary,feature,
+hyporeflexia,phenotype,binary,feature,
+hypotonia,phenotype,binary,feature,
+muscle,phenotype,binary,feature,
+pain,phenotype,binary,feature,
+seizure,phenotype,binary,feature,
+sensory,phenotype,binary,feature,
+sleep,phenotype,binary,feature,
+speech,phenotype,binary,feature,
+tremor,phenotype,binary,feature,
+visual,phenotype,binary,feature,
+weakness,phenotype,binary,feature,
+weight_tag,protein_weight,string,feature,
+length_tag,protein_length,string,feature,
