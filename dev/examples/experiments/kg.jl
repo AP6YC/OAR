@@ -4,7 +4,7 @@ using OAR
 # Location of the edge attributes file, formatted for Lerch parsing
 edge_file = joinpath("..", "assets", "edge_attributes_lerche.txt")
 
-statements = OAR.get_cmt_statements(edge_file)
+statements = OAR.get_kg_statements(edge_file)
 
 grammar = OAR.SPOCFG(statements)
 
