@@ -47,31 +47,46 @@ pargs = OAR.exp_parse(
 function load_cmt(file::AbstractString)
     df = DataFrame(CSV.File(file))
 
-    # ataxia
-    # atrophy
-    # auditory
-    # autonomic
-    # behavior
-    # cognitive
-    # cranial_nerve
-    # deformity
-    # dystonia
-    # gait
-    # hyperkinesia
-    # hyperreflexia
-    # hypertonia
-    # hypertrophy
-    # hyporeflexia
-    # hypotonia
-    # muscle
-    # pain
-    # seizure
-    # sensory
-    # sleep
-    # speech
-    # tremor
-    # visual
-    # weakness
+    phenotypes = [
+        "ataxia",
+        "atrophy",
+        "auditory",
+        "autonomic",
+        "behavior",
+        "cognitive",
+        "cranial_nerve",
+        "deformity",
+        "dystonia",
+        "gait",
+        "hyperkinesia",
+        "hyperreflexia",
+        "hypertonia",
+        "hypertrophy",
+        "hyporeflexia",
+        "hypotonia",
+        "muscle",
+        "pain",
+        "seizure",
+        "sensory",
+        "sleep",
+        "speech",
+        "tremor",
+        "visual",
+        "weakness",
+    ]
+
+    phenotype_column = Vector{String}()
+    for row in eachrow(df)
+        element = ""
+        for phen in phenotypes
+            if row[phen] == 1
+                element *= " | " * phen
+            end
+        end
+        push!(phenotype_column, element)
+    end
+
+    df.phenotypes = phenotype_column
 
     return df
 end
