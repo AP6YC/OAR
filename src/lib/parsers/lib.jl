@@ -20,3 +20,6 @@ include("kg.jl")
 
 # The symbolic IRIS dataset parser
 include("iris.jl")
+
+# The CMT protein data parser
+include("cmt.jl")

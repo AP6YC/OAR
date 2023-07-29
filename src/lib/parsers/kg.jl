@@ -26,7 +26,7 @@ const KGStatement = Vector{KGSymbol}
 # Remove backslashes in escaped strings
 @inline_rule gstring(t::KGGramARTTree, s) = replace(s[2:end-1],"\\\""=>"\"")
 # Define the datatype for the strings themselves
-@rule KG_symb(t::KGGramARTTree, p) = KGSymbol(p[1], true)
+@rule kg_symb(t::KGGramARTTree, p) = KGSymbol(p[1], true)
 
 """
 Constructs and returns a parser for the KG edge attributes data.

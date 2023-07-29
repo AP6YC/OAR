@@ -51,15 +51,15 @@ end
     k = OAR.run_parser(iris_parser, text)
 end
 
-@testset "CMT Parser" begin
+@testset "KG Parser" begin
     # Construct the CMT dataset parser
-    cmt_parser = OAR.get_cmt_parser()
+    kg_parser = OAR.get_kg_parser()
 
     # Set some sample text as the input statement
     text = raw"\"Periaxin\" \"is_a\" \"protein\""
 
     # Parse the statement
-    k = OAR.run_parser(cmt_parser, text)
+    k = OAR.run_parser(kg_parser, text)
 end
 
 # -----------------------------------------------------------------------------

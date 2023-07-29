@@ -39,7 +39,7 @@ output_file = OAR.results_dir("2_kg_gramart", "cmt", "cmt-clusters.csv")
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "2_kg/gramart.jl: GramART for clustering a disease knowledge graph."
+    "2_kg/kg_gramart.jl: GramART for clustering a disease knowledge graph."
 )
 
 # -----------------------------------------------------------------------------
