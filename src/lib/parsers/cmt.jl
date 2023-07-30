@@ -203,7 +203,6 @@ struct CMTPipedTree <: Transformer end
 # Define the datatype for the strings themselves
 @rule cmt_symb(t::CMTPipedTree, p) = CMTSymbol(p[1], true)
 
-# piped_string       : /\w+/  -> cmt_symb
 """
 Constructs and returns a parser for just piped strings.
 """
@@ -241,13 +240,18 @@ function vector_to_tree(
     nonterminal::AbstractString
 )
     # Create a nonterminal TreeNoe
-    local_tree = TreeNode(
+    local_tree = OAR.TreeNode(
         nonterminal,
         false
     )
+
+    # Create a TreeNode from every element of the vector and push to the children
     for element in local_vec
-        push!(local_tree.children, element)
+        terminal_tree = OAR.TreeNode(element)
+        push!(local_tree.children, terminal_tree)
     end
+
+    # Return the constructed local_tree
     return local_tree
 end
 
@@ -281,7 +285,7 @@ function df_to_trees(data::DataFrame, data_dict::DataFrame)
         # statement = GramARTStatement()
         for column in CMT_CLUSTERING_COLUMNS
 
-
+            statement = TreeNode("statement", false)
             if check_if_piped(data_dict, column)
 
             else

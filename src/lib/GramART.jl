@@ -238,6 +238,19 @@ function ProtoNode(symbols::SymbolSet)
 end
 
 """
+Constructor for a [`OAR.GramART`](@ref) [`OAR.TreeNode`](@ref) taking an existing [`OAR.GramARTSymbol`](@ref).
+
+# Arguments
+- `symb::GramARTSymbol`: the preconstructed GramARTSymbol used for constructing the [`OAR.TreeNode`](@ref).
+"""
+function TreeNode(symb::GramARTSymbol)
+    TreeNode(
+        symb,                   # t
+        Vector{TreeNode}(),     # children
+    )
+end
+
+"""
 Constructor for a [`OAR.GramART`](@ref) [`OAR.TreeNode`](@ref), taking a string name of the symbol and if it is terminal or not.
 
 # Arguments
@@ -250,8 +263,7 @@ function TreeNode(name::AbstractString, is_terminal::Bool=true)
         GramARTSymbol(
             name,
             is_terminal,
-        ),                      # t
-        Vector{TreeNode}(),     # children
+        ),
     )
 end
 
@@ -266,6 +278,7 @@ Checks if the [`OAR.GSymbol`](@ref) is a terminal grammar symbol.
 - `symb::GSymbol`: the [`OAR.GSymbol`](@ref) to check.
 """
 function is_terminal(symb::GSymbol)
+    # Check the terminal flag attribute of the grammar symbol
     return symb.terminal
 end
 
@@ -322,6 +335,38 @@ Overload of the show function for [`OAR.ProtoNode`](@ref).
 """
 function Base.show(io::IO, node::ProtoNode)
     print(io, "$(typeof(node))($(length(node.N)))")
+end
+
+"""
+Creates a tree string for displaying children of a [`OAR.TreeNode`](@ref), used in the `Base.show` overload.
+
+# Arguments
+- `node::TreeNode`: the [`OAR.TreeNode`](@ref) with children to display
+"""
+function treenode_children_string(node::TreeNode)
+    printstring = ""
+    n_children = length(node.children)
+    for ix = 1:n_children
+        sep = (ix == n_children ? "└───" : "├───")
+        term = (ix == n_children ? "" : "\n")
+        printstring *= sep * " \"$(node.children[ix].t.data)\"" * term
+    end
+    return printstring
+end
+
+"""
+Overload of the show function for [`OAR.TreeNode`](@ref).
+
+# Arguments
+- `io::IO`: the current IO stream.
+- `node::TreeNode`: the [`OAR.TreeNode`](@ref) to print/display.
+"""
+function Base.show(io::IO, node::TreeNode)
+    printstring = "$(typeof(node))(\"$(node.t.data)\")"
+    if !isempty(node.children)
+        printstring *= "\n" * treenode_children_string(node)
+    end
+    print(io, printstring)
 end
 
 """
@@ -414,11 +459,11 @@ function activation(node::ProtoNode, statement::Statement)
 end
 
 """
-Trains [`OAR.GramART`](@ref) module on a statement from the GramART's grammar.
+Trains [`OAR.GramART`](@ref) module on a [`OAR.Statement`](@ref) from the [`OAR.GramART`](@ref)'s grammar.
 
 # Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
-- `statement::Statement`: the grammar statement to process.
+- `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the [`OAR.Statement`](@ref).
+- `statement::Statement`: the grammar [`OAR.Statement`](@ref) to process.
 """
 function train!(gramart::GramART, statement::Statement)
     # If this is the first sample, then fast commit
@@ -457,11 +502,11 @@ function train!(gramart::GramART, statement::Statement)
 end
 
 """
-Classifies the statement into one of GramART's internal categories.
+Classifies the [`OAR.Statement`](@ref) into one of [`OAR.GramART`](@ref)'s internal categories.
 
 # Arguments
 - `gramart::GramART`: the [`OAR.GramART`](@ref) to use in classification/inference.
-- `statement::Statement`: the statement to classify.
+- `statement::Statement`: the [`OAR.Statement`](@ref) to classify.
 - `get_bmu::Bool=false`: optional, whether to get the best matching unit in the case of complete mismatch.
 """
 function classify(
