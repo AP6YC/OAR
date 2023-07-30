@@ -47,10 +47,8 @@ pargs = OAR.exp_parse(
 df = OAR.load_cmt(input_file)
 df_dict = OAR.load_cmt_dict(data_dict_file)
 
-statements = OAR.protein_df_to_strings(df)
-
+# statements = OAR.protein_df_to_strings(df)
 # parser = OAR.get_cmt_parser()
-
 # OAR.run_parser(parser, statements[1])
 
 ts = OAR.df_to_trees(df, df_dict)

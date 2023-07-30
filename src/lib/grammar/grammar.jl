@@ -18,7 +18,6 @@ abstract type Grammar{T} end
 # TYPE ALIASES
 # -----------------------------------------------------------------------------
 
-# Type alias (`SymbolSet{T} = Set{[OAR.GSymbol](@ref){T}}`), a set of grammar symbols is implemented as a Julia set.
 """
 Type alias (`SymbolSet{T} = Set{`[`OAR.GSymbol`](@ref)`{T}}`), a set of grammar symbols is implemented as a Julia set.
 """
@@ -95,7 +94,7 @@ function CFG(S::Statement{T}) where T <: Any
 end
 
 """
-Default constructor for a Context-Free Grammar.
+Empty constructor for a Context-Free Grammar.
 """
 function CFG()
     return CFG(Statement{String}())

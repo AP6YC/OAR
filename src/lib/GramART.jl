@@ -351,7 +351,7 @@ function treenode_children_string(node::TreeNode)
     # Append to the printstring for each child
     for ix = 1:n_children
         # Determine the separator different on the last iteration
-        sep = (ix == n_children ? "└───" : "├───")
+        sep = (ix == n_children ? " └───" : " ├───")
         # The terminator is also different on the last iteration
         term = (ix == n_children ? "" : "\n")
         # Append the separtor, child data, and terminator to the printstring
