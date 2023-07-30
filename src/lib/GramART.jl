@@ -344,13 +344,20 @@ Creates a tree string for displaying children of a [`OAR.TreeNode`](@ref), used 
 - `node::TreeNode`: the [`OAR.TreeNode`](@ref) with children to display
 """
 function treenode_children_string(node::TreeNode)
+    # Init the printstring
     printstring = ""
+    # Get the number of children to display
     n_children = length(node.children)
+    # Append to the printstring for each child
     for ix = 1:n_children
+        # Determine the separator different on the last iteration
         sep = (ix == n_children ? "└───" : "├───")
+        # The terminator is also different on the last iteration
         term = (ix == n_children ? "" : "\n")
+        # Append the separtor, child data, and terminator to the printstring
         printstring *= sep * " \"$(node.children[ix].t.data)\"" * term
     end
+    # Return the printstring with appended children info
     return printstring
 end
 
@@ -362,10 +369,14 @@ Overload of the show function for [`OAR.TreeNode`](@ref).
 - `node::TreeNode`: the [`OAR.TreeNode`](@ref) to print/display.
 """
 function Base.show(io::IO, node::TreeNode)
+    # Set the top of the printstring
     printstring = "$(typeof(node))(\"$(node.t.data)\")"
+    # if the node has children, then append for each child
     if !isempty(node.children)
+        # Add a newline and the child printstring
         printstring *= "\n" * treenode_children_string(node)
     end
+    # Finally print to the IO stream
     print(io, printstring)
 end
 
