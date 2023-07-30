@@ -44,109 +44,19 @@ pargs = OAR.exp_parse(
 # PARSE ARGS
 # -----------------------------------------------------------------------------
 
-function load_cmt(file::AbstractString)
-    df = DataFrame(CSV.File(file))
 
-    phenotypes = [
-        "ataxia",
-        "atrophy",
-        "auditory",
-        "autonomic",
-        "behavior",
-        "cognitive",
-        "cranial_nerve",
-        "deformity",
-        "dystonia",
-        "gait",
-        "hyperkinesia",
-        "hyperreflexia",
-        "hypertonia",
-        "hypertrophy",
-        "hyporeflexia",
-        "hypotonia",
-        "muscle",
-        "pain",
-        "seizure",
-        "sensory",
-        "sleep",
-        "speech",
-        "tremor",
-        "visual",
-        "weakness",
-    ]
+df = OAR.load_cmt(input_file)
+df_dict = OAR.load_cmt_dict(data_dict_file)
 
-    # Generate a new column of piped elements
-    phenotype_column = Vector{String}()
-    for row in eachrow(df)
-        element = ""
-        for phen in phenotypes
-            if row[phen] == 1
-                element *= " | " * phen
-            end
-        end
-        push!(phenotype_column, element)
-    end
+statements = OAR.protein_df_to_strings(df)
 
-    # Add the phenotypes column to the dataframe
-    df.phenotypes = phenotype_column
-    # Return the sanitized dataframe
-    return df
-end
+# parser = OAR.get_cmt_parser()
 
-function load_cmt_dict(file::AbstractString)
-    df_dict = DataFrame(CSV.File(file))
-    # Sanitize
-    df_dict.pipes = replace(df_dict.pipes, "yes" => true)
-    df_dict.pipes = replace(df_dict.pipes, missing => false)
-    df_dict.pipes = Bool.(df_dict.pipes)
-    return df_dict
-end
+# OAR.run_parser(parser, statements[1])
 
-function protein_df_to_strings(df::DataFrame)
-    columns = [
-        "gene_location",
-        "disease_MIM",
-        "gene",
-        "gene_MIM",
-        "inheritance",
-        "protein",
-        "uniprot",
-        "chromosome",
-        "chromosome_location",
-        "protein_class",
-        "biologic_process",
-        "molecular_function",
-        "disease_involvement",
-        "MW",
-        "domain",
-        "motif",
-        "protein_location",
-        "length",
-        "disease_MIM2",
-        "weight_tag",
-        "length_tag",
-        "phenotypes",
-    ]
+test_text = "asdf | poiu | jkl"
 
-    statements = Vector{String}()
+parser = OAR.get_piped_parser()
 
-    for row in eachrow(df)
-        statement = raw""
-        for column in columns
-            statement *= "'" * string(row[column]) * "' "
-        end
-        push!(statements, statement)
-    end
+a = OAR.run_parser(parser, test_text)
 
-    return statements
-end
-
-df = load_cmt(input_file)
-df_dict = load_cmt_dict(data_dict_file)
-
-
-statements = protein_df_to_strings(df)
-
-parser = OAR.get_cmt_parser()
-
-OAR.run_parser(parser, statements[1])

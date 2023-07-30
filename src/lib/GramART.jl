@@ -234,10 +234,10 @@ function ProtoNode(symbols::SymbolSet)
 end
 
 """
-Empty constructor for a [`OAR.GramART`](@ref) TreeNode.
+Main constructor for a [`OAR.GramART`](@ref) [`OAR.TreeNode`](@ref).
 
 # Arguments
-- `name::String`: the string name of the symbol to instantiate the TreeNode with.
+- `name::String`: the string name of the symbol to instantiate the [`OAR.TreeNode`](@ref) with.
 """
 function TreeNode(name::String)
     # Construct and return the tree node
