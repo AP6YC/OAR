@@ -45,6 +45,6 @@ speech,phenotype,binary,feature,
 tremor,phenotype,binary,feature,
 visual,phenotype,binary,feature,
 weakness,phenotype,binary,feature,
-phenotypes,phenotype,string,feature,
-weight_tag,protein_weight,string,feature,yes
+phenotypes,phenotype,string,feature,yes
+weight_tag,protein_weight,string,feature,
 length_tag,protein_length,string,feature,
