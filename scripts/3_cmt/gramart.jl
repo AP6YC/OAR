@@ -53,15 +53,4 @@ statements = OAR.protein_df_to_strings(df)
 
 # OAR.run_parser(parser, statements[1])
 
-text_1 = "asdf | poiu | jkl"
-text_2 = "bbbb"
-text_3 = "asdf|poiu"
-parser = OAR.get_piped_parser()
-x1 = OAR.run_parser(parser, text_1)
-x2 = OAR.run_parser(parser, text_2)
-x3 = OAR.run_parser(parser, text_3)
-t1 = OAR.vector_to_tree(x1, "1")
-t2 = OAR.vector_to_tree(x2, "2")
-t3 = OAR.vector_to_tree(x3, "3")
-
 ts = OAR.df_to_trees(df, df_dict)

@@ -38,7 +38,8 @@ def results_dir(*args) -> Path:
     results_path.mkdir(parents=True, exist_ok=True)
 
     # Return the results path joined by the arguments
-    return results_path.joinpath(*args)
+    # return results_path.joinpath(*args)
+    return results_path
 
 
 def data_dir(*args) -> Path:

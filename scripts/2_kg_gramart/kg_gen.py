@@ -51,35 +51,28 @@ from utils import (
 
 EXP_NAME = "2_kg_gramart"
 REFLEXIVE = False
+DISEASES = [
+    "cmt",
+    "dystonia",
+    "parkinson",
+]
 
 # -----------------------------------------------------------------------------
 # PARSE ARGUMENTS
 # -----------------------------------------------------------------------------
 
+# Create the parser
 parser = argparse.ArgumentParser(
     prog='kg.py',
     description='Generates a knowledge graph from disease data.',
     epilog='TODO',
 )
 
+# Add the disease choice
 parser.add_argument(
     'disease',
-    choices=[
-        "cmt",
-        "dystonia",
-        "parkinson",
-    ]
+    choices=DISEASES,
 )
-
-# parser.add_argument(
-#     '-c',
-#     '--count'
-# )      # option that takes a value
-# parser.add_argument(
-#     '-v',
-#     '--verbose',
-#     action='store_true'
-# )  # on/off flag
 
 args = parser.parse_args()
 
@@ -87,14 +80,17 @@ args = parser.parse_args()
 # DERIVED VARIABLES
 # -----------------------------------------------------------------------------
 
+# Point to the data and resutls directories for this disease
 local_data_dir = data_dir("kg", args.disease)
 local_results_dir = results_dir(EXP_NAME, args.disease)
 
+# Create local functions for loading and saving
 
-def input_dir(file): return local_data_dir.joinpath(file)
+
+def input_dir(*args): return local_data_dir.joinpath(*args)
 
 
-def output_dir(file): return local_results_dir.joinpath(file)
+def output_dir(*args): return local_results_dir.joinpath(*args)
 
 
 # Data files
@@ -248,20 +244,36 @@ for p in phenotype_by_disease:            # phenotype by disease has a length of
 df_cmt_proteins = pd.read_csv(PROTEIN_DATA)
 cmt_proteins = df_cmt_proteins.values.tolist()
 for p in cmt_proteins:
-    gene = p[0]
-    protein = p[1]
-    uniprot = p[2]
-    chromosome = p[3]
-    chromosome__location = p[4]
-    protein_class = p[5]
-    biologic_process = p[6]
-    molecular_function = p[7]
-    disease_involvement = p[8]
-    MW = p[9]
-    domain = p[10]
-    motif = p[11]
-    protein_location = p[12]
-    length = p[13]
+    if args.disease == "parkinson":
+        gene=p[0]
+        protein =p[1]
+        uniprot = p[2]
+        chromosome=p[3]
+        protein_class= p[4]
+        biologic_process=p[5]
+        molecular_function =p[6]
+        disease_involvement =p[7]
+        protein_location=p[8]
+        MW =p[9]
+        domain=p[11]
+        motif=p[12]
+        location=p[8]
+        length=p[10]
+    else:
+        gene = p[0]
+        protein = p[1]
+        uniprot = p[2]
+        chromosome = p[3]
+        chromosome__location = p[4]
+        protein_class = p[5]
+        biologic_process = p[6]
+        molecular_function = p[7]
+        disease_involvement = p[8]
+        MW = p[9]
+        domain = p[10]
+        motif = p[11]
+        protein_location = p[12]
+        length = p[13]
     G.add_node(chromosome, category='chromosome', class_type='individual')
     # if REFLEXIVE:
     G.add_edge(chromosome, 'chromosome', relation='is_a')

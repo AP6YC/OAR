@@ -248,8 +248,6 @@ function DescretizedCFG(S::Statement{T} ; bins::Integer=10) where T <: Any
             new_gsymbol = join_gsymbol(symb, ix)
             # Push a binned symbol to the terminals
             push!(Term, new_gsymbol)
-            # alt = Alternative()
-            # push!(alt, new_gsymbol)
             push!(P[symb], new_gsymbol)
         end
     end
@@ -257,7 +255,7 @@ function DescretizedCFG(S::Statement{T} ; bins::Integer=10) where T <: Any
     # Return a constructed CFG struct
     return CFG{T}(
         Set(S),     # N
-        Term,          # T
+        Term,       # T
         S,          # S
         P,          # P
     )
@@ -317,7 +315,6 @@ Checks if a symbol is non-terminal in the grammar.
 $GRAMMAR_SYMB_ARG
 """
 function is_nonterminal(grammar::Grammar{T}, symb::GSymbol{T}) where T <: Any
-# function is_nonterminal(grammar::Grammar, symb::AbstractSymbol)
     return symb in grammar.N
 end
 

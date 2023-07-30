@@ -76,7 +76,6 @@ function get_cmt_parser()
     return cmt_parser
 end
 
-
 const CMT_PHENOTYPES = [
     "ataxia",
     "atrophy",

@@ -37,7 +37,7 @@ pargs = OAR.exp_parse(
 # -----------------------------------------------------------------------------
 
 # Construct the CMT parser
-cmt_parser = OAR.get_cmt_parser()
+cmt_parser = OAR.get_kg_parser()
 
 # Set some sample text as the input statement
 text = raw"\"Periaxin\" \"is_a\" \"protein\""
