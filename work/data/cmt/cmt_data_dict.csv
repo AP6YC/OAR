@@ -19,7 +19,7 @@ domain,protein domain (multiple),string,feature,yes
 motif,motif of protein (multiple),string,feature,yes
 protein_location,where protein is in cell (multiple),string,feature,yes
 length,length of protein in AA units,integer,meta,
-disease_MIM,disease code,integer,meta,
+disease_MIM2,disease code,integer,meta,
 ataxia,phenotype,binary,feature,
 atrophy,phenotype,binary,feature,
 auditory,phenotype,binary,feature,
@@ -45,5 +45,6 @@ speech,phenotype,binary,feature,
 tremor,phenotype,binary,feature,
 visual,phenotype,binary,feature,
 weakness,phenotype,binary,feature,
-weight_tag,protein_weight,string,feature,
+phenotypes,phenotype,string,feature,
+weight_tag,protein_weight,string,feature,yes
 length_tag,protein_length,string,feature,

@@ -76,6 +76,35 @@ function get_cmt_parser()
     return cmt_parser
 end
 
+
+const CMT_PHENOTYPES = [
+    "ataxia",
+    "atrophy",
+    "auditory",
+    "autonomic",
+    "behavior",
+    "cognitive",
+    "cranial_nerve",
+    "deformity",
+    "dystonia",
+    "gait",
+    "hyperkinesia",
+    "hyperreflexia",
+    "hypertonia",
+    "hypertrophy",
+    "hyporeflexia",
+    "hypotonia",
+    "muscle",
+    "pain",
+    "seizure",
+    "sensory",
+    "sleep",
+    "speech",
+    "tremor",
+    "visual",
+    "weakness",
+]
+
 """
 Loads and sanitizes the CMT protein dataframe.
 
@@ -85,40 +114,17 @@ Loads and sanitizes the CMT protein dataframe.
 function load_cmt(file::AbstractString)
     df = DataFrame(CSV.File(file))
 
-    phenotypes = [
-        "ataxia",
-        "atrophy",
-        "auditory",
-        "autonomic",
-        "behavior",
-        "cognitive",
-        "cranial_nerve",
-        "deformity",
-        "dystonia",
-        "gait",
-        "hyperkinesia",
-        "hyperreflexia",
-        "hypertonia",
-        "hypertrophy",
-        "hyporeflexia",
-        "hypotonia",
-        "muscle",
-        "pain",
-        "seizure",
-        "sensory",
-        "sleep",
-        "speech",
-        "tremor",
-        "visual",
-        "weakness",
-    ]
-
     # Generate a new column of piped elements
     phenotype_column = Vector{String}()
     for row in eachrow(df)
         element = ""
-        for phen in phenotypes
-            if row[phen] == 1
+        # for phen in CMT_PHENOTYPES
+        for ix in eachindex(CMT_PHENOTYPES)
+            # if row[phen] == 1
+            phen = CMT_PHENOTYPES[ix]
+            if ix == 1
+                element *= phen
+            else
                 element *= " | " * phen
             end
         end
@@ -211,7 +217,7 @@ function get_piped_parser()
     local_grammar = raw"""
         ?start: statement
         statement: piped_words+
-        piped_words : /\w+/ "|"* -> cmt_symb
+        piped_words : /\w+[\.\w]*/ "|"* -> cmt_symb
 
         %import common.WS
         %ignore WS
@@ -263,6 +269,7 @@ Checks the data dictionary if the named variable is piped.
 - `name::AbtractString`: the variable name to identify if it is piped.
 """
 function check_if_piped(data_dict::DataFrame, name::AbstractString)
+    @info name
     index = findfirst(data_dict.Variable .== name)
     return data_dict.pipes[index]
 end
@@ -283,14 +290,20 @@ function df_to_trees(data::DataFrame, data_dict::DataFrame)
     for row in eachrow(data)
         # statement = Vector{GramARTSymbol}()
         # statement = GramARTStatement()
+        statement = TreeNode("statement", false)
         for column in CMT_CLUSTERING_COLUMNS
-
-            statement = TreeNode("statement", false)
             if check_if_piped(data_dict, column)
-
+                local_string = String(row[column])
+                local_vec = run_parser(piped_parser, local_string)
+                local_tree = vector_to_tree(local_vec, column)
+                push!(statement.children, local_tree)
             else
-
+                local_string = string(row[column])
+                local_tree = TreeNode(local_string, true)
+                push!(statement.children, local_tree)
             end
         end
+        push!(statements, statement)
     end
+    return statements
 end

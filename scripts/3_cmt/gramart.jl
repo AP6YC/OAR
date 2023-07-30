@@ -44,7 +44,6 @@ pargs = OAR.exp_parse(
 # PARSE ARGS
 # -----------------------------------------------------------------------------
 
-
 df = OAR.load_cmt(input_file)
 df_dict = OAR.load_cmt_dict(data_dict_file)
 
@@ -54,12 +53,15 @@ statements = OAR.protein_df_to_strings(df)
 
 # OAR.run_parser(parser, statements[1])
 
-test_text = "asdf | poiu | jkl"
-
+text_1 = "asdf | poiu | jkl"
+text_2 = "bbbb"
+text_3 = "asdf|poiu"
 parser = OAR.get_piped_parser()
+x1 = OAR.run_parser(parser, text_1)
+x2 = OAR.run_parser(parser, text_2)
+x3 = OAR.run_parser(parser, text_3)
+t1 = OAR.vector_to_tree(x1, "1")
+t2 = OAR.vector_to_tree(x2, "2")
+t3 = OAR.vector_to_tree(x3, "3")
 
-a = OAR.run_parser(parser, test_text)
-
-# ts = OAR.df_to_trees(df, df_dict)
-
-t = OAR.vector_to_tree(a, "nonterminal")
+ts = OAR.df_to_trees(df, df_dict)
