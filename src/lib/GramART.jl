@@ -27,10 +27,20 @@ abstract type ARTNode end
 # -----------------------------------------------------------------------------
 
 """
-Definition of Terminal symbols used throughtout [`GramART`](@ref).
+Definition of symbols used throughtout [`GramART`](@ref).
 """
 const GramARTSymbol = GSymbol{String}
 # const GramARTTerminal = String
+
+"""
+Definition of one statement used throughout [`GramART`](@ref).
+"""
+const GramARTStatement = Statement{String}
+
+"""
+Definition of statements used throughout [`GramART`](@ref).
+"""
+const GramARTStatements = Statements{String}
 
 """
 Terminal Distribution definition that is a dictionary mapping from terminal symbols to probabilities (`TerminalDist = Dict{`[`GramARTSymbol`](@ref)`, Float}`).
@@ -96,9 +106,9 @@ const ProtoChildren = Dict{GramARTSymbol, ProtoNode}
 """
 Tree node for a [`GramART`](@ref) module.
 """
-mutable struct TreeNode <: ARTNode
+struct TreeNode <: ARTNode
     """
-    The [`GramARTSymbol`](@ref) terminal symbol for the node.
+    The [`GramARTSymbol`](@ref) symbol for the node.
     """
     t::GramARTSymbol
 
@@ -134,11 +144,6 @@ struct GramART
     """
     protonodes::Vector{ProtoNode}
 
-    # """
-    # The [`OAR.TreeNode`](@ref)s of the GramART module.
-    # """
-    # treenodes::Vector{TreeNode}
-
     """
     The [`OAR.CFG`](@ref) (Context-Free Grammar) used for processing data (statements).
     """
@@ -165,7 +170,6 @@ function GramART(grammar::CFG, opts::opts_GramART)
     # Instantiate and return the GramART module
     GramART(
         Vector{ProtoNode}(),    # protonodes
-        # Vector{TreeNode}(),     # treenodes
         grammar,                # grammar
         opts,                   # opts
     )
@@ -234,15 +238,19 @@ function ProtoNode(symbols::SymbolSet)
 end
 
 """
-Main constructor for a [`OAR.GramART`](@ref) [`OAR.TreeNode`](@ref).
+Constructor for a [`OAR.GramART`](@ref) [`OAR.TreeNode`](@ref), taking a string name of the symbol and if it is terminal or not.
 
 # Arguments
-- `name::String`: the string name of the symbol to instantiate the [`OAR.TreeNode`](@ref) with.
+- `name::AbstractString`: the string name of the symbol to instantiate the [`OAR.TreeNode`](@ref) with.
+- `is_terminal::Bool`: flag for if the symbol in the node is terminal or not.
 """
-function TreeNode(name::String)
+function TreeNode(name::AbstractString, is_terminal::Bool=true)
     # Construct and return the tree node
     TreeNode(
-        GramARTSymbol(name),    # t
+        GramARTSymbol(
+            name,
+            is_terminal,
+        ),                      # t
         Vector{TreeNode}(),     # children
     )
 end
@@ -250,6 +258,27 @@ end
 # -----------------------------------------------------------------------------
 # FUNCTIONS
 # -----------------------------------------------------------------------------
+
+"""
+Checks if the [`OAR.GSymbol`](@ref) is a terminal grammar symbol.
+
+# Arguments
+- `symb::GSymbol`: the [`OAR.GSymbol`](@ref) to check.
+"""
+function is_terminal(symb::GSymbol)
+    return symb.terminal
+end
+
+"""
+Checks if the [`OAR.TreeNode`](@ref) contains a terminal symbol.
+
+# Arguments
+- `treenode::TreeNode`: the [`OAR.TreeNode`](@ref) to containing the [`OAR.GSymbol`](@ref) to check if terminal.
+"""
+function is_terminal(treenode::TreeNode)
+    # Wrap the GSymbol check function
+    return is_terminal(treenode.t)
+end
 
 """
 Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.GramART`](@ref) module.

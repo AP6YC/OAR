@@ -146,6 +146,31 @@ function load_cmt_dict(file::AbstractString)
     return df_dict
 end
 
+const CMT_CLUSTERING_COLUMNS = [
+    "gene_location",
+    "disease_MIM",
+    "gene",
+    "gene_MIM",
+    "inheritance",
+    "protein",
+    "uniprot",
+    "chromosome",
+    "chromosome_location",
+    "protein_class",
+    "biologic_process",
+    "molecular_function",
+    "disease_involvement",
+    "MW",
+    "domain",
+    "motif",
+    "protein_location",
+    "length",
+    "disease_MIM2",
+    "weight_tag",
+    "length_tag",
+    "phenotypes",
+]
+
 """
 Turns the CMT protein DataFrame into a vector of string statements.
 
@@ -153,36 +178,11 @@ Turns the CMT protein DataFrame into a vector of string statements.
 - `df::DataFrame`: the sanitized CMT protein data DataFrame.
 """
 function protein_df_to_strings(df::DataFrame)
-    columns = [
-        "gene_location",
-        "disease_MIM",
-        "gene",
-        "gene_MIM",
-        "inheritance",
-        "protein",
-        "uniprot",
-        "chromosome",
-        "chromosome_location",
-        "protein_class",
-        "biologic_process",
-        "molecular_function",
-        "disease_involvement",
-        "MW",
-        "domain",
-        "motif",
-        "protein_location",
-        "length",
-        "disease_MIM2",
-        "weight_tag",
-        "length_tag",
-        "phenotypes",
-    ]
-
     statements = Vector{String}()
 
     for row in eachrow(df)
         statement = raw""
-        for column in columns
+        for column in CMT_CLUSTERING_COLUMNS
             statement *= "'" * string(row[column]) * "' "
         end
         push!(statements, statement)
@@ -209,7 +209,7 @@ Constructs and returns a parser for just piped strings.
 """
 function get_piped_parser()
     # Declare the rules of the CMT protein data parser
-    cmt_grammar = raw"""
+    local_grammar = raw"""
         ?start: statement
         statement: piped_words+
         piped_words : /\w+/ "|"* -> cmt_symb
@@ -219,19 +219,74 @@ function get_piped_parser()
     """
 
     # Create the parser from these rules
-    cmt_parser = Lark(
-        cmt_grammar,
+    local_parser = Lark(
+        local_grammar,
         parser="lalr",
         lexer="standard",
         transformer=CMTPipedTree()
     )
 
-    return cmt_parser
+    return local_parser
 end
 
 """
+Turns a vector of GramARTSymbols into a nonterminal [`OAR.TreeNode`](@ref) with children.
+
+# Arguments
+- `local_vec::Vector{GramARTSymbol}`: the vector to turn into a [`OAR.TreeNode`](@ref).
+- `nonterminal::AbstractString`: the nonterminal string name at the top of the tree.
+"""
+function vector_to_tree(
+    local_vec::Vector{GramARTSymbol},
+    nonterminal::AbstractString
+)
+    # Create a nonterminal TreeNoe
+    local_tree = TreeNode(
+        nonterminal,
+        false
+    )
+    for element in local_vec
+        push!(local_tree.children, element)
+    end
+    return local_tree
+end
 
 """
-function df_to_treenodes(data::DataFrame, data_dict::DataFrame)
-    # return
+Checks the data dictionary if the named variable is piped.
+
+# Arguments
+- `data_dict::DataFrame`: the data_dictionary containing attributes about variables, such as if they are piped or not.
+- `name::AbtractString`: the variable name to identify if it is piped.
+"""
+function check_if_piped(data_dict::DataFrame, name::AbstractString)
+    index = findfirst(data_dict.Variable .== name)
+    return data_dict.pipes[index]
+end
+
+"""
+Turns a protein data DataFrame into a vector of [`OAR.TreeNode`](@ref)s.
+
+# Arguments
+- `data::DataFrame`: the DataFrame containing rows of elements to turn into statements via [`OAR.TreeNode`](@ref)s.
+- `data_dict::DataFrame`: the DataFrame containing attributes about the columns of the protein data, such as if they are piped or not.
+"""
+function df_to_trees(data::DataFrame, data_dict::DataFrame)
+    # statements = Vector{Vector{GramARTSymbol}}()
+    # statements = GramARTStatements()
+    statements = Vector{TreeNode}()
+    piped_parser = get_piped_parser()
+
+    for row in eachrow(data)
+        # statement = Vector{GramARTSymbol}()
+        # statement = GramARTStatement()
+        for column in CMT_CLUSTERING_COLUMNS
+
+
+            if check_if_piped(data_dict, column)
+
+            else
+
+            end
+        end
+    end
 end
