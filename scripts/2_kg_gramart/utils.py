@@ -2,7 +2,7 @@
     utils.py
 
 # Description
-A collection of common Python utilities for the `2_cmt` experiment.
+A collection of common Python utilities for the `2_kg_gramart` experiment.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>

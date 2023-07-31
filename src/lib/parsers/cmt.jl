@@ -5,6 +5,73 @@
 Implements the parser used for the CMT protein data.
 """
 
+# -----------------------------------------------------------------------------
+# CONSTANTS
+# -----------------------------------------------------------------------------
+
+"""
+A list of the feature columns used in clustering the CMT dataset
+"""
+const CMT_CLUSTERING_COLUMNS = [
+    "gene_location",
+    "disease_MIM",
+    "gene",
+    "gene_MIM",
+    "inheritance",
+    "protein",
+    "uniprot",
+    "chromosome",
+    "chromosome_location",
+    "protein_class",
+    "biologic_process",
+    "molecular_function",
+    "disease_involvement",
+    "MW",
+    "domain",
+    "motif",
+    "protein_location",
+    "length",
+    "disease_MIM2",
+    "weight_tag",
+    "length_tag",
+    "phenotypes",
+]
+
+"""
+A list of the phenotype columns for aggregation into one GramART feature.
+"""
+const CMT_PHENOTYPES = [
+    "ataxia",
+    "atrophy",
+    "auditory",
+    "autonomic",
+    "behavior",
+    "cognitive",
+    "cranial_nerve",
+    "deformity",
+    "dystonia",
+    "gait",
+    "hyperkinesia",
+    "hyperreflexia",
+    "hypertonia",
+    "hypertrophy",
+    "hyporeflexia",
+    "hypotonia",
+    "muscle",
+    "pain",
+    "seizure",
+    "sensory",
+    "sleep",
+    "speech",
+    "tremor",
+    "visual",
+    "weakness",
+]
+
+# -----------------------------------------------------------------------------
+# FULL STRING STATEMENT CMT PARSER
+# -----------------------------------------------------------------------------
+
 """
 The CMT grammar tree subtypes from a Lerche Transformer.
 """
@@ -76,34 +143,6 @@ function get_cmt_parser()
     return cmt_parser
 end
 
-const CMT_PHENOTYPES = [
-    "ataxia",
-    "atrophy",
-    "auditory",
-    "autonomic",
-    "behavior",
-    "cognitive",
-    "cranial_nerve",
-    "deformity",
-    "dystonia",
-    "gait",
-    "hyperkinesia",
-    "hyperreflexia",
-    "hypertonia",
-    "hypertrophy",
-    "hyporeflexia",
-    "hypotonia",
-    "muscle",
-    "pain",
-    "seizure",
-    "sensory",
-    "sleep",
-    "speech",
-    "tremor",
-    "visual",
-    "weakness",
-]
-
 """
 Loads and sanitizes the CMT protein dataframe.
 
@@ -150,31 +189,6 @@ function load_cmt_dict(file::AbstractString)
     df_dict.pipes = Bool.(df_dict.pipes)
     return df_dict
 end
-
-const CMT_CLUSTERING_COLUMNS = [
-    "gene_location",
-    "disease_MIM",
-    "gene",
-    "gene_MIM",
-    "inheritance",
-    "protein",
-    "uniprot",
-    "chromosome",
-    "chromosome_location",
-    "protein_class",
-    "biologic_process",
-    "molecular_function",
-    "disease_involvement",
-    "MW",
-    "domain",
-    "motif",
-    "protein_location",
-    "length",
-    "disease_MIM2",
-    "weight_tag",
-    "length_tag",
-    "phenotypes",
-]
 
 """
 Turns the CMT protein DataFrame into a vector of string statements.

@@ -319,13 +319,6 @@ function add_node!(gramart::GramART)
     push!(gramart.protonodes, top_node)
 end
 
-# """
-
-# """
-# function statement_to_tree(statement::Statement)
-
-# end
-
 """
 Overload of the show function for [`OAR.ProtoNode`](@ref).
 
@@ -338,27 +331,33 @@ function Base.show(io::IO, node::ProtoNode)
 end
 
 """
-Creates a tree string for displaying children of a [`OAR.TreeNode`](@ref), used in the `Base.show` overload.
+Prints a tree string for displaying children of a [`OAR.TreeNode`](@ref), used in the `Base.show` overload.
 
 # Arguments
+- `io::IO`: the current IO stream.
 - `node::TreeNode`: the [`OAR.TreeNode`](@ref) with children to display
 """
-function treenode_children_string(node::TreeNode)
-    # Init the printstring
-    printstring = ""
+function print_treenode_children(io::IO, node::TreeNode, level::Integer, last::Bool)
     # Get the number of children to display
     n_children = length(node.children)
+    # Get the level spacing
+    # spacer = last ? "    " : "│   "^level
+    spacer = last ? "    " : " │  "^level
     # Append to the printstring for each child
+    term = "\n"
     for ix = 1:n_children
-        # Determine the separator different on the last iteration
-        sep = (ix == n_children ? " └───" : " ├───")
-        # The terminator is also different on the last iteration
-        term = (ix == n_children ? "" : "\n")
-        # Append the separtor, child data, and terminator to the printstring
-        printstring *= sep * " \"$(node.children[ix].t.data)\"" * term
+        is_last = (ix == n_children)
+        local_symb = "\"$(node.children[ix].t.data)\""
+        # sep = (is_last ? "└───" : "├───")
+        sep = (is_last ? " └──" : " ├──")
+        print(io, spacer * sep * local_symb * term)
+        # If the node also has children, recursively call this function one level lower
+        if !isempty(node.children[ix].children)
+            print_treenode_children(io, node.children[ix], level + 1, is_last)
+        end
     end
-    # Return the printstring with appended children info
-    return printstring
+    # Explicitly empty return
+    return
 end
 
 """
@@ -371,13 +370,14 @@ Overload of the show function for [`OAR.TreeNode`](@ref).
 function Base.show(io::IO, node::TreeNode)
     # Set the top of the printstring
     printstring = "$(typeof(node))(\"$(node.t.data)\")"
-    # if the node has children, then append for each child
+    print(io, printstring)
+
+    # If the node has children, then display each child
     if !isempty(node.children)
         # Add a newline and the child printstring
-        printstring *= "\n" * treenode_children_string(node)
+        print(io, "\n")
+        print_treenode_children(io, node, 0, false)
     end
-    # Finally print to the IO stream
-    print(io, printstring)
 end
 
 """
