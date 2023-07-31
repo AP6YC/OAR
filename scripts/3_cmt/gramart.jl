@@ -52,3 +52,17 @@ df_dict = OAR.load_cmt_dict(data_dict_file)
 # OAR.run_parser(parser, statements[1])
 
 ts = OAR.df_to_trees(df, df_dict)
+
+@info ts[1]
+
+# Generate a grammart from the statements
+grammar = OAR.CMTCFG(ts)
+
+# Initialize the GramART module
+gramart = OAR.GramART(
+    grammar,
+    rho=0.1,    # ~12GB
+    terminated=false,
+)
+@info gramart
+

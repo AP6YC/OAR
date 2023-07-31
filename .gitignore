@@ -2,6 +2,9 @@
 # PROJECT IGNORES
 # -----------------------------------------------------------------------------
 
+# IDE ignore
+.vscode/
+
 # Ignore work files/folders
 work/**
 # Except for subfolders

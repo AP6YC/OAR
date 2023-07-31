@@ -282,7 +282,6 @@ Checks the data dictionary if the named variable is piped.
 - `name::AbtractString`: the variable name to identify if it is piped.
 """
 function check_if_piped(data_dict::DataFrame, name::AbstractString)
-    @info name
     index = findfirst(data_dict.Variable .== name)
     return data_dict.pipes[index]
 end
@@ -319,4 +318,92 @@ function df_to_trees(data::DataFrame, data_dict::DataFrame)
         push!(statements, statement)
     end
     return statements
+end
+
+const TreeStatement = TreeNode
+
+const TreeStatements = Vector{TreeStatement}
+
+function add_subtree_terminals(terminals::Set{GramARTSymbol}, statement::TreeStatement)
+    for node in statement.children
+        push!(terminals, node.t)
+        if !isempty(node.children)
+            for child in node.children
+                add_subtree_terminals(terminals, child)
+            end
+        end
+    end
+end
+
+function get_tree_terminals(statements::TreeStatements)
+    terminals = Set{GramARTSymbol}()
+    for statement in statements
+        add_subtree_terminals(terminals, statement)
+    end
+    return terminals
+end
+
+# function add_subtree_production_rule(P::ProductionRuleSet{String}, statement::TreeStatement)
+#     for node in statement.children
+#         push!(terminals, node.t)
+#         if !isempty(node.children)
+#             for child in node.children
+#                 add_subtree_terminals(terminals, child)
+#             end
+#         end
+#     end
+# end
+
+function get_tree_production_rules(N::Vector{GramARTSymbol}, statements::TreeStatements)
+    P = ProductionRuleSet{String}()
+
+    for n in N
+        P[n] = ProductionRule{String}()
+    end
+
+    n_N = length(N)
+    for statement in statements
+        # for node in statement
+        for ix = 1:n_N
+            node = statement.children[ix]
+            if isempty(node.children)
+                push!(P[N[ix]], node.t)
+            else
+                for child in node.children
+                    push!(P[N[ix]], child.t)
+                end
+            end
+        end
+    end
+
+    return P
+end
+
+"""
+Turns a vector of statements in the form of [`OAR.TreeNode`](@ref)s into a CMT disease CFG grammar.
+
+# Arguments
+"""
+function CMTCFG(statements::TreeStatements)
+
+    ordered_nonterminals = Vector{GramARTSymbol}()
+
+    for column in CMT_CLUSTERING_COLUMNS
+        push!(ordered_nonterminals, GSymbol(column, false))
+    end
+
+    N = Set(ordered_nonterminals)
+    Term = get_tree_terminals(statements)
+    P = get_tree_production_rules(ordered_nonterminals, statements)
+
+    # Construct the CFG grammar
+    grammar = CFG(
+        N,
+        Term,
+        ordered_nonterminals,
+        P,
+    )
+
+    # Return the constructed CFG grammar
+    return grammar
 end
