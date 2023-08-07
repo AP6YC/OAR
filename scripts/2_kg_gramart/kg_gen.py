@@ -80,7 +80,7 @@ args = parser.parse_args()
 # DERIVED VARIABLES
 # -----------------------------------------------------------------------------
 
-# Point to the data and resutls directories for this disease
+# Point to the data and results directories for this disease
 local_data_dir = data_dir("kg", args.disease)
 local_results_dir = results_dir(EXP_NAME, args.disease)
 
