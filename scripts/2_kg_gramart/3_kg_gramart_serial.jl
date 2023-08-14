@@ -31,11 +31,14 @@ N_SWEEP = 100
 RHO_LB = 0.1
 RHO_UB = 0.3
 
+exp_top = "2_kg_gramart"
+exp_name = @__FILE__
+
 # Location of the edge attributes file, formatted for Lerch parsing
-edge_file = OAR.results_dir("2_kg_gramart", "cmt", "edge_attributes_lerche.txt")
+edge_file = OAR.results_dir(exp_top, "cmt", "edge_attributes_lerche.txt")
 
 # Output CSV file
-output_dir(args...) = OAR.results_dir("2_kg_gramart", "cmt", "sweep", args...)
+output_dir(args...) = OAR.results_dir(exp_top, "cmt", "sweep", args...)
 mkpath(output_dir())
 output_file = output_dir("cmt-kg-clusters-sweep_rho=$(RHO_LB)-$(N_SWEEP)-$(RHO_UP).csv")
 
@@ -45,7 +48,7 @@ output_file = output_dir("cmt-kg-clusters-sweep_rho=$(RHO_LB)-$(N_SWEEP)-$(RHO_U
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "2_kg/kg_gramart_sweep.jl: hyperparameter sweep of GramART for clustering a disease knowledge graph."
+    "$(exp_top)/$(exp_name): hyperparameter sweep of GramART for clustering a disease knowledge graph."
 )
 
 # -----------------------------------------------------------------------------

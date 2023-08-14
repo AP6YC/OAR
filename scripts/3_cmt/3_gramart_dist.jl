@@ -32,6 +32,9 @@ N_SWEEP = 100
 RHO_LB = 0.1
 RHO_UB = 0.9
 
+exp_top = "3_cmt"
+exp_name = @__FILE__
+
 # Input CSV file and data definition
 input_file = OAR.data_dir("cmt", "output_CMT_file.csv")
 data_dict_file = OAR.data_dir("cmt", "cmt_data_dict.csv")
@@ -47,7 +50,7 @@ output_file = output_dir("cmt-clusters-sweep_rho=$(RHO_LB)-$(N_SWEEP)-$(RHO_UB).
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "3_cmt/gramart_sweep.jl: hyperparameter sweep of GramART for clustering disease protein statements."
+    "$(exp_top)/$(exp_name): hyperparameter sweep of GramART for clustering disease protein statements."
 )
 
 # -----------------------------------------------------------------------------

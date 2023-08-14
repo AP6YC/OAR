@@ -27,11 +27,14 @@ using CSV
 # VARIABLES
 # -----------------------------------------------------------------------------
 
+exp_top = "2_kg_gramart"
+exp_name = @__FILE__
+
 # Location of the edge attributes file, formatted for Lerch parsing
-edge_file = OAR.results_dir("2_kg_gramart", "cmt", "edge_attributes_lerche.txt")
+edge_file = OAR.results_dir(exp_top, "cmt", "edge_attributes_lerche.txt")
 
 # Output CSV file
-output_file = OAR.results_dir("2_kg_gramart", "cmt", "cmt-clusters.csv")
+output_file = OAR.results_dir(exp_top, "cmt", "cmt-clusters.csv")
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -39,7 +42,7 @@ output_file = OAR.results_dir("2_kg_gramart", "cmt", "cmt-clusters.csv")
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "2_kg/kg_gramart.jl: GramART for clustering a disease knowledge graph."
+    "$(exp_top)/$(exp_name): GramART for clustering a disease knowledge graph."
 )
 
 # -----------------------------------------------------------------------------

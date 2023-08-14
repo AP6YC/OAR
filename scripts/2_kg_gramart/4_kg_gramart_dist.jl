@@ -30,13 +30,16 @@ N_SWEEP = 10
 RHO_LB = 0.1
 RHO_UB = 0.3
 
+exp_top = "2_kg_gramart"
+exp_name = @__FILE__
+
 # -----------------------------------------------------------------------------
 # PARSE ARGS
 # -----------------------------------------------------------------------------
 
 # Parse the arguments provided to this script
 pargs = OAR.dist_exp_parse(
-    "2_kg/kg_gramart_dist.jl: distributed hyperparameter sweep of GramART for clustering a disease knowledge graph."
+    "$(exp_top)/$(exp_name): distributed hyperparameter sweep of GramART for clustering a disease knowledge graph."
 )
 
 # Development override
