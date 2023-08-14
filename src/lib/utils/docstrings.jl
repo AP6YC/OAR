@@ -53,7 +53,12 @@ $(METHODLIST)
 # -----------------------------------------------------------------------------
 
 """
-Common docstring, the arguments to `DrWatson`-style directory functions.
+Docstring prefix denoting that the constant is used as a common docstring element for other docstrings.
+"""
+const COMMON_DOC = "Common docstring:"
+
+"""
+$COMMON_DOC the arguments to `DrWatson`-style directory functions.
 """
 const DRWATSON_ARGS_DOC = """
 # Arguments
@@ -61,7 +66,7 @@ const DRWATSON_ARGS_DOC = """
 """
 
 """
-Common docstring, the arguments to argparse functions taking a description.
+$COMMON_DOC the arguments to argparse functions taking a description.
 """
 const ARG_ARGPARSE_DESCRIPTION = """
 # Arguments
@@ -69,8 +74,36 @@ const ARG_ARGPARSE_DESCRIPTION = """
 """
 
 """
-Common docstring, a CFG grammar argument.
+$COMMON_DOC a CFG grammar argument.
 """
 const ARG_CFG = """
 - `grammar::CFG`: the [`OAR.CFG`] context-free grammar to use.
+"""
+
+"""
+$COMMON_DOC argument for a directory function
+"""
+const ARG_SIM_DIR_FUNC = """
+- `dir_func::Function`: the function that provides the correct file path with provided strings.
+"""
+
+"""
+$COMMON_DOC argument for the simulation options dictionary.
+"""
+const ARG_SIM_D = """
+- `d::AbstractDict`: the simulation options dictionary.
+"""
+
+"""
+$COMMON_DOC argument for the simulation statements to train upon and cluster.
+"""
+const ARG_SIM_TS = """
+- `ts::SomeStatements`: a set of statements of type `Union{TreeStatements, Statements}`.
+"""
+
+"""
+$COMMON_DOC argument for additional simulation options.
+"""
+const ARG_SIM_OPTS = """
+- `opts::AbstractDict`: additional options for the simulation.
 """

@@ -49,6 +49,7 @@ end
 
 # Set the simulation parameters
 sim_params = Dict{String, Any}(
+    "m" => "GramART",
     "rng_seed" => 1234,
     "rho" => collect(LinRange(
         RHO_LB,
@@ -95,7 +96,7 @@ sim_params = Dict{String, Any}(
     opts["grammar"] = OAR.SPOCFG(statements)
 
     # Define the single-parameter function used for pmap
-    local_sim(dict) = OAR.tt_gramart(
+    local_sim(dict) = OAR.tc_gramart(
         dict,
         statements,
         sweep_results_dir,
@@ -125,58 +126,3 @@ pmap(local_sim, dicts)
 rmprocs(workers())
 
 println("--- Simulation complete ---")
-
-# # Iterate over all rhos
-# for ix in eachindex(rhos)
-#     # Initialize the GramART module
-#     gramart = OAR.GramART(
-#         grammar,
-#         rho = rhos[ix],
-#         terminated=false,
-#     )
-
-#     # Process the statements
-#     @showprogress for statement in statements
-#         OAR.train!(gramart, statement)
-#     end
-
-#     # Classify and add the cluster label to the assignment matrix
-#     # @showprogress for statement in statements
-#     for jx in eachindex(statements)
-#         clusters[jx, ix] = OAR.classify(
-#             gramart,
-#             statements[jx],
-#             get_bmu=true,
-#         )
-#     end
-# # end
-
-# # Save the statements and their corresponding clusters to a CSV
-# df = DataFrame(
-#     subject = String[],
-#     predicate = String[],
-#     object = String[],
-#     # cluster = Int[],
-# )
-
-# # Add the vigilance parameter columns to the dataframe
-# for ix in eachindex(rhos)
-#     print_rho = round(rhos[ix]; digits=1)
-#     df[!, "rho=$(print_rho)"] = Int[]
-# end
-
-# # Add the statement and resulting clusters to the dataframe as rows
-# for jx in eachindex(statements)
-#     statement = statements[jx]
-#     new_element = Vector{Any}([
-#         statement[1].data,
-#         statement[2].data,
-#         statement[3].data,
-#         # clusters[jx, :],
-#     ])
-#     append!(new_element, clusters[jx, :])
-#     push!(df, new_element)
-# end
-
-# # Save the clustered statements to a CSV file
-# CSV.write(output_file, df)

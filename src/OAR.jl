@@ -36,6 +36,7 @@ using
     ArgParse,               # ArgParseSettings
     CSV,                    # CSV.File(...)
     DataFrames,             # DataFrame
+    Distributed,            # myid()
     MLDatasets,             # Iris dataset
     MLDataUtils,            # # Data utilities, splitting, etc.
     DocStringExtensions,    # Docstring utilities

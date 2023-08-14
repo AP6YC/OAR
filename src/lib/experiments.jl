@@ -6,25 +6,6 @@ Driver functions for serial and distributed experiments.
 """
 
 """
-Docstring prefix denoting that the constant is used as a common docstring element for other docstrings.
-"""
-const COMMON_DOC = "Common docstring:"
-
-"""
-$COMMON_DOC argument for a directory function
-"""
-const ARG_SIM_DIR_FUNC = """
-- `dir_func::Function`: the function that provides the correct file path with provided strings.
-"""
-
-"""
-$COMMON_DOC argument for the simulation options dictionary.
-"""
-const ARG_SIM_D = """
-- `d::AbstractDict`: the simulation options dictionary.
-"""
-
-"""
 Common save function for simulations.
 
 # Arguments
@@ -38,7 +19,15 @@ function save_sim(
     fulld::AbstractDict,
 )
     # Point to the correct save file for the results dictionary
-    sim_save_name = dir_func(savename(d, "jld2"; digits=4))
+    sim_save_name = dir_func(savename(
+        d,
+        "jld2";
+        digits=4,
+        ignores=[
+            "rng_seed",
+            "m",
+        ],
+    ))
 
     # Log completion of the simulation
     @info "Worker $(myid()): saving to $(sim_save_name)"
@@ -55,14 +44,23 @@ Alias for arguments in simulations accepting multiple definitions of statement f
 """
 const SomeStatements = Union{TreeStatements, Statements}
 
-function tt_gramart(
+"""
+Trains and classifies a GramART module on the provided statements.
+
+# Arguments
+$ARG_SIM_D
+$ARG_SIM_TS
+$ARG_SIM_DIR_FUNC
+$ARG_SIM_OPTS
+"""
+function tc_gramart(
     d::AbstractDict,
     ts::SomeStatements,
     dir_func::Function,
     opts::AbstractDict,
 )
     # Initialize the random seed at the beginning of the experiment
-    Random.seed!(opts["rng_seed"])
+    Random.seed!(d["rng_seed"])
 
     # Initialize the GramART module
     gramart = OAR.GramART(
@@ -95,4 +93,7 @@ function tt_gramart(
 
     # Save the results
     save_sim(dir_func, d, fulld)
+
+    # Explicitly empty return
+    return
 end
