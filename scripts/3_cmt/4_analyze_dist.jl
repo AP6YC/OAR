@@ -61,8 +61,8 @@ df = collect_results!(sweep_dir)
 # BULK SAVE
 # -----------------------------------------------------------------------------
 
+# Create an output dataframe from the clusters elements
 out_df = DataFrame()
-# for rho in df.rho
 for ix in eachindex(df.rho)
     print_rho = round(df.rho[ix]; digits=4)
     out_df[:, "rho=$(print_rho)"] = df.clusters[ix]

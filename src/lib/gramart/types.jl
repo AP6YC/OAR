@@ -107,6 +107,25 @@ struct GramART
 end
 
 # -----------------------------------------------------------------------------
+# DEPENDENT ALIASES
+# -----------------------------------------------------------------------------
+
+"""
+A `TreeStatement` is simply a [`TreeNode`](@ref).
+"""
+const TreeStatement = TreeNode
+
+"""
+Many `TreeStatements` are a Vector of [`TreeNode`](@ref)s.
+"""
+const TreeStatements = Vector{TreeStatement}
+
+"""
+Alias for arguments in simulations accepting multiple definitions of statement formulations.
+"""
+const SomeStatements = Union{TreeStatements, Statements}
+
+# -----------------------------------------------------------------------------
 # CONSTRUCTORS
 # -----------------------------------------------------------------------------
 

@@ -40,11 +40,6 @@ function save_sim(
 end
 
 """
-Alias for arguments in simulations accepting multiple definitions of statement formulations.
-"""
-const SomeStatements = Union{TreeStatements, Statements}
-
-"""
 Trains and classifies a GramART module on the provided statements.
 
 # Arguments

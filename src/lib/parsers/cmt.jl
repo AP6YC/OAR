@@ -320,16 +320,6 @@ function df_to_trees(data::DataFrame, data_dict::DataFrame)
     return statements
 end
 
-"""
-A `TreeStatement` is simply a [`TreeNode`](@ref).
-"""
-const TreeStatement = TreeNode
-
-"""
-Many `TreeStatements` are a Vector of [`TreeNode`](@ref)s.
-"""
-const TreeStatements = Vector{TreeStatement}
-
 function add_subtree_terminals(terminals::Set{GramARTSymbol}, statement::TreeStatement)
     for node in statement.children
         push!(terminals, node.t)
