@@ -1,5 +1,5 @@
 """
-    gramart_sweep.jl
+    3_gramart_sweep.jl
 
 # Description
 This script uses GramART to cluster CMT protein data.
@@ -62,7 +62,6 @@ sim_params = Dict{String, Any}(
         N_SWEEP
     ))
 )
-
 
 # -----------------------------------------------------------------------------
 # PARALLEL DEFINITIONS

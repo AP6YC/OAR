@@ -1,5 +1,5 @@
 """
-    kg_gramart.jl
+    2_kg_gramart.jl
 
 # Description
 This script uses GramART to cluster disease knowledge graph statements.

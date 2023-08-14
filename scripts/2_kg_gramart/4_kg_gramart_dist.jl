@@ -1,8 +1,8 @@
 """
-    kg_gramart_sweep.jl
+    4_kg_gramart_dist.jl
 
 # Description
-This script is a hyperparameter sweep version of `kg_gramart.jl`, which uses GramART to cluster disease knowledge graph statements.
+This script is a distributed hyperparameter sweep version of `1_kg_gramart.jl`, which uses GramART to cluster disease knowledge graph statements.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>

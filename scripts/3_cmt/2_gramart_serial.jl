@@ -39,7 +39,7 @@ exp_name = @__FILE__
 input_file = OAR.data_dir("cmt", "output_CMT_file.csv")
 data_dict_file = OAR.data_dir("cmt", "cmt_data_dict.csv")
 
-# Input file
+# Output file
 output_dir(args...) = OAR.results_dir("3_cmt", args...)
 mkpath(output_dir())
 output_file = output_dir("cmt-clusters-sweep_rho=$(RHO_LB)-$(N_SWEEP)-$(RHO_UB).csv")
