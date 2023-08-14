@@ -61,7 +61,12 @@ grammar = OAR.CMTCFG(ts)
 # Initialize the GramART module
 gramart = OAR.GramART(
     grammar,
-    rho=0.1,    # ~12GB
+    rho=0.7,    # ~12GB
     terminated=false,
 )
 @info gramart
+
+# Process the statements
+@showprogress for tn in ts
+    OAR.train!(gramart, tn)
+end

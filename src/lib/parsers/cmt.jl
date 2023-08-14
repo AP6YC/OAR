@@ -320,8 +320,14 @@ function df_to_trees(data::DataFrame, data_dict::DataFrame)
     return statements
 end
 
+"""
+A `TreeStatement` is simply a [`TreeNode`](@ref).
+"""
 const TreeStatement = TreeNode
 
+"""
+Many `TreeStatements` are a Vector of [`TreeNode`](@ref)s.
+"""
 const TreeStatements = Vector{TreeStatement}
 
 function add_subtree_terminals(terminals::Set{GramARTSymbol}, statement::TreeStatement)
@@ -393,8 +399,14 @@ function CMTCFG(statements::TreeStatements)
     end
 
     N = Set(ordered_nonterminals)
-    Term = get_tree_terminals(statements)
+    # Term = get_tree_terminals(statements)
     P = get_tree_production_rules(ordered_nonterminals, statements)
+    Term = Set{GramARTSymbol}()
+    for (_, local_set) in P
+        for el in local_set
+            push!(Term, el)
+        end
+    end
 
     # Construct the CFG grammar
     grammar = CFG(

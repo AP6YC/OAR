@@ -19,7 +19,7 @@ include("utils/lib.jl")
 include("grammar/lib.jl")
 
 # GramART Julia implementation
-include("GramART.jl")
+include("gramart/lib.jl")
 
 # Lerche parsers
 include("parsers/lib.jl")
