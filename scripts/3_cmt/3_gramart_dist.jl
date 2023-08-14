@@ -19,8 +19,8 @@ using OAR
 # ADDITIONAL DEPENDENCIES
 # -----------------------------------------------------------------------------
 
-using ProgressMeter
-using DataFrames
+using Distributed
+using DrWatson
 
 # -----------------------------------------------------------------------------
 # VARIABLES
