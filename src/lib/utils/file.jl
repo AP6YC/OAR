@@ -95,3 +95,17 @@ function dist_exp_parse(description::AbstractString="A distributed OAR experimen
     return parse_args(s)
 end
 
+"""
+Wrapper for how to save DataFrames in the `OAR` project.
+
+# Arguments
+- `df::DataFrame`: the dataframe to save.
+- `savename::AbstractString`: the location to save the dataframe.
+"""
+function save_dataframe(df::DataFrame, savename::AbstractString)
+    # Save the clustered statements to a CSV file
+    CSV.write(savename, df)
+
+    # Empty return
+    return
+end

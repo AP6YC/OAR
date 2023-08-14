@@ -21,7 +21,6 @@ using OAR
 
 using DrWatson      # collect_results!
 using DataFrames
-using CSV
 
 # -----------------------------------------------------------------------------
 # OPTIONS
@@ -69,4 +68,4 @@ for ix in eachindex(df.rho)
 end
 
 # Save the clustered statements to a CSV file
-CSV.write(output_file, out_df)
+OAR.save_dataframe(out_df, output_file)

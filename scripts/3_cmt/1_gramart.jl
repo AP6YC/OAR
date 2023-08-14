@@ -21,7 +21,6 @@ using OAR
 
 using ProgressMeter
 using DataFrames
-using CSV
 
 # -----------------------------------------------------------------------------
 # VARIABLES
@@ -92,4 +91,4 @@ end
 out_df.cluster = clusters
 
 # Save the clustered statements to a CSV file
-CSV.write(output_file, out_df)
+OAR.save_dataframe(out_df, output_file)

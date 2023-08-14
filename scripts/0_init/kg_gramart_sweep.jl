@@ -22,7 +22,6 @@ using OAR
 
 using ProgressMeter
 using DataFrames
-using CSV
 
 # -----------------------------------------------------------------------------
 # VARIABLES
@@ -103,5 +102,5 @@ for rho in rhos
     # Save the clustered statements to a CSV file
     print_rho = round(rho; digits=1)
     output_file = output_dir("cmt-clusters_rho=$(print_rho).csv")
-    CSV.write(output_file, df)
+    OAR.save_dataframe(df, output_file)
 end
