@@ -43,7 +43,8 @@ using
     Lerche,                 # Parsers
     NumericalTypeAliases,   # RealMatrix, IntegerVector, etc.
     Parameters,             # @with_kw
-    Pkg                     # Version
+    Pkg,                    # Version
+    Random                  # seed!
 
 # Precompile concrete type methods
 using PrecompileSignatures: @precompile_signatures

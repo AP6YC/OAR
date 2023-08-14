@@ -23,3 +23,6 @@ include("gramart/lib.jl")
 
 # Lerche parsers
 include("parsers/lib.jl")
+
+# Experiment driver functions
+include("experiments.jl")

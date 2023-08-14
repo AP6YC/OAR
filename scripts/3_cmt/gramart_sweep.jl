@@ -76,6 +76,7 @@ rhos = collect(LinRange(
     RHO_UB,
     N_SWEEP
 ))
+
 # Init the cluster assignment matrix
 clusters = zeros(Int, length(ts), N_SWEEP)
 
