@@ -27,7 +27,9 @@ using CSV
 # VARIABLES
 # -----------------------------------------------------------------------------
 
-N_SWEEP = 9
+N_SWEEP = 100
+RHO_LB = 0.1
+RHO_UB = 0.3
 
 # Location of the edge attributes file, formatted for Lerch parsing
 edge_file = OAR.results_dir("2_kg_gramart", "cmt", "edge_attributes_lerche.txt")
@@ -35,7 +37,7 @@ edge_file = OAR.results_dir("2_kg_gramart", "cmt", "edge_attributes_lerche.txt")
 # Output CSV file
 output_dir(args...) = OAR.results_dir("2_kg_gramart", "cmt", "sweep", args...)
 mkpath(output_dir())
-output_file = output_dir("cmt-clusters_sweep.csv")
+output_file = output_dir("cmt-kg-clusters-sweep_rho=$(RHO_LB)-$(N_SWEEP)-$(RHO_UP).csv")
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -56,9 +58,17 @@ statements = OAR.get_kg_statements(edge_file)
 # Generate a simple subject-predicate-object grammar from the statements
 grammar = OAR.SPOCFG(statements)
 
-rhos = collect(LinRange(0.1, 0.9, N_SWEEP))
+# Create a linrange of rhos to sweep
+rhos = collect(LinRange(
+    RHO_LB,
+    RHO_UB,
+    N_SWEEP
+))
 
+# Init the cluster assignment matrix
 clusters = zeros(Int, length(statements), N_SWEEP)
+
+# Iterate over all rhos
 for ix in eachindex(rhos)
     # Initialize the GramART module
     gramart = OAR.GramART(
@@ -66,17 +76,20 @@ for ix in eachindex(rhos)
         rho = rhos[ix],
         terminated=false,
     )
-    @info gramart
 
     # Process the statements
     @showprogress for statement in statements
         OAR.train!(gramart, statement)
     end
 
-    # Classify and push each statement back into a CSV
+    # Classify and add the cluster label to the assignment matrix
     # @showprogress for statement in statements
     for jx in eachindex(statements)
-        clusters[jx, ix] = OAR.classify(gramart, statements[jx], get_bmu=true)
+        clusters[jx, ix] = OAR.classify(
+            gramart,
+            statements[jx],
+            get_bmu=true,
+        )
     end
 end
 
@@ -90,7 +103,7 @@ df = DataFrame(
 
 # Add the vigilance parameter columns to the dataframe
 for ix in eachindex(rhos)
-    print_rho = round(rhos[ix]; digits=1)
+    print_rho = round(rhos[ix]; digits=6)
     df[!, "rho=$(print_rho)"] = Int[]
 end
 
