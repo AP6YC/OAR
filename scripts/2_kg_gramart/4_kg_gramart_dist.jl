@@ -39,9 +39,6 @@ pargs = OAR.dist_exp_parse(
     "$(exp_top)/$(exp_name): distributed hyperparameter sweep of GramART for clustering a disease knowledge graph."
 )
 
-# Development override
-pargs["procs"] = 4
-
 # Start several processes
 if pargs["procs"] > 0
     addprocs(pargs["procs"], exeflags="--project=.")

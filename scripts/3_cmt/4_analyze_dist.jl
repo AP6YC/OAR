@@ -29,6 +29,7 @@ using DataFrames
 exp_top = "3_cmt"
 exp_name = @__FILE__
 out_filename = "cmt-clusters-sweep.csv"
+column_digits = 6
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -64,7 +65,7 @@ df = collect_results!(sweep_dir)
 # Create an output dataframe from the clusters elements
 out_df = DataFrame()
 for ix in eachindex(df.rho)
-    print_rho = round(df.rho[ix]; digits=4)
+    print_rho = round(df.rho[ix]; digits=column_digits)
     out_df[:, "rho=$(print_rho)"] = df.clusters[ix]
 end
 
