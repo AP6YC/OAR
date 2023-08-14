@@ -12,6 +12,9 @@ Aggregates all common types and functions that are used throughout the `OAR` pro
 # INCLUDES
 # -----------------------------------------------------------------------------
 
+# Constants regarding internal functionality of the project
+include("constants.jl")
+
 # Version of the package as a constant
 include("version.jl")
 

@@ -26,16 +26,9 @@ using DrWatson
 # VARIABLES
 # -----------------------------------------------------------------------------
 
-N_SWEEP = 9
-# N_SWEEP = 100
-RHO_LB = 0.1
-RHO_UB = 0.9
-
 exp_top = "3_cmt"
 exp_name = @__FILE__
-
-
-config = OAR.get_sim_config("flat_sweep.yml")
+config_file = "flat_sweep.yml"
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -46,22 +39,22 @@ pargs = OAR.dist_exp_parse(
     "$(exp_top)/$(exp_name): hyperparameter sweep of GramART for clustering disease protein statements."
 )
 
-# Development override
-pargs["procs"] = 4
-
 # Start several processes
 if pargs["procs"] > 0
     addprocs(pargs["procs"], exeflags="--project=.")
 end
 
+# Load the simulation configuration file
+config = OAR.load_config(config_file)
+
 # Set the simulation parameters
 sim_params = Dict{String, Any}(
     "m" => "GramART",
-    "rng_seed" => 1234,
+    "rng_seed" => config["rng_seed"],
     "rho" => collect(LinRange(
-        RHO_LB,
-        RHO_UB,
-        N_SWEEP
+        config["rho_lb"],
+        config["rho_ub"],
+        config["n_sweep"],
     ))
 )
 
@@ -77,7 +70,7 @@ sim_params = Dict{String, Any}(
     # Modules
     using OAR
 
-    # Input CSV file and data definition
+    # Point to the CSV data file and data definition
     input_file = OAR.data_dir(
         "cmt",
         "output_CMT_file.csv",
@@ -97,7 +90,7 @@ sim_params = Dict{String, Any}(
     # Make the path
     mkpath(sweep_results_dir())
 
-    # Load the cmt file
+    # Load the CMT disease data file
     df = OAR.load_cmt(input_file)
 
     # Load the data definition dictionary

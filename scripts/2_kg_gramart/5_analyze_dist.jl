@@ -1,8 +1,8 @@
 """
-    4_analyze_dist.jl
+    5_analyze_dist.jl
 
 # Description
-This script takes the results of `3_gramart_dist.jl` and compiles it for visualization, etc.
+This script takes the results of `4_kg_gramart_dist.jl` and compiles it for visualization, etc.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
@@ -26,7 +26,7 @@ using DataFrames
 # OPTIONS
 # -----------------------------------------------------------------------------
 
-exp_top = "3_cmt"
+exp_top = "2_kg_gramart"
 exp_name = @__FILE__
 out_filename = "cmt-clusters-sweep.csv"
 
@@ -42,6 +42,7 @@ pargs = OAR.exp_parse(
 # Point to the sweep results
 sweep_dir = OAR.results_dir(
     exp_top,
+    "cmt",
     "sweep",
 )
 

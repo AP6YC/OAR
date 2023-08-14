@@ -31,10 +31,9 @@ function load_config(config_file::AbstractString)
     )
 end
 
-
-function get_sim_config(config_file::AbstractString)
-    return load_config(config_file)
-end
+# function get_sim_config(config_file::AbstractString)
+#     return load_config(config_file)
+# end
 
 """
 Common function for how `ArgParse.ArgParseSettings` are generated in the project.
@@ -49,6 +48,7 @@ function get_argparsesettings(description::AbstractString="")
         version = string(OAR_VERSION),
         add_version = true
     )
+    # Return the common parser settings
     return s
 end
 
@@ -74,6 +74,7 @@ function exp_parse(description::AbstractString="An OAR experiment script.")
             action = :store_true
     end
 
+    # Parse and return the args
     return parse_args(s)
 end
 
@@ -86,21 +87,29 @@ function dist_exp_parse(description::AbstractString="A distributed OAR experimen
     # Set up the parse settings
     s = get_argparsesettings(description)
 
+    # Pick the default number of distributed processes
+    default_n_procs = if Sys.iswindows()
+        DEFAULT_N_PROCS_WINDOWS
+    else
+        DEFAULT_N_PROCS_UNIX
+    end
+
     # Set up the arguments table
     @add_arg_table! s begin
         "--procs", "-p"
             help = "number of parallel processes"
             arg_type = Int
-            default = 0
-        "--n_sims", "-n"
-            help = "the number of simulations to run"
-            arg_type = Int
-            default = 1
+            default = default_n_procs
+        # "--n_sims", "-n"
+        #     help = "the number of simulations to run"
+        #     arg_type = Int
+        #     default = 1
         "--verbose", "-v"
             help = "verbose output"
             action = :store_true
     end
 
+    # Parse and return the args
     return parse_args(s)
 end
 

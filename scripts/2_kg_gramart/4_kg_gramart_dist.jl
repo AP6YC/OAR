@@ -26,12 +26,9 @@ using DrWatson
 # VARIABLES
 # -----------------------------------------------------------------------------
 
-N_SWEEP = 10
-RHO_LB = 0.1
-RHO_UB = 0.3
-
 exp_top = "2_kg_gramart"
 exp_name = @__FILE__
+config_file = "kg_sweep.yml"
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -50,14 +47,17 @@ if pargs["procs"] > 0
     addprocs(pargs["procs"], exeflags="--project=.")
 end
 
+# Load the simulation configuration file
+config = OAR.load_config(config_file)
+
 # Set the simulation parameters
 sim_params = Dict{String, Any}(
     "m" => "GramART",
-    "rng_seed" => 1234,
+    "rng_seed" => config["rng_seed"],
     "rho" => collect(LinRange(
-        RHO_LB,
-        RHO_UB,
-        N_SWEEP
+        config["rho_lb"],
+        config["rho_ub"],
+        config["n_sweep"],
     ))
 )
 
