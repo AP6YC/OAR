@@ -107,3 +107,10 @@ $COMMON_DOC argument for additional simulation options.
 const ARG_SIM_OPTS = """
 - `opts::AbstractDict`: additional options for the simulation.
 """
+
+"""
+$COMMON_DOC config filename argument.
+"""
+const ARG_CONFIG_FILE = """
+- `config_file::AbstractString`: the config file name as a string.
+"""

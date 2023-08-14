@@ -44,3 +44,14 @@ function data_dir(args...)
     # mkpath(newdir(args...))
     return newdir(args...)
 end
+
+"""
+Points to the configs directory.
+
+$DRWATSON_ARGS_DOC
+"""
+function config_dir(args...)
+    newdir(args...) = work_dir("configs", args...)
+    # mkpath(newdir(args...))
+    return newdir(args...)
+end

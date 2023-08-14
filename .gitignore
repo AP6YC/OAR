@@ -13,6 +13,8 @@ work/**
 !work/**/.gitkeep
 # Except for the unpacked data folder
 !work/data/**
+# Except for the configs
+!work/configs/**
 
 # Development/scratch folder
 _dev/

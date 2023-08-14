@@ -8,23 +8,32 @@ File operation utilities, such as for loading simulation options and parsing arg
 - Sasha Petrenko <petrenkos@mst.edu>
 """
 
+"""
+Definition of a configuration dictionary loaded from a config file.
+"""
+const ConfigDict = Dict{Any, Any}
+
 # -----------------------------------------------------------------------------
 # FUNCTIONS
 # -----------------------------------------------------------------------------
 
 """
-Loads the provided options YAML file.
+Loads the provided configuration YAML file.
 
 # Arguments
-- `file::AbstractString`: the YAML file to load.
+$(ARG_CONFIG_FILE)
 """
-function load_opts(file::AbstractString)
-    # Point to the default location of the file
-    full_path = projectdir("opts", file)
-    # Load the YAML options file as a string-keyed dictionary
-    file_opts = YAML.load_file(full_path, dicttype=Dict{String, Any})
-    # Return the dictionary
-    return file_opts
+function load_config(config_file::AbstractString)
+    # Load and return the config file
+    return YAML.load_file(
+        config_dir(config_file);
+        dicttype=ConfigDict
+    )
+end
+
+
+function get_sim_config(config_file::AbstractString)
+    return load_config(config_file)
 end
 
 """
