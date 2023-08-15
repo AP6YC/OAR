@@ -28,7 +28,7 @@ using DataFrames
 
 exp_top = "2_kg_gramart"
 exp_name = @__FILE__
-out_filename = "cmt-clusters-sweep.csv"
+out_filename = "kg-clusters-sweep.csv"
 column_digits = 6
 
 # -----------------------------------------------------------------------------

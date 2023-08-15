@@ -1,4 +1,4 @@
-# 2_kg_gramart
+# `2_kg_gramart/`
 
 This experiment folder runs the GramART method on parsed statements from several medical disease knowledge graphs.
 
