@@ -32,7 +32,7 @@ RHO_LB = 0.1
 RHO_UB = 0.9
 
 exp_top = "3_cmt"
-exp_name = @__FILE__
+exp_name = "2_gramart_serial.jl"
 
 # Input CSV file and data definition
 input_file = OAR.data_dir("cmt", "output_CMT_file.csv")

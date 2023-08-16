@@ -27,7 +27,7 @@ using DataFrames
 # -----------------------------------------------------------------------------
 
 exp_top = "2_kg_gramart"
-exp_name = @__FILE__
+exp_name = "5_analyze_dist.jl"
 out_filename = "kg-clusters-sweep.csv"
 column_digits = 6
 

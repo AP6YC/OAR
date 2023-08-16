@@ -31,7 +31,7 @@ RHO_LB = 0.1
 RHO_UB = 0.3
 
 exp_top = "2_kg_gramart"
-exp_name = @__FILE__
+exp_name = "3_kg_gramart_serial.jl"
 
 # Location of the edge attributes file, formatted for Lerch parsing
 edge_file = OAR.results_dir(exp_top, "cmt", "edge_attributes_lerche.txt")

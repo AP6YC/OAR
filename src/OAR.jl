@@ -41,6 +41,7 @@ using
     MLDataUtils,            # # Data utilities, splitting, etc.
     DocStringExtensions,    # Docstring utilities
     DrWatson,               # Project directory utilities
+    InvertedIndices,        # Not()
     Lerche,                 # Parsers
     NumericalTypeAliases,   # RealMatrix, IntegerVector, etc.
     Parameters,             # @with_kw

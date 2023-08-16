@@ -210,7 +210,8 @@ function real_to_symb(data::DataSplit, labels::Vector{String} ; bins::Int=10)
     end
 
     # bnf = OAR.DescretizedCFG(OAR.quick_statement(labels), bins=bins)
-    statements = Vector{Vector{GSymbol{String}}}()
+    # statements = Vector{Vector{GSymbol{String}}}()
+    statements = Statements{String}()
 
     # Iterate over every sample
     for jx = 1:n_samples
@@ -270,4 +271,75 @@ function symbolic_iris(;bins::Int=10, download_local::Bool=false)
 
     # Return the statements and grammar together
     return statements, grammar
+end
+
+"""
+Constructs a context-free grammar from a dataframe.
+
+# Arguments
+"""
+function CFG_from_df(df::DataFrame; label::Symbol=:class)
+    # function CFG_from_df(statements::Statements{T}) where T <: Any
+    # Declare that the SPO CFG grammar has only the following nonterminals
+    clean_df = df[:, Not(label)]
+    nts = names(clean_df)
+    ordered_nonterminals = Vector{GSymbol{String}}()
+    for name in nts
+        push!(ordered_nonterminals, GSymbol(String(name), false))
+    end
+
+    statements = Statements{String}()
+    for row in eachrow(clean_df)
+        local_statement = Statement{String}()
+        for el in row
+            push!(local_statement, GSymbol(String(el), true))
+        end
+        push!(statements, local_statement)
+    end
+
+    # Create a set of the ordered nonterminals
+    N = Set(ordered_nonterminals)
+    # Gather a set of the terminals from all of the statements
+    Term = get_terminals(statements)
+    # Generate the production rules from the statements and their corresponding
+    # ordered nonterminal symbols
+    P = get_production_rules(ordered_nonterminals, statements)
+
+    # Construct the CFG grammar
+    grammar = CFG(
+        N,
+        Term,
+        ordered_nonterminals,
+        P,
+    )
+
+    # Return the constructed CFG grammar
+    return grammar
+end
+
+
+"""
+Quickly generates a [`OAR.VectoredDataSplit`] of the symbolic Iris dataset.
+
+# Arguments
+- `bins::Int=10`: optional, the number of symbols to descretize the real-valued data to.
+- `download_local::Bool=false`: optional (default false), to download the Iris dataset to the local datadir.
+"""
+function symbolic_mushroom()
+    filename = data_dir("mushroom", "mushrooms.csv")
+    df = DataFrame(CSV.File(filename))
+    return df
+    # Load the Iris DataSplit
+    # data = OAR.iris_tt_real(download_local=download_local)
+
+    # # Declare the names for the nonterminal symbols
+    # N = [
+    #     "SL", "SW", "PL", "PW",
+    # ]
+
+    # # Create the symbolic version of the data
+    # statements, grammar = OAR.real_to_symb(data, N, bins=bins)
+
+    # # Return the statements and grammar together
+    # return statements, grammar
 end

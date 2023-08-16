@@ -27,7 +27,7 @@ using DataFrames
 # -----------------------------------------------------------------------------
 
 exp_top = "2_kg_gramart"
-exp_name = @__FILE__
+exp_name = "2_kg_gramart.jl"
 
 # Location of the edge attributes file, formatted for Lerch parsing
 edge_file = OAR.results_dir(exp_top, "cmt", "edge_attributes_lerche.txt")

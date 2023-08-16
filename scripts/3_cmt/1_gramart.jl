@@ -27,7 +27,7 @@ using DataFrames
 # -----------------------------------------------------------------------------
 
 exp_top = "3_cmt"
-exp_name = @__FILE__
+exp_name = "1_gramart.jl"
 
 # Input CSV file
 input_file = OAR.data_dir("cmt", "output_CMT_file.csv")

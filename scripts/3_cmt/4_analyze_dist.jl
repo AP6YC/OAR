@@ -27,7 +27,7 @@ using DataFrames
 # -----------------------------------------------------------------------------
 
 exp_top = "3_cmt"
-exp_name = @__FILE__
+exp_name = "4_analyze_dist.jl"
 out_filename = "cmt-clusters-sweep.csv"
 column_digits = 6
 
