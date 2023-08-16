@@ -106,9 +106,11 @@ function inc_update_symbols!(
     # function inc_update_symbols!(pn::ProtoNode, symb::GSymbol, position::Integer)
     # Update the top node
     update_dist!(pn, symb)
+
     # Update the middle nodes
     middle_node = pn.children[nonterminal]
     update_dist!(middle_node, symb)
+
     # Update the corresponding terminal node
     if terminated
         update_dist!(middle_node.children[symb], symb)
@@ -153,10 +155,38 @@ function activation(
     node::ProtoNode,
     statement::Statement,
 )
+    # Intialize the sum
     local_sum = 0.0
+
+    # Shallow add the contribution from each weight.
     for symb in statement
         local_sum += node.dist[symb]
     end
+
+    # Return the activation sum
+    return local_sum
+end
+
+"""
+Computes the ART match of a statement on an [`OAR.ProtoNode`](@ref).
+
+# Arguments
+- `node::ProtoNode`: the [`OAR.ProtoNode`](@ref) node to compute the match for.
+- `statement::Statement`: the [`OAR.Statement`](@ref) used for computing the match.
+"""
+function match(
+    node::ProtoNode,
+    statement::Statement,
+)
+    # Initialize the sum
+    local_sum = 0.0
+
+    # Shallow add the contribution from each weight.
+    for symb in statement
+        local_sum += node.dist[symb]
+    end
+
+    # Return the match sum
     return local_sum
 end
 

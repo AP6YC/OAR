@@ -125,8 +125,10 @@ function activation(
     node::ProtoNode,
     statement::TreeNode,
 )
+    # Intialize the sum
     local_sum = 0.0
-    # if is_terminal()
+
+    # Deep add the contribution from each weight.
     for ix in eachindex(statement.children)
         local_tn = statement.children[ix]
         if is_terminal(local_tn)
@@ -139,6 +141,38 @@ function activation(
         end
     end
 
+    # Return the activation sum
+    return local_sum
+end
+
+"""
+Computes the ART match of a statement on an [`OAR.ProtoNode`](@ref).
+
+# Arguments
+- `node::ProtoNode`: the [`OAR.ProtoNode`](@ref) node to compute the match for.
+- `statement::TreeNode`: the [`OAR.TreeNode`](@ref) used for computing the match.
+"""
+function match(
+    node::ProtoNode,
+    statement::TreeNode,
+)
+    # Initialize the sum
+    local_sum = 0.0
+
+    # Deep add the contribution from each weight.
+    for ix in eachindex(statement.children)
+        local_tn = statement.children[ix]
+        if is_terminal(local_tn)
+            local_sum += node.dist[local_tn.t]
+        else
+            for jx in eachindex(local_tn.children)
+                sub_tn = local_tn.children[jx]
+                local_sum += node.dist[sub_tn.t]
+            end
+        end
+    end
+
+    # Return the match sum
     return local_sum
 end
 
