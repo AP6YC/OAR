@@ -60,7 +60,8 @@ fs, bnf = OAR.symbolic_iris()
 gramart = OAR.GramART(bnf)
 
 # Set the vigilance parameter and show
-gramart.opts.rho = 0.15
+# gramart.opts.rho = 0.15
+gramart.opts.rho = 0.01
 @info gramart
 
 # Process the statements
@@ -68,7 +69,7 @@ for statement in fs.train_x
     OAR.train!(gramart, statement)
 end
 
-# See the statistics fo the first protonode
+# See the statistics of the first protonode
 @info gramart.protonodes[1].stats
 
 clusters = zeros(Int, length(fs.test_y))

@@ -273,14 +273,7 @@ function symbolic_iris(;bins::Int=10, download_local::Bool=false)
     return statements, grammar
 end
 
-"""
-Constructs a context-free grammar from a dataframe.
-
-# Arguments
-"""
-function CFG_from_df(df::DataFrame; label::Symbol=:class)
-    # function CFG_from_df(statements::Statements{T}) where T <: Any
-    # Declare that the SPO CFG grammar has only the following nonterminals
+function df_to_statements(df::DataFrame, label::Symbol=:class)
     clean_df = df[:, Not(label)]
     nts = names(clean_df)
     ordered_nonterminals = Vector{GSymbol{String}}()
@@ -296,6 +289,19 @@ function CFG_from_df(df::DataFrame; label::Symbol=:class)
         end
         push!(statements, local_statement)
     end
+
+    return ordered_nonterminals, statements
+end
+
+"""
+Constructs a context-free grammar from a dataframe.
+
+# Arguments
+"""
+function CFG_from_df(df::DataFrame, label::Symbol=:class)
+    # function CFG_from_df(statements::Statements{T}) where T <: Any
+    # Declare that the SPO CFG grammar has only the following nonterminals
+    ordered_nonterminals, statements = df_to_statements(df, label)
 
     # Create a set of the ordered nonterminals
     N = Set(ordered_nonterminals)
@@ -314,7 +320,7 @@ function CFG_from_df(df::DataFrame; label::Symbol=:class)
     )
 
     # Return the constructed CFG grammar
-    return grammar
+    return grammar, statements
 end
 
 
@@ -328,7 +334,9 @@ Quickly generates a [`OAR.VectoredDataSplit`] of the symbolic Iris dataset.
 function symbolic_mushroom()
     filename = data_dir("mushroom", "mushrooms.csv")
     df = DataFrame(CSV.File(filename))
-    return df
+    # return df
+    grammar, statements = CFG_from_df(df, :class)
+
     # Load the Iris DataSplit
     # data = OAR.iris_tt_real(download_local=download_local)
 
@@ -341,5 +349,5 @@ function symbolic_mushroom()
     # statements, grammar = OAR.real_to_symb(data, N, bins=bins)
 
     # # Return the statements and grammar together
-    # return statements, grammar
+    return statements, grammar
 end

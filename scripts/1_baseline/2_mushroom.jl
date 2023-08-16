@@ -30,6 +30,7 @@ using OAR
 # -----------------------------------------------------------------------------
 
 # using DataFrames
+using ProgressMeter
 
 # -----------------------------------------------------------------------------
 # VARIABLES
@@ -51,22 +52,24 @@ pargs = OAR.exp_parse(
 # MUSHROOM DATASET
 # -----------------------------------------------------------------------------
 
-df = OAR.symbolic_mushroom()
+fs, bnf = OAR.symbolic_mushroom()
 
 # # All-in-one function
 # fs, bnf = OAR.symbolic_iris()
 
-# # Initialize the GramART module
-# gramart = OAR.GramART(bnf)
+# Initialize the GramART module
+gramart = OAR.GramART(bnf)
 
-# # Set the vigilance parameter and show
-# gramart.opts.rho = 0.5
-# @info gramart
+# Set the vigilance parameter and show
+gramart.opts.rho = 0.07
+@info gramart
 
-# # Process the statements
+# Process the statements
 # for statement in fs.train_x
-#     OAR.train!(gramart, statement)
-# end
+@showprogress for statement in fs
+    OAR.train!(gramart, statement)
+end
 
-# # See the statistics fo the first protonode
+# See the statistics of the first protonode
 # @info gramart.protonodes[1].stats
+@info gramart.protonodes
