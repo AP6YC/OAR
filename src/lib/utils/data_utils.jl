@@ -37,6 +37,33 @@ struct DataSplit
 end
 
 """
+Generic train/test split dataset.
+
+This struct contains a standardized train/test split of a vector of samples mapping to integered labels.
+"""
+struct DataSplitGeneric{T, U}
+    """
+    The training data as a vector of samples.
+    """
+    train_x::T
+
+    """
+    The testing data as a vector of samples.
+    """
+    test_x::T
+
+    """
+    The training labels as a vector of integer labels: `(n_samples,)`.
+    """
+    train_y::U
+
+    """
+    The testing labels as a vector of integer labels: `(n_samples,)`
+    """
+    test_y::U
+end
+
+"""
 Vectored train/test split of arbitrary feature types.
 
 This struct contains a standardized train/test split of vectors of vectored samples that map to labels.
@@ -142,7 +169,7 @@ function iris_tt_real(;download_local::Bool=false)
     features, labels = Matrix(iris.features)', vec(Matrix{String}(iris.targets))
     # Because the MLDatasets package gives us Iris labels as strings, we will use the `MLDataUtils.convertlabel` method with the `MLLabelUtils.LabelEnc.Indices` type to get a list of integers representing each class:
     labels = convertlabel(LabelEnc.Indices{Int}, labels)
-    unique(labels)
+
     # Next, we will create a train/test split with the `MLDataUtils.stratifiedobs` utility:
     (X_train, y_train), (X_test, y_test) = stratifiedobs((features, labels))
 
@@ -290,7 +317,9 @@ function df_to_statements(df::DataFrame, label::Symbol=:class)
         push!(statements, local_statement)
     end
 
-    return ordered_nonterminals, statements
+    labels = df[:, label]
+
+    return ordered_nonterminals, statements, labels
 end
 
 """
@@ -301,7 +330,7 @@ Constructs a context-free grammar from a dataframe.
 function CFG_from_df(df::DataFrame, label::Symbol=:class)
     # function CFG_from_df(statements::Statements{T}) where T <: Any
     # Declare that the SPO CFG grammar has only the following nonterminals
-    ordered_nonterminals, statements = df_to_statements(df, label)
+    ordered_nonterminals, statements, labels = df_to_statements(df, label)
 
     # Create a set of the ordered nonterminals
     N = Set(ordered_nonterminals)
@@ -319,10 +348,22 @@ function CFG_from_df(df::DataFrame, label::Symbol=:class)
         P,
     )
 
+    int_labels = integer_encoding(labels)
+
     # Return the constructed CFG grammar
-    return grammar, statements
+    return grammar, statements, int_labels
 end
 
+function integer_encoding(vec)
+    n = length(vec)
+    uniques = unique(vec)
+    new_vec = zeros(Int, n)
+    # for un in uniques
+    for ix in eachindex(uniques)
+        new_vec[findall(x->x==uniques[ix], vec)] .= ix
+    end
+    return new_vec
+end
 
 """
 Quickly generates a [`OAR.VectoredDataSplit`] of the symbolic Iris dataset.
@@ -335,7 +376,14 @@ function symbolic_mushroom()
     filename = data_dir("mushroom", "mushrooms.csv")
     df = DataFrame(CSV.File(filename))
     # return df
-    grammar, statements = CFG_from_df(df, :class)
+    grammar, statements, labels = CFG_from_df(df, :class)
+
+
+    (X_train, y_train), (X_test, y_test) = stratifiedobs((statements, labels))
+
+    # @info typeof(X_train)
+    # @info typeof(statements)
+    # @info typeof(Statements(X_train))
 
     # Load the Iris DataSplit
     # data = OAR.iris_tt_real(download_local=download_local)
@@ -347,7 +395,15 @@ function symbolic_mushroom()
 
     # # Create the symbolic version of the data
     # statements, grammar = OAR.real_to_symb(data, N, bins=bins)
+    data = DataSplitGeneric(
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+    )
 
+    return data, grammar
     # # Return the statements and grammar together
-    return statements, grammar
+    # return statements, grammar, labels
+
 end

@@ -39,15 +39,32 @@ function is_terminal(treenode::TreeNode)
     return is_terminal(treenode.t)
 end
 
+
+# function inc_n_categories!(gramart::GramART)
+#     gramart.stats["n_categories"] += 1
+# end
+
+# function create_category!(gramart::GramART, statement::SomeStatement, label::Integer)
+#     gramart.stats["n_categories"] += 1
+#     create_category!(gramart)
+#     learn!(gramart, statement, 1)
+# end
+
 """
 Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.GramART`](@ref) module.
 
 # Arguments
 - `gramart::GramART`: the [`OAR.GramART`](@ref) to append a new node to.
 """
-function add_node!(gramart::GramART)
+function create_category!(gramart::GramART, statement::SomeStatement, label::Integer)
+    # inc_n_categories!(gramart)
+
+    gramart.stats["n_categories"] += 1
+    push!(gramart.stats["n_instance"], 1)
+
     # Create the top node
     top_node = ProtoNode(gramart.grammar.T)
+
     # Iterate over the production rules
     for (nonterminal, prod_rule) in gramart.grammar.P
         # Add a node for each non-terminal place
@@ -61,8 +78,18 @@ function add_node!(gramart::GramART)
         # Add the node with nodes to the top node
         top_node.children[nonterminal] = local_node
     end
+
     # Append the recursively constructed proto node
     push!(gramart.protonodes, top_node)
+
+    # Learn upon the sample
+    # learn!(gramart, statement, label)
+    learn!(gramart, statement, gramart.stats["n_categories"])
+
+    push!(gramart.labels, label)
+
+    # Empty return
+    return
 end
 
 """
@@ -195,20 +222,27 @@ function match(
 end
 
 """
-Trains [`OAR.GramART`](@ref) module on a [`OAR.Statement`](@ref) from the [`OAR.GramART`](@ref)'s grammar.
+Trains [`OAR.GramART`](@ref) module on a [`OAR.SomeStatement`](@ref) from the [`OAR.GramART`](@ref)'s grammar.
 
 # Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the [`OAR.Statement`](@ref).
-- `statement::Statement`: the grammar [`OAR.Statement`](@ref) to process.
+- `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the [`OAR.SomeStatement`](@ref).
+- `statement::SomeStatement`: the grammar [`OAR.SomeStatment`](@ref) to process.
 """
 function train!(
     gramart::GramART,
-    statement::Statement,
+    # statement::Statement,
+    statement::SomeStatement;
+    y::Integer=0,
 )
+    # Flag for if the sample is supervised
+    supervised = !iszero(y)
+
     # If this is the first sample, then fast commit
     if isempty(gramart.protonodes)
-        add_node!(gramart)
-        learn!(gramart, statement, 1)
+        y_hat = supervised ? y : 1
+        create_category!(gramart, statement, y_hat)
+        # add_node!(gramart)
+        # learn!(gramart, statement, 1)
         return
     end
 
@@ -226,7 +260,12 @@ function train!(
         # Get the best-matching unit
         bmu = index[jx]
         if activations[bmu] >= gramart.opts.rho
+            # If supervised and the label differed, force mismatch
+            if supervised && (gramart.labels[bmu] != y)
+                break
+            end
             learn!(gramart, statement, bmu)
+            gramart.stats["n_instance"][bmu] += 1
             mismatch_flag = false
             break
         end
@@ -234,9 +273,10 @@ function train!(
 
     # If we triggered a mismatch, add a node
     if mismatch_flag
-        bmu = n_nodes + 1
-        add_node!(gramart)
-        learn!(gramart, statement, bmu)
+        # bmu = n_nodes + 1
+        y_hat = supervised ? y : gramart.stats["n_categories"] + 1
+        create_category!(gramart, statement, y_hat)
+        # learn!(gramart, statement, bmu)
     end
 end
 
@@ -271,7 +311,8 @@ function classify(
         # Vigilance check - pass
         if activations[bmu] >= gramart.opts.rho
             # Current winner
-            y_hat = bmu
+            # y_hat = bmu
+            y_hat = gramart.labels[bmu]
             mismatch_flag = false
             break
         end
@@ -281,7 +322,8 @@ function classify(
     if mismatch_flag
         # Report either the best matching unit or the mismatch label -1
         bmu = index[1]
-        y_hat = get_bmu ? bmu : -1
+        # y_hat = get_bmu ? bmu : -1
+        y_hat = get_bmu ? gramart.labels[bmu] : -1
     end
 
     return y_hat

@@ -30,6 +30,8 @@ using OAR
 # -----------------------------------------------------------------------------
 
 # using DataFrames
+using Random
+Random.seed!(1234)
 using ProgressMeter
 
 # -----------------------------------------------------------------------------
@@ -52,24 +54,32 @@ pargs = OAR.exp_parse(
 # MUSHROOM DATASET
 # -----------------------------------------------------------------------------
 
+# All-in-one function
 fs, bnf = OAR.symbolic_mushroom()
-
-# # All-in-one function
-# fs, bnf = OAR.symbolic_iris()
 
 # Initialize the GramART module
 gramart = OAR.GramART(bnf)
 
 # Set the vigilance parameter and show
-gramart.opts.rho = 0.07
-@info gramart
+gramart.opts.rho = 0.05
 
 # Process the statements
-# for statement in fs.train_x
-@showprogress for statement in fs
-    OAR.train!(gramart, statement)
+@showprogress for ix in eachindex(fs.train_x)
+    statement = fs.train_x[ix]
+    label = fs.train_y[ix]
+    OAR.train!(gramart, statement, y=label)
 end
 
-# See the statistics of the first protonode
-# @info gramart.protonodes[1].stats
-@info gramart.protonodes
+# Classify
+clusters = zeros(Int, length(fs.test_y))
+@showprogress for ix in eachindex(fs.test_x)
+    clusters[ix] = OAR.classify(gramart, fs.test_x[ix])
+end
+
+# Calculate testing performance
+perf = OAR.AdaptiveResonance.performance(fs.test_y, clusters)
+
+# Logging
+@info "Final performance: $(perf)"
+@info "n_categories: $(gramart.stats["n_categories"])"
+# @info "n_instance: $(gramart.stats["n_instance"])"

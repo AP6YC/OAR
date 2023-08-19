@@ -84,6 +84,8 @@ end
     terminated::Bool = false
 end
 
+const GramARTStats = Dict{String, Any}
+
 """
 Definition of a GramART module.
 
@@ -104,13 +106,23 @@ struct GramART
     The [`OAR.opts_GramART`](@ref) hyperparameters of the GramART module.
     """
     opts::opts_GramART
+
+    """
+    Incremental list of labels corresponding to each F2 node, self-prescribed or supervised.
+    """
+    labels::Vector{Int}
+
+    """
+    Dictionary of mutable statistics for the module.
+    """
+    stats::GramARTStats
 end
 
 # -----------------------------------------------------------------------------
 # DEPENDENT ALIASES
 # -----------------------------------------------------------------------------
 
-"""
+"""""
 A `TreeStatement` is simply a [`TreeNode`](@ref).
 """
 const TreeStatement = TreeNode
@@ -121,7 +133,12 @@ Many `TreeStatements` are a Vector of [`TreeNode`](@ref)s.
 const TreeStatements = Vector{TreeStatement}
 
 """
-Alias for arguments in simulations accepting multiple definitions of statement formulations.
+Alias for arguments accepting multiple definitions of a statement formulation.
+"""
+const SomeStatement = Union{TreeStatement, Statement}
+
+"""
+Alias for arguments accepting multiple definitions of statement formulations.
 """
 const SomeStatements = Union{TreeStatements, Statements}
 
@@ -137,11 +154,18 @@ $ARG_CFG
 - `opts::opts_GramART`: a custom set of [`OAR.GramART`](@ref) options to use.
 """
 function GramART(grammar::CFG, opts::opts_GramART)
+    # Init the stats
+    stats = GramARTStats()
+    stats["n_categories"] = 0
+    stats["n_instance"] = Vector{Int}()
+
     # Instantiate and return the GramART module
     GramART(
         Vector{ProtoNode}(),    # protonodes
         grammar,                # grammar
         opts,                   # opts
+        Vector{Int}(),          # labels
+        stats,                  # stats
     )
 end
 

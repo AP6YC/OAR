@@ -7,7 +7,7 @@ This script shows how to use a GramART to cluster on the Iris dataset.
 # Attribution
 
 ## Citations
-- Fisher,R. A.. (1988). Iris. UCI Machine Learning Repository. https://doi.org/10.24432/C56C76.
+- Fisher, R. A.. (1988). Iris. UCI Machine Learning Repository. https://doi.org/10.24432/C56C76.
 
 ## BibTeX
 @misc{misc_iris_53,
@@ -32,6 +32,7 @@ using OAR
 
 using Random
 Random.seed!(1234)
+using ProgressMeter
 
 # -----------------------------------------------------------------------------
 # VARIABLES
@@ -54,30 +55,35 @@ pargs = OAR.exp_parse(
 # -----------------------------------------------------------------------------
 
 # All-in-one function
-fs, bnf = OAR.symbolic_iris()
+data, grammmar = OAR.symbolic_iris()
 
 # Initialize the GramART module
-gramart = OAR.GramART(bnf)
+gramart = OAR.GramART(grammmar)
 
 # Set the vigilance parameter and show
 # gramart.opts.rho = 0.15
-gramart.opts.rho = 0.01
-@info gramart
+gramart.opts.rho = 0.05
 
 # Process the statements
-for statement in fs.train_x
-    OAR.train!(gramart, statement)
+@showprogress for ix in eachindex(data.train_x)
+    statement = data.train_x[ix]
+    label = data.train_y[ix]
+    OAR.train!(gramart, statement, y=label)
 end
 
 # See the statistics of the first protonode
-@info gramart.protonodes[1].stats
+# @info gramart.protonodes[1].stats
 
-clusters = zeros(Int, length(fs.test_y))
-# for statement in fs.test_x
-for ix in eachindex(fs.test_x)
-    clusters[ix] = OAR.classify(gramart, fs.test_x[ix])
+# Classify
+clusters = zeros(Int, length(data.test_y))
+@showprogress for ix in eachindex(data.test_x)
+    clusters[ix] = OAR.classify(gramart, data.test_x[ix])
 end
 
-perf = OAR.AdaptiveResonance.performance(fs.test_y, clusters)
+# Calculate testing performance
+perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
 
-@info perf
+# Logging
+@info "Final performance: $(perf)"
+@info "n_categories: $(gramart.stats["n_categories"])"
+# @info "n_instance: $(gramart.stats["n_instance"])"

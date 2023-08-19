@@ -1,79 +1,9 @@
+"""
+    tn_functions.jl
 
-# """
-# Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.GramART`](@ref) module.
-
-# # Arguments
-# - `gramart::GramART`: the [`OAR.GramART`](@ref) to append a new node to.
-# """
-# function add_node!(gramart::GramART)
-#     # Create the top node
-#     top_node = ProtoNode(gramart.grammar.T)
-#     # Iterate over the production rules
-#     for (nonterminal, prod_rule) in gramart.grammar.P
-#         # Add a node for each non-terminal place
-#         local_node = ProtoNode(gramart.grammar.T)
-#         if gramart.opts.terminated
-#             # Add a node for each terminal
-#             for terminal in prod_rule
-#                 local_node.children[terminal] = ProtoNode(gramart.grammar.T)
-#             end
-#         end
-#         # Add the node with nodes to the top node
-#         top_node.children[nonterminal] = local_node
-#     end
-#     # Append the recursively constructed proto node
-#     push!(gramart.protonodes, top_node)
-# end
-
-# """
-# Updates the distribution of a single [`OAR.ProtoNode`](@ref) from one new symbol instance.
-
-# # Arguments
-# - `pn::ProtoNode`: the [`OAR.ProtoNode`](@ref) to update the distribution with.
-# - `symb::GramARTSymbol`: the symbol instance to update the [`OAR.ProtoNode`](@ref) with.
-# """
-# function update_dist!(pn::ProtoNode, symb::GramARTSymbol)
-#     # Update the counts
-#     pn.N[symb] += 1
-#     pn.stats.m += 1
-#     # Update the distributions
-#     ratio = 1 / pn.stats.m
-#     for (key, _) in pn.dist
-#         # Repeated multiplication is faster than division
-#         pn.dist[key] = pn.N[key] * ratio
-#     end
-#     # Explicit empty return
-#     return
-# end
-
-# """
-# Updates the tree of [`OAR.ProtoNode`](@ref) from a single terminal.
-
-# # Arguments
-# - `pn::ProtoNode`: the top of the [`OAR.ProtoNode`](@ref) tree to update.
-# - `nonterminal::GramARTSymbol`: the nonterminal symbol of the statement to update at.
-# - `symb::GramARTSymbol`: the terminal symbol to update everywhere.
-# """
-# function inc_update_symbols!(
-#     pn::ProtoNode,
-#     nonterminal::GramARTSymbol,
-#     symb::GramARTSymbol,
-#     terminated::Bool
-# )
-#     # function inc_update_symbols!(pn::ProtoNode, symb::GSymbol, position::Integer)
-#     # Update the top node
-#     update_dist!(pn, symb)
-#     # Update the middle nodes
-#     middle_node = pn.children[nonterminal]
-#     update_dist!(middle_node, symb)
-#     # Update the corresponding terminal node
-#     if terminated
-#         update_dist!(middle_node.children[symb], symb)
-#     end
-
-#     # Explicity empty return
-#     return
-# end
+# Description
+Implementations of the training and classification functions and subroutines implemented upon TreeNode statements.
+"""
 
 """
 Processes a statement for a [`OAR.GramART`](@ref) module.
@@ -174,52 +104,6 @@ function match(
 
     # Return the match sum
     return local_sum
-end
-
-"""
-Trains [`OAR.GramART`](@ref) module on a [`OAR.TreeNode`](@ref) from the [`OAR.GramART`](@ref)'s grammar.
-
-# Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the [`OAR.TreeNode`](@ref).
-- `statement::TreeNode`: the grammar [`OAR.TreeNode`](@ref) to process.
-"""
-function train!(
-    gramart::GramART,
-    statement::TreeNode,
-)
-    # If this is the first sample, then fast commit
-    if isempty(gramart.protonodes)
-        add_node!(gramart)
-        learn!(gramart, statement, 1)
-        return
-    end
-
-    # Compute the activations
-    n_nodes = length(gramart.protonodes)
-    activations = zeros(n_nodes)
-    for ix = 1:n_nodes
-        activations[ix] = activation(gramart.protonodes[ix], statement)
-    end
-
-    # Sort by highest activation
-    index = sortperm(activations, rev=true)
-    mismatch_flag = true
-    for jx = 1:n_nodes
-        # Get the best-matching unit
-        bmu = index[jx]
-        if activations[bmu] >= gramart.opts.rho
-            learn!(gramart, statement, bmu)
-            mismatch_flag = false
-            break
-        end
-    end
-
-    # If we triggered a mismatch, add a node
-    if mismatch_flag
-        bmu = n_nodes + 1
-        add_node!(gramart)
-        learn!(gramart, statement, bmu)
-    end
 end
 
 """
