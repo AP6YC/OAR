@@ -10,6 +10,11 @@ This file contains utilities for handling datasets and train/test splits for the
 # -----------------------------------------------------------------------------
 
 """
+Abstract supertype for datasets that have vectored elements.
+"""
+abstract type VectoredDataset end
+
+"""
 Train/test split dataset.
 
 This struct contains a standardized train/test split of real-valued vectors of samples arranged in a matrix and mapping to integered labels.
@@ -41,7 +46,7 @@ Generic train/test split dataset.
 
 This struct contains a standardized train/test split of a vector of samples mapping to integered labels.
 """
-struct DataSplitGeneric{T, U}
+struct DataSplitGeneric{T, U} <: VectoredDataset
     """
     The training data as a vector of samples.
     """
@@ -68,7 +73,7 @@ Vectored train/test split of arbitrary feature types.
 
 This struct contains a standardized train/test split of vectors of vectored samples that map to labels.
 """
-struct VectoredDataSplit{T, M}
+struct VectoredDataSplit{T, M} <: VectoredDataset
     """
     Training data as a vector of feature vectors of type `T`.
     """

@@ -92,3 +92,53 @@ function tc_gramart(
     # Explicitly empty return
     return
 end
+
+"""
+Trains and tests a GramART module on the provided statements.
+
+# Arguments
+$ARG_SIM_D
+- `data::VectoredDataset`: the dataset to train and test on.
+$ARG_SIM_DIR_FUNC
+$ARG_SIM_OPTS
+"""
+function tt_gramart(
+    d::AbstractDict,
+    ts::VectoredDataset,
+    dir_func::Function,
+    opts::AbstractDict,
+)
+    # Initialize the GramART module
+    gramart = OAR.GramART(grammmar)
+
+    # Set the vigilance parameter and show
+    # gramart.opts.rho = 0.15
+    gramart.opts.rho = 0.05
+
+    # Process the statements
+    for ix in eachindex(data.train_x)
+        statement = data.train_x[ix]
+        label = data.train_y[ix]
+        OAR.train!(gramart, statement, y=label)
+    end
+
+    # Classify
+    clusters = zeros(Int, length(data.test_y))
+    for ix in eachindex(data.test_x)
+        clusters[ix] = OAR.classify(gramart, data.test_x[ix])
+    end
+
+    # Calculate testing performance
+    perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
+
+    # Logging
+    # Copy the input sim dictionary
+    fulld = deepcopy(d)
+
+    # Add entries for the results
+    fulld["p"] = perf
+    fulld["n_cat"] = gramart.stats["n_categories"]
+
+    # Save the results
+    save_sim(dir_func, d, fulld)
+end
