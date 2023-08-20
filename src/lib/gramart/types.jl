@@ -79,11 +79,39 @@ end
     rho = 0.7; @assert rho >= 0.0 && rho <= 1.0
 
     """
+    Lower-bound vigilance parameter: rho_lb ∈ [0, 1].
+    """
+    rho_lb = 0.55; @assert rho_lb >= 0.0 && rho_lb <= 1.0
+
+    """
+    Upper bound vigilance parameter: rho_ub ∈ [0, 1].
+    """
+    rho_ub = 0.75; @assert rho_ub >= 0.0 && rho_ub <= 1.0
+
+    """
+    Choice parameter: alpha > 0.
+    """
+    alpha = 1e-3; @assert alpha > 0.0
+
+    """
+    Learning parameter: beta ∈ (0, 1].
+    """
+    beta = 1.0; @assert beta > 0.0 && beta <= 1.0
+
+    """
+    Maximum number of epochs during training.
+    """
+    max_epoch::Int = 1
+
+    """
     Flag for generating nodes at the terminal distributions below their nonterminal positions.
     """
     terminated::Bool = false
 end
 
+"""
+Type alias for the [`OAR.GramART`](@ref) dictionary containing module stats.
+"""
 const GramARTStats = Dict{String, Any}
 
 """
@@ -157,6 +185,7 @@ function GramART(grammar::CFG, opts::opts_GramART)
     # Init the stats
     stats = GramARTStats()
     stats["n_categories"] = 0
+    stats["n_clusters"] = 0
     stats["n_instance"] = Vector{Int}()
 
     # Instantiate and return the GramART module

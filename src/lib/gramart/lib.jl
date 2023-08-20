@@ -23,3 +23,6 @@ include("functions.jl")
 
 # TreeNode-based training and classification functions
 include("tn_functions.jl")
+
+# Include the dual-vigilance and distributed dual-vigilance definitions
+include("dv.jl")

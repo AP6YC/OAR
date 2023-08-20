@@ -56,9 +56,13 @@ Adds an empty node to the end of the [`OAR.GramART`](@ref) module.
 # Arguments
 - `gramart::GramART`: the [`OAR.GramART`](@ref) module to append a node to.
 """
-function add_node!(gramart::GramART)
+function add_node!(
+    gramart::GramART;
+    new_cluster::Bool=true,
+)
     # Update the stats counters
     gramart.stats["n_categories"] += 1
+    new_cluster && (gramart.stats["n_clusters"] += 1)
     push!(gramart.stats["n_instance"], 1)
 
     # Create the top node
@@ -91,11 +95,16 @@ Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.GramART`](@ref
 # Arguments
 - `gramart::GramART`: the [`OAR.GramART`](@ref) to append a new node to.
 """
-function create_category!(gramart::GramART, statement::SomeStatement, label::Integer)
+function create_category!(
+    gramart::GramART,
+    statement::SomeStatement,
+    label::Integer;
+    new_cluster::Bool=true,
+)
     # inc_n_categories!(gramart)
 
     # Instantiate an empty node
-    add_node!(gramart)
+    add_node!(gramart, new_cluster=new_cluster)
 
     # Learn upon the sample
     learn!(gramart, statement, gramart.stats["n_categories"])
@@ -235,16 +244,30 @@ function match(
     return local_sum
 end
 
+# function single_vigilance_check(gramart)
+#     if activations[bmu] >= gramart.opts.rho
+#         # If supervised and the label differed, force mismatch
+#         if supervised && (gramart.labels[bmu] != y)
+#             break
+#         end
+#         y_hat = gramart.labels[bmu]
+#         learn!(gramart, statement, bmu)
+#         gramart.stats["n_instance"][bmu] += 1
+#         mismatch_flag = false
+#         break
+#     end
+# end
+
 """
 Trains [`OAR.GramART`](@ref) module on a [`OAR.SomeStatement`](@ref) from the [`OAR.GramART`](@ref)'s grammar.
 
 # Arguments
 - `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the [`OAR.SomeStatement`](@ref).
-- `statement::SomeStatement`: the grammar [`OAR.SomeStatement`](@ref) to process.
+- `statement::SomeStatement`: the grammar [`OAR.SomeStatement`](@ref) to train upon.
+- `y::Integer=0`: optional supervised label as an integer.
 """
 function train!(
     gramart::GramART,
-    # statement::Statement,
     statement::SomeStatement;
     y::Integer=0,
 )
@@ -257,7 +280,13 @@ function train!(
         create_category!(gramart, statement, y_hat)
         # add_node!(gramart)
         # learn!(gramart, statement, 1)
-        return
+        return y_hat
+    end
+
+    # If the label is new, break to make a new category
+    if supervised && !(y in gramart.labels)
+        create_category!(gramart, statement, y)
+        return y
     end
 
     # Compute the activations
@@ -278,6 +307,7 @@ function train!(
             if supervised && (gramart.labels[bmu] != y)
                 break
             end
+            y_hat = gramart.labels[bmu]
             learn!(gramart, statement, bmu)
             gramart.stats["n_instance"][bmu] += 1
             mismatch_flag = false
@@ -292,6 +322,9 @@ function train!(
         create_category!(gramart, statement, y_hat)
         # learn!(gramart, statement, bmu)
     end
+
+    # Return the training label
+    return y_hat
 end
 
 """
@@ -299,12 +332,12 @@ Classifies the [`OAR.Statement`](@ref) into one of [`OAR.GramART`](@ref)'s inter
 
 # Arguments
 - `gramart::GramART`: the [`OAR.GramART`](@ref) to use in classification/inference.
-- `statement::Statement`: the [`OAR.Statement`](@ref) to classify.
+- `statement::SomeStatement`: the [`OAR.SomeStatement`](@ref) to classify.
 - `get_bmu::Bool=false`: optional, whether to get the best matching unit in the case of complete mismatch.
 """
 function classify(
     gramart::GramART,
-    statement::Statement ;
+    statement::SomeStatement ;
     get_bmu::Bool=false,
 )
     # Compute the activations

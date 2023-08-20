@@ -106,49 +106,49 @@ function match(
     return local_sum
 end
 
-"""
-Classifies the [`OAR.TreeNode`](@ref) into one of [`OAR.GramART`](@ref)'s internal categories.
+# """
+# Classifies the [`OAR.TreeNode`](@ref) into one of [`OAR.GramART`](@ref)'s internal categories.
 
-# Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) to use in classification/inference.
-- `statement::TreeNode`: the [`OAR.TreeNode`](@ref) to classify.
-- `get_bmu::Bool=false`: optional, whether to get the best matching unit in the case of complete mismatch.
-"""
-function classify(
-    gramart::GramART,
-    statement::TreeNode ;
-    get_bmu::Bool=false
-)
-    # Compute the activations
-    n_nodes = length(gramart.protonodes)
-    activations = zeros(n_nodes)
-    for ix = 1:n_nodes
-        activations[ix] = activation(gramart.protonodes[ix], statement)
-    end
+# # Arguments
+# - `gramart::GramART`: the [`OAR.GramART`](@ref) to use in classification/inference.
+# - `statement::TreeNode`: the [`OAR.TreeNode`](@ref) to classify.
+# - `get_bmu::Bool=false`: optional, whether to get the best matching unit in the case of complete mismatch.
+# """
+# function classify(
+#     gramart::GramART,
+#     statement::TreeNode ;
+#     get_bmu::Bool=false
+# )
+#     # Compute the activations
+#     n_nodes = length(gramart.protonodes)
+#     activations = zeros(n_nodes)
+#     for ix = 1:n_nodes
+#         activations[ix] = activation(gramart.protonodes[ix], statement)
+#     end
 
-    # Sort by highest activation
-    index = sortperm(activations, rev=true)
+#     # Sort by highest activation
+#     index = sortperm(activations, rev=true)
 
-    # Default is mismatch
-    mismatch_flag = true
-    y_hat = -1
-    for jx in 1:n_nodes
-        bmu = index[jx]
-        # Vigilance check - pass
-        if activations[bmu] >= gramart.opts.rho
-            # Current winner
-            y_hat = bmu
-            mismatch_flag = false
-            break
-        end
-    end
+#     # Default is mismatch
+#     mismatch_flag = true
+#     y_hat = -1
+#     for jx in 1:n_nodes
+#         bmu = index[jx]
+#         # Vigilance check - pass
+#         if activations[bmu] >= gramart.opts.rho
+#             # Current winner
+#             y_hat = bmu
+#             mismatch_flag = false
+#             break
+#         end
+#     end
 
-    # If we did not find a match
-    if mismatch_flag
-        # Report either the best matching unit or the mismatch label -1
-        bmu = index[1]
-        y_hat = get_bmu ? bmu : -1
-    end
+#     # If we did not find a match
+#     if mismatch_flag
+#         # Report either the best matching unit or the mismatch label -1
+#         bmu = index[1]
+#         y_hat = get_bmu ? bmu : -1
+#     end
 
-    return y_hat
-end
+#     return y_hat
+# end

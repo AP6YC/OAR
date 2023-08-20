@@ -59,7 +59,7 @@ df_dict = OAR.load_cmt_dict(data_dict_file)
 
 # Turn the statements into TreeNodes
 ts = OAR.df_to_trees(df, df_dict)
-@info ts[1]
+# @info ts[1]
 
 # Generate a grammart from the statements
 grammar = OAR.CMTCFG(ts)
@@ -70,7 +70,7 @@ gramart = OAR.GramART(
     rho=0.7,    # ~12GB
     terminated=false,
 )
-@info gramart
+# @info gramart
 
 # Process the statements
 @showprogress for tn in ts
