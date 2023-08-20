@@ -69,7 +69,6 @@ sim_params = Dict{String, Any}(
     ))
 )
 
-
 # -----------------------------------------------------------------------------
 # PARALLEL DEFINITIONS
 # -----------------------------------------------------------------------------
@@ -81,7 +80,6 @@ sim_params = Dict{String, Any}(
 
     # Modules
     using OAR
-
 
     # Point to the CSV data file and data definition
     input_file = OAR.data_dir(
@@ -103,17 +101,20 @@ sim_params = Dict{String, Any}(
     # Make the path
     mkpath(sweep_results_dir())
 
-    # Load the CMT disease data file
-    df = OAR.load_cmt(input_file)
+    # # Load the CMT disease data file
+    # df = OAR.load_cmt(input_file)
 
-    # Load the data definition dictionary
-    df_dict = OAR.load_cmt_dict(data_dict_file)
+    # # Load the data definition dictionary
+    # df_dict = OAR.load_cmt_dict(data_dict_file)
 
-    # Turn the statements into TreeNodes
-    ts = OAR.df_to_trees(df, df_dict)
+    # # Turn the statements into TreeNodes
+    # ts = OAR.df_to_trees(df, df_dict)
 
-    # Generate a grammart from the statements
-    grammar = OAR.CMTCFG(ts)
+    # # Generate a grammart from the statements
+    # grammar = OAR.CMTCFG(ts)
+
+    # All-in-one function
+    data, grammmar = OAR.symbolic_iris()
 
     # Generate a simple subject-predicate-object grammar from the statements
     opts = Dict()
@@ -122,7 +123,7 @@ sim_params = Dict{String, Any}(
     # Define the single-parameter function used for pmap
     local_sim(dict) = OAR.tc_gramart(
         dict,
-        ts,
+        data,
         sweep_results_dir,
         opts,
     )

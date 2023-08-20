@@ -104,7 +104,7 @@ $ARG_SIM_OPTS
 """
 function tt_gramart(
     d::AbstractDict,
-    ts::VectoredDataset,
+    data::VectoredDataset,
     dir_func::Function,
     opts::AbstractDict,
 )

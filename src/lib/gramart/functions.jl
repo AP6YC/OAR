@@ -62,7 +62,11 @@ function add_node!(
 )
     # Update the stats counters
     gramart.stats["n_categories"] += 1
+
+    # If we are creating a new cluster altogether, increment that
     new_cluster && (gramart.stats["n_clusters"] += 1)
+
+    # Update the instance count with a new entry
     push!(gramart.stats["n_instance"], 1)
 
     # Create the top node
@@ -101,8 +105,6 @@ function create_category!(
     label::Integer;
     new_cluster::Bool=true,
 )
-    # inc_n_categories!(gramart)
-
     # Instantiate an empty node
     add_node!(gramart, new_cluster=new_cluster)
 

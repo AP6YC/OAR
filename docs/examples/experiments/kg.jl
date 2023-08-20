@@ -1,6 +1,6 @@
 # ---
 # title: Clustering on Knowledge Graphs
-# id: kg-gramart
+# id: kg
 # date: 2023-7-6
 # cover: ../assets/node.png
 # author: "[Sasha Petrenko](https://github.com/AP6YC)"
@@ -34,11 +34,22 @@ grammar = OAR.SPOCFG(statements)
 # Initialize the GramART module
 gramart = OAR.GramART(
     grammar,
-    rho=0.1,
+    rho=0.05,
     terminated=false,
 )
 
-# Process the statements
+# ## Train
+
+# Now we are ready to cluster the statements.
+# We do this with the `train!` function without supervised labels, indicating that we are learning on the samples alone.
+
+## Process the statements
 for statement in statements
     OAR.train!(gramart, statement)
 end
+
+# ## Analysis
+
+# We can see how the clustering went by inspecting how many clusters we generated:
+
+@info "Number of categories: $(length(gramart.protonodes))"
