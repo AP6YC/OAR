@@ -21,3 +21,4 @@ Icons used for the covers of these demo cards are attributed to the following si
 - [Iris icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/iris) ([iris_4139395](https://www.flaticon.com/free-icon/iris_4139395))
 - [Grammar icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/grammar) ([grammar_6749514](https://www.flaticon.com/free-icon/grammar_6749514))
 - [Parsing icons created by Flat Icons - Flaticon](https://www.flaticon.com/free-icons/parsing) ([parse_3344356](https://www.flaticon.com/free-icon/parse_3344356))
+- [Knowledge icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/knowledge" title="knowledge icons) ([knowledge_3930428](https://www.flaticon.com/free-icon/knowledge_3930428))

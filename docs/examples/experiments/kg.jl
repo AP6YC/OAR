@@ -1,8 +1,8 @@
 # ---
-# title: KG and GramART
+# title: Clustering on Knowledge Graphs
 # id: kg-gramart
 # date: 2023-7-6
-# cover: ../assets/grammar.png
+# cover: ../assets/knowledge.png
 # author: "[Sasha Petrenko](https://github.com/AP6YC)"
 # julia: 1.9
 # description: This demo demonstrates how to utilize a GramART module on knowledge graph dataset.

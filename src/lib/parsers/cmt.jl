@@ -320,7 +320,17 @@ function df_to_trees(data::DataFrame, data_dict::DataFrame)
     return statements
 end
 
-function add_subtree_terminals(terminals::Set{GramARTSymbol}, statement::TreeStatement)
+"""
+Recursive function for adding terminal symbols to a set.
+
+# Arguments
+- `terminals::Set{GramARTSymbol}`: the set for adding/tracking all terminals.
+- `statement::TreeStatment`: the current statement being processed.
+"""
+function add_subtree_terminals(
+    terminals::Set{GramARTSymbol},
+    statement::TreeStatement,
+)
     for node in statement.children
         push!(terminals, node.t)
         if !isempty(node.children)
@@ -329,13 +339,26 @@ function add_subtree_terminals(terminals::Set{GramARTSymbol}, statement::TreeSta
             end
         end
     end
+
+    return
 end
 
+"""
+Gets all of the terminal symbols contained in a set of [`OAR.TreeStatements`](@ref).
+
+# Arguments
+- `statements::TreeStatments`: the statements containing terminal symbols.
+"""
 function get_tree_terminals(statements::TreeStatements)
+    # Initialize a set for tracking all terminal symbols.
     terminals = Set{GramARTSymbol}()
+
+    # Recursively add terminals to the set for every statement provided
     for statement in statements
         add_subtree_terminals(terminals, statement)
     end
+
+    # Return the set of all terminals in the statements
     return terminals
 end
 
@@ -350,16 +373,28 @@ end
 #     end
 # end
 
-function get_tree_production_rules(N::Vector{GramARTSymbol}, statements::TreeStatements)
+"""
+Takes a set of nonterminals and a set of statements and returns their corresponding production rules.
+
+# Arguments
+- `N::Vector{GramARTSymbol}`: the nonterminal symbols of the grammar.
+- `statements::TreeStatements`: the statements to infer production rules from.
+"""
+function get_tree_production_rules(
+    N::Vector{GramARTSymbol},
+    statements::TreeStatements,
+)
+    # Initialize the production rule set
     P = ProductionRuleSet{String}()
 
+    # Add an entry in P for every nonterminal in the grammar
     for n in N
         P[n] = ProductionRule{String}()
     end
 
+    # Iterate over the statements, adding terminals to the corresponding nonterminal entries
     n_N = length(N)
     for statement in statements
-        # for node in statement
         for ix = 1:n_N
             node = statement.children[ix]
             if isempty(node.children)
@@ -372,6 +407,7 @@ function get_tree_production_rules(N::Vector{GramARTSymbol}, statements::TreeSta
         end
     end
 
+    # Return the production rules
     return P
 end
 
@@ -379,9 +415,10 @@ end
 Turns a vector of statements in the form of [`OAR.TreeNode`](@ref)s into a CMT disease CFG grammar.
 
 # Arguments
+- `statements::TreeStatements`: the statements to infer the grammar from.
 """
 function CMTCFG(statements::TreeStatements)
-
+    # Init the ordered nonterminals vector
     ordered_nonterminals = Vector{GramARTSymbol}()
 
     for column in CMT_CLUSTERING_COLUMNS

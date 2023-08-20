@@ -199,7 +199,7 @@ function ProtoNodeStats()
 end
 
 """
-Empty constructor for a [`OAR.GramART`](@ref) [`OAR.Protonode`](@ref).
+Empty constructor for a [`OAR.GramART`](@ref) [`OAR.ProtoNode`](@ref).
 """
 function ProtoNode()
     # Construct and return the ProtoNode

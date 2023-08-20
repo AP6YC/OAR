@@ -51,14 +51,13 @@ end
 # end
 
 """
-Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.GramART`](@ref) module.
+Adds an empty node to the end of the [`OAR.GramART`](@ref) module.
 
 # Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) to append a new node to.
+- `gramart::GramART`: the [`OAR.GramART`](@ref) module to append a node to.
 """
-function create_category!(gramart::GramART, statement::SomeStatement, label::Integer)
-    # inc_n_categories!(gramart)
-
+function add_node!(gramart::GramART)
+    # Update the stats counters
     gramart.stats["n_categories"] += 1
     push!(gramart.stats["n_instance"], 1)
 
@@ -82,8 +81,23 @@ function create_category!(gramart::GramART, statement::SomeStatement, label::Int
     # Append the recursively constructed proto node
     push!(gramart.protonodes, top_node)
 
+    # Empty return
+    return
+end
+
+"""
+Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.GramART`](@ref) module.
+
+# Arguments
+- `gramart::GramART`: the [`OAR.GramART`](@ref) to append a new node to.
+"""
+function create_category!(gramart::GramART, statement::SomeStatement, label::Integer)
+    # inc_n_categories!(gramart)
+
+    # Instantiate an empty node
+    add_node!(gramart)
+
     # Learn upon the sample
-    # learn!(gramart, statement, label)
     learn!(gramart, statement, gramart.stats["n_categories"])
 
     push!(gramart.labels, label)
@@ -226,7 +240,7 @@ Trains [`OAR.GramART`](@ref) module on a [`OAR.SomeStatement`](@ref) from the [`
 
 # Arguments
 - `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the [`OAR.SomeStatement`](@ref).
-- `statement::SomeStatement`: the grammar [`OAR.SomeStatment`](@ref) to process.
+- `statement::SomeStatement`: the grammar [`OAR.SomeStatement`](@ref) to process.
 """
 function train!(
     gramart::GramART,

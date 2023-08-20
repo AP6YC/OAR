@@ -77,7 +77,7 @@ end
 # Classify
 clusters = zeros(Int, length(data.test_y))
 @showprogress for ix in eachindex(data.test_x)
-    clusters[ix] = OAR.classify(gramart, data.test_x[ix])
+    clusters[ix] = OAR.classify(gramart, data.test_x[ix], get_bmu=true)
 end
 
 # Calculate testing performance

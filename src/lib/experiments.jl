@@ -109,7 +109,8 @@ function tt_gramart(
     opts::AbstractDict,
 )
     # Initialize the GramART module
-    gramart = OAR.GramART(grammmar)
+    # gramart = OAR.GramART(grammmar)
+    gramart = OAR.GramART(opts["grammmar"])
 
     # Set the vigilance parameter and show
     # gramart.opts.rho = 0.15
@@ -125,13 +126,12 @@ function tt_gramart(
     # Classify
     clusters = zeros(Int, length(data.test_y))
     for ix in eachindex(data.test_x)
-        clusters[ix] = OAR.classify(gramart, data.test_x[ix])
+        clusters[ix] = OAR.classify(gramart, data.test_x[ix], get_bmu=true)
     end
 
     # Calculate testing performance
     perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
 
-    # Logging
     # Copy the input sim dictionary
     fulld = deepcopy(d)
 
