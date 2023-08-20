@@ -10,13 +10,16 @@ grammar = OAR.SPOCFG(statements)
 
 gramart = OAR.GramART(
     grammar,
-    rho=0.1,
+    rho=0.05,
     terminated=false,
 )
 
+# Process the statements
 for statement in statements
     OAR.train!(gramart, statement)
 end
+
+@info "Number of categories: $(length(gramart.protonodes))"
 
 # This file was generated using Literate.jl, https://github.com/fredrikekre/Literate.jl
 
