@@ -57,16 +57,7 @@ pargs = OAR.exp_parse(
 # All-in-one function
 fs, bnf = OAR.symbolic_mushroom()
 
-# Initialize the GramART module
-# gramart = OAR.GramART(bnf)
-
-# Set the vigilance parameter and show
-# gramart.opts.rho = 0.05
-# gramart.opts.rho = 0.1
-# gramart.opts.rho = 0.01
-# gramart.opts.rho_lb = 0.1
-# gramart.opts.rho_ub = 0.0
-
+# Initialize the GramART module with options
 gramart = OAR.GramART(bnf,
     rho = 0.1,
     rho_lb = 0.1,

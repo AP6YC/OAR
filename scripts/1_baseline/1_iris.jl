@@ -57,13 +57,13 @@ pargs = OAR.exp_parse(
 # All-in-one function
 data, grammmar = OAR.symbolic_iris()
 
-# Initialize the GramART module
-gramart = OAR.GramART(grammmar)
-
-# Set the vigilance parameter and show
-gramart.opts.rho = 0.15
-gramart.opts.rho_lb = 0.1
-gramart.opts.rho_ub = 0.25
+# Initialize the GramART module with options
+gramart = OAR.GramART(
+    grammmar,
+    rho = 0.15,
+    rho_lb = 0.1,
+    rho_ub = 0.25,
+)
 
 # Process the statements
 @showprogress for ix in eachindex(data.train_x)
