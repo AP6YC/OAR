@@ -58,22 +58,42 @@ pargs = OAR.exp_parse(
 fs, bnf = OAR.symbolic_mushroom()
 
 # Initialize the GramART module
-gramart = OAR.GramART(bnf)
+# gramart = OAR.GramART(bnf)
 
 # Set the vigilance parameter and show
-gramart.opts.rho = 0.05
+# gramart.opts.rho = 0.05
+# gramart.opts.rho = 0.1
+# gramart.opts.rho = 0.01
+# gramart.opts.rho_lb = 0.1
+# gramart.opts.rho_ub = 0.0
+
+gramart = OAR.GramART(bnf,
+    rho = 0.1,
+    rho_lb = 0.1,
+    rho_ub = 0.3,
+)
 
 # Process the statements
 @showprogress for ix in eachindex(fs.train_x)
     statement = fs.train_x[ix]
     label = fs.train_y[ix]
-    OAR.train!(gramart, statement, y=label)
+    # OAR.train!(
+    OAR.train_dv!(
+        gramart,
+        statement,
+        y=label,
+    )
 end
 
 # Classify
 clusters = zeros(Int, length(fs.test_y))
 @showprogress for ix in eachindex(fs.test_x)
-    clusters[ix] = OAR.classify(gramart, fs.test_x[ix])
+    # clusters[ix] = OAR.classify(
+    clusters[ix] = OAR.classify_dv(
+        gramart,
+        fs.test_x[ix],
+        get_bmu=true,
+    )
 end
 
 # Calculate testing performance

@@ -61,14 +61,16 @@ data, grammmar = OAR.symbolic_iris()
 gramart = OAR.GramART(grammmar)
 
 # Set the vigilance parameter and show
-# gramart.opts.rho = 0.15
-gramart.opts.rho = 0.05
+gramart.opts.rho = 0.15
+gramart.opts.rho_lb = 0.1
+gramart.opts.rho_ub = 0.25
 
 # Process the statements
 @showprogress for ix in eachindex(data.train_x)
     statement = data.train_x[ix]
     label = data.train_y[ix]
-    OAR.train!(gramart, statement, y=label)
+    # OAR.train!(gramart, statement, y=label)
+    OAR.train_dv!(gramart, statement, y=label)
 end
 
 # See the statistics of the first protonode
@@ -77,7 +79,8 @@ end
 # Classify
 clusters = zeros(Int, length(data.test_y))
 @showprogress for ix in eachindex(data.test_x)
-    clusters[ix] = OAR.classify(gramart, data.test_x[ix], get_bmu=true)
+    # clusters[ix] = OAR.classify(gramart, data.test_x[ix], get_bmu=true)
+    clusters[ix] = OAR.classify_dv(gramart, data.test_x[ix], get_bmu=true)
 end
 
 # Calculate testing performance

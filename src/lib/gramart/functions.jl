@@ -215,7 +215,7 @@ function activation(
         local_sum += node.dist[symb]
     end
 
-    local_sum /= length(statement)
+    # local_sum /= length(statement)
 
     # Return the activation sum
     return local_sum
@@ -240,7 +240,7 @@ function match(
         local_sum += node.dist[symb]
     end
 
-    local_sum /= length(statement)
+    # local_sum /= length(statement)
 
     # Return the match sum
     return local_sum

@@ -86,7 +86,7 @@ end
     """
     Upper bound vigilance parameter: rho_ub ∈ [0, 1].
     """
-    rho_ub = 0.75; @assert rho_ub >= 0.0 && rho_ub <= 1.0
+    rho_ub = 0.75; @assert rho_ub >= 0.0 && rho_ub <= 1.0 && rho_ub > rho_lb
 
     """
     Choice parameter: alpha > 0.

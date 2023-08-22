@@ -74,7 +74,7 @@ function train_dv!(
             gramart.stats["n_instance"][bmu] += 1
             mismatch_flag = false
             break
-        elseif activations[bmu] >= gramrt.opts.rho_lb
+        elseif activations[bmu] >= gramart.opts.rho_lb
             # Update sample labels
             y_hat = supervised ? y : gramart.labels[bmu]
             # Create a new category in the same cluster
@@ -124,7 +124,8 @@ function classify_dv(
     for jx in 1:n_nodes
         bmu = index[jx]
         # Vigilance check - pass
-        if activations[bmu] >= gramart.opts.rho
+        # if activations[bmu] >= gramart.opts.rho
+        if activations[bmu] >= gramart.opts.rho_ub
             # Current winner
             # y_hat = bmu
             y_hat = gramart.labels[bmu]
