@@ -59,7 +59,7 @@ fs, bnf = OAR.symbolic_mushroom()
 
 # Initialize the GramART module with options
 gramart = OAR.GramART(bnf,
-    rho = 0.1,
+    rho = 0.6,
     rho_lb = 0.1,
     rho_ub = 0.3,
 )
@@ -68,8 +68,8 @@ gramart = OAR.GramART(bnf,
 @showprogress for ix in eachindex(fs.train_x)
     statement = fs.train_x[ix]
     label = fs.train_y[ix]
-    # OAR.train!(
-    OAR.train_dv!(
+    OAR.train!(
+    # OAR.train_dv!(
         gramart,
         statement,
         y=label,
@@ -79,8 +79,8 @@ end
 # Classify
 clusters = zeros(Int, length(fs.test_y))
 @showprogress for ix in eachindex(fs.test_x)
-    # clusters[ix] = OAR.classify(
-    clusters[ix] = OAR.classify_dv(
+    clusters[ix] = OAR.classify(
+    # clusters[ix] = OAR.classify_dv(
         gramart,
         fs.test_x[ix],
         get_bmu=true,

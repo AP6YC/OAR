@@ -410,10 +410,13 @@ end
 
 """
 Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from the Mushroom dataset.
+
+# Arguments
+- `filename::AbstractString=data_dir("mushroom", "mushrooms.csv")`: the location of the file to load with a default value.
 """
-function symbolic_mushroom()
+function symbolic_mushroom(filename::AbstractString=data_dir("mushroom", "mushrooms.csv"))
     # Load the data and cast to a dataframe
-    filename = data_dir("mushroom", "mushrooms.csv")
+    # filename = data_dir("mushroom", "mushrooms.csv")
     df = DataFrame(CSV.File(filename))
 
     # Create a grammar, set of statements, and target labels from the dataframe
