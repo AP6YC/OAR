@@ -63,24 +63,69 @@ function save_plot(
 end
 
 """
+Computes the sliding window average of a vector with window size `n`.
+
+# Arguments
+- `vs::RealVector`: the original vector for sliding window averages.
+- `n::Integer`: the size of the sliding window.
+"""
+function sliding_avg(vs::RealVector, n::Integer)
+    # Construct and return the sliding window average
+    return [
+        sum(@view vs[i:(i+n-1)])/n for i in 1:(length(vs)-(n-1))
+    ]
+end
+
+"""
+Constructs a windowed matrix of a vector.
+
+# Arguments
+- `vs::RealVector`: the original vector.
+- `n::Integer`: the size of the sliding window.
+"""
+function get_windows(vs::RealVector, n::Integer)
+    # Compute the size of the window
+    n_window = length(vs) - n + 1
+
+    # Initialize the windowed matrix version of the input vector
+    local_window = zeros(n, n_window)
+
+    # Construct a windowed version of vector at each index of n_window
+    for ix = 1:n_window
+        local_window[:, ix] = vs[ix:(ix + n - 1)]
+    end
+
+    # Return the windowed matrix version of the vector
+    return local_window
+end
+
+"""
 Generates the plot for the cluster statistics.
 
 # Arguments
-- `df::DataFrame`
+- `df::DataFrame`: the dataframe with the clusters vs. rho to plot.
+- `avg::Bool=false`: flag for using the sliding average procedure.
+- `err::Bool=false`: flag for using a StatsPlots `errorline!`.
+- `n::Integer=10`: used if `avg` is high, the size of the sliding window.
 """
-function cluster_stats_plot(df::DataFrame)
+function cluster_stats_plot(
+    df::DataFrame;
+    avg::Bool=false,
+    err::Bool=false,
+    n::Integer=10,
+)
     # Number of rows in the dataframe
-    n = size(df)[1]
+    n_rows = size(df)[1]
 
     # 1. Number of clusters
-    n_cluster = zeros(Int, n)
+    n_cluster = zeros(Int, n_rows)
     # 2. Maximum number samples in any one cluster
-    max_membership = zeros(Int, n)
+    max_membership = zeros(Int, n_rows)
     # 3. Number of clusters with only one member
-    n_one = zeros(Int, n)
+    n_one = zeros(Int, n_rows)
     # Compute the values for each row
     # for row in eachrow(df)
-    for ix = 1:n
+    for ix = 1:n_rows
         # Local cluster assignments
         # lc = row[:clusters]
         lc = df[ix, :clusters]
@@ -110,21 +155,48 @@ function cluster_stats_plot(df::DataFrame)
         n_one[ix] = n_with_one
     end
 
-    # Plot each attribute
-    p = plot()
+    attrs = (
+        (n_cluster, "n_cluster"),
+        (max_membership, "max_membership"),
+        (n_one, "n_one"),
+    )
     xs = df[:, :rho]
-    plot!(p, xs,
-        n_cluster,
-        label="n_cluster",
+    p = plot(
+        dpi = DPI,
     )
-    plot!(p, xs,
-        max_membership,
-        label="max_membership",
-    )
-    plot!(p, xs,
-        n_one,
-        label="n_one",
-    )
+
+    # Plot each attribute
+    for (data, label) in attrs
+        if err
+            # Point to the the x and y of the plot
+            local_x = xs[1:end - n + 1]
+            local_y = transpose(get_windows(data, n))
+            errorline!(p,
+                local_x,
+                local_y,
+                label = label,
+                linewidth = LINEWIDTH,
+                color_palette = COLORSCHEME,
+                errorstyle = :ribbon,
+            )
+        else
+            # If selected, do the windowed averaging procedure
+            if avg
+                local_x = xs[1:end-n+1]
+                local_y = sliding_avg(data, n)
+            else
+                local_x = xs
+                local_y = data
+            end
+            plot!(p,
+                local_x,
+                local_y,
+                label = label,
+                linewidth = LINEWIDTH,
+                color_palette = COLORSCHEME,
+            )
+        end
+    end
 
     # Display the plot
     isinteractive() && display(p)

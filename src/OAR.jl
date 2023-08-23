@@ -47,7 +47,8 @@ using
     Parameters,             # @with_kw
     Pkg,                    # Version
     Plots,                  # Plot
-    Random                  # seed!
+    Random,                 # seed!
+    StatsPlots
 
 # Precompile concrete type methods
 using PrecompileSignatures: @precompile_signatures
