@@ -108,6 +108,7 @@ function tt_gramart(
     dir_func::Function,
     opts::AbstractDict,
 )
+    try
     # Initialize the GramART module
     # gramart = OAR.GramART(grammmar)
     gramart = OAR.GramART(opts["grammmar"])
@@ -140,10 +141,10 @@ function tt_gramart(
     fulld["n_cat"] = gramart.stats["n_categories"]
 
     # Save the results
-    try
-        save_sim(dir_func, d, fulld)
+    save_sim(dir_func, d, fulld)
+
     catch
-        @warn "Failed to save sim from worker $(myid())"
+        @warn "Failed to run sim from worker $(myid())"
     end
 
     return
