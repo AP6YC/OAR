@@ -156,13 +156,20 @@ function cluster_stats_plot(
     end
 
     attrs = (
-        (n_cluster, "n_cluster"),
-        (max_membership, "max_membership"),
-        (n_one, "n_one"),
+        (n_cluster, "Number of clusters"),
+        (max_membership, "Maximum cluster size"),
+        (n_one, "Clusters with one member"),
     )
     xs = df[:, :rho]
     p = plot(
         dpi = DPI,
+        xlim = (0.0, 1.0),
+        title = "Vigilance ρ vs. Clustering Attribute",
+        xlabel = "ρ",
+        ylabel = "Count",
+        legend = :outertopright,
+        size = (1000, 400),
+        # legend = :bottomleft,
     )
 
     # Plot each attribute

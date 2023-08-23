@@ -84,4 +84,6 @@ p1 = OAR.cluster_stats_plot(
     err=true,
     n=50,
 )
+
+# Save the plot
 OAR.save_plot(p1, clusters_plot_filename, exp_top, exp_name)
