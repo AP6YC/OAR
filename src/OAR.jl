@@ -46,6 +46,7 @@ using
     NumericalTypeAliases,   # RealMatrix, IntegerVector, etc.
     Parameters,             # @with_kw
     Pkg,                    # Version
+    Plots,                  # Plot
     Random                  # seed!
 
 # Precompile concrete type methods

@@ -71,3 +71,10 @@ end
 
 # Save the clustered statements to a CSV file
 OAR.save_dataframe(out_df, output_file)
+
+# -----------------------------------------------------------------------------
+# PLOT CATEGORIES
+# -----------------------------------------------------------------------------
+
+# Generate the categories plot
+p = OAR.cluster_stats_plot(df)
