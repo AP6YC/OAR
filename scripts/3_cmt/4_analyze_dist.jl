@@ -83,6 +83,8 @@ p1 = OAR.cluster_stats_plot(
     avg=true,
     err=true,
     n=50,
+    # xlim=(0.5, 1.0),
+    xlim=(0.4, 1.0),
 )
 
 # Save the plot

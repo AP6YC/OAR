@@ -113,6 +113,7 @@ function cluster_stats_plot(
     avg::Bool=false,
     err::Bool=false,
     n::Integer=10,
+    xlim=(0.0, 1.0),
 )
     # Number of rows in the dataframe
     n_rows = size(df)[1]
@@ -158,18 +159,18 @@ function cluster_stats_plot(
     attrs = (
         (n_cluster, "Number of clusters"),
         (max_membership, "Maximum cluster size"),
-        (n_one, "Clusters with one member"),
+        (n_one, "Singleton Clusters"),
     )
     xs = df[:, :rho]
     p = plot(
-        dpi = DPI,
-        xlim = (0.0, 1.0),
-        title = "Vigilance ρ vs. Clustering Attribute",
-        xlabel = "ρ",
-        ylabel = "Count",
-        legend = :outertopright,
-        size = (1000, 400),
-        # legend = :bottomleft,
+        # dpi = DPI,
+        # xlim = xlim,
+        # title = "Vigilance ρ vs. Clustering Attribute",
+        # xlabel = "ρ",
+        # ylabel = "Count",
+        # legend = :outertopright,
+        # size = (1000, 400),
+        # # legend = :bottomleft,
     )
 
     # Plot each attribute
@@ -204,6 +205,26 @@ function cluster_stats_plot(
             )
         end
     end
+
+    vline!(p,
+        [0.6],
+        linewidth=LINEWIDTH,
+        linestyle = :dash,
+        # label=""
+    )
+
+    plot!(p,
+        dpi = DPI,
+        xlim = xlim,
+        # title = "Vigilance ρ vs. Clustering Attribute",
+        xlabel = "Vigilance Parameter ρ",
+        ylabel = "Count",
+        # legend = :outertopright,
+        legend = :topright,
+        size = (1000, 500),
+        margin= 5Plots.mm
+        # legend = :bottomleft,
+    )
 
     # Display the plot
     isinteractive() && display(p)
