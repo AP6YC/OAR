@@ -56,44 +56,47 @@ pargs = OAR.exp_parse(
 # -----------------------------------------------------------------------------
 
 # All-in-one function
-fs, bnf = OAR.symbolic_lung_cancer()
+# fs, bnf = OAR.symbolic_lung_cancer()
+filename = OAR.data_dir("data-package", "face.csv")
+data, grammar = OAR.symbolic_dataset(filename)
 
 # Initialize the GramART module with options
-gramart = OAR.GramART(bnf,
+gramart = OAR.GramART(grammar,
     # rho = 0.6,
     rho = 0.3,
-    # rho = 0.00000000001,
     rho_lb = 0.1,
     rho_ub = 0.3,
 )
 
-# Process the statements
-@showprogress for ix in eachindex(fs.train_x)
-    statement = fs.train_x[ix]
-    label = fs.train_y[ix]
-    OAR.train!(
-    # OAR.train_dv!(
-        gramart,
-        statement,
-        y=label,
-    )
-end
+OAR.tt_serial(gramart, data)
 
-# Classify
-clusters = zeros(Int, length(fs.test_y))
-@showprogress for ix in eachindex(fs.test_x)
-    clusters[ix] = OAR.classify(
-    # clusters[ix] = OAR.classify_dv(
-        gramart,
-        fs.test_x[ix],
-        get_bmu=true,
-    )
-end
+# # Process the statements
+# @showprogress for ix in eachindex(fs.train_x)
+#     statement = fs.train_x[ix]
+#     label = fs.train_y[ix]
+#     OAR.train!(
+#     # OAR.train_dv!(
+#         gramart,
+#         statement,
+#         y=label,
+#     )
+# end
 
-# Calculate testing performance
-perf = OAR.AdaptiveResonance.performance(fs.test_y, clusters)
+# # Classify
+# clusters = zeros(Int, length(fs.test_y))
+# @showprogress for ix in eachindex(fs.test_x)
+#     clusters[ix] = OAR.classify(
+#     # clusters[ix] = OAR.classify_dv(
+#         gramart,
+#         fs.test_x[ix],
+#         get_bmu=true,
+#     )
+# end
 
-# Logging
-@info "Final performance: $(perf)"
-@info "n_categories: $(gramart.stats["n_categories"])"
-# @info "n_instance: $(gramart.stats["n_instance"])"
+# # Calculate testing performance
+# perf = OAR.AdaptiveResonance.performance(fs.test_y, clusters)
+
+# # Logging
+# @info "Final performance: $(perf)"
+# @info "n_categories: $(gramart.stats["n_categories"])"
+# # @info "n_instance: $(gramart.stats["n_instance"])"

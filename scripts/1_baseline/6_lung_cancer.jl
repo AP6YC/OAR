@@ -56,13 +56,12 @@ pargs = OAR.exp_parse(
 # -----------------------------------------------------------------------------
 
 # All-in-one function
-data, bnf = OAR.symbolic_lung_cancer()
+data, grammar = OAR.symbolic_lung_cancer()
 
 # Initialize the GramART module with options
-gramart = OAR.GramART(bnf,
+gramart = OAR.GramART(grammar,
     # rho = 0.6,
     rho = 0.3,
-    # rho = 0.00000000001,
     rho_lb = 0.1,
     rho_ub = 0.3,
 )

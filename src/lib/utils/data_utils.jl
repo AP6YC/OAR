@@ -200,6 +200,31 @@ function get_mldata(mldataset::Symbol, download_local::Bool=false)
     return data
 end
 
+function DataSplit(
+    features,
+    labels;
+    p::Float=0.7,
+    shuffle::Bool=true,
+)
+    if shuffle
+        ls, ll = shuffleobs((features, labels))
+    else
+        ls, ll = (features, labels)
+    end
+
+    # Create a train/test split
+    (X_train, y_train), (X_test, y_test) = splitobs((ls, ll); at=p)
+
+
+    # Create and return a single container for this train/test split
+    return DataSplit(
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+    )
+end
+
 """
 Loads the Iris dataset and returns a [`OAR.DataSplit`](@ref).
 
@@ -214,21 +239,13 @@ function tt_real(mldataset::Symbol; download_local::Bool=false)
     features = Matrix(data.features)'
     if eltype(data.targets[:, 1]) <: AbstractString
         labels = vec(Matrix{String}(data.targets))
-        # Because the MLDatasets package gives us Iris labels as strings, we will use the `MLDataUtils.convertlabel` method with the `MLLabelUtils.LabelEnc.Indices` type to get a list of integers representing each class:
-        labels = convertlabel(LabelEnc.Indices{Int}, labels)
+        # labels = convertlabel(LabelEnc.Indices{Int}, labels)
+        labels = OAR.integer_encoding(labels)
     else
         labels = data.targets[:, 1]
     end
-    # Next, we will create a train/test split with the `MLDataUtils.stratifiedobs` utility:
-    (X_train, y_train), (X_test, y_test) = stratifiedobs((features, labels))
 
-    # Create and return a single container for this train/test split
-    return DataSplit(
-        X_train,
-        X_test,
-        y_train,
-        y_test,
-    )
+    return DataSplit(features, labels)
 end
 
 """
@@ -386,8 +403,6 @@ function symbolic_wine(;bins::Int=10, download_local::Bool=false)
     return statements, grammar
 end
 
-
-
 """
 Convert a dataframe into a ordered vector of nonterminals, simple statements in those positions, and their labels.
 
@@ -477,6 +492,31 @@ function CFG_from_df(df::DataFrame, label::Symbol=:class, ignores::Vector{Symbol
     return grammar, statements, int_labels
 end
 
+function DataSplitGeneric(
+    statements,
+    labels;
+    p::Float=0.7,
+    shuffle::Bool=true,
+)
+
+    if shuffle
+        ls, ll = shuffleobs((statements, labels))
+    else
+        ls, ll = (statements, labels)
+    end
+
+    # Create a train/test split
+    (X_train, y_train), (X_test, y_test) = splitobs((ls, ll); at=p)
+
+    # Create a container for the train/test split
+    return DataSplitGeneric(
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+    )
+end
+
 """
 Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from the Mushroom dataset.
 
@@ -491,16 +531,8 @@ function symbolic_mushroom(filename::AbstractString=data_dir("mushroom", "mushro
     # Create a grammar, set of statements, and target labels from the dataframe
     grammar, statements, labels = CFG_from_df(df, :class)
 
-    # Create a train/test split
-    (X_train, y_train), (X_test, y_test) = stratifiedobs((statements, labels))
-
     # Create a container for the train/test split
-    data = DataSplitGeneric(
-        X_train,
-        X_test,
-        y_train,
-        y_test,
-    )
+    data = DataSplitGeneric(statements, labels)
 
     # Return the statements and grammar together
     return data, grammar
@@ -520,17 +552,36 @@ function symbolic_lung_cancer(filename::AbstractString=data_dir("lung-cancer", "
     # Create a grammar, set of statements, and target labels from the dataframe
     grammar, statements, labels = CFG_from_df(df, :Level, [:index, :PatientId], stringify=true)
 
-    # Create a train/test split
-    (X_train, y_train), (X_test, y_test) = stratifiedobs((statements, labels))
-
     # Create a container for the train/test split
-    data = DataSplitGeneric(
-        X_train,
-        X_test,
-        y_train,
-        y_test,
-    )
+    data = DataSplitGeneric(statements, labels)
 
     # Return the statements and grammar together
     return data, grammar
+end
+
+"""
+Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from the provided CSV dataset.
+
+# Arguments
+- `filename::AbstractString=data_dir("mushroom", "mushrooms.csv")`: the location of the file to load with a default value.
+"""
+function symbolic_dataset(filename::AbstractString, bins::Int=10)
+    # Load the data
+    data = readdlm(filename, ',', header=false)
+
+    # Declare the names for the nonterminal symbols
+    N = ["A", "B"]
+
+    # Get the features and labels
+    features = data[:, 1:2]'
+    labels = Vector{Int}(data[:, 3])
+
+    # Create a DataSplit
+    ds = DataSplit(features, labels)
+
+    # Create the symbolic version of the data
+    statements, grammar = OAR.real_to_symb(ds, N, bins=bins)
+
+    # Return the statements and grammar
+    return statements, grammar
 end

@@ -36,9 +36,10 @@ using
     ArgParse,               # ArgParseSettings
     CSV,                    # CSV.File(...)
     DataFrames,             # DataFrame
+    DelimitedFiles,         # readdlm
     Distributed,            # myid()
     MLDatasets,             # Iris dataset
-    MLDataUtils,            # # Data utilities, splitting, etc.
+    MLUtils,                # Data utilities, splitting, etc.
     DocStringExtensions,    # Docstring utilities
     DrWatson,               # Project directory utilities
     InvertedIndices,        # Not()
