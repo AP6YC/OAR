@@ -559,13 +559,9 @@ function symbolic_lung_cancer(filename::AbstractString=data_dir("lung-cancer", "
     return data, grammar
 end
 
-# letter_dict = Dict(
-#     1 => "A",
-#     2 => "B",
-#     3 => "C",
-#     4 => "D",
-# )
-
+"""
+Vector of alphabetical letters as Strings for discretized feature labels.
+"""
 const letter_vec = string.(collect('A':'Z'))
 
 """
@@ -581,13 +577,10 @@ function symbolic_dataset(filename::AbstractString, bins::Int=10)
     n_features = size(data)[2] - 1
 
     # Declare the names for the nonterminal symbols
-    # N = ["A", "B"]
     N = letter_vec[1:n_features]
 
     # Get the features and labels
-    # features = data[:, 1:2]'
     features = data[:, 1:n_features]'
-    # labels = Vector{Int}(data[:, 3])
     labels = Vector{Int}(data[:, end])
 
     # Create a DataSplit

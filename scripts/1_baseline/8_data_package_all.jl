@@ -52,17 +52,20 @@ pargs = OAR.exp_parse(
 )
 
 # -----------------------------------------------------------------------------
-# MUSHROOM DATASET
+# ALL REAL DATASETS
 # -----------------------------------------------------------------------------
 
-# Load the symbolic data and grammar
-
+# Point to the top of the data package directory
 topdir =  OAR.data_dir("data-package")
 
+# Walk the directory
 for (root, dirs, files) in walkdir(topdir)
+    # Iterate over all of the files
     for file in files
-        # filename = OAR.data_dir("data-package", "face.csv")
+        # Get the full filename for the current data file
         filename = joinpath(root, file)
+
+        # Load the symbolic data and grammar
         data, grammar = OAR.symbolic_dataset(filename)
 
         # Initialize the GramART module with options
@@ -73,20 +76,7 @@ for (root, dirs, files) in walkdir(topdir)
             rho_ub = 0.3,
         )
 
-        @info "------- $(file) -------"
+        @info "---------- $(file) ----------"
         OAR.tt_serial(gramart, data)
     end
 end
-
-# filename = OAR.data_dir("data-package", "face.csv")
-# data, grammar = OAR.symbolic_dataset(filename)
-
-# # Initialize the GramART module with options
-# gramart = OAR.GramART(grammar,
-#     # rho = 0.6,
-#     rho = 0.3,
-#     rho_lb = 0.1,
-#     rho_ub = 0.3,
-# )
-
-# OAR.tt_serial(gramart, data)
