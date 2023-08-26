@@ -2,16 +2,16 @@
 using
     OAR,                # This project
     MLDatasets,         # Iris dataset
-    MLDataUtils         # Data utilities, splitting, etc.
+    MLUtils             # Data utilities, splitting, etc.
 
 iris = Iris()
 
 features, labels = Matrix(iris.features)', vec(Matrix{String}(iris.targets))
 
-labels = convertlabel(LabelEnc.Indices{Int}, labels)
+labels = OAR.integer_encoding(labels)
 unique(labels)
 
-(X_train, y_train), (X_test, y_test) = stratifiedobs((features, labels))
+(X_train, y_train), (X_test, y_test) = splitobs((features, labels))
 
 data = OAR.DataSplit(X_train, X_test, y_train, y_test)
 
