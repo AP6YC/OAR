@@ -34,3 +34,4 @@ const COLORSCHEME = :okabe_ito
 Plotting fontfamily for all text.
 """
 const FONTFAMILY = "Computer Modern"
+# const FONTFAMILY = (30, "Computer Modern")

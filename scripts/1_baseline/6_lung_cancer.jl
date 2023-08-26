@@ -1,8 +1,8 @@
 """
-    4_mushroom_dist.jl
+    6_lung_cancer.jl
 
 # Description
-This script shows how to use a GramART to cluster on the Mushroom dataset.
+This script shows how to use a GramART to cluster on the Lung Cancer dataset.
 
 # Attribution
 
@@ -39,7 +39,7 @@ using ProgressMeter
 # -----------------------------------------------------------------------------
 
 exp_top = "1_baseline"
-exp_name = "4_mushroom_dist"
+exp_name = "6_lung_cancer.jl"
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -55,25 +55,36 @@ pargs = OAR.exp_parse(
 # -----------------------------------------------------------------------------
 
 # All-in-one function
-fs, bnf = OAR.symbolic_mushroom()
+fs, bnf = OAR.symbolic_lung_cancer()
 
-# Initialize the GramART module
-gramart = OAR.GramART(bnf)
-
-# Set the vigilance parameter and show
-gramart.opts.rho = 0.05
+# Initialize the GramART module with options
+gramart = OAR.GramART(bnf,
+    rho = 0.6,
+    rho_lb = 0.1,
+    rho_ub = 0.3,
+)
 
 # Process the statements
 @showprogress for ix in eachindex(fs.train_x)
     statement = fs.train_x[ix]
     label = fs.train_y[ix]
-    OAR.train!(gramart, statement, y=label)
+    OAR.train!(
+    # OAR.train_dv!(
+        gramart,
+        statement,
+        y=label,
+    )
 end
 
 # Classify
 clusters = zeros(Int, length(fs.test_y))
 @showprogress for ix in eachindex(fs.test_x)
-    clusters[ix] = OAR.classify(gramart, fs.test_x[ix])
+    clusters[ix] = OAR.classify(
+    # clusters[ix] = OAR.classify_dv(
+        gramart,
+        fs.test_x[ix],
+        get_bmu=true,
+    )
 end
 
 # Calculate testing performance

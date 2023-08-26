@@ -180,24 +180,45 @@ function VectoredDataSplit(data::DataSplit)
 end
 
 """
+Wrapper for downloading and/or loading a dataset from MLDatasets.
+
+# Arguments
+- `mldataest::Symbol`: the symbolic name of the MLDataset to download/load.
+- `download_local::Bool=false`: default false, flag to download the dataset to the local cache directory.
+"""
+function get_mldata(mldataset::Symbol, download_local::Bool=false)
+    # Load the Iris dataset from MLDatasets
+    if download_local
+        local_dir = OAR.data_dir("downloads")
+        # iris = Iris(dir=local_dir)
+        data = eval(mldataset)(dir=local_dir)
+    else
+        # iris = Iris()
+        data = eval(mldataset)()
+    end
+
+    return data
+end
+
+"""
 Loads the Iris dataset and returns a [`OAR.DataSplit`](@ref).
 
 # Arguments
 - `download_local::Bool=false`: optional (default false), to download the Iris dataset to the local datadir.
 """
-function iris_tt_real(;download_local::Bool=false)
-    # Load the Iris dataset from MLDatasets
-    if download_local
-        local_dir = OAR.data_dir("downloads")
-        iris = Iris(dir=local_dir)
-    else
-        iris = Iris()
-    end
-    # Manipulate the features and labels into a matrix of features and a vector of labels
-    features, labels = Matrix(iris.features)', vec(Matrix{String}(iris.targets))
-    # Because the MLDatasets package gives us Iris labels as strings, we will use the `MLDataUtils.convertlabel` method with the `MLLabelUtils.LabelEnc.Indices` type to get a list of integers representing each class:
-    labels = convertlabel(LabelEnc.Indices{Int}, labels)
+function tt_real(mldataset::Symbol; download_local::Bool=false)
+    # Load the dataset from MLDatasets
+    data = get_mldata(mldataset, download_local)
 
+    # Manipulate the features and labels into a matrix of features and a vector of labels
+    features = Matrix(data.features)'
+    if eltype(data.targets[:, 1]) <: AbstractString
+        labels = vec(Matrix{String}(data.targets))
+        # Because the MLDatasets package gives us Iris labels as strings, we will use the `MLDataUtils.convertlabel` method with the `MLLabelUtils.LabelEnc.Indices` type to get a list of integers representing each class:
+        labels = convertlabel(LabelEnc.Indices{Int}, labels)
+    else
+        labels = data.targets[:, 1]
+    end
     # Next, we will create a train/test split with the `MLDataUtils.stratifiedobs` utility:
     (X_train, y_train), (X_test, y_test) = stratifiedobs((features, labels))
 
@@ -314,7 +335,8 @@ Quickly generates a [`OAR.VectoredDataSplit`] of the symbolic Iris dataset.
 """
 function symbolic_iris(;bins::Int=10, download_local::Bool=false)
     # Load the Iris DataSplit
-    data = OAR.iris_tt_real(download_local=download_local)
+    # data = OAR.iris_tt_real(download_local=download_local)
+    data = OAR.tt_real(:Iris, download_local=download_local)
 
     # Declare the names for the nonterminal symbols
     N = [
@@ -329,14 +351,53 @@ function symbolic_iris(;bins::Int=10, download_local::Bool=false)
 end
 
 """
+Quickly generates a [`OAR.VectoredDataSplit`] of the symbolic Wine dataset.
+
+# Arguments
+- `bins::Int=10`: optional, the number of symbols to descretize the real-valued data to.
+- `download_local::Bool=false`: optional (default false), to download the Wine dataset to the local datadir.
+"""
+function symbolic_wine(;bins::Int=10, download_local::Bool=false)
+    # Load the Iris DataSplit
+    data = OAR.tt_real(:Wine, download_local=download_local)
+
+    # Declare the names for the nonterminal symbols
+    # N = names(data.features)
+    N = [
+        "Alcohol"
+        "Malic.acid"
+        "Ash"
+        "Acl"
+        "Mg"
+        "Phenols"
+        "Flavanoids"
+        "Nonflavanoid.phenols"
+        "Proanth"
+        "Color.int"
+        "Hue"
+        "OD"
+        "Proline"
+    ]
+
+    # Create the symbolic version of the data
+    statements, grammar = OAR.real_to_symb(data, N, bins=bins)
+
+    # Return the statements and grammar together
+    return statements, grammar
+end
+
+
+
+"""
 Convert a dataframe into a ordered vector of nonterminals, simple statements in those positions, and their labels.
 
 # Arguments
 - `df::DataFrame`: the dataframe containing rows corresponding to simple statements.
 - `label::Symbol=:class`: the symbolic name of the column corresponding to the target labels.
 """
-function df_to_statements(df::DataFrame, label::Symbol=:class)
-    clean_df = df[:, Not(label)]
+function df_to_statements(df::DataFrame, label::Symbol=:class, ignores::Vector{Symbol}=Vector{Symbol}(); stringify::Bool=false)
+    # clean_df = df[:, Not(label)]
+    clean_df = df[:, Not(label, ignores...)]
     nts = names(clean_df)
     ordered_nonterminals = Vector{GSymbol{String}}()
     for name in nts
@@ -346,8 +407,16 @@ function df_to_statements(df::DataFrame, label::Symbol=:class)
     statements = Statements{String}()
     for row in eachrow(clean_df)
         local_statement = Statement{String}()
-        for el in row
-            push!(local_statement, GSymbol(String(el), true))
+        # for el in row
+        for name in nts
+            el = row[name]
+            # @info el
+            if stringify
+                local_string = String(name * string(el))
+            else
+                local_string = String(el)
+            end
+            push!(local_statement, GSymbol(local_string, true))
         end
         push!(statements, local_statement)
     end
@@ -381,9 +450,9 @@ Constructs a context-free grammar from a dataframe.
 - `df::DataFrame`: the dataframe to turn into a [`OAR.CFG`](@ref) grammar, statements, and their labels.
 - `label::Symbol=:class`: the symbolic name of the column of the DataFrame belonging to the target labels.
 """
-function CFG_from_df(df::DataFrame, label::Symbol=:class)
+function CFG_from_df(df::DataFrame, label::Symbol=:class, ignores::Vector{Symbol} = Vector{Symbol}(); stringify::Bool=false)
     # Declare that the SPO CFG grammar has only the following nonterminals
-    ordered_nonterminals, statements, labels = df_to_statements(df, label)
+    ordered_nonterminals, statements, labels = df_to_statements(df, label, ignores, stringify=stringify)
 
     # Create a set of the ordered nonterminals
     N = Set(ordered_nonterminals)
@@ -421,6 +490,35 @@ function symbolic_mushroom(filename::AbstractString=data_dir("mushroom", "mushro
 
     # Create a grammar, set of statements, and target labels from the dataframe
     grammar, statements, labels = CFG_from_df(df, :class)
+
+    # Create a train/test split
+    (X_train, y_train), (X_test, y_test) = stratifiedobs((statements, labels))
+
+    # Create a container for the train/test split
+    data = DataSplitGeneric(
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+    )
+
+    # Return the statements and grammar together
+    return data, grammar
+end
+
+"""
+Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from the Lung Cancer dataset.
+
+# Arguments
+- `filename::AbstractString=data_dir("lung-cancer", "lung-cancer.csv")`: the location of the file to load with a default value.
+"""
+function symbolic_lung_cancer(filename::AbstractString=data_dir("lung-cancer", "lung-cancer.csv"))
+    # Load the data and cast to a dataframe
+    # filename = data_dir("mushroom", "mushrooms.csv")
+    df = DataFrame(CSV.File(filename))
+
+    # Create a grammar, set of statements, and target labels from the dataframe
+    grammar, statements, labels = CFG_from_df(df, :Level, [:index, :PatientId], stringify=true)
 
     # Create a train/test split
     (X_train, y_train), (X_test, y_test) = stratifiedobs((statements, labels))

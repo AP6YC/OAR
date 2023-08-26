@@ -1,8 +1,8 @@
 """
-    1_iris.jl
+    3_iris_dist.jl
 
 # Description
-This script shows how to use a GramART to cluster on the Iris dataset.
+Distributed simulations with START on the Iris dataset.
 
 # Attribution
 
@@ -38,7 +38,7 @@ using DrWatson
 # -----------------------------------------------------------------------------
 
 exp_top = "1_baseline"
-exp_name = "1_iris.jl"
+exp_name = "3_iris_dist"
 config_file = "iris_sweep.yml"
 
 # -----------------------------------------------------------------------------

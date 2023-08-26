@@ -113,7 +113,8 @@ function cluster_stats_plot(
     avg::Bool=false,
     err::Bool=false,
     n::Integer=10,
-    xlim=(0.0, 1.0),
+    fontsize::Integer=10,
+    kwargs...,
 )
     # Number of rows in the dataframe
     n_rows = size(df)[1]
@@ -162,15 +163,23 @@ function cluster_stats_plot(
         (n_one, "Singleton Clusters"),
     )
     xs = df[:, :rho]
+
+    # Create the plot
     p = plot(
-        # dpi = DPI,
-        # xlim = xlim,
+        dpi = DPI,
+        titlefontsize=fontsize,
+        tickfontsize=fontsize,
+        legendfontsize=fontsize,
+        guidefontsize=fontsize,
+        legendtitlefontsize=fontsize,
+        # scalefontsizes=fontsize,
         # title = "Vigilance ρ vs. Clustering Attribute",
-        # xlabel = "ρ",
-        # ylabel = "Count",
-        # legend = :outertopright,
-        # size = (1000, 400),
-        # # legend = :bottomleft,
+        fontfamily=FONTFAMILY,
+    )
+
+    # Add the pass-through plots kwargs
+    plot!(p;
+        kwargs...
     )
 
     # Plot each attribute
@@ -206,28 +215,18 @@ function cluster_stats_plot(
         end
     end
 
+    # Add the vline for the preselected rho value
     vline!(p,
         [0.6],
         linewidth=LINEWIDTH,
         linestyle = :dash,
-        # label=""
-    )
-
-    plot!(p,
-        dpi = DPI,
-        xlim = xlim,
-        # title = "Vigilance ρ vs. Clustering Attribute",
-        xlabel = "Vigilance Parameter ρ",
-        ylabel = "Count",
-        # legend = :outertopright,
-        legend = :topright,
-        size = (1000, 500),
-        margin= 5Plots.mm
-        # legend = :bottomleft,
+        label="",
     )
 
     # Display the plot
     isinteractive() && display(p)
+
+    # Plots.scalefontsizes()
 
     # Return the plot handle
     return p

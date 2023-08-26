@@ -79,12 +79,19 @@ OAR.save_dataframe(out_df, output_file)
 
 # Generate the categories plot
 p1 = OAR.cluster_stats_plot(
+    # Custom options
     df,
     avg=true,
     err=true,
     n=50,
-    # xlim=(0.5, 1.0),
+    fontsize=10,
+    # Pass-through plots kwargs
     xlim=(0.4, 1.0),
+    size = (1000, 500),
+    margin= 5Plots.mm,
+    xlabel = "Vigilance Parameter ρ",
+    ylabel = "Count",
+    legend = :topright,
 )
 
 # Save the plot

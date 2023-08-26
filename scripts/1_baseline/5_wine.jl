@@ -1,21 +1,8 @@
 """
-    4_mushroom_dist.jl
+    5_wine.jl
 
 # Description
-This script shows how to use a GramART to cluster on the Mushroom dataset.
-
-# Attribution
-
-## Citations
-- Mushroom. (1987). UCI Machine Learning Repository. https://doi.org/10.24432/C5959T.
-
-## BibTeX
-@misc{misc_mushroom_73,
-    title        = {{Mushroom}},
-    year         = {1987},
-    howpublished = {UCI Machine Learning Repository},
-    note         = {{DOI}: https://doi.org/10.24432/C5959T}
-}
+START on the Wine dataset.
 """
 
 # -----------------------------------------------------------------------------
@@ -29,7 +16,6 @@ using OAR
 # ADDITIONAL DEPENDENCIES
 # -----------------------------------------------------------------------------
 
-# using DataFrames
 using Random
 Random.seed!(1234)
 using ProgressMeter
@@ -39,7 +25,7 @@ using ProgressMeter
 # -----------------------------------------------------------------------------
 
 exp_top = "1_baseline"
-exp_name = "4_mushroom_dist"
+exp_name = "1_iris.jl"
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -47,37 +33,45 @@ exp_name = "4_mushroom_dist"
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering the categorical UCI Mushroom dataset."
+    "$(exp_top)/$(exp_name): GramART for clustering the real-valued UCI Iris dataset."
 )
 
 # -----------------------------------------------------------------------------
-# MUSHROOM DATASET
+# WINE DATASET
 # -----------------------------------------------------------------------------
 
 # All-in-one function
-fs, bnf = OAR.symbolic_mushroom()
+# data, grammmar = OAR.symbolic_iris()
+data, grammmar = OAR.symbolic_wine()
 
-# Initialize the GramART module
-gramart = OAR.GramART(bnf)
-
-# Set the vigilance parameter and show
-gramart.opts.rho = 0.05
+# Initialize the GramART module with options
+gramart = OAR.GramART(
+    grammmar,
+    rho = 0.15,
+    rho_lb = 0.1,
+    rho_ub = 0.25,
+)
 
 # Process the statements
-@showprogress for ix in eachindex(fs.train_x)
-    statement = fs.train_x[ix]
-    label = fs.train_y[ix]
-    OAR.train!(gramart, statement, y=label)
+@showprogress for ix in eachindex(data.train_x)
+    statement = data.train_x[ix]
+    label = data.train_y[ix]
+    # OAR.train!(gramart, statement, y=label)
+    OAR.train_dv!(gramart, statement, y=label)
 end
 
+# See the statistics of the first protonode
+# @info gramart.protonodes[1].stats
+
 # Classify
-clusters = zeros(Int, length(fs.test_y))
-@showprogress for ix in eachindex(fs.test_x)
-    clusters[ix] = OAR.classify(gramart, fs.test_x[ix])
+clusters = zeros(Int, length(data.test_y))
+@showprogress for ix in eachindex(data.test_x)
+    # clusters[ix] = OAR.classify(gramart, data.test_x[ix], get_bmu=true)
+    clusters[ix] = OAR.classify_dv(gramart, data.test_x[ix], get_bmu=true)
 end
 
 # Calculate testing performance
-perf = OAR.AdaptiveResonance.performance(fs.test_y, clusters)
+perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
 
 # Logging
 @info "Final performance: $(perf)"
