@@ -559,6 +559,15 @@ function symbolic_lung_cancer(filename::AbstractString=data_dir("lung-cancer", "
     return data, grammar
 end
 
+# letter_dict = Dict(
+#     1 => "A",
+#     2 => "B",
+#     3 => "C",
+#     4 => "D",
+# )
+
+const letter_vec = string.(collect('A':'Z'))
+
 """
 Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from the provided CSV dataset.
 
@@ -569,12 +578,17 @@ function symbolic_dataset(filename::AbstractString, bins::Int=10)
     # Load the data
     data = readdlm(filename, ',', header=false)
 
+    n_features = size(data)[2] - 1
+
     # Declare the names for the nonterminal symbols
-    N = ["A", "B"]
+    # N = ["A", "B"]
+    N = letter_vec[1:n_features]
 
     # Get the features and labels
-    features = data[:, 1:2]'
-    labels = Vector{Int}(data[:, 3])
+    # features = data[:, 1:2]'
+    features = data[:, 1:n_features]'
+    # labels = Vector{Int}(data[:, 3])
+    labels = Vector{Int}(data[:, end])
 
     # Create a DataSplit
     ds = DataSplit(features, labels)

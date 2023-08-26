@@ -1,8 +1,8 @@
 """
-    7_data_package.jl
+    8_data_package_all.jl
 
 # Description
-This script shows how to use a GramART to cluster on the Lung Cancer dataset.
+All datasets from the Datasets package.
 
 # Attribution
 
@@ -40,7 +40,7 @@ using ProgressMeter
 # -----------------------------------------------------------------------------
 
 exp_top = "1_baseline"
-exp_name = "7_data_package.jl"
+exp_name = "8_data_package_all.jl"
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -48,7 +48,7 @@ exp_name = "7_data_package.jl"
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering the categorical UCI Mushroom dataset."
+    "$(exp_top)/$(exp_name): GramART for clustering all Dataset package datasets."
 )
 
 # -----------------------------------------------------------------------------
@@ -56,19 +56,37 @@ pargs = OAR.exp_parse(
 # -----------------------------------------------------------------------------
 
 # Load the symbolic data and grammar
-filename = OAR.data_dir(
-    "data-package",
-    # "face.csv",
-    "iris.csv",
-)
-data, grammar = OAR.symbolic_dataset(filename)
 
-# Initialize the GramART module with options
-gramart = OAR.GramART(grammar,
-    # rho = 0.6,
-    rho = 0.3,
-    rho_lb = 0.1,
-    rho_ub = 0.3,
-)
+topdir =  OAR.data_dir("data-package")
 
-OAR.tt_serial(gramart, data)
+for (root, dirs, files) in walkdir(topdir)
+    for file in files
+        # filename = OAR.data_dir("data-package", "face.csv")
+        filename = joinpath(root, file)
+        data, grammar = OAR.symbolic_dataset(filename)
+
+        # Initialize the GramART module with options
+        gramart = OAR.GramART(grammar,
+            # rho = 0.6,
+            rho = 0.3,
+            rho_lb = 0.1,
+            rho_ub = 0.3,
+        )
+
+        @info "------- $(file) -------"
+        OAR.tt_serial(gramart, data)
+    end
+end
+
+# filename = OAR.data_dir("data-package", "face.csv")
+# data, grammar = OAR.symbolic_dataset(filename)
+
+# # Initialize the GramART module with options
+# gramart = OAR.GramART(grammar,
+#     # rho = 0.6,
+#     rho = 0.3,
+#     rho_lb = 0.1,
+#     rho_ub = 0.3,
+# )
+
+# OAR.tt_serial(gramart, data)
