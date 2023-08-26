@@ -111,6 +111,7 @@ function create_category!(
     # Learn upon the sample
     learn!(gramart, statement, gramart.stats["n_categories"])
 
+    # Append the label to the cluster labels list
     push!(gramart.labels, label)
 
     # Empty return
@@ -309,6 +310,7 @@ function train!(
             if supervised && (gramart.labels[bmu] != y)
                 break
             end
+            # @info "Match!"
             y_hat = gramart.labels[bmu]
             learn!(gramart, statement, bmu)
             gramart.stats["n_instance"][bmu] += 1
@@ -319,6 +321,7 @@ function train!(
 
     # If we triggered a mismatch, add a node
     if mismatch_flag
+        # @info "Mismatch!"
         # bmu = n_nodes + 1
         y_hat = supervised ? y : gramart.stats["n_categories"] + 1
         create_category!(gramart, statement, y_hat)

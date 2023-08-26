@@ -47,6 +47,7 @@ using
     Parameters,             # @with_kw
     Pkg,                    # Version
     Plots,                  # Plot
+    ProgressMeter,          # @showprogress
     Random,                 # seed!
     StatsPlots
 
