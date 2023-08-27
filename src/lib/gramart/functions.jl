@@ -40,46 +40,48 @@ function is_terminal(treenode::TreeNode)
 end
 
 
-# function inc_n_categories!(gramart::GramART)
-#     gramart.stats["n_categories"] += 1
+# function inc_n_categories!(art::GramART)
+#     art.stats["n_categories"] += 1
 # end
 
-# function create_category!(gramart::GramART, statement::SomeStatement, label::Integer)
-#     gramart.stats["n_categories"] += 1
-#     create_category!(gramart)
-#     learn!(gramart, statement, 1)
+# function create_category!(art::GramART, statement::SomeStatement, label::Integer)
+#     art.stats["n_categories"] += 1
+#     create_category!(art)
+#     learn!(art, statement, 1)
 # end
+
+
 
 """
 Adds an empty node to the end of the [`OAR.GramART`](@ref) module.
 
 # Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) module to append a node to.
+- `art::GramART`: the [`OAR.GramART`](@ref) module to append a node to.
 """
 function add_node!(
-    gramart::GramART;
+    art::GramART;
     new_cluster::Bool=true,
 )
     # Update the stats counters
-    gramart.stats["n_categories"] += 1
+    art.stats["n_categories"] += 1
 
     # If we are creating a new cluster altogether, increment that
-    new_cluster && (gramart.stats["n_clusters"] += 1)
+    new_cluster && (art.stats["n_clusters"] += 1)
 
     # Update the instance count with a new entry
-    push!(gramart.stats["n_instance"], 1)
+    push!(art.stats["n_instance"], 1)
 
     # Create the top node
-    top_node = ProtoNode(gramart.grammar.T)
+    top_node = ProtoNode(art.grammar.T)
 
     # Iterate over the production rules
-    for (nonterminal, prod_rule) in gramart.grammar.P
+    for (nonterminal, prod_rule) in art.grammar.P
         # Add a node for each non-terminal place
-        local_node = ProtoNode(gramart.grammar.T)
-        if gramart.opts.terminated
+        local_node = ProtoNode(art.grammar.T)
+        if art.opts.terminated
             # Add a node for each terminal
             for terminal in prod_rule
-                local_node.children[terminal] = ProtoNode(gramart.grammar.T)
+                local_node.children[terminal] = ProtoNode(art.grammar.T)
             end
         end
         # Add the node with nodes to the top node
@@ -87,7 +89,7 @@ function add_node!(
     end
 
     # Append the recursively constructed proto node
-    push!(gramart.protonodes, top_node)
+    push!(art.protonodes, top_node)
 
     # Empty return
     return
@@ -97,22 +99,22 @@ end
 Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.GramART`](@ref) module.
 
 # Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) to append a new node to.
+- `art::GramART`: the [`OAR.GramART`](@ref) to append a new node to.
 """
 function create_category!(
-    gramart::GramART,
+    art::GramART,
     statement::SomeStatement,
     label::Integer;
     new_cluster::Bool=true,
 )
     # Instantiate an empty node
-    add_node!(gramart, new_cluster=new_cluster)
+    add_node!(art, new_cluster=new_cluster)
 
     # Learn upon the sample
-    learn!(gramart, statement, gramart.stats["n_categories"])
+    learn!(art, statement, art.stats["n_categories"])
 
     # Append the label to the cluster labels list
-    push!(gramart.labels, label)
+    push!(art.labels, label)
 
     # Empty return
     return
@@ -177,22 +179,22 @@ end
 Processes a statement for a [`OAR.GramART`](@ref) module.
 
 # Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
+- `art::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
 - `statement::Statement`: the grammar [`OAR.Statement`](@ref) to process.
 - `index::Integer`: the index of the [`OAR.ProtoNode`](@ref) to update.
 """
 function learn!(
-    gramart::GramART,
+    art::GramART,
     statement::Statement,
     index::Integer,
 )
     # Update each position of the protonode at `index`
     for ix in eachindex(statement)
         inc_update_symbols!(
-            gramart.protonodes[index],
-            gramart.grammar.S[ix],
+            art.protonodes[index],
+            art.grammar.S[ix],
             statement[ix],
-            gramart.opts.terminated
+            art.opts.terminated
         )
     end
 end
@@ -247,30 +249,47 @@ function match(
     return local_sum
 end
 
-# function single_vigilance_check(gramart)
-#     if activations[bmu] >= gramart.opts.rho
+# function single_vigilance_check(art)
+#     if activations[bmu] >= art.opts.rho
 #         # If supervised and the label differed, force mismatch
-#         if supervised && (gramart.labels[bmu] != y)
+#         if supervised && (art.labels[bmu] != y)
 #             break
 #         end
-#         y_hat = gramart.labels[bmu]
-#         learn!(gramart, statement, bmu)
-#         gramart.stats["n_instance"][bmu] += 1
+#         y_hat = art.labels[bmu]
+#         learn!(art, statement, bmu)
+#         art.stats["n_instance"][bmu] += 1
 #         mismatch_flag = false
 #         break
 #     end
 # end
 
+# accommodate_vector!(art.T, art.stats["n_categories"])
+# accommodate_vector!(art.M, art.stats["n_categories"])
+
+"""
+Extends a vector to a goal length with zeros of its element type to accommodate in-place updates.
+
+# Arguments
+- `vec::Vector{T}`: a vector of arbitrary element type.
+- `goal_len::Integer`: the length that the vector should be.
+"""
+function accommodate_vector!(vec::Vector{T}, goal_len::Integer) where {T}
+    # While the the vector is not the correct length
+    while length(vec) < goal_len
+        # Push a zero of the type of the vector elements
+        push!(vec, zero(T))
+    end
+end
 """
 Trains [`OAR.GramART`](@ref) module on a [`OAR.SomeStatement`](@ref) from the [`OAR.GramART`](@ref)'s grammar.
 
 # Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the [`OAR.SomeStatement`](@ref).
+- `art::GramART`: the [`OAR.GramART`](@ref) to update with the [`OAR.SomeStatement`](@ref).
 - `statement::SomeStatement`: the grammar [`OAR.SomeStatement`](@ref) to train upon.
 - `y::Integer=0`: optional supervised label as an integer.
 """
 function train!(
-    gramart::GramART,
+    art::GramART,
     statement::SomeStatement;
     y::Integer=0,
     # epochs::Integer=1,
@@ -279,44 +298,49 @@ function train!(
     supervised = !iszero(y)
 
     # If this is the first sample, then fast commit
-    if isempty(gramart.protonodes)
+    if isempty(art.protonodes)
         y_hat = supervised ? y : 1
-        create_category!(gramart, statement, y_hat)
-        # add_node!(gramart)
-        # learn!(gramart, statement, 1)
+        create_category!(art, statement, y_hat)
+        # add_node!(art)
+        # learn!(art, statement, 1)
         return y_hat
     end
 
     # If the label is new, break to make a new category
-    if supervised && !(y in gramart.labels)
-        create_category!(gramart, statement, y)
+    if supervised && !(y in art.labels)
+        create_category!(art, statement, y)
         return y
     end
 
-    for ix = 1:gramart.opts.epochs
-
+    for ix = 1:art.opts.epochs
         # Compute the activations
-        n_nodes = length(gramart.protonodes)
-        activations = zeros(n_nodes)
-        for ix = 1:n_nodes
-            activations[ix] = activation(gramart.protonodes[ix], statement)
+        # n_nodes = length(art.protonodes)
+        # activations = zeros(n_nodes)
+        accommodate_vector!(art.T, art.stats["n_categories"])
+        accommodate_vector!(art.M, art.stats["n_categories"])
+        # for ix = 1:n_nodes
+        for ix = 1:art.stats["n_categories"]
+            # activations[ix] = activation(art.protonodes[ix], statement)
+            art.T[ix] = activation(art.protonodes[ix], statement)
         end
 
         # Sort by highest activation
-        index = sortperm(activations, rev=true)
+        # index = sortperm(activations, rev=true)
+        index = sortperm(art.T, rev=true)
         mismatch_flag = true
-        for jx = 1:n_nodes
+        # for jx = 1:n_nodes
+        for jx = 1:art.stats["n_categories"]
             # Get the best-matching unit
             bmu = index[jx]
-            if activations[bmu] >= gramart.opts.rho
+            if art.T[bmu] >= art.opts.rho
                 # If supervised and the label differed, force mismatch
-                if supervised && (gramart.labels[bmu] != y)
+                if supervised && (art.labels[bmu] != y)
                     break
                 end
                 # @info "Match!"
-                y_hat = gramart.labels[bmu]
-                learn!(gramart, statement, bmu)
-                gramart.stats["n_instance"][bmu] += 1
+                y_hat = art.labels[bmu]
+                learn!(art, statement, bmu)
+                art.stats["n_instance"][bmu] += 1
                 mismatch_flag = false
                 break
             end
@@ -326,9 +350,9 @@ function train!(
         if mismatch_flag
             # @info "Mismatch!"
             # bmu = n_nodes + 1
-            y_hat = supervised ? y : gramart.stats["n_categories"] + 1
-            create_category!(gramart, statement, y_hat)
-            # learn!(gramart, statement, bmu)
+            y_hat = supervised ? y : art.stats["n_categories"] + 1
+            create_category!(art, statement, y_hat)
+            # learn!(art, statement, bmu)
         end
     end
 
@@ -340,35 +364,42 @@ end
 Classifies the [`OAR.Statement`](@ref) into one of [`OAR.GramART`](@ref)'s internal categories.
 
 # Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) to use in classification/inference.
+- `art::GramART`: the [`OAR.GramART`](@ref) to use in classification/inference.
 - `statement::SomeStatement`: the [`OAR.SomeStatement`](@ref) to classify.
 - `get_bmu::Bool=false`: optional, whether to get the best matching unit in the case of complete mismatch.
 """
 function classify(
-    gramart::GramART,
+    art::GramART,
     statement::SomeStatement ;
     get_bmu::Bool=false,
 )
     # Compute the activations
-    n_nodes = length(gramart.protonodes)
-    activations = zeros(n_nodes)
-    for ix = 1:n_nodes
-        activations[ix] = activation(gramart.protonodes[ix], statement)
+    # n_nodes = length(art.protonodes)
+    # activations = zeros(n_nodes)
+    # for ix = 1:n_nodes
+    accommodate_vector!(art.T, art.stats["n_categories"])
+    accommodate_vector!(art.M, art.stats["n_categories"])
+    for ix = 1:art.stats["n_categories"]
+        # activations[ix] = activation(art.protonodes[ix], statement)
+        art.T[ix] = activation(art.protonodes[ix], statement)
     end
 
     # Sort by highest activation
-    index = sortperm(activations, rev=true)
+    # index = sortperm(activations, rev=true)
+    index = sortperm(art.T, rev=true)
 
     # Default is mismatch
     mismatch_flag = true
     y_hat = -1
-    for jx in 1:n_nodes
+    # for jx in 1:n_nodes
+    for jx in 1:art.stats["n_categories"]
         bmu = index[jx]
         # Vigilance check - pass
-        if activations[bmu] >= gramart.opts.rho
+        # if activations[bmu] >= art.opts.rho
+        if art.T[bmu] >= art.opts.rho
             # Current winner
             # y_hat = bmu
-            y_hat = gramart.labels[bmu]
+            y_hat = art.labels[bmu]
             mismatch_flag = false
             break
         end
@@ -379,7 +410,7 @@ function classify(
         # Report either the best matching unit or the mismatch label -1
         bmu = index[1]
         # y_hat = get_bmu ? bmu : -1
-        y_hat = get_bmu ? gramart.labels[bmu] : -1
+        y_hat = get_bmu ? art.labels[bmu] : -1
     end
 
     return y_hat
@@ -389,19 +420,19 @@ end
 GramART utility: gets the positive distribution.
 
 # Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) module to analyze.
+- `art::GramART`: the [`OAR.GramART`](@ref) module to analyze.
 - `nonterminal::AbstractString`: the string name of the nonterminal position to analyze.
 - `index::Integer`: the index of the [`OAR.ProtoNode`](@ref) to analyze.
 """
 function get_positive_dist(
-    gramart::GramART,
+    art::GramART,
     nonterminal::AbstractString,
     index::Integer,
 )
     # Filter the elements of each distribution that are greater than zero
     pos_dist = filter(
         p -> p.second > 0.0,
-        gramart.protonodes[index].children[GSymbol{String}(nonterminal, false)].dist
+        art.protonodes[index].children[GSymbol{String}(nonterminal, false)].dist
     )
 
     # Return a new distribution that doesn't contain zero elements
@@ -412,9 +443,9 @@ end
 GramART utility: returns a list of the instance counts for each [`OAR.GramART`](@ref) prototype.
 
 # Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) module to analyze.
+- `art::GramART`: the [`OAR.GramART`](@ref) module to analyze.
 """
-function get_gramart_instance_counts(gramart::GramART)
+function get_gramart_instance_counts(art::GramART)
     # Return the instance counts for each of the top nodes
-    return [node.stats.m for node in gramart.protonodes]
+    return [node.stats.m for node in art.protonodes]
 end
