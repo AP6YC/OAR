@@ -150,7 +150,10 @@ function tt_gramart(
     return
 end
 
-function tt_serial(gramart::GramART, data::VectoredDataset)
+function tt_serial(
+    gramart::GramART,
+    data::VectoredDataset,
+)
     # Process the statements
     @showprogress for ix in eachindex(data.train_x)
     statement = data.train_x[ix]
@@ -160,6 +163,7 @@ function tt_serial(gramart::GramART, data::VectoredDataset)
         gramart,
         statement,
         y=label,
+        # epochs=5,
     )
     end
 

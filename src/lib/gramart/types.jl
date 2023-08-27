@@ -101,7 +101,7 @@ end
     """
     Maximum number of epochs during training.
     """
-    max_epoch::Int = 1
+    epochs::Int = 1
 
     """
     Flag for generating nodes at the terminal distributions below their nonterminal positions.

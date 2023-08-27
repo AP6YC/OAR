@@ -75,9 +75,13 @@ for (root, dirs, files) in walkdir(topdir)
             # rho = 0.1,
             rho_lb = 0.1,
             rho_ub = 0.3,
+            epochs=5,
         )
 
         @info "---------- $(file) ----------"
-        OAR.tt_serial(gramart, data)
+        OAR.tt_serial(
+            gramart,
+            data,
+        )
     end
 end

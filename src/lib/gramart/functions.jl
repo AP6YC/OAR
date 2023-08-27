@@ -273,6 +273,7 @@ function train!(
     gramart::GramART,
     statement::SomeStatement;
     y::Integer=0,
+    # epochs::Integer=1,
 )
     # Flag for if the sample is supervised
     supervised = !iszero(y)
@@ -292,40 +293,43 @@ function train!(
         return y
     end
 
-    # Compute the activations
-    n_nodes = length(gramart.protonodes)
-    activations = zeros(n_nodes)
-    for ix = 1:n_nodes
-        activations[ix] = activation(gramart.protonodes[ix], statement)
-    end
+    for ix = 1:gramart.opts.epochs
 
-    # Sort by highest activation
-    index = sortperm(activations, rev=true)
-    mismatch_flag = true
-    for jx = 1:n_nodes
-        # Get the best-matching unit
-        bmu = index[jx]
-        if activations[bmu] >= gramart.opts.rho
-            # If supervised and the label differed, force mismatch
-            if supervised && (gramart.labels[bmu] != y)
+        # Compute the activations
+        n_nodes = length(gramart.protonodes)
+        activations = zeros(n_nodes)
+        for ix = 1:n_nodes
+            activations[ix] = activation(gramart.protonodes[ix], statement)
+        end
+
+        # Sort by highest activation
+        index = sortperm(activations, rev=true)
+        mismatch_flag = true
+        for jx = 1:n_nodes
+            # Get the best-matching unit
+            bmu = index[jx]
+            if activations[bmu] >= gramart.opts.rho
+                # If supervised and the label differed, force mismatch
+                if supervised && (gramart.labels[bmu] != y)
+                    break
+                end
+                # @info "Match!"
+                y_hat = gramart.labels[bmu]
+                learn!(gramart, statement, bmu)
+                gramart.stats["n_instance"][bmu] += 1
+                mismatch_flag = false
                 break
             end
-            # @info "Match!"
-            y_hat = gramart.labels[bmu]
-            learn!(gramart, statement, bmu)
-            gramart.stats["n_instance"][bmu] += 1
-            mismatch_flag = false
-            break
         end
-    end
 
-    # If we triggered a mismatch, add a node
-    if mismatch_flag
-        # @info "Mismatch!"
-        # bmu = n_nodes + 1
-        y_hat = supervised ? y : gramart.stats["n_categories"] + 1
-        create_category!(gramart, statement, y_hat)
-        # learn!(gramart, statement, bmu)
+        # If we triggered a mismatch, add a node
+        if mismatch_flag
+            # @info "Mismatch!"
+            # bmu = n_nodes + 1
+            y_hat = supervised ? y : gramart.stats["n_categories"] + 1
+            create_category!(gramart, statement, y_hat)
+            # learn!(gramart, statement, bmu)
+        end
     end
 
     # Return the training label
