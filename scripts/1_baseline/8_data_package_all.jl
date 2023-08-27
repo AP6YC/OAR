@@ -72,6 +72,7 @@ for (root, dirs, files) in walkdir(topdir)
         gramart = OAR.GramART(grammar,
             # rho = 0.6,
             rho = 0.3,
+            # rho = 0.1,
             rho_lb = 0.1,
             rho_ub = 0.3,
         )
