@@ -71,8 +71,8 @@ for (root, dirs, files) in walkdir(topdir)
         # Initialize the GramART module with options
         gramart = OAR.GramART(grammar,
             # rho = 0.6,
-            rho = 0.3,
-            # rho = 0.1,
+            # rho = 0.3,
+            rho = 0.1,
             rho_lb = 0.1,
             rho_ub = 0.3,
             epochs=5,
