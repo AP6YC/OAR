@@ -56,11 +56,10 @@ pargs = OAR.exp_parse(
 
 # Load the symbolic data and grammar
 filename = OAR.data_dir(
-    "data-package",
-    # "face.csv",
-    "iris.csv",
+    "census",
+    "census1000.csv",
 )
-data, grammar = OAR.symbolic_dataset(filename)
+data, grammar = OAR.symbolic_cluster_dataset(filename)
 
 # Initialize the GramART module with options
 gramart = OAR.GramART(grammar,

@@ -562,7 +562,12 @@ end
 """
 Vector of alphabetical letters as Strings for discretized feature labels.
 """
-const letter_vec = string.(collect('A':'Z'))
+const alphabet = string.(collect('A':'Z'))
+
+"""
+Two-letter alphabetical feature names.
+"""
+const letter_vec = reduce(vcat, [letter .* alphabet for letter in alphabet])
 
 """
 Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from the provided CSV dataset.
@@ -588,6 +593,126 @@ function symbolic_dataset(filename::AbstractString, bins::Int=10)
 
     # Create the symbolic version of the data
     statements, grammar = OAR.real_to_symb(ds, N, bins=bins)
+
+    # Return the statements and grammar
+    return statements, grammar
+end
+
+"""
+Turns a [`OAR.DataSplit`](@ref) into a binned symbolic variant for use with GramART.
+
+# Arguments
+- `data::DataSplit`: the [`OAR.DataSplit`](@ref) to convert to symbols.
+- `labels::Vector{String}`: the labels corresponding to the non-terminal symbol names for the feature categories and their subsequent terminal variants.
+- `bins::Int=10`: optional, the number of symbols to descretize the real-valued data to.
+"""
+function real_to_symb_cluster(data::AbstractMatrix, labels::Vector{String} ; bins::Int=10)
+    # Capture the statistics of all of the data
+    data_x = data
+
+    # Get the dimensionality of the data
+    dim, n_samples = size(data_x)
+
+    # Get the mins and maxes of the data for linear normalization
+    mins = zeros(dim)
+    maxs = zeros(dim)
+    for ix = 1:dim
+        mins[ix] = minimum(data_x[ix, :])
+        maxs[ix] = maximum(data_x[ix, :])
+    end
+
+    # Create a destination for the normalized values
+    x_ln = zeros(dim, n_samples)
+
+    # Iterate over each dimension
+    for ix = 1:dim
+        # NOTE: minor adjustment of denominator here to make max values floor down
+        # denominator = maxs[ix] - mins[ix] + eps()*10
+        denominator = maxs[ix] - mins[ix]
+        if denominator != 0
+            # If the denominator is not zero, normalize
+            x_ln[ix, :] = (data_x[ix, :] .- mins[ix]) ./ denominator
+        else
+            # Otherwise, the feature is zeroed because it contains no useful information
+            x_ln[ix, :] = zeros(length(x_ln[ix, :]))
+        end
+    end
+
+    # Bin and get the index for each datum
+    symb_ind = zeros(Int, dim, n_samples)
+    for ix = 1:dim
+        for jx = 1:n_samples
+            # Get an floored integer index
+            local_ind = Int(floor(x_ln[ix, jx] * bins)) + 1
+            # Correction for if we have a max value so that it is binned one down
+            if local_ind > bins
+                local_ind = Int(bins)
+            end
+            symb_ind[ix, jx] = local_ind
+        end
+    end
+
+    # bnf = OAR.DescretizedCFG(OAR.quick_statement(labels), bins=bins)
+    # statements = Vector{Vector{GSymbol{String}}}()
+    statements = Statements{String}()
+
+    # Iterate over every sample
+    for jx = 1:n_samples
+        # Create an empty vector for the statement
+        local_st = Vector{GSymbol{String}}()
+        for ix = 1:dim
+            # Get the symbol for the feature dimension
+            label = GSymbol{String}(labels[ix], true)
+            # TODO: this manually creates the symbol, but should be grabbed from the grammar
+            #   that would look like this (once a vectored grammar with indexing is implemented):
+            #   local_symb = bnf.T[label][symb_ind[ix, jx]]
+            local_symb = join_gsymbol(label, symb_ind[ix, jx])
+            # Add the symbol to the statement
+            push!(local_st, local_symb)
+        end
+        # Add the statement to the list
+        push!(statements, local_st)
+    end
+
+    # Recreate the split
+    n_train = length(data.train_y)
+    st_train = statements[1:n_train]
+    st_test = statements[n_train + 1:end]
+
+    # Create the split struct
+    vs_symbs = VectoredDataSplit{GSymbol{String}, Int}(
+        st_train,
+        st_test,
+        data.train_y,
+        data.test_y,
+    )
+
+    bnf = OAR.DescretizedCFG(labels, bins=bins)
+
+    # Return the list of samples as a vectored datasplit
+    return vs_symbs, bnf
+end
+
+"""
+Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from the provided CSV dataset.
+
+# Arguments
+- `filename::AbstractString=data_dir("mushroom", "mushrooms.csv")`: the location of the file to load with a default value.
+"""
+function symbolic_cluster_dataset(filename::AbstractString, bins::Int=10)
+    # Load the data
+    data = readdlm(filename, ',', header=false)
+
+    n_features = size(data)[2]
+
+    # Declare the names for the nonterminal symbols
+    N = letter_vec[1:n_features]
+
+    # Get the features and labels
+    features = data[:, 1:n_features]'
+
+    # Create the symbolic version of the data
+    statements, grammar = OAR.real_to_symb_cluster(features, N, bins=bins)
 
     # Return the statements and grammar
     return statements, grammar
