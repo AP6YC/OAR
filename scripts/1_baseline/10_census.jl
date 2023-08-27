@@ -64,12 +64,13 @@ data, grammar = OAR.symbolic_cluster_dataset(filename)
 # Initialize the GramART module with options
 gramart = OAR.GramART(grammar,
     # rho = 0.6,
-    rho = 0.3,
+    # rho = 0.3,
+    rho = 0.1,
     rho_lb = 0.1,
     rho_ub = 0.3,
 )
 
-OAR.tt_serial(
+OAR.cluster_serial(
     gramart,
     data,
 )

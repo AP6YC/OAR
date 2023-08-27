@@ -185,5 +185,42 @@ function tt_serial(
     @info "Final performance: $(perf)"
     @info "n_categories: $(gramart.stats["n_categories"])"
     # @info "n_instance: $(gramart.stats["n_instance"])"
+end
 
+function cluster_serial(
+    gramart::GramART,
+    data::Statements,
+)
+    # dim, n_samples = size(data)
+
+    # Process the statements
+    # @showprogress for ix in n_samples
+    @showprogress for statement in data
+        # statement = data[:, ix]
+        OAR.train!(
+        # OAR.train_dv!(
+            gramart,
+            statement,
+            # epochs=5,
+        )
+    end
+
+    # # Classify
+    # clusters = zeros(Int, length(data.test_y))
+    # @showprogress for ix in eachindex(data.test_x)
+    # clusters[ix] = OAR.classify(
+    # # clusters[ix] = OAR.classify_dv(
+    #     gramart,
+    #     data.test_x[ix],
+    #     get_bmu=true,
+    # )
+    # end
+
+    # Calculate testing performance
+    # perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
+
+    # Logging
+    # @info "Final performance: $(perf)"
+    @info "n_categories: $(gramart.stats["n_categories"])"
+    # @info "n_instance: $(gramart.stats["n_instance"])"
 end
