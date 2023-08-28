@@ -116,7 +116,7 @@ ri = randindex(y_hats, ys)
 @info ri
 @info ri[1]
 
-# ri = OAR.cluster_rand_data(art, data)
+ri = OAR.cluster_rand_data(art, data)
 
 # @info ri
 # @info ri[1]
