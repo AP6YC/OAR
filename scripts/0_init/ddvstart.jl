@@ -55,12 +55,17 @@ pargs = OAR.exp_parse(
 # -----------------------------------------------------------------------------
 
 # All-in-one function
-data, grammar = OAR.symbolic_mushroom()
+# data, grammar = OAR.symbolic_mushroom()
+data, grammar = OAR.symbolic_iris()
 
 # Initialize the GramART module with options
-gramart = OAR.DDVSTART(grammar,
+art = OAR.DDVSTART(grammar,
     rho_lb = 0.1,
-    rho_ub = 0.3,
+    rho_ub = 0.6,
+    # rho_lb = 1.5,
+    # rho_ub = 2.0,
+    # similarity=:average,
+    similarity=:complete,
 )
 
 # Process the statements
@@ -69,7 +74,7 @@ gramart = OAR.DDVSTART(grammar,
     label = data.train_y[ix]
     OAR.train!(
     # OAR.train_dv!(
-        gramart,
+        art,
         statement,
         y=label,
     )
@@ -80,7 +85,7 @@ clusters = zeros(Int, length(data.test_y))
 @showprogress for ix in eachindex(data.test_x)
     clusters[ix] = OAR.classify(
     # clusters[ix] = OAR.classify_dv(
-        gramart,
+        art,
         data.test_x[ix],
         get_bmu=true,
     )
@@ -91,5 +96,5 @@ perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
 
 # Logging
 @info "Final performance: $(perf)"
-@info "n_categories: $(gramart.stats["n_categories"])"
-# @info "n_instance: $(gramart.stats["n_instance"])"
+@info "n_categories: $(art.stats["n_categories"])"
+# @info "n_instance: $(art.stats["n_instance"])"

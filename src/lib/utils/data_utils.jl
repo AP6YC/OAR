@@ -203,7 +203,7 @@ end
 function DataSplit(
     features,
     labels;
-    p::Float=0.7,
+    p::Float=DEFAULT_P,
     shuffle::Bool=true,
 )
     if shuffle
@@ -495,7 +495,7 @@ end
 function DataSplitGeneric(
     statements,
     labels;
-    p::Float=0.7,
+    p::Float=DEFAULT_P,
     shuffle::Bool=true,
 )
 

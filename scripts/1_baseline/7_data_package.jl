@@ -64,11 +64,46 @@ filename = OAR.data_dir(
 data, grammar = OAR.symbolic_dataset(filename)
 
 # Initialize the GramART module with options
-gramart = OAR.GramART(grammar,
+art = OAR.GramART(grammar,
     # rho = 0.6,
     rho = 0.3,
     rho_lb = 0.1,
     rho_ub = 0.3,
 )
 
-OAR.tt_serial(gramart, data)
+# OAR.tt_serial(art, data)
+
+# Process the statements
+@showprogress for ix in eachindex(data.train_x)
+    statement = data.train_x[ix]
+    label = data.train_y[ix]
+    OAR.train!(
+    # OAR.train_dv!(
+        art,
+        statement,
+        y=label,
+        # epochs=5,
+    )
+end
+
+# Classify
+clusters = zeros(Int, length(data.test_y))
+@showprogress for ix in eachindex(data.test_x)
+clusters[ix] = OAR.classify(
+# clusters[ix] = OAR.classify_dv(
+    art,
+    data.test_x[ix],
+    get_bmu=true,
+)
+end
+
+# Calculate testing performance
+perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
+
+# Logging
+@info "Final performance: $(perf)"
+@info "n_categories: $(art.stats["n_categories"])"
+
+using Clustering
+
+randindex

@@ -58,7 +58,7 @@ function tc_gramart(
     Random.seed!(d["rng_seed"])
 
     # Initialize the GramART module
-    gramart = OAR.GramART(
+    art = OAR.GramART(
         opts["grammar"],
         rho=d["rho"],
         terminated=false,
@@ -66,14 +66,14 @@ function tc_gramart(
 
     # Process the statements
     for tn in ts
-        OAR.train!(gramart, tn)
+        OAR.train!(art, tn)
     end
 
     # Classify and add the cluster label
     clusters = Vector{Int}()
     for jx in eachindex(ts)
         local_cluster = OAR.classify(
-            gramart,
+            art,
             ts[jx],
             get_bmu=true,
         )
@@ -110,24 +110,24 @@ function tt_gramart(
 )
     try
     # Initialize the GramART module
-    # gramart = OAR.GramART(grammmar)
-    gramart = OAR.GramART(opts["grammmar"])
+    # art = OAR.GramART(grammmar)
+    art = OAR.GramART(opts["grammmar"])
 
     # Set the vigilance parameter and show
-    # gramart.opts.rho = 0.15
-    gramart.opts.rho = 0.05
+    # art.opts.rho = 0.15
+    art.opts.rho = 0.05
 
     # Process the statements
     for ix in eachindex(data.train_x)
         statement = data.train_x[ix]
         label = data.train_y[ix]
-        OAR.train!(gramart, statement, y=label)
+        OAR.train!(art, statement, y=label)
     end
 
     # Classify
     clusters = zeros(Int, length(data.test_y))
     for ix in eachindex(data.test_x)
-        clusters[ix] = OAR.classify(gramart, data.test_x[ix], get_bmu=true)
+        clusters[ix] = OAR.classify(art, data.test_x[ix], get_bmu=true)
     end
 
     # Calculate testing performance
@@ -138,7 +138,7 @@ function tt_gramart(
 
     # Add entries for the results
     fulld["p"] = perf
-    fulld["n_cat"] = gramart.stats["n_categories"]
+    fulld["n_cat"] = art.stats["n_categories"]
 
     # Save the results
     save_sim(dir_func, d, fulld)
@@ -151,7 +151,7 @@ function tt_gramart(
 end
 
 function tt_serial(
-    gramart::GramART,
+    art::GramART,
     data::VectoredDataset,
 )
     # Process the statements
@@ -160,7 +160,7 @@ function tt_serial(
     label = data.train_y[ix]
     OAR.train!(
     # OAR.train_dv!(
-        gramart,
+        art,
         statement,
         y=label,
         # epochs=5,
@@ -172,7 +172,7 @@ function tt_serial(
     @showprogress for ix in eachindex(data.test_x)
     clusters[ix] = OAR.classify(
     # clusters[ix] = OAR.classify_dv(
-        gramart,
+        art,
         data.test_x[ix],
         get_bmu=true,
     )
@@ -183,44 +183,65 @@ function tt_serial(
 
     # Logging
     @info "Final performance: $(perf)"
-    @info "n_categories: $(gramart.stats["n_categories"])"
-    # @info "n_instance: $(gramart.stats["n_instance"])"
+    @info "n_categories: $(art.stats["n_categories"])"
+    # @info "n_instance: $(art.stats["n_instance"])"
 end
 
 function cluster_serial(
-    gramart::GramART,
+    art::GramART,
     data::Statements,
 )
     # dim, n_samples = size(data)
 
     # Process the statements
     # @showprogress for ix in n_samples
-    @showprogress for statement in data
-        # statement = data[:, ix]
-        OAR.train!(
+    y_hats = zeros(Int, length(data))
+    # @showprogress for statement in data
+    @showprogress for ix in eachindex(data)
+        statement = data[ix]
+
+        y_hats[ix] = OAR.train!(
         # OAR.train_dv!(
-            gramart,
+            art,
             statement,
             # epochs=5,
         )
     end
 
-    # # Classify
-    # clusters = zeros(Int, length(data.test_y))
-    # @showprogress for ix in eachindex(data.test_x)
-    # clusters[ix] = OAR.classify(
-    # # clusters[ix] = OAR.classify_dv(
-    #     gramart,
-    #     data.test_x[ix],
-    #     get_bmu=true,
-    # )
-    # end
-
-    # Calculate testing performance
-    # perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
-
     # Logging
-    # @info "Final performance: $(perf)"
-    @info "n_categories: $(gramart.stats["n_categories"])"
-    # @info "n_instance: $(gramart.stats["n_instance"])"
+    @info "n_categories: $(art.stats["n_categories"])"
+    # @info "n_instance: $(art.stats["n_instance"])"
+
+    return y_hats
+end
+
+function cluster_rand(
+    art::GramART,
+    data::Statements,
+    truth::Vector{Int},
+)
+
+    # Cluster the data and get the cluster labels
+    y_hats = OAR.cluster_serial(
+        art,
+        data,
+    )
+
+    # Compute the adjusted rand index
+    ri = randindex(y_hats, truth)
+
+    return ri
+end
+
+function cluster_rand_data(
+    art::GramART,
+    data::DataSplitGeneric,
+)
+    ri = cluster_rand(
+        art,
+        vcat(data.train_x, data.test_x),
+        vcat(data.train_y, data.test_y),
+    )
+
+    return ri
 end

@@ -35,6 +35,7 @@ using
     AdaptiveResonance,      # ART algorithms
     ArgParse,               # ArgParseSettings
     CSV,                    # CSV.File(...)
+    Clustering,             # randindex
     DataFrames,             # DataFrame
     DelimitedFiles,         # readdlm
     Distributed,            # myid()

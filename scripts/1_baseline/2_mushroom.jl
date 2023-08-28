@@ -33,6 +33,7 @@ using OAR
 using Random
 Random.seed!(1234)
 using ProgressMeter
+using Clustering
 
 # -----------------------------------------------------------------------------
 # VARIABLES
@@ -58,7 +59,7 @@ pargs = OAR.exp_parse(
 data, grammar = OAR.symbolic_mushroom()
 
 # Initialize the GramART module with options
-gramart = OAR.GramART(grammar,
+art = OAR.GramART(grammar,
     # rho = 0.6,
     rho = 0.1,
     rho_lb = 0.1,
@@ -71,7 +72,7 @@ gramart = OAR.GramART(grammar,
     label = data.train_y[ix]
     OAR.train!(
     # OAR.train_dv!(
-        gramart,
+        art,
         statement,
         y=label,
     )
@@ -82,7 +83,7 @@ clusters = zeros(Int, length(data.test_y))
 @showprogress for ix in eachindex(data.test_x)
     clusters[ix] = OAR.classify(
     # clusters[ix] = OAR.classify_dv(
-        gramart,
+        art,
         data.test_x[ix],
         get_bmu=true,
     )
@@ -95,3 +96,27 @@ perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
 @info "Final performance: $(perf)"
 @info "n_categories: $(gramart.stats["n_categories"])"
 # @info "n_instance: $(gramart.stats["n_instance"])"
+
+
+# Clustering
+
+# Initialize the GramART module with options
+art = OAR.GramART(grammar,
+    # rho = 0.6,
+    rho = 0.1,
+    rho_lb = 0.1,
+    rho_ub = 0.3,
+)
+
+y_hats = OAR.cluster_serial(art, vcat(data.train_x, data.test_x))
+ys = vcat(data.train_y, data.test_y)
+
+ri = randindex(y_hats, ys)
+
+@info ri
+@info ri[1]
+
+# ri = OAR.cluster_rand_data(art, data)
+
+# @info ri
+# @info ri[1]
