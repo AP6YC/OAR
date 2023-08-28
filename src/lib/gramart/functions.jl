@@ -310,7 +310,7 @@ function train!(
         return y
     end
 
-    for ix = 1:art.opts.epochs
+    for _ = 1:art.opts.epochs
         # Compute the activations
         accommodate_vector!(art.T, art.stats["n_categories"])
         accommodate_vector!(art.M, art.stats["n_categories"])
