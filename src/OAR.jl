@@ -55,6 +55,9 @@ using
 # Precompile concrete type methods
 using PrecompileSignatures: @precompile_signatures
 
+using Statistics: median as statistics_median
+using Statistics: mean as statistics_mean
+
 # Imports
 import YAML
 

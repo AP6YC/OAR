@@ -405,6 +405,20 @@ function weighted(F2::GramART, activation::Bool)
     return value
 end
 
+function create_category!(art::DDVSTART, statement::SomeStatement, label::Integer)
+    # Update the stats counters
+    art.stats["n_categories"] += 1
+
+    push!(art.labels, label)
+    new_node = GramART(
+        art.gramamr,
+        art.subopts,
+    )
+    train!(new_node, statement, y=label)
+    push!(art.F2, new_node)
+    return
+end
+
 function train!(
     art::DDVSTART,
     statement::SomeStatement;
@@ -414,7 +428,7 @@ function train!(
     supervised = !iszero(y)
 
     # If this is the first sample, then fast commit
-    if isempty(art.protonodes)
+    if isempty(art.F2)
         y_hat = supervised ? y : 1
         create_category!(art, statement, y_hat)
         return y_hat
@@ -431,7 +445,8 @@ function train!(
         accommodate_vector!(art.T, art.stats["n_categories"])
         accommodate_vector!(art.M, art.stats["n_categories"])
         for ix = 1:art.stats["n_categories"]
-            art.T[ix] = activation(art.protonodes[ix], statement)
+            # art.T[ix] = activation(art.protonodes[ix], statement)
+            art.T[ix] = similarity(art.protonodes[ix], statement, true)
         end
 
         # Sort by highest activation
