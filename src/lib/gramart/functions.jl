@@ -301,8 +301,6 @@ function train!(
     if isempty(art.protonodes)
         y_hat = supervised ? y : 1
         create_category!(art, statement, y_hat)
-        # add_node!(art)
-        # learn!(art, statement, 1)
         return y_hat
     end
 
@@ -314,21 +312,15 @@ function train!(
 
     for ix = 1:art.opts.epochs
         # Compute the activations
-        # n_nodes = length(art.protonodes)
-        # activations = zeros(n_nodes)
         accommodate_vector!(art.T, art.stats["n_categories"])
         accommodate_vector!(art.M, art.stats["n_categories"])
-        # for ix = 1:n_nodes
         for ix = 1:art.stats["n_categories"]
-            # activations[ix] = activation(art.protonodes[ix], statement)
             art.T[ix] = activation(art.protonodes[ix], statement)
         end
 
         # Sort by highest activation
-        # index = sortperm(activations, rev=true)
         index = sortperm(art.T, rev=true)
         mismatch_flag = true
-        # for jx = 1:n_nodes
         for jx = 1:art.stats["n_categories"]
             # Get the best-matching unit
             bmu = index[jx]
@@ -352,7 +344,6 @@ function train!(
             # bmu = n_nodes + 1
             y_hat = supervised ? y : art.stats["n_categories"] + 1
             create_category!(art, statement, y_hat)
-            # learn!(art, statement, bmu)
         end
     end
 
@@ -374,31 +365,23 @@ function classify(
     get_bmu::Bool=false,
 )
     # Compute the activations
-    # n_nodes = length(art.protonodes)
-    # activations = zeros(n_nodes)
-    # for ix = 1:n_nodes
     accommodate_vector!(art.T, art.stats["n_categories"])
     accommodate_vector!(art.M, art.stats["n_categories"])
     for ix = 1:art.stats["n_categories"]
-        # activations[ix] = activation(art.protonodes[ix], statement)
         art.T[ix] = activation(art.protonodes[ix], statement)
     end
 
     # Sort by highest activation
-    # index = sortperm(activations, rev=true)
     index = sortperm(art.T, rev=true)
 
     # Default is mismatch
     mismatch_flag = true
     y_hat = -1
-    # for jx in 1:n_nodes
     for jx in 1:art.stats["n_categories"]
         bmu = index[jx]
         # Vigilance check - pass
-        # if activations[bmu] >= art.opts.rho
         if art.T[bmu] >= art.opts.rho
             # Current winner
-            # y_hat = bmu
             y_hat = art.labels[bmu]
             mismatch_flag = false
             break
@@ -409,7 +392,6 @@ function classify(
     if mismatch_flag
         # Report either the best matching unit or the mismatch label -1
         bmu = index[1]
-        # y_hat = get_bmu ? bmu : -1
         y_hat = get_bmu ? art.labels[bmu] : -1
     end
 

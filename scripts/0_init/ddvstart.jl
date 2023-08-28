@@ -1,5 +1,5 @@
 """
-    2_mushroom.jl
+    ddvstart.jl
 
 # Description
 This script shows how to use a GramART to cluster on the Mushroom dataset.
@@ -38,8 +38,8 @@ using ProgressMeter
 # VARIABLES
 # -----------------------------------------------------------------------------
 
-exp_top = "1_baseline"
-exp_name = "2_mushroom.jl"
+exp_top = "0_init"
+exp_name = "ddvstart.jl"
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -58,39 +58,38 @@ pargs = OAR.exp_parse(
 data, grammar = OAR.symbolic_mushroom()
 
 # Initialize the GramART module with options
-gramart = OAR.GramART(grammar,
-    rho = 0.6,
+gramart = OAR.DDVSTART(grammar,
     rho_lb = 0.1,
     rho_ub = 0.3,
 )
 
-# Process the statements
-@showprogress for ix in eachindex(data.train_x)
-    statement = data.train_x[ix]
-    label = data.train_y[ix]
-    OAR.train!(
-    # OAR.train_dv!(
-        gramart,
-        statement,
-        y=label,
-    )
-end
+# # Process the statements
+# @showprogress for ix in eachindex(fs.train_x)
+#     statement = fs.train_x[ix]
+#     label = fs.train_y[ix]
+#     OAR.train!(
+#     # OAR.train_dv!(
+#         gramart,
+#         statement,
+#         y=label,
+#     )
+# end
 
-# Classify
-clusters = zeros(Int, length(data.test_y))
-@showprogress for ix in eachindex(data.test_x)
-    clusters[ix] = OAR.classify(
-    # clusters[ix] = OAR.classify_dv(
-        gramart,
-        data.test_x[ix],
-        get_bmu=true,
-    )
-end
+# # Classify
+# clusters = zeros(Int, length(fs.test_y))
+# @showprogress for ix in eachindex(fs.test_x)
+#     clusters[ix] = OAR.classify(
+#     # clusters[ix] = OAR.classify_dv(
+#         gramart,
+#         fs.test_x[ix],
+#         get_bmu=true,
+#     )
+# end
 
-# Calculate testing performance
-perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
+# # Calculate testing performance
+# perf = OAR.AdaptiveResonance.performance(fs.test_y, clusters)
 
-# Logging
-@info "Final performance: $(perf)"
-@info "n_categories: $(gramart.stats["n_categories"])"
-# @info "n_instance: $(gramart.stats["n_instance"])"
+# # Logging
+# @info "Final performance: $(perf)"
+# @info "n_categories: $(gramart.stats["n_categories"])"
+# # @info "n_instance: $(gramart.stats["n_instance"])"
