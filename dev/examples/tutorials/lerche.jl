@@ -41,4 +41,3 @@ text = raw"SL1 SW3 PL4 PW8"
 k = Lerche.parse(iris_parser, text)
 
 # This file was generated using Literate.jl, https://github.com/fredrikekre/Literate.jl
-

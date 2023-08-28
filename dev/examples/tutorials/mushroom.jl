@@ -41,4 +41,3 @@ perf = OAR.AdaptiveResonance.performance(fs.test_y, clusters)
 @info "n_categories: $(art.stats["n_categories"])"
 
 # This file was generated using Literate.jl, https://github.com/fredrikekre/Literate.jl
-

@@ -38,4 +38,3 @@ perf = OAR.AdaptiveResonance.performance(y_hat, fs.test_y)
 @info "Supervised testing performance: $(perf)"
 
 # This file was generated using Literate.jl, https://github.com/fredrikekre/Literate.jl
-

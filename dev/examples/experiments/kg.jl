@@ -22,4 +22,3 @@ end
 @info "Number of categories: $(length(gramart.protonodes))"
 
 # This file was generated using Literate.jl, https://github.com/fredrikekre/Literate.jl
-
