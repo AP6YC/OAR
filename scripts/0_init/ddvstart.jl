@@ -63,33 +63,33 @@ gramart = OAR.DDVSTART(grammar,
     rho_ub = 0.3,
 )
 
-# # Process the statements
-# @showprogress for ix in eachindex(fs.train_x)
-#     statement = fs.train_x[ix]
-#     label = fs.train_y[ix]
-#     OAR.train!(
-#     # OAR.train_dv!(
-#         gramart,
-#         statement,
-#         y=label,
-#     )
-# end
+# Process the statements
+@showprogress for ix in eachindex(data.train_x)
+    statement = data.train_x[ix]
+    label = data.train_y[ix]
+    OAR.train!(
+    # OAR.train_dv!(
+        gramart,
+        statement,
+        y=label,
+    )
+end
 
-# # Classify
-# clusters = zeros(Int, length(fs.test_y))
-# @showprogress for ix in eachindex(fs.test_x)
-#     clusters[ix] = OAR.classify(
-#     # clusters[ix] = OAR.classify_dv(
-#         gramart,
-#         fs.test_x[ix],
-#         get_bmu=true,
-#     )
-# end
+# Classify
+clusters = zeros(Int, length(data.test_y))
+@showprogress for ix in eachindex(data.test_x)
+    clusters[ix] = OAR.classify(
+    # clusters[ix] = OAR.classify_dv(
+        gramart,
+        data.test_x[ix],
+        get_bmu=true,
+    )
+end
 
-# # Calculate testing performance
-# perf = OAR.AdaptiveResonance.performance(fs.test_y, clusters)
+# Calculate testing performance
+perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
 
-# # Logging
-# @info "Final performance: $(perf)"
-# @info "n_categories: $(gramart.stats["n_categories"])"
-# # @info "n_instance: $(gramart.stats["n_instance"])"
+# Logging
+@info "Final performance: $(perf)"
+@info "n_categories: $(gramart.stats["n_categories"])"
+# @info "n_instance: $(gramart.stats["n_instance"])"

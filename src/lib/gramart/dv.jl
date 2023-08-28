@@ -45,7 +45,7 @@ All dual-vigilance and distributed dual-vigilance definitions.
     """
     Maximum number of epochs during training: max_epochs ∈ (1, Inf).
     """
-    max_epoch::Int = 1
+    epochs::Int = 1
 
     """
     Display flag for progress bars.
@@ -135,6 +135,11 @@ mutable struct DDVSTART
     """
     M::Vector{Float}
 
+    """
+    Dictionary of mutable statistics for the module.
+    """
+    stats::GramARTStats
+
     # """
     # Runtime statistics for the module, implemented as a dictionary containing entries at the end of each training iteration.
     # These entries include the best-matching unit index and the activation and match values of the winning node.
@@ -142,7 +147,7 @@ mutable struct DDVSTART
     # stats::ARTStats
 end
 
-function DDVSTART(grammar::CFG;kwargs...)
+function DDVSTART(grammar::CFG; kwargs...)
     opts = opts_DDVSTART(;kwargs...)
     DDVSTART(
         grammar,
@@ -151,10 +156,15 @@ function DDVSTART(grammar::CFG;kwargs...)
 end
 
 function DDVSTART(grammar::CFG, opts::opts_DDVSTART)
+    # Init the stats
+    stats = gen_GramARTStats()
+
+    # Create the suboptions
     subopts = opts_GramART(
         rho=opts.rho_ub,
     )
 
+    # Initialize the module
     DDVSTART(
         grammar,                # grammar
         opts,
@@ -165,6 +175,7 @@ function DDVSTART(grammar::CFG, opts::opts_DDVSTART)
         0,
         Vector{Float}(),
         Vector{Float}(),
+        stats,
     )
 end
 
@@ -411,7 +422,7 @@ function create_category!(art::DDVSTART, statement::SomeStatement, label::Intege
 
     push!(art.labels, label)
     new_node = GramART(
-        art.gramamr,
+        art.grammar,
         art.subopts,
     )
     train!(new_node, statement, y=label)
@@ -445,8 +456,12 @@ function train!(
         accommodate_vector!(art.T, art.stats["n_categories"])
         accommodate_vector!(art.M, art.stats["n_categories"])
         for ix = 1:art.stats["n_categories"]
-            # art.T[ix] = activation(art.protonodes[ix], statement)
-            art.T[ix] = similarity(art.protonodes[ix], statement, true)
+            activation_match!(art.F2[ix], statement)
+            art.T[ix] = similarity(
+                art.opts.similarity,
+                art.F2[ix],
+                true,
+            )
         end
 
         # Sort by highest activation
@@ -455,15 +470,18 @@ function train!(
         for jx = 1:art.stats["n_categories"]
             # Get the best-matching unit
             bmu = index[jx]
-            if art.T[bmu] >= art.opts.rho
+            if art.T[bmu] >= art.opts.rho_lb
                 # If supervised and the label differed, force mismatch
                 if supervised && (art.labels[bmu] != y)
                     break
                 end
                 # @info "Match!"
                 y_hat = art.labels[bmu]
-                learn!(art, statement, bmu)
-                art.stats["n_instance"][bmu] += 1
+                train!(art.F2[bmu], statement)
+                # learn!(art, statement, bmu)
+                # learn!(art.F2[bmu], statement, bmu)
+                # art.stats["n_instance"][bmu] += 1
+                # art.F2[bmu].stats["n_instance"][bmu] += 1
                 mismatch_flag = false
                 break
             end
@@ -487,11 +505,22 @@ function classify(
     statement::Statement ;
     get_bmu::Bool=false,
 )
+    # accommodate_vector!(art.T, art.stats["n_categories"])
+    # accommodate_vector!(art.M, art.stats["n_categories"])
+    # for ix = 1:art.stats["n_categories"]
+    #     art.T[ix] = activation(art.protonodes[ix], statement)
+    # end
+
     # Compute the activations
     accommodate_vector!(art.T, art.stats["n_categories"])
     accommodate_vector!(art.M, art.stats["n_categories"])
     for ix = 1:art.stats["n_categories"]
-        art.T[ix] = activation(art.protonodes[ix], statement)
+        activation_match!(art.F2[ix], statement)
+        art.T[ix] = similarity(
+            art.opts.similarity,
+            art.F2[ix],
+            true,
+        )
     end
 
     # Sort by highest activation
@@ -503,7 +532,7 @@ function classify(
     for jx in 1:art.stats["n_categories"]
         bmu = index[jx]
         # Vigilance check - pass
-        if art.T[bmu] >= art.opts.rho
+        if art.T[bmu] >= art.opts.rho_lb
             # Current winner
             y_hat = art.labels[bmu]
             mismatch_flag = false

@@ -59,7 +59,8 @@ data, grammar = OAR.symbolic_mushroom()
 
 # Initialize the GramART module with options
 gramart = OAR.GramART(grammar,
-    rho = 0.6,
+    # rho = 0.6,
+    rho = 0.1,
     rho_lb = 0.1,
     rho_ub = 0.3,
 )

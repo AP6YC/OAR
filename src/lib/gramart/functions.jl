@@ -312,11 +312,7 @@ function train!(
 
     for _ = 1:art.opts.epochs
         # Compute the activations
-        accommodate_vector!(art.T, art.stats["n_categories"])
-        accommodate_vector!(art.M, art.stats["n_categories"])
-        for ix = 1:art.stats["n_categories"]
-            art.T[ix] = activation(art.protonodes[ix], statement)
-        end
+        activation_match!(art, statement)
 
         # Sort by highest activation
         index = sortperm(art.T, rev=true)
@@ -351,6 +347,15 @@ function train!(
     return y_hat
 end
 
+function activation_match!(art::GramART, statement::SomeStatement)
+    accommodate_vector!(art.T, art.stats["n_categories"])
+    accommodate_vector!(art.M, art.stats["n_categories"])
+    for ix = 1:art.stats["n_categories"]
+        art.T[ix] = activation(art.protonodes[ix], statement)
+    end
+    return
+end
+
 """
 Classifies the [`OAR.Statement`](@ref) into one of [`OAR.GramART`](@ref)'s internal categories.
 
@@ -365,11 +370,7 @@ function classify(
     get_bmu::Bool=false,
 )
     # Compute the activations
-    accommodate_vector!(art.T, art.stats["n_categories"])
-    accommodate_vector!(art.M, art.stats["n_categories"])
-    for ix = 1:art.stats["n_categories"]
-        art.T[ix] = activation(art.protonodes[ix], statement)
-    end
+    activation_match!(art, statement)
 
     # Sort by highest activation
     index = sortperm(art.T, rev=true)

@@ -184,6 +184,15 @@ const SomeStatements = Union{TreeStatements, Statements}
 # CONSTRUCTORS
 # -----------------------------------------------------------------------------
 
+function gen_GramARTStats()
+    # Init the stats
+    stats = GramARTStats()
+    stats["n_categories"] = 0
+    stats["n_clusters"] = 0
+    stats["n_instance"] = Vector{Int}()
+    return stats
+end
+
 """
 Constructor for an [`OAR.GramART`](@ref) module that takes a [`CFG`](@ref) grammar and automatically sets up the [`ProtoNode`](@ref) tree.
 
@@ -193,10 +202,7 @@ $ARG_CFG
 """
 function GramART(grammar::CFG, opts::opts_GramART)
     # Init the stats
-    stats = GramARTStats()
-    stats["n_categories"] = 0
-    stats["n_clusters"] = 0
-    stats["n_instance"] = Vector{Int}()
+    stats = gen_GramARTStats()
 
     # Instantiate and return the GramART module
     GramART(
