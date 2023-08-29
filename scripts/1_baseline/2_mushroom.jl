@@ -94,8 +94,8 @@ perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
 
 # Logging
 @info "Final performance: $(perf)"
-@info "n_categories: $(gramart.stats["n_categories"])"
-# @info "n_instance: $(gramart.stats["n_instance"])"
+@info "n_categories: $(art.stats["n_categories"])"
+# @info "n_instance: $(art.stats["n_instance"])"
 
 
 # Clustering
@@ -103,20 +103,21 @@ perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
 # Initialize the GramART module with options
 art = OAR.GramART(grammar,
     # rho = 0.6,
-    rho = 0.1,
+    rho = 0.3,
     rho_lb = 0.1,
     rho_ub = 0.3,
 )
 
-y_hats = OAR.cluster_serial(art, vcat(data.train_x, data.test_x))
-ys = vcat(data.train_y, data.test_y)
+ddvstart = OAR.DDVSTART(grammar,
+    # rho_lb = 0.07,
+    # rho_ub = 0.08,
+    rho_lb = 1.54,
+    rho_ub = 1.76,
+)
 
-ri = randindex(y_hats, ys)
+ri1 = OAR.cluster_rand_data(art, data)
+ri2 = OAR.cluster_rand_data(ddvstart, data)
 
-@info ri
-@info ri[1]
-
-ri = OAR.cluster_rand_data(art, data)
-
-# @info ri
-# @info ri[1]
+@info ri1
+@info ri2
+@info length(ddvstart.F2)

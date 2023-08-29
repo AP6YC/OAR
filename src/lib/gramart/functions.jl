@@ -39,19 +39,6 @@ function is_terminal(treenode::TreeNode)
     return is_terminal(treenode.t)
 end
 
-
-# function inc_n_categories!(art::GramART)
-#     art.stats["n_categories"] += 1
-# end
-
-# function create_category!(art::GramART, statement::SomeStatement, label::Integer)
-#     art.stats["n_categories"] += 1
-#     create_category!(art)
-#     learn!(art, statement, 1)
-# end
-
-
-
 """
 Adds an empty node to the end of the [`OAR.GramART`](@ref) module.
 
@@ -134,12 +121,14 @@ function update_dist!(
     # Update the counts
     pn.N[symb] += 1
     pn.stats.m += 1
+
     # Update the distributions
     ratio = 1 / pn.stats.m
     for (key, _) in pn.dist
         # Repeated multiplication is faster than division
         pn.dist[key] = pn.N[key] * ratio
     end
+
     # Explicit empty return
     return
 end
@@ -249,23 +238,6 @@ function match(
     return local_sum
 end
 
-# function single_vigilance_check(art)
-#     if activations[bmu] >= art.opts.rho
-#         # If supervised and the label differed, force mismatch
-#         if supervised && (art.labels[bmu] != y)
-#             break
-#         end
-#         y_hat = art.labels[bmu]
-#         learn!(art, statement, bmu)
-#         art.stats["n_instance"][bmu] += 1
-#         mismatch_flag = false
-#         break
-#     end
-# end
-
-# accommodate_vector!(art.T, art.stats["n_categories"])
-# accommodate_vector!(art.M, art.stats["n_categories"])
-
 """
 Extends a vector to a goal length with zeros of its element type to accommodate in-place updates.
 
@@ -325,7 +297,6 @@ function train!(
                 if supervised && (art.labels[bmu] != y)
                     break
                 end
-                # @info "Match!"
                 y_hat = art.labels[bmu]
                 learn!(art, statement, bmu)
                 art.stats["n_instance"][bmu] += 1
@@ -336,7 +307,6 @@ function train!(
 
         # If we triggered a mismatch, add a node
         if mismatch_flag
-            # @info "Mismatch!"
             # bmu = n_nodes + 1
             y_hat = supervised ? y : art.stats["n_categories"] + 1
             create_category!(art, statement, y_hat)

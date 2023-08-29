@@ -151,11 +151,11 @@ function tt_gramart(
 end
 
 function tt_serial(
-    art::GramART,
+    art::AbstractGramART,
     data::VectoredDataset,
 )
     # Process the statements
-    @showprogress for ix in eachindex(data.train_x)
+    @showprogress "Training" for ix in eachindex(data.train_x)
     statement = data.train_x[ix]
     label = data.train_y[ix]
     OAR.train!(
@@ -169,7 +169,7 @@ function tt_serial(
 
     # Classify
     clusters = zeros(Int, length(data.test_y))
-    @showprogress for ix in eachindex(data.test_x)
+    @showprogress "Classifying" for ix in eachindex(data.test_x)
     clusters[ix] = OAR.classify(
     # clusters[ix] = OAR.classify_dv(
         art,
@@ -188,7 +188,7 @@ function tt_serial(
 end
 
 function cluster_serial(
-    art::GramART,
+    art::AbstractGramART,
     data::Statements,
 )
     # dim, n_samples = size(data)
@@ -197,14 +197,24 @@ function cluster_serial(
     # @showprogress for ix in n_samples
     y_hats = zeros(Int, length(data))
     # @showprogress for statement in data
-    @showprogress for ix in eachindex(data)
+    @showprogress "Clustering" for ix in eachindex(data)
         statement = data[ix]
 
-        y_hats[ix] = OAR.train!(
+        # y_hats[ix] = OAR.train!(
+        OAR.train!(
         # OAR.train_dv!(
             art,
             statement,
             # epochs=5,
+        )
+    end
+
+    @showprogress "Classifying" for ix in eachindex(data)
+        statement = data[ix]
+
+        y_hats[ix] = OAR.classify(
+            art,
+            statement,
         )
     end
 
@@ -216,11 +226,10 @@ function cluster_serial(
 end
 
 function cluster_rand(
-    art::GramART,
+    art::AbstractGramART,
     data::Statements,
     truth::Vector{Int},
 )
-
     # Cluster the data and get the cluster labels
     y_hats = OAR.cluster_serial(
         art,
@@ -234,7 +243,7 @@ function cluster_rand(
 end
 
 function cluster_rand_data(
-    art::GramART,
+    art::AbstractGramART,
     data::DataSplitGeneric,
 )
     ri = cluster_rand(

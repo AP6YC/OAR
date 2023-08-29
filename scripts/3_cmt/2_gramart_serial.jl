@@ -92,7 +92,7 @@ for ix in eachindex(rhos)
     )
 
     # Process the statements
-    @showprogress for tn in ts
+    @showprogress "Training" for tn in ts
         OAR.train!(gramart, tn)
     end
 

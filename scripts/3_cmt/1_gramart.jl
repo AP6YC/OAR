@@ -67,13 +67,14 @@ grammar = OAR.CMTCFG(ts)
 # Initialize the GramART module
 gramart = OAR.GramART(
     grammar,
-    rho=0.7,    # ~12GB
+    # rho=0.7,
+    rho=0.6,
     terminated=false,
 )
 # @info gramart
 
 # Process the statements
-@showprogress for tn in ts
+@showprogress "Training" for tn in ts
     OAR.train!(gramart, tn)
 end
 
@@ -82,7 +83,7 @@ out_df = deepcopy(df)
 
 # Classify and push the results to a list of cluster assignments
 clusters = Vector{Int}()
-@showprogress for tn in ts
+@showprogress "Classifying" for tn in ts
     cluster = OAR.classify(gramart, tn, get_bmu=true)
     push!(clusters, cluster)
 end

@@ -6,6 +6,12 @@ The structs and constructors of GramART.
 """
 
 # -----------------------------------------------------------------------------
+# ABSTRACT TYPES
+# -----------------------------------------------------------------------------
+
+abstract type AbstractGramART end
+
+# -----------------------------------------------------------------------------
 # STRUCTS
 # -----------------------------------------------------------------------------
 
@@ -76,17 +82,20 @@ end
     """
     Vigilance parameter: ρ ∈ [0, 1]
     """
-    rho = 0.7; @assert rho >= 0.0 && rho <= 1.0
+    rho = 0.7;
+    # @assert rho >= 0.0 && rho <= 1.0
 
     """
     Lower-bound vigilance parameter: rho_lb ∈ [0, 1].
     """
-    rho_lb = 0.55; @assert rho_lb >= 0.0 && rho_lb <= 1.0
+    rho_lb = 0.55;
+    # @assert rho_lb >= 0.0 && rho_lb <= 1.0
 
     """
     Upper bound vigilance parameter: rho_ub ∈ [0, 1].
     """
-    rho_ub = 0.75; @assert rho_ub >= 0.0 && rho_ub <= 1.0 && rho_ub > rho_lb
+    rho_ub = 0.75; @assert rho_lb <= rho_ub
+    # @assert rho_ub >= 0.0 && rho_ub <= 1.0 && rho_ub > rho_lb
 
     """
     Choice parameter: alpha > 0.
@@ -119,7 +128,7 @@ Definition of a GramART module.
 
 Contains the [`ProtoNode`](@ref)s and [`CFG`](@ref) grammar that is used for processing statements and generating nodes.
 """
-struct GramART
+struct GramART <: AbstractGramART
     """
     The [`OAR.ProtoNode`](@ref)s of the GramART module.
     """
