@@ -125,7 +125,7 @@ function classify_dv(
         bmu = index[jx]
         # Vigilance check - pass
         # if activations[bmu] >= art.opts.rho
-        if activations[bmu] >= art.opts.rho_ub
+        if art.T[bmu] >= art.opts.rho_ub
             # Current winner
             # y_hat = bmu
             y_hat = art.labels[bmu]
