@@ -55,9 +55,9 @@ pargs = OAR.dist_exp_parse(
 )
 
 # Start several processes
-# if pargs["procs"] > 0
-#     addprocs(pargs["procs"], exeflags="--project=.")
-# end
+if pargs["procs"] > 0
+    addprocs(pargs["procs"], exeflags="--project=.")
+end
 
 # Load the simulation configuration file
 config = OAR.load_config(config_file)
