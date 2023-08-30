@@ -277,7 +277,7 @@ function sim_tt_serial(
     dir_func::Function,
     opts::AbstractDict,
 )
-    try
+    # try
 
     # Point to the correct data and grammar
     data = opts["data"][d["data"]]
@@ -325,9 +325,9 @@ function sim_tt_serial(
     # Save the results
     save_sim(dir_func, d, fulld)
 
-    catch
-        @warn "Failed to run sim from worker $(myid())"
-    end
+    # catch
+    #     @warn "Failed to run sim from worker $(myid())"
+    # end
 
     return
 end
