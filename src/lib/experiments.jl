@@ -265,6 +265,36 @@ function cluster_rand_data(
 end
 
 """
+Common save function for simulations without ignores.
+
+# Arguments
+$ARG_SIM_DIR_FUNC
+$ARG_SIM_D
+- `fulld::AbstractDict`: the dictionary containing the sim results.
+"""
+function full_save_sim(
+    dir_func::Function,
+    d::AbstractDict,
+    fulld::AbstractDict,
+)
+    # Point to the correct save file for the results dictionary
+    sim_save_name = dir_func(savename(
+        d,
+        "jld2";
+        digits=4,
+    ))
+
+    # Log completion of the simulation
+    @info "Worker $(myid()): saving to $(sim_save_name)"
+
+    # DrWatson function to save the results with an additional tag entry
+    tagsave(sim_save_name, fulld)
+
+    # Empty return
+    return
+end
+
+"""
 Trains and tests a START module on the provided statements.
 
 # Arguments
@@ -323,7 +353,7 @@ function sim_tt_serial(
     fulld["n_cat"] = n_categories
 
     # Save the results
-    save_sim(dir_func, d, fulld)
+    full_save_sim(dir_func, d, fulld)
 
     # catch
     #     @warn "Failed to run sim from worker $(myid())"
