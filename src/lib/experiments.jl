@@ -348,7 +348,7 @@ function sim_tt_serial(
             grammar,
             rho_lb = d["rho_lb"],
             rho_ub = d["rho_ub"],
-            similarity=d["similarity"],
+            similarity=Symbol(d["similarity"]),
             epochs=1,
         )
     else
