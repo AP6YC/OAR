@@ -32,7 +32,8 @@ using OAR
 
 # using DataFrames
 using Random
-Random.seed!(1234)
+# Random.seed!(1234)
+Random.seed!(1235)
 using ProgressMeter
 
 # -----------------------------------------------------------------------------
@@ -65,6 +66,7 @@ for (root, dirs, files) in walkdir(topdir)
         # Get the full filename for the current data file
         filename = joinpath(root, file)
 
+        @info file
         # Load the symbolic data and grammar
         data, grammar = OAR.symbolic_dataset(filename)
 
