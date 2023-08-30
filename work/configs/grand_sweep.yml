@@ -25,4 +25,4 @@ ddvstart:
     - average
     - complete
     - median
-    - weighted
+    # - weighted
