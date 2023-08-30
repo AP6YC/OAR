@@ -153,32 +153,48 @@ end
 function tt_serial(
     art::AbstractGramART,
     data::VectoredDataset;
-    display::Bool=false
+    display::Bool=false,
+    dv::Bool=false,
 )
     # Process the statements
     # @showprogress "Training" for ix in eachindex(data.train_x)
     for ix in eachindex(data.train_x)
         statement = data.train_x[ix]
         label = data.train_y[ix]
-        OAR.train!(
-        # OAR.train_dv!(
-            art,
-            statement,
-            y=label,
-            # epochs=5,
-        )
+        if dv
+            OAR.train_dv!(
+                art,
+                statement,
+                y=label,
+            )
+        else
+            OAR.train!(
+                art,
+                statement,
+                y=label,
+            )
+        end
     end
 
     # Classify
     clusters = zeros(Int, length(data.test_y))
     # @showprogress "Classifying" for ix in eachindex(data.test_x)
     for ix in eachindex(data.test_x)
-        clusters[ix] = OAR.classify(
-        # clusters[ix] = OAR.classify_dv(
-            art,
-            data.test_x[ix],
-            get_bmu=true,
-        )
+        if dv
+            clusters[ix] = OAR.classify_dv(
+                art,
+                data.test_x[ix],
+                get_bmu=true,
+            )
+        else
+            clusters[ix] = OAR.classify(
+            # clusters[ix] = OAR.classify_dv(
+                art,
+                data.test_x[ix],
+                get_bmu=true,
+            )
+        end
+
     end
 
     # Calculate testing performance
@@ -343,6 +359,7 @@ function sim_tt_serial(
         art,
         data,
         display=false,
+        dv=(d["m"] == "dvstart"),
     )
 
     # Copy the input sim dictionary
