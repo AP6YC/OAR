@@ -345,6 +345,7 @@ function sim_tt_serial(
         )
     elseif d["m"] == "ddvstart"
         art = OAR.DDVSTART(
+            grammar,
             rho_lb = d["rho_lb"],
             rho_ub = d["rho_ub"],
             similarity=d["similarity"],
