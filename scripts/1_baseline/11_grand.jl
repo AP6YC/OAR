@@ -158,6 +158,8 @@ filter!(d -> d["rho_ub"] > d["rho_lb"], ddvstart_dicts)
 
     # Generate a simple subject-predicate-object grammar from the statements
     opts = Dict{String, Any}()
+    opts["data"] = Dict{String, Any}()
+    opts["grammar"] = Dict{String, Any}()
     # Walk the directory
     for (root, dirs, files) in walkdir(topdir)
         # Iterate over all of the files
