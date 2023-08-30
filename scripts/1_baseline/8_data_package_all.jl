@@ -66,24 +66,25 @@ for (root, dirs, files) in walkdir(topdir)
         # Get the full filename for the current data file
         filename = joinpath(root, file)
 
-        @info file
         # Load the symbolic data and grammar
         data, grammar = OAR.symbolic_dataset(filename)
 
         # Initialize the GramART module with options
-        gramart = OAR.GramART(grammar,
+        art = OAR.GramART(grammar,
             # rho = 0.6,
             # rho = 0.3,
             rho = 0.1,
             rho_lb = 0.1,
             rho_ub = 0.3,
-            epochs=5,
+            # epochs=5,
+            epochs=1,
         )
 
         @info "---------- $(file) ----------"
         OAR.tt_serial(
-            gramart,
+            art,
             data,
+            display=true,
         )
     end
 end

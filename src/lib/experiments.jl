@@ -152,39 +152,48 @@ end
 
 function tt_serial(
     art::AbstractGramART,
-    data::VectoredDataset,
+    data::VectoredDataset;
+    display::Bool=false
 )
     # Process the statements
-    @showprogress "Training" for ix in eachindex(data.train_x)
-    statement = data.train_x[ix]
-    label = data.train_y[ix]
-    OAR.train!(
-    # OAR.train_dv!(
-        art,
-        statement,
-        y=label,
-        # epochs=5,
-    )
+    # @showprogress "Training" for ix in eachindex(data.train_x)
+    for ix in eachindex(data.train_x)
+        statement = data.train_x[ix]
+        label = data.train_y[ix]
+        OAR.train!(
+        # OAR.train_dv!(
+            art,
+            statement,
+            y=label,
+            # epochs=5,
+        )
     end
 
     # Classify
     clusters = zeros(Int, length(data.test_y))
-    @showprogress "Classifying" for ix in eachindex(data.test_x)
-    clusters[ix] = OAR.classify(
-    # clusters[ix] = OAR.classify_dv(
-        art,
-        data.test_x[ix],
-        get_bmu=true,
-    )
+    # @showprogress "Classifying" for ix in eachindex(data.test_x)
+    for ix in eachindex(data.test_x)
+        clusters[ix] = OAR.classify(
+        # clusters[ix] = OAR.classify_dv(
+            art,
+            data.test_x[ix],
+            get_bmu=true,
+        )
     end
 
     # Calculate testing performance
     perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
 
     # Logging
-    @info "Final performance: $(perf)"
-    @info "n_categories: $(art.stats["n_categories"])"
-    # @info "n_instance: $(art.stats["n_instance"])"
+    if display
+        @info "Final performance: $(perf)"
+        @info "n_categories: $(art.stats["n_categories"])"
+        # @info "n_instance: $(art.stats["n_instance"])"
+    end
+
+    n_categories = art.stats["n_categories"]
+
+    return perf, n_categories
 end
 
 function cluster_serial(
@@ -253,4 +262,72 @@ function cluster_rand_data(
     )
 
     return ri
+end
+
+"""
+Trains and tests a START module on the provided statements.
+
+# Arguments
+$ARG_SIM_D
+$ARG_SIM_DIR_FUNC
+$ARG_SIM_OPTS
+"""
+function sim_tt_serial(
+    d::AbstractDict,
+    dir_func::Function,
+    opts::AbstractDict,
+)
+    try
+
+    # Point to the correct data and grammar
+    data = opts["data"][d["data"]]
+    grammar = opts["grammar"][d["grammar"]]
+
+    # Initialize the GramART module
+    if d["m"] == "start"
+        art = OAR.GramART(
+            grammar,
+            rho = d["rho"],
+            epochs=1,
+        )
+    elseif d["m"] == "dvstart"
+        art = OAR.GramART(
+            grammar,
+            rho_lb = d["rho_lb"],
+            rho_ub = d["rho_ub"],
+            epochs=1,
+        )
+    elseif d["m"] == "ddvstart"
+        art = OAR.DDVSTART(
+            rho_lb = d["rho_lb"],
+            rho_ub = d["rho_ub"],
+            similarity=d["similarity"],
+            epochs=1,
+        )
+    else
+        error("Unrecognized module type")
+    end
+
+    # Train and test
+    perf, n_categories = OAR.tt_serial(
+        art,
+        data,
+        display=false,
+    )
+
+    # Copy the input sim dictionary
+    fulld = deepcopy(d)
+
+    # Add entries for the results
+    fulld["p"] = perf
+    fulld["n_cat"] = n_categories
+
+    # Save the results
+    save_sim(dir_func, d, fulld)
+
+    catch
+        @warn "Failed to run sim from worker $(myid())"
+    end
+
+    return
 end

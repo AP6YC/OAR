@@ -54,10 +54,10 @@ pargs = OAR.dist_exp_parse(
     "$(exp_top)/$(exp_name): GramART for clustering...everything."
 )
 
-# # Start several processes
-# if pargs["procs"] > 0
-#     addprocs(pargs["procs"], exeflags="--project=.")
-# end
+# Start several processes
+if pargs["procs"] > 0
+    addprocs(pargs["procs"], exeflags="--project=.")
+end
 
 # Load the simulation configuration file
 config = OAR.load_config(config_file)
@@ -115,6 +115,23 @@ ddvstart_params = Dict{String, Any}(
     )),
 )
 
+# Point to the top of the data package directory
+topdir =  OAR.data_dir("data-package")
+# data_names = Dict{String, Any}()
+data_names = []
+# Walk the directory
+for (root, dirs, files) in walkdir(topdir)
+    # Iterate over all of the files
+    for file in files
+        # Load the symbolic data and grammar
+        filename = splitext(file)[1]
+        push!(data_names, filename)
+    end
+end
+for dict in (start_params, dvstart_params, ddvstart_params)
+    dict["data"] = data_names
+end
+
 # Turn the dictionary of lists into a list of dictionaries
 start_dicts = dict_list(start_params)
 dvstart_dicts = dict_list(dvstart_params)
@@ -139,6 +156,8 @@ filter!(d -> d["rho_ub"] > d["rho_lb"], ddvstart_dicts)
     # Point to the top of the data package directory
     topdir =  OAR.data_dir("data-package")
 
+    # Generate a simple subject-predicate-object grammar from the statements
+    opts = Dict{String, Any}()
     # Walk the directory
     for (root, dirs, files) in walkdir(topdir)
         # Iterate over all of the files
@@ -147,61 +166,28 @@ filter!(d -> d["rho_ub"] > d["rho_lb"], ddvstart_dicts)
             filename = joinpath(root, file)
 
             # Load the symbolic data and grammar
-            # data[], grammar = OAR.symbolic_dataset(filename)
-
-            # # Initialize the GramART module with options
-            # gramart = OAR.GramART(grammar,
-            #     # rho = 0.6,
-            #     # rho = 0.3,
-            #     rho = 0.1,
-            #     rho_lb = 0.1,
-            #     rho_ub = 0.3,
-            #     epochs=5,
-            # )
-
-            # @info "---------- $(file) ----------"
-            # OAR.tt_serial(
-            #     gramart,
-            #     data,
-            # )
+            data_name = splitext(file)[1]
+            opts["data"][data_name], opts["grammar"][data_name] = OAR.symbolic_dataset(filename)
         end
     end
 
+    # Point to the sweep results
+    sweep_results_dir(args...) = OAR.results_dir(
+        "1_baseline",
+        "11_grand",
+        "sweep",
+        args...
+    )
 
-#     # Point to the CSV data file and data definition
-#     input_file = OAR.data_dir(
-#         "cmt",
-#         "output_CMT_file.csv",
-#     )
-#     data_dict_file = OAR.data_dir(
-#         "cmt",
-#         "cmt_data_dict.csv",
-#     )
+    # Make the path
+    mkpath(sweep_results_dir())
 
-#     # Point to the sweep results
-#     sweep_results_dir(args...) = OAR.results_dir(
-#         "3_cmt",
-#         "sweep",
-#         args...
-#     )
-
-#     # Make the path
-#     mkpath(sweep_results_dir())
-
-#     # All-in-one function
-#     data, grammmar = OAR.symbolic_iris()
-
-#     # Generate a simple subject-predicate-object grammar from the statements
-#     opts = Dict()
-#     opts["grammar"] = grammar
-
-#     # Define the single-parameter function used for pmap
-#     local_sim(dict) = OAR.tc_gramart(
-#         dict,
-#         data,
-#         sweep_results_dir,
-#         opts,
-#     )
+    # Define the single-parameter function used for pmap
+    local_sim(dict) = OAR.sim_tt_serial(
+        dict,
+        sweep_results_dir,
+        opts,
+    )
 end
 
 # -----------------------------------------------------------------------------
@@ -214,7 +200,9 @@ end
 @info "DDVSTART: $(dict_list_count(ddvstart_params)) simulations across $(nprocs()) processes."
 
 # Parallel map the sims
-# pmap(local_sim, dicts)
+pmap(local_sim, start_dicts)
+pmap(local_sim, dvstart_dicts)
+pmap(local_sim, ddvstart_dicts)
 
 # -----------------------------------------------------------------------------
 # CLEANUP
