@@ -125,7 +125,8 @@ end
     bins = 10
 
     # Load the real component of the data
-    data = OAR.iris_tt_real()
+    # data = OAR.iris_tt_real()
+    data = OAR.tt_real(:Iris)
 
     # Get the symbolic list of statements
     statements, bnf = OAR.real_to_symb(data, N)

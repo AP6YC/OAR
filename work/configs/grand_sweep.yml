@@ -6,7 +6,7 @@ start:
   increment: 0.01
 
 dvstart:
-  n_sweep: 10
+  n_sweep: 5
   increment: 0.01
   rho_lb_lb: 0.01
   rho_lb_ub: 0.50
@@ -14,7 +14,7 @@ dvstart:
   rho_ub_ub: 0.50
 
 ddvstart:
-  n_sweep: 3
+  n_sweep: 1
   rho_lb_lb: 0.01
   rho_lb_ub: 0.50
   rho_ub_lb: 0.01
