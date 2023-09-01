@@ -109,6 +109,8 @@ function tt_gramart(
     opts::AbstractDict,
 )
     try
+
+    # ls, ll = shuffleobs((features, labels))
     # Initialize the GramART module
     # art = OAR.GramART(grammmar)
     art = OAR.GramART(opts["grammmar"])
@@ -150,6 +152,15 @@ function tt_gramart(
     return
 end
 
+"""
+A single train-test serial experiment, taking a preconstructed ART module and training/testing on a set of data.
+
+# Arguments
+- `art::AbstractGramART`:
+- `data::VectoredDataset`:
+- `display::Bool=false: optional, default false.
+- `dv::Bool=false`: optional, default false.
+"""
 function tt_serial(
     art::AbstractGramART,
     data::VectoredDataset;
@@ -212,6 +223,11 @@ function tt_serial(
     return perf, n_categories
 end
 
+"""
+# Arguments
+- `art::AbstractGramART`:
+- `data::Statements`:
+"""
 function cluster_serial(
     art::AbstractGramART,
     data::Statements,
@@ -267,6 +283,11 @@ function cluster_rand(
     return ri
 end
 
+"""
+# Arguments
+- `art::AbstractGramART`:
+- `data::DataSplitGeneric`:
+"""
 function cluster_rand_data(
     art::AbstractGramART,
     data::DataSplitGeneric,

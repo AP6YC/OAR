@@ -9,6 +9,9 @@ The structs and constructors of GramART.
 # ABSTRACT TYPES
 # -----------------------------------------------------------------------------
 
+"""
+Abstract type for all GramART-type modules.
+"""
 abstract type AbstractGramART end
 
 # -----------------------------------------------------------------------------
@@ -193,6 +196,9 @@ const SomeStatements = Union{TreeStatements, Statements}
 # CONSTRUCTORS
 # -----------------------------------------------------------------------------
 
+"""
+Constructor for prepopulating the stats dictionary.
+"""
 function gen_GramARTStats()
     # Init the stats
     stats = GramARTStats()

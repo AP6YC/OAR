@@ -200,21 +200,40 @@ function get_mldata(mldataset::Symbol, download_local::Bool=false)
     return data
 end
 
+"""
+Wrapper for shuffling features and their labels.
+
+# Arguments
+- `features`: the set of data features.
+- `labels`: the set of labels corresponding to the features.
+"""
+function shuffle_pairs(features, labels)
+    # Use the MLUtils function for shuffling
+    ls, ll = shuffleobs((features, labels))
+
+    # Return the pairs
+    return ls, ll
+end
+
+"""
+Constructor for a [`OAR.DataSplit`](@ref) taking a set of features and options for the split ratio and shuffle flag.
+"""
 function DataSplit(
     features,
     labels;
     p::Float=DEFAULT_P,
     shuffle::Bool=true,
 )
-    if shuffle
-        ls, ll = shuffleobs((features, labels))
+    # Get the features and labels
+    ls, ll = if shuffle
+        # ls, ll = shuffleobs((features, labels))
+        shuffle_pairs(features, labels)
     else
-        ls, ll = (features, labels)
+        (features, labels)
     end
 
     # Create a train/test split
     (X_train, y_train), (X_test, y_test) = splitobs((ls, ll); at=p)
-
 
     # Create and return a single container for this train/test split
     return DataSplit(
@@ -492,17 +511,20 @@ function CFG_from_df(df::DataFrame, label::Symbol=:class, ignores::Vector{Symbol
     return grammar, statements, int_labels
 end
 
+"""
+Constructor for a generic
+"""
 function DataSplitGeneric(
     statements,
     labels;
     p::Float=DEFAULT_P,
     shuffle::Bool=true,
 )
-
-    if shuffle
-        ls, ll = shuffleobs((statements, labels))
+    # Get the features and labels
+    ls, ll = if shuffle
+        shuffle_pairs(statements, labels)
     else
-        ls, ll = (statements, labels)
+        (statements, labels)
     end
 
     # Create a train/test split
@@ -574,6 +596,7 @@ Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from t
 
 # Arguments
 - `filename::AbstractString=data_dir("mushroom", "mushrooms.csv")`: the location of the file to load with a default value.
+- `bins::Int=10`: the number of symbol bins for each feature, default 10.
 """
 function symbolic_dataset(filename::AbstractString, bins::Int=10)
     # Load the data
@@ -604,7 +627,7 @@ Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from t
 # Arguments
 - `filename::AbstractString=data_dir("mushroom", "mushrooms.csv")`: the location of the file to load with a default value.
 """
-function symbolic_cluster_dataset(filename::AbstractString, bins::Int=10)
+function symbolic_cluster_dataset(filename::AbstractString)
     # Load the data
     data = readdlm(filename, ',', Int, header=false)
 
