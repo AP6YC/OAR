@@ -5,7 +5,9 @@
 Distributed dual-vigilance START definitions.
 """
 
-
+"""
+DDVSTART options struct as a `Parameters.jl` object.
+"""
 @with_kw mutable struct opts_DDVSTART @deftype Float
     """
     Lower-bound vigilance parameter: rho_lb ∈ [0, 1].
@@ -84,6 +86,7 @@ Distributed dual-vigilance START definitions.
 end
 
 """
+A DDVSTART module.
 """
 mutable struct DDVSTART <: AbstractGramART
     """
@@ -149,6 +152,12 @@ mutable struct DDVSTART <: AbstractGramART
     # stats::ARTStats
 end
 
+"""
+DDVSTART constructor taking a [`CFG`](@ref) grammart and keyword arguments for its options.
+
+# Arguments
+- `grammar:CFG`: the grammar that the module works upon.
+"""
 function DDVSTART(grammar::CFG; kwargs...)
     opts = opts_DDVSTART(;kwargs...)
     DDVSTART(
@@ -157,7 +166,17 @@ function DDVSTART(grammar::CFG; kwargs...)
     )
 end
 
-function DDVSTART(grammar::CFG, opts::opts_DDVSTART)
+"""
+DDVSTART constructor taking a [`CFG`](@ref) grammart and [`opts_DDVSTART`](@ref) options struct.
+
+# Arguments
+- `grammar:CFG`: the grammar that the module works upon.
+- `opts::opts_DDVSTART`: the options of
+"""
+function DDVSTART(
+    grammar::CFG,
+    opts::opts_DDVSTART,
+)
     # Init the stats
     stats = gen_GramARTStats()
 
@@ -209,12 +228,16 @@ const ACTIVATION_DOCSTRING = """
 - `activation::Bool`: flag to use the activation function. False uses the match function.
 """
 
+"""
+Computes the similarity of the selected linkage method.
+
+# Arguments
+- `method::Symbol`: the linkage method function name as a Julia Symbol.
+- `F2::GramART`: the F2 module to compute the similarity for.
+- `activation::Bool`: flag for if the computed similarity is the activation or match.
+"""
 function similarity(method::Symbol, F2::GramART, activation::Bool)
-    # Handle :centroid usage
-    # if method === :centroid
-    #     value = eval(method)(F2, sample, activation)
     # Handle :weighted usage
-    # elseif method === :weighted
     if method === :weighted
         value = eval(method)(F2, activation)
     # Handle common usage
@@ -222,6 +245,7 @@ function similarity(method::Symbol, F2::GramART, activation::Bool)
         value = eval(method)(activation ? F2.T : F2.M)
     end
 
+    # Return the simlarity metric
     return value
 end
 
@@ -278,6 +302,14 @@ function weighted(F2::GramART, activation::Bool)
     return value
 end
 
+"""
+Create a new category in a DDVSTART module, initiated on [`SomeStatement`](@ref) and a corresponding integer label.
+
+# Arguments
+- `art::DDVSTART`: the [`DDVSTART`](@ref) module to append a new local F2 category to.
+- `statement::SomeStatement`: the statement to initialize the new category on.
+- `label::Integer`: the global label for the new category.
+"""
 function create_category!(art::DDVSTART, statement::SomeStatement, label::Integer)
     # Update the stats counters
     art.stats["n_categories"] += 1
@@ -292,6 +324,14 @@ function create_category!(art::DDVSTART, statement::SomeStatement, label::Intege
     return
 end
 
+"""
+Trains a [`DDVSTART`](@ref) module on [`SomeStatement`](@ref) and an optional supervisory label.
+
+# Arguments
+- `art::DDVSTART`: the [`DDVSTART`](@ref) module to train.
+- `statement::SomeStatement`: the statement sample to train upon.
+- `y::Integer=0`: optional supervisory label for the sample.
+"""
 function train!(
     art::DDVSTART,
     statement::SomeStatement;
@@ -359,9 +399,17 @@ function train!(
     return y_hat
 end
 
+"""
+Classifies [`SomeStatement`](@ref) with the provided [`DDVSTART`](@ref) module with an optional flag to get the best-matching unit in the case of a complete mismatch.
+
+# Arguments
+- `art::DDVSTART`: the [`DDVSTART`](@ref) module to classify with.
+- `statement::SomeStatment`: the sample as [`SomeStatment`](@ref) to classify.
+- `get_bmu`: optional flag to get the best-matching unit in the case of complete mismatch.
+"""
 function classify(
     art::DDVSTART,
-    statement::Statement ;
+    statement::SomeStatement ;
     get_bmu::Bool=false,
 )
     # accommodate_vector!(art.T, art.stats["n_categories"])

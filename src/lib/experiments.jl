@@ -266,6 +266,11 @@ function cluster_serial(
     return y_hats
 end
 
+"""
+# Arguments
+- `art::AbstractGramART`:
+- `data::Statements`:
+"""
 function cluster_rand(
     art::AbstractGramART,
     data::Statements,

@@ -166,7 +166,7 @@ function cluster_stats_plot(
 
     # Create the plot
     p = plot(
-        dpi = DPI,
+        dpi=DPI,
         titlefontsize=fontsize,
         tickfontsize=fontsize,
         legendfontsize=fontsize,

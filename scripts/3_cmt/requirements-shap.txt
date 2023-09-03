@@ -2,3 +2,5 @@ shap
 scikit-learn
 pandas
 xgboost
+jupyterlab
+flake8

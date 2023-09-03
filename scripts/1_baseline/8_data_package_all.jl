@@ -69,8 +69,26 @@ for (root, dirs, files) in walkdir(topdir)
         # Load the symbolic data and grammar
         data, grammar = OAR.symbolic_dataset(filename)
 
+        # # Initialize the GramART module with options
+        # art = OAR.GramART(grammar,
+        #     # rho = 0.6,
+        #     # rho = 0.3,
+        #     rho = 0.1,
+        #     rho_lb = 0.1,
+        #     rho_ub = 0.3,
+        #     # epochs=5,
+        #     epochs=1,
+        # )
+
+        # @info "---------- $(file) ----------"
+        # OAR.tt_serial(
+        #     art,
+        #     data,
+        #     display=true,
+        # )
+
         # Initialize the GramART module with options
-        art = OAR.GramART(grammar,
+        start = OAR.GramART(grammar,
             # rho = 0.6,
             # rho = 0.3,
             rho = 0.1,
@@ -79,10 +97,19 @@ for (root, dirs, files) in walkdir(topdir)
             # epochs=5,
             epochs=1,
         )
+        # dvstart = OAR.GramART(grammar,
+        #     # rho = 0.6,
+        #     # rho = 0.3,
+        #     # rho = 0.1,
+        #     rho_lb = 0.1,
+        #     rho_ub = 0.3,
+        #     # epochs=5,
+        #     epochs=1,
+        # )
 
-        @info "---------- $(file) ----------"
+        @info "---------- $(file) - START ----------"
         OAR.tt_serial(
-            art,
+            start,
             data,
             display=true,
         )
