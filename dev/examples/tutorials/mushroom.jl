@@ -7,7 +7,7 @@ filename = joinpath("..", "assets", "mushrooms.csv")
 fs, bnf = OAR.symbolic_mushroom(filename)
 
 # Initialize the module with options
-art = OAR.GramART(bnf,
+art = OAR.START(bnf,
     rho = 0.6,
 )
 

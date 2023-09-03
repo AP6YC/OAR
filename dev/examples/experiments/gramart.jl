@@ -4,16 +4,16 @@ using OAR
 # All-in-one function
 fs, bnf = OAR.symbolic_iris()
 
-# Initialize the GramART module
-gramart = OAR.GramART(bnf)
+# Initialize the START module
+gramart = OAR.START(bnf)
 
 # Cluster the statements
 for statement in fs.train_x
     OAR.train!(gramart, statement)
 end
 
-# Initialize the GramART module
-gramart_supervised = OAR.GramART(bnf)
+# Initialize the START module
+gramart_supervised = OAR.START(bnf)
 # Set the vigilance low for generalization
 gramart_supervised.opts.rho = 0.05
 # Train in supervised mode

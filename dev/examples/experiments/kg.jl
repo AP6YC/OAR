@@ -8,7 +8,7 @@ statements = OAR.get_kg_statements(edge_file)
 
 grammar = OAR.SPOCFG(statements)
 
-gramart = OAR.GramART(
+gramart = OAR.START(
     grammar,
     rho=0.05,
     terminated=false,
