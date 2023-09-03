@@ -57,7 +57,7 @@ Definition of a START module.
 
 Contains the [`ProtoNode`](@ref)s and [`CFG`](@ref) grammar that is used for processing statements and generating nodes.
 """
-struct START <: AbstractSTART
+struct START <: SingleSTART
     """
     The [`OAR.ProtoNode`](@ref)s of the START module.
     """

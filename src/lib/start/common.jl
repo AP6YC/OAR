@@ -17,12 +17,12 @@ abstract type AbstractSTART end
 """
 Abstract type for all START-type modules.
 """
-abstract type SingleSTART end
+abstract type SingleSTART <: AbstractSTART end
 
 """
 Abstract type for all START-type modules.
 """
-abstract type DistributedSTART end
+abstract type DistributedSTART <: AbstractSTART  end
 
 """
 Definition of the ARTNode supertype.
