@@ -14,6 +14,21 @@ Abstract type for all START-type modules.
 """
 abstract type AbstractSTART end
 
+"""
+Abstract type for all START-type modules.
+"""
+abstract type SingleSTART end
+
+"""
+Abstract type for all START-type modules.
+"""
+abstract type DistributedSTART end
+
+"""
+Definition of the ARTNode supertype.
+"""
+abstract type ARTNode end
+
 # -----------------------------------------------------------------------------
 # ALIASES
 # -----------------------------------------------------------------------------
@@ -227,8 +242,12 @@ Overload of the show function for [`OAR.ProtoNode`](@ref).
 - `io::IO`: the current IO stream.
 - `node::ProtoNode`: the [`OAR.ProtoNode`](@ref) to print/display.
 """
-function Base.show(io::IO, node::ProtoNode)
+function Base.show(io::IO, node::ProtoNode)::Nothing
+    # Show the protonode info
     print(io, "$(typeof(node))($(length(node.N)))")
+
+    # Empty return
+    return
 end
 
 """
@@ -238,7 +257,7 @@ Prints a tree string for displaying children of a [`OAR.TreeNode`](@ref), used i
 - `io::IO`: the current IO stream.
 - `node::TreeNode`: the [`OAR.TreeNode`](@ref) with children to display
 """
-function print_treenode_children(io::IO, node::TreeNode, level::Integer, last::Bool)
+function print_treenode_children(io::IO, node::TreeNode, level::Integer, last::Bool)::Nothing
     # Get the number of children to display
     n_children = length(node.children)
     # Get the level spacing
@@ -255,6 +274,7 @@ function print_treenode_children(io::IO, node::TreeNode, level::Integer, last::B
             print_treenode_children(io, node.children[ix], level + 1, is_last)
         end
     end
+
     # Explicitly empty return
     return
 end
@@ -266,7 +286,7 @@ Overload of the show function for [`OAR.TreeNode`](@ref).
 - `io::IO`: the current IO stream.
 - `node::TreeNode`: the [`OAR.TreeNode`](@ref) to print/display.
 """
-function Base.show(io::IO, node::TreeNode)
+function Base.show(io::IO, node::TreeNode)::Nothing
     # Set the top of the printstring
     printstring = "$(typeof(node))(\"$(node.t.data)\")"
     print(io, printstring)
@@ -277,4 +297,7 @@ function Base.show(io::IO, node::TreeNode)
         print(io, "\n")
         print_treenode_children(io, node, 0, false)
     end
+
+    # Empty return
+    return
 end

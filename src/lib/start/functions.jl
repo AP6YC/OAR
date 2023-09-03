@@ -24,7 +24,8 @@ Adds an empty node to the end of the [`OAR.START`](@ref) module.
 - `art::START`: the [`OAR.START`](@ref) module to append a node to.
 """
 function add_node!(
-    art::START;
+    # art::START;
+    art::SingleSTART;
     new_cluster::Bool=true,
 )
     # Update the stats counters
@@ -67,7 +68,8 @@ Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.START`](@ref) 
 - `art::START`: the [`OAR.START`](@ref) to append a new node to.
 """
 function create_category!(
-    art::START,
+    # art::START,
+    art::SingleSTART,
     statement::SomeStatement,
     label::Integer;
     new_cluster::Bool=true,
