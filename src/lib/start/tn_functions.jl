@@ -6,15 +6,15 @@ Implementations of the training and classification functions and subroutines imp
 """
 
 """
-Processes a statement for a [`OAR.GramART`](@ref) module.
+Processes a statement for a [`OAR.START`](@ref) module.
 
 # Arguments
-- `gramart::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
+- `gramart::START`: the [`OAR.START`](@ref) to update with the statement.
 - `statement::TreeNode`: the grammar [`OAR.TreeNode`](@ref) to process.
 - `index::Integer`: the index of the [`OAR.ProtoNode`](@ref) to update.
 """
 function learn!(
-    gramart::GramART,
+    gramart::START,
     statement::TreeNode,
     index::Integer,
 )
@@ -107,15 +107,15 @@ function match(
 end
 
 # """
-# Classifies the [`OAR.TreeNode`](@ref) into one of [`OAR.GramART`](@ref)'s internal categories.
+# Classifies the [`OAR.TreeNode`](@ref) into one of [`OAR.START`](@ref)'s internal categories.
 
 # # Arguments
-# - `gramart::GramART`: the [`OAR.GramART`](@ref) to use in classification/inference.
+# - `gramart::START`: the [`OAR.START`](@ref) to use in classification/inference.
 # - `statement::TreeNode`: the [`OAR.TreeNode`](@ref) to classify.
 # - `get_bmu::Bool=false`: optional, whether to get the best matching unit in the case of complete mismatch.
 # """
 # function classify(
-#     gramart::GramART,
+#     gramart::START,
 #     statement::TreeNode ;
 #     get_bmu::Bool=false
 # )

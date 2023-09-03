@@ -6,15 +6,15 @@ Dual-vigilance definitions.
 """
 
 """
-Trains [`OAR.GramART`](@ref) module on a [`OAR.SomeStatement`](@ref) from the [`OAR.GramART`](@ref)'s grammar.
+Trains [`OAR.START`](@ref) module on a [`OAR.SomeStatement`](@ref) from the [`OAR.START`](@ref)'s grammar.
 
 # Arguments
-- `art::GramART`: the [`OAR.GramART`](@ref) to update with the [`OAR.SomeStatement`](@ref).
+- `art::START`: the [`OAR.START`](@ref) to update with the [`OAR.SomeStatement`](@ref).
 - `statement::SomeStatement`: the grammar [`OAR.SomeStatement`](@ref) to process.
 - `y::Integer=0`: optional supervised label as an integer.
 """
 function train_dv!(
-    art::GramART,
+    art::START,
     statement::SomeStatement;
     y::Integer=0,
 )
@@ -91,15 +91,15 @@ end
 
 
 """
-Classifies the [`OAR.Statement`](@ref) into one of [`OAR.GramART`](@ref)'s internal categories.
+Classifies the [`OAR.Statement`](@ref) into one of [`OAR.START`](@ref)'s internal categories.
 
 # Arguments
-- `art::GramART`: the [`OAR.GramART`](@ref) to use in classification/inference.
+- `art::START`: the [`OAR.START`](@ref) to use in classification/inference.
 - `statement::Statement`: the [`OAR.Statement`](@ref) to classify.
 - `get_bmu::Bool=false`: optional, whether to get the best matching unit in the case of complete mismatch.
 """
 function classify_dv(
-    art::GramART,
+    art::START,
     statement::Statement ;
     get_bmu::Bool=false,
 )

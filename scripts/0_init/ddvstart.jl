@@ -2,7 +2,7 @@
     ddvstart.jl
 
 # Description
-This script shows how to use a GramART to cluster on the Mushroom dataset.
+This script shows how to use a START to cluster on the Mushroom dataset.
 
 # Attribution
 
@@ -47,7 +47,7 @@ exp_name = "ddvstart.jl"
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering the categorical UCI Mushroom dataset."
+    "$(exp_top)/$(exp_name): START for clustering the categorical UCI Mushroom dataset."
 )
 
 # -----------------------------------------------------------------------------
@@ -58,7 +58,7 @@ pargs = OAR.exp_parse(
 # data, grammar = OAR.symbolic_mushroom()
 data, grammar = OAR.symbolic_iris()
 
-# Initialize the GramART module with options
+# Initialize the START module with options
 art = OAR.DDVSTART(grammar,
     rho_lb = 0.1,
     rho_ub = 0.6,

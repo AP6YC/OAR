@@ -51,7 +51,7 @@ config_file = "grand_sweep.yml"
 
 # Parse the arguments provided to this script
 pargs = OAR.dist_exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering...everything."
+    "$(exp_top)/$(exp_name): START for clustering...everything."
 )
 
 # Start several processes
@@ -232,8 +232,8 @@ println("--- Simulation complete ---")
 #         # Load the symbolic data and grammar
 #         data, grammar = OAR.symbolic_dataset(filename)
 
-#         # Initialize the GramART module with options
-#         gramart = OAR.GramART(grammar,
+#         # Initialize the START module with options
+#         gramart = OAR.START(grammar,
 #             # rho = 0.6,
 #             # rho = 0.3,
 #             rho = 0.1,

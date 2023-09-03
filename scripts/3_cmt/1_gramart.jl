@@ -2,7 +2,7 @@
     gramart.jl
 
 # Description
-This script uses GramART to cluster CMT protein data.
+This script uses START to cluster CMT protein data.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
@@ -40,7 +40,7 @@ output_file = OAR.results_dir("3_cmt", "cmt_clusters.csv")
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering disease protein statements."
+    "$(exp_top)/$(exp_name): START for clustering disease protein statements."
 )
 
 # -----------------------------------------------------------------------------
@@ -64,8 +64,8 @@ ts = OAR.df_to_trees(df, df_dict)
 # Generate a grammart from the statements
 grammar = OAR.CMTCFG(ts)
 
-# Initialize the GramART module
-gramart = OAR.GramART(
+# Initialize the START module
+gramart = OAR.START(
     grammar,
     # rho=0.7,
     rho=0.6,

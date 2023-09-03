@@ -2,7 +2,7 @@
     4_kg_gramart_dist.jl
 
 # Description
-This script is a distributed hyperparameter sweep version of `1_kg_gramart.jl`, which uses GramART to cluster disease knowledge graph statements.
+This script is a distributed hyperparameter sweep version of `1_kg_gramart.jl`, which uses START to cluster disease knowledge graph statements.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
@@ -36,7 +36,7 @@ config_file = "kg_sweep.yml"
 
 # Parse the arguments provided to this script
 pargs = OAR.dist_exp_parse(
-    "$(exp_top)/$(exp_name): distributed hyperparameter sweep of GramART for clustering a disease knowledge graph."
+    "$(exp_top)/$(exp_name): distributed hyperparameter sweep of START for clustering a disease knowledge graph."
 )
 
 # Start several processes
@@ -49,7 +49,7 @@ config = OAR.load_config(config_file)
 
 # Set the simulation parameters
 sim_params = Dict{String, Any}(
-    "m" => "GramART",
+    "m" => "START",
     "rng_seed" => config["rng_seed"],
     "rho" => collect(LinRange(
         config["rho_lb"],

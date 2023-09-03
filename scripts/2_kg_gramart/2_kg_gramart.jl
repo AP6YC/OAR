@@ -2,7 +2,7 @@
     2_kg_gramart.jl
 
 # Description
-This script uses GramART to cluster disease knowledge graph statements.
+This script uses START to cluster disease knowledge graph statements.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
@@ -41,7 +41,7 @@ output_file = OAR.results_dir(exp_top, "cmt", "cmt-clusters.csv")
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering a disease knowledge graph."
+    "$(exp_top)/$(exp_name): START for clustering a disease knowledge graph."
 )
 
 # -----------------------------------------------------------------------------
@@ -54,8 +54,8 @@ statements = OAR.get_kg_statements(edge_file)
 # Generate a simple subject-predicate-object grammar from the statements
 grammar = OAR.SPOCFG(statements)
 
-# Initialize the GramART module
-gramart = OAR.GramART(
+# Initialize the START module
+gramart = OAR.START(
     grammar,
     rho=0.1,    # ~12GB
     terminated=false,

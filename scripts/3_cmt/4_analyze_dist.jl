@@ -38,7 +38,7 @@ column_digits = 6
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): analyze GramART distributed results."
+    "$(exp_top)/$(exp_name): analyze START distributed results."
 )
 
 # Point to the sweep results

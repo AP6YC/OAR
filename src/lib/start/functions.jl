@@ -1,8 +1,8 @@
 """
-    GramART.jl
+    START.jl
 
 # Description
-This file implements the structs, methods, and functions for GramART's functionality.
+This file implements the structs, methods, and functions for START's functionality.
 
 # Attribution
 
@@ -40,13 +40,13 @@ function is_terminal(treenode::TreeNode)
 end
 
 """
-Adds an empty node to the end of the [`OAR.GramART`](@ref) module.
+Adds an empty node to the end of the [`OAR.START`](@ref) module.
 
 # Arguments
-- `art::GramART`: the [`OAR.GramART`](@ref) module to append a node to.
+- `art::START`: the [`OAR.START`](@ref) module to append a node to.
 """
 function add_node!(
-    art::GramART;
+    art::START;
     new_cluster::Bool=true,
 )
     # Update the stats counters
@@ -83,13 +83,13 @@ function add_node!(
 end
 
 """
-Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.GramART`](@ref) module.
+Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.START`](@ref) module.
 
 # Arguments
-- `art::GramART`: the [`OAR.GramART`](@ref) to append a new node to.
+- `art::START`: the [`OAR.START`](@ref) to append a new node to.
 """
 function create_category!(
-    art::GramART,
+    art::START,
     statement::SomeStatement,
     label::Integer;
     new_cluster::Bool=true,
@@ -112,11 +112,11 @@ Updates the distribution of a single [`OAR.ProtoNode`](@ref) from one new symbol
 
 # Arguments
 - `pn::ProtoNode`: the [`OAR.ProtoNode`](@ref) to update the distribution with.
-- `symb::GramARTSymbol`: the symbol instance to update the [`OAR.ProtoNode`](@ref) with.
+- `symb::STARTSymbol`: the symbol instance to update the [`OAR.ProtoNode`](@ref) with.
 """
 function update_dist!(
     pn::ProtoNode,
-    symb::GramARTSymbol,
+    symb::STARTSymbol,
 )
     # Update the counts
     pn.N[symb] += 1
@@ -138,13 +138,13 @@ Updates the tree of [`OAR.ProtoNode`](@ref) from a single terminal.
 
 # Arguments
 - `pn::ProtoNode`: the top of the [`OAR.ProtoNode`](@ref) tree to update.
-- `nonterminal::GramARTSymbol`: the nonterminal symbol of the statement to update at.
-- `symb::GramARTSymbol`: the terminal symbol to update everywhere.
+- `nonterminal::STARTSymbol`: the nonterminal symbol of the statement to update at.
+- `symb::STARTSymbol`: the terminal symbol to update everywhere.
 """
 function inc_update_symbols!(
     pn::ProtoNode,
-    nonterminal::GramARTSymbol,
-    symb::GramARTSymbol,
+    nonterminal::STARTSymbol,
+    symb::STARTSymbol,
     terminated::Bool,
 )
     # function inc_update_symbols!(pn::ProtoNode, symb::GSymbol, position::Integer)
@@ -165,15 +165,15 @@ function inc_update_symbols!(
 end
 
 """
-Processes a statement for a [`OAR.GramART`](@ref) module.
+Processes a statement for a [`OAR.START`](@ref) module.
 
 # Arguments
-- `art::GramART`: the [`OAR.GramART`](@ref) to update with the statement.
+- `art::START`: the [`OAR.START`](@ref) to update with the statement.
 - `statement::Statement`: the grammar [`OAR.Statement`](@ref) to process.
 - `index::Integer`: the index of the [`OAR.ProtoNode`](@ref) to update.
 """
 function learn!(
-    art::GramART,
+    art::START,
     statement::Statement,
     index::Integer,
 )
@@ -253,15 +253,15 @@ function accommodate_vector!(vec::Vector{T}, goal_len::Integer) where {T}
     end
 end
 """
-Trains [`OAR.GramART`](@ref) module on a [`OAR.SomeStatement`](@ref) from the [`OAR.GramART`](@ref)'s grammar.
+Trains [`OAR.START`](@ref) module on a [`OAR.SomeStatement`](@ref) from the [`OAR.START`](@ref)'s grammar.
 
 # Arguments
-- `art::GramART`: the [`OAR.GramART`](@ref) to update with the [`OAR.SomeStatement`](@ref).
+- `art::START`: the [`OAR.START`](@ref) to update with the [`OAR.SomeStatement`](@ref).
 - `statement::SomeStatement`: the grammar [`OAR.SomeStatement`](@ref) to train upon.
 - `y::Integer=0`: optional supervised label as an integer.
 """
 function train!(
-    art::GramART,
+    art::START,
     statement::SomeStatement;
     y::Integer=0,
     # epochs::Integer=1,
@@ -317,7 +317,7 @@ function train!(
     return y_hat
 end
 
-function activation_match!(art::GramART, statement::SomeStatement)
+function activation_match!(art::START, statement::SomeStatement)
     accommodate_vector!(art.T, art.stats["n_categories"])
     accommodate_vector!(art.M, art.stats["n_categories"])
     for ix = 1:art.stats["n_categories"]
@@ -327,15 +327,15 @@ function activation_match!(art::GramART, statement::SomeStatement)
 end
 
 """
-Classifies the [`OAR.Statement`](@ref) into one of [`OAR.GramART`](@ref)'s internal categories.
+Classifies the [`OAR.Statement`](@ref) into one of [`OAR.START`](@ref)'s internal categories.
 
 # Arguments
-- `art::GramART`: the [`OAR.GramART`](@ref) to use in classification/inference.
+- `art::START`: the [`OAR.START`](@ref) to use in classification/inference.
 - `statement::SomeStatement`: the [`OAR.SomeStatement`](@ref) to classify.
 - `get_bmu::Bool=false`: optional, whether to get the best matching unit in the case of complete mismatch.
 """
 function classify(
-    art::GramART,
+    art::START,
     statement::SomeStatement ;
     get_bmu::Bool=false,
 )
@@ -370,15 +370,15 @@ function classify(
 end
 
 """
-GramART utility: gets the positive distribution.
+START utility: gets the positive distribution.
 
 # Arguments
-- `art::GramART`: the [`OAR.GramART`](@ref) module to analyze.
+- `art::START`: the [`OAR.START`](@ref) module to analyze.
 - `nonterminal::AbstractString`: the string name of the nonterminal position to analyze.
 - `index::Integer`: the index of the [`OAR.ProtoNode`](@ref) to analyze.
 """
 function get_positive_dist(
-    art::GramART,
+    art::START,
     nonterminal::AbstractString,
     index::Integer,
 )
@@ -393,12 +393,12 @@ function get_positive_dist(
 end
 
 """
-GramART utility: returns a list of the instance counts for each [`OAR.GramART`](@ref) prototype.
+START utility: returns a list of the instance counts for each [`OAR.START`](@ref) prototype.
 
 # Arguments
-- `art::GramART`: the [`OAR.GramART`](@ref) module to analyze.
+- `art::START`: the [`OAR.START`](@ref) module to analyze.
 """
-function get_gramart_instance_counts(art::GramART)
+function get_gramart_instance_counts(art::START)
     # Return the instance counts for each of the top nodes
     return [node.stats.m for node in art.protonodes]
 end

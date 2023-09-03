@@ -2,7 +2,7 @@
     types.jl
 
 # Description
-The structs and constructors of GramART.
+The structs and constructors of START.
 """
 
 # -----------------------------------------------------------------------------
@@ -10,9 +10,9 @@ The structs and constructors of GramART.
 # -----------------------------------------------------------------------------
 
 """
-Abstract type for all GramART-type modules.
+Abstract type for all START-type modules.
 """
-abstract type AbstractGramART end
+abstract type AbstractSTART end
 
 # -----------------------------------------------------------------------------
 # STRUCTS
@@ -34,7 +34,7 @@ mutable struct ProtoNodeStats
 end
 
 """
-ProtoNode struct, used to generate tree prototypes, which are the templates of [`OAR.GramART`](@ref).
+ProtoNode struct, used to generate tree prototypes, which are the templates of [`OAR.START`](@ref).
 """
 struct ProtoNode <: ARTNode
     """
@@ -48,9 +48,9 @@ struct ProtoNode <: ARTNode
     N::SymbolCount
 
     """
-    The children of this node (`Dict{`[`GramARTSymbol`](@ref)`, ProtoNode}`).
+    The children of this node (`Dict{`[`STARTSymbol`](@ref)`, ProtoNode}`).
     """
-    children::Dict{GramARTSymbol, ProtoNode}
+    children::Dict{STARTSymbol, ProtoNode}
 
     """
     The mutable [`ProtoNodeStats`](@ref) options and stats of the ProtoNode.
@@ -59,18 +59,18 @@ struct ProtoNode <: ARTNode
 end
 
 """
-Alias for how ProtoNode children are indexed (`ProtoChildren = Dict{`[`GramARTSymbol`](@ref)`, `[`ProtoNode`](@ref)`}`).
+Alias for how ProtoNode children are indexed (`ProtoChildren = Dict{`[`STARTSymbol`](@ref)`, `[`ProtoNode`](@ref)`}`).
 """
-const ProtoChildren = Dict{GramARTSymbol, ProtoNode}
+const ProtoChildren = Dict{STARTSymbol, ProtoNode}
 
 """
-Tree node for a [`GramART`](@ref) module.
+Tree node for a [`START`](@ref) module.
 """
 struct TreeNode <: ARTNode
     """
-    The [`GramARTSymbol`](@ref) symbol for the node.
+    The [`STARTSymbol`](@ref) symbol for the node.
     """
-    t::GramARTSymbol
+    t::STARTSymbol
 
     """
     Children nodes of this node.
@@ -79,9 +79,9 @@ struct TreeNode <: ARTNode
 end
 
 """
-[`GramART`](@ref) options struct as a `Parameters.jl` `@with_kw` object.
+[`START`](@ref) options struct as a `Parameters.jl` `@with_kw` object.
 """
-@with_kw mutable struct opts_GramART @deftype Float
+@with_kw mutable struct opts_START @deftype Float
     """
     Vigilance parameter: ρ ∈ [0, 1]
     """
@@ -122,18 +122,18 @@ end
 end
 
 """
-Type alias for the [`OAR.GramART`](@ref) dictionary containing module stats.
+Type alias for the [`OAR.START`](@ref) dictionary containing module stats.
 """
-const GramARTStats = Dict{String, Any}
+const STARTStats = Dict{String, Any}
 
 """
-Definition of a GramART module.
+Definition of a START module.
 
 Contains the [`ProtoNode`](@ref)s and [`CFG`](@ref) grammar that is used for processing statements and generating nodes.
 """
-struct GramART <: AbstractGramART
+struct START <: AbstractSTART
     """
-    The [`OAR.ProtoNode`](@ref)s of the GramART module.
+    The [`OAR.ProtoNode`](@ref)s of the START module.
     """
     protonodes::Vector{ProtoNode}
 
@@ -143,9 +143,9 @@ struct GramART <: AbstractGramART
     grammar::CFG
 
     """
-    The [`OAR.opts_GramART`](@ref) hyperparameters of the GramART module.
+    The [`OAR.opts_START`](@ref) hyperparameters of the START module.
     """
-    opts::opts_GramART
+    opts::opts_START
 
     """
     Incremental list of labels corresponding to each F2 node, self-prescribed or supervised.
@@ -165,7 +165,7 @@ struct GramART <: AbstractGramART
     """
     Dictionary of mutable statistics for the module.
     """
-    stats::GramARTStats
+    stats::STARTStats
 end
 
 # -----------------------------------------------------------------------------
@@ -199,9 +199,9 @@ const SomeStatements = Union{TreeStatements, Statements}
 """
 Constructor for prepopulating the stats dictionary.
 """
-function gen_GramARTStats()
+function gen_STARTStats()
     # Init the stats
-    stats = GramARTStats()
+    stats = STARTStats()
     stats["n_categories"] = 0
     stats["n_clusters"] = 0
     stats["n_instance"] = Vector{Int}()
@@ -209,18 +209,18 @@ function gen_GramARTStats()
 end
 
 """
-Constructor for an [`OAR.GramART`](@ref) module that takes a [`CFG`](@ref) grammar and automatically sets up the [`ProtoNode`](@ref) tree.
+Constructor for an [`OAR.START`](@ref) module that takes a [`CFG`](@ref) grammar and automatically sets up the [`ProtoNode`](@ref) tree.
 
 # Arguments
 $ARG_CFG
-- `opts::opts_GramART`: a custom set of [`OAR.GramART`](@ref) options to use.
+- `opts::opts_START`: a custom set of [`OAR.START`](@ref) options to use.
 """
-function GramART(grammar::CFG, opts::opts_GramART)
+function START(grammar::CFG, opts::opts_START)
     # Init the stats
-    stats = gen_GramARTStats()
+    stats = gen_STARTStats()
 
-    # Instantiate and return the GramART module
-    GramART(
+    # Instantiate and return the START module
+    START(
         Vector{ProtoNode}(),    # protonodes
         grammar,                # grammar
         opts,                   # opts
@@ -232,18 +232,18 @@ function GramART(grammar::CFG, opts::opts_GramART)
 end
 
 """
-Constructor for an [`OAR.GramART`](@ref) module that takes a [`OAR.CFG`](@ref) grammar and an optional list of keyword arguments for the options.
+Constructor for an [`OAR.START`](@ref) module that takes a [`OAR.CFG`](@ref) grammar and an optional list of keyword arguments for the options.
 
 # Arguments
 $ARG_CFG
-- `kwargs...`: a list of keyword arguments for the [`OAR.opts_GramART`](@ref) options struct.
+- `kwargs...`: a list of keyword arguments for the [`OAR.opts_START`](@ref) options struct.
 """
-function GramART(grammar::CFG; kwargs...)
-    # Construct the GramART options from the keyword arguments
-    opts = opts_GramART(;kwargs...)
+function START(grammar::CFG; kwargs...)
+    # Construct the START options from the keyword arguments
+    opts = opts_START(;kwargs...)
 
-    # Construct and return the GramART module
-    GramART(
+    # Construct and return the START module
+    START(
         grammar,
         opts,
     )
@@ -261,7 +261,7 @@ function ProtoNodeStats()
 end
 
 """
-Empty constructor for a [`OAR.GramART`](@ref) [`OAR.ProtoNode`](@ref).
+Empty constructor for a [`OAR.START`](@ref) [`OAR.ProtoNode`](@ref).
 """
 function ProtoNode()
     # Construct and return the ProtoNode
@@ -274,7 +274,7 @@ function ProtoNode()
 end
 
 """
-Constructor for a zero-initialized [`OAR.GramART`](@ref) [`OAR.ProtoNode`](@ref).
+Constructor for a zero-initialized [`OAR.START`](@ref) [`OAR.ProtoNode`](@ref).
 
 # Arguments
 - `symbols::SymbolSet`: the terminal symbols to initialize the node with.
@@ -294,12 +294,12 @@ function ProtoNode(symbols::SymbolSet)
 end
 
 """
-Constructor for a [`OAR.GramART`](@ref) [`OAR.TreeNode`](@ref) taking an existing [`OAR.GramARTSymbol`](@ref).
+Constructor for a [`OAR.START`](@ref) [`OAR.TreeNode`](@ref) taking an existing [`OAR.STARTSymbol`](@ref).
 
 # Arguments
-- `symb::GramARTSymbol`: the preconstructed GramARTSymbol used for constructing the [`OAR.TreeNode`](@ref).
+- `symb::STARTSymbol`: the preconstructed STARTSymbol used for constructing the [`OAR.TreeNode`](@ref).
 """
-function TreeNode(symb::GramARTSymbol)
+function TreeNode(symb::STARTSymbol)
     TreeNode(
         symb,                   # t
         Vector{TreeNode}(),     # children
@@ -307,7 +307,7 @@ function TreeNode(symb::GramARTSymbol)
 end
 
 """
-Constructor for a [`OAR.GramART`](@ref) [`OAR.TreeNode`](@ref), taking a string name of the symbol and if it is terminal or not.
+Constructor for a [`OAR.START`](@ref) [`OAR.TreeNode`](@ref), taking a string name of the symbol and if it is terminal or not.
 
 # Arguments
 - `name::AbstractString`: the string name of the symbol to instantiate the [`OAR.TreeNode`](@ref) with.
@@ -316,7 +316,7 @@ Constructor for a [`OAR.GramART`](@ref) [`OAR.TreeNode`](@ref), taking a string 
 function TreeNode(name::AbstractString, is_terminal::Bool=true)
     # Construct and return the tree node
     TreeNode(
-        GramARTSymbol(
+        STARTSymbol(
             name,
             is_terminal,
         ),

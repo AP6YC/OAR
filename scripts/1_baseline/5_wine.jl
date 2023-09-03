@@ -33,7 +33,7 @@ exp_name = "1_iris.jl"
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering the real-valued UCI Iris dataset."
+    "$(exp_top)/$(exp_name): START for clustering the real-valued UCI Iris dataset."
 )
 
 # -----------------------------------------------------------------------------
@@ -44,8 +44,8 @@ pargs = OAR.exp_parse(
 # data, grammmar = OAR.symbolic_iris()
 data, grammmar = OAR.symbolic_wine()
 
-# Initialize the GramART module with options
-gramart = OAR.GramART(
+# Initialize the START module with options
+gramart = OAR.START(
     grammmar,
     # rho = 0.15,
     rho = 0.1,

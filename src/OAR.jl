@@ -87,8 +87,8 @@ export
     # Grammar names
     GSymbol,
 
-    # GramART names
-    GramART,
+    # START names
+    START,
     ProtoNode,
     TreeNode,
 

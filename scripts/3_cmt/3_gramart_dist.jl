@@ -2,7 +2,7 @@
     3_gramart_sweep.jl
 
 # Description
-This script uses GramART to cluster CMT protein data.
+This script uses START to cluster CMT protein data.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
@@ -36,7 +36,7 @@ config_file = "flat_sweep.yml"
 
 # Parse the arguments provided to this script
 pargs = OAR.dist_exp_parse(
-    "$(exp_top)/$(exp_name): hyperparameter sweep of GramART for clustering disease protein statements."
+    "$(exp_top)/$(exp_name): hyperparameter sweep of START for clustering disease protein statements."
 )
 
 # Start several processes
@@ -49,7 +49,7 @@ config = OAR.load_config(config_file)
 
 # Set the simulation parameters
 sim_params = Dict{String, Any}(
-    "m" => "GramART",
+    "m" => "START",
     "rng_seed" => config["rng_seed"],
     "rho" => collect(LinRange(
         config["rho_lb"],

@@ -2,7 +2,7 @@
     2_mushroom.jl
 
 # Description
-This script shows how to use a GramART to cluster on the Mushroom dataset.
+This script shows how to use a START to cluster on the Mushroom dataset.
 
 # Attribution
 
@@ -48,7 +48,7 @@ exp_name = "2_mushroom.jl"
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering the categorical UCI Mushroom dataset."
+    "$(exp_top)/$(exp_name): START for clustering the categorical UCI Mushroom dataset."
 )
 
 # -----------------------------------------------------------------------------
@@ -58,8 +58,8 @@ pargs = OAR.exp_parse(
 # All-in-one function
 data, grammar = OAR.symbolic_mushroom()
 
-# Initialize the GramART module with options
-art = OAR.GramART(grammar,
+# Initialize the START module with options
+art = OAR.START(grammar,
     # rho = 0.6,
     rho = 0.1,
     rho_lb = 0.1,
@@ -100,8 +100,8 @@ perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
 
 # Clustering
 
-# Initialize the GramART module with options
-art = OAR.GramART(grammar,
+# Initialize the START module with options
+art = OAR.START(grammar,
     # rho = 0.6,
     rho = 0.3,
     rho_lb = 0.1,

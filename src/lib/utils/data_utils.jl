@@ -268,7 +268,7 @@ function tt_real(mldataset::Symbol; download_local::Bool=false)
 end
 
 """
-Turns a [`OAR.DataSplit`](@ref) into a binned symbolic variant for use with GramART.
+Turns a [`OAR.DataSplit`](@ref) into a binned symbolic variant for use with START.
 
 # Arguments
 - `data::DataSplit`: the [`OAR.DataSplit`](@ref) to convert to symbols.

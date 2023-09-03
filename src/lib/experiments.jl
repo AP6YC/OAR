@@ -40,7 +40,7 @@ function save_sim(
 end
 
 """
-Trains and classifies a GramART module on the provided statements.
+Trains and classifies a START module on the provided statements.
 
 # Arguments
 $ARG_SIM_D
@@ -57,8 +57,8 @@ function tc_gramart(
     # Initialize the random seed at the beginning of the experiment
     Random.seed!(d["rng_seed"])
 
-    # Initialize the GramART module
-    art = OAR.GramART(
+    # Initialize the START module
+    art = OAR.START(
         opts["grammar"],
         rho=d["rho"],
         terminated=false,
@@ -94,7 +94,7 @@ function tc_gramart(
 end
 
 """
-Trains and tests a GramART module on the provided statements.
+Trains and tests a START module on the provided statements.
 
 # Arguments
 $ARG_SIM_D
@@ -111,9 +111,9 @@ function tt_gramart(
     try
 
     # ls, ll = shuffleobs((features, labels))
-    # Initialize the GramART module
-    # art = OAR.GramART(grammmar)
-    art = OAR.GramART(opts["grammmar"])
+    # Initialize the START module
+    # art = OAR.START(grammmar)
+    art = OAR.START(opts["grammmar"])
 
     # Set the vigilance parameter and show
     # art.opts.rho = 0.15
@@ -156,13 +156,13 @@ end
 A single train-test serial experiment, taking a preconstructed ART module and training/testing on a set of data.
 
 # Arguments
-- `art::AbstractGramART`:
+- `art::AbstractSTART`:
 - `data::VectoredDataset`:
 - `display::Bool=false: optional, default false.
 - `dv::Bool=false`: optional, default false.
 """
 function tt_serial(
-    art::AbstractGramART,
+    art::AbstractSTART,
     data::VectoredDataset;
     display::Bool=false,
     dv::Bool=false,
@@ -225,11 +225,11 @@ end
 
 """
 # Arguments
-- `art::AbstractGramART`:
+- `art::AbstractSTART`:
 - `data::Statements`:
 """
 function cluster_serial(
-    art::AbstractGramART,
+    art::AbstractSTART,
     data::Statements,
 )
     # dim, n_samples = size(data)
@@ -268,11 +268,11 @@ end
 
 """
 # Arguments
-- `art::AbstractGramART`:
+- `art::AbstractSTART`:
 - `data::Statements`:
 """
 function cluster_rand(
-    art::AbstractGramART,
+    art::AbstractSTART,
     data::Statements,
     truth::Vector{Int},
 )
@@ -290,11 +290,11 @@ end
 
 """
 # Arguments
-- `art::AbstractGramART`:
+- `art::AbstractSTART`:
 - `data::DataSplitGeneric`:
 """
 function cluster_rand_data(
-    art::AbstractGramART,
+    art::AbstractSTART,
     data::DataSplitGeneric,
 )
     ri = cluster_rand(
@@ -355,15 +355,15 @@ function sim_tt_serial(
     data = opts["data"][d["data"]]
     grammar = opts["grammar"][d["data"]]
 
-    # Initialize the GramART module
+    # Initialize the START module
     if d["m"] == "start"
-        art = OAR.GramART(
+        art = OAR.START(
             grammar,
             rho = d["rho"],
             epochs=1,
         )
     elseif d["m"] == "dvstart"
-        art = OAR.GramART(
+        art = OAR.START(
             grammar,
             rho_lb = d["rho_lb"],
             rho_ub = d["rho_ub"],

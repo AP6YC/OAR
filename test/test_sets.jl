@@ -94,23 +94,23 @@ end
 # GRAMART TESTS
 # -----------------------------------------------------------------------------
 
-@testset "GramART" begin
+@testset "START" begin
     # Get the symbolic IRIS dataset
     fs, bnf = OAR.symbolic_iris()
 
     # Test the constructors
 
     # Just the grammar
-    art = OAR.GramART(bnf)
+    art = OAR.START(bnf)
 
-    @assert art isa OAR.GramART
+    @assert art isa OAR.START
 
     # With preconstructed options
-    opts = OAR.opts_GramART()
-    art = OAR.GramART(bnf, opts)
+    opts = OAR.opts_START()
+    art = OAR.START(bnf, opts)
 
     # With keyword arguments
-    art = OAR.GramART(bnf, rho=0.8)
+    art = OAR.START(bnf, rho=0.8)
 end
 
 # -----------------------------------------------------------------------------

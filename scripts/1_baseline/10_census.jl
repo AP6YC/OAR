@@ -47,7 +47,7 @@ exp_name = "7_data_package.jl"
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering the categorical UCI Mushroom dataset."
+    "$(exp_top)/$(exp_name): START for clustering the categorical UCI Mushroom dataset."
 )
 
 # -----------------------------------------------------------------------------
@@ -61,8 +61,8 @@ filename = OAR.data_dir(
 )
 data, grammar = OAR.symbolic_cluster_dataset(filename)
 
-# Initialize the GramART module with options
-gramart = OAR.GramART(grammar,
+# Initialize the START module with options
+gramart = OAR.START(grammar,
     # rho = 0.6,
     # rho = 0.3,
     rho = 0.1,

@@ -88,7 +88,7 @@ end
 """
 A DDVSTART module.
 """
-mutable struct DDVSTART <: AbstractGramART
+mutable struct DDVSTART <: AbstractSTART
     """
     The [`OAR.CFG`](@ref) (Context-Free Grammar) used for processing data (statements).
     """
@@ -103,7 +103,7 @@ mutable struct DDVSTART <: AbstractGramART
     """
     START options struct used for all F2 nodes.
     """
-    subopts::opts_GramART
+    subopts::opts_START
 
     # """
     # Operating module threshold value, a function of the vigilance parameter.
@@ -111,9 +111,9 @@ mutable struct DDVSTART <: AbstractGramART
     # threshold::Float
 
     """
-    List of F2 nodes (themselves GramART modules).
+    List of F2 nodes (themselves START modules).
     """
-    F2::Vector{GramART}
+    F2::Vector{START}
 
     """
     Incremental list of labels corresponding to each F2 node, self-prescribed or supervised.
@@ -143,7 +143,7 @@ mutable struct DDVSTART <: AbstractGramART
     """
     Dictionary of mutable statistics for the module.
     """
-    stats::GramARTStats
+    stats::STARTStats
 
     # """
     # Runtime statistics for the module, implemented as a dictionary containing entries at the end of each training iteration.
@@ -178,10 +178,10 @@ function DDVSTART(
     opts::opts_DDVSTART,
 )
     # Init the stats
-    stats = gen_GramARTStats()
+    stats = gen_STARTStats()
 
     # Create the suboptions
-    subopts = opts_GramART(
+    subopts = opts_START(
         rho=opts.rho_ub,
     )
 
@@ -190,7 +190,7 @@ function DDVSTART(
         grammar,                # grammar
         opts,
         subopts,
-        Vector{GramART}(),
+        Vector{START}(),
         Vector{Int}(),
         0,
         0,
@@ -214,13 +214,13 @@ const LINKAGE_METHODS = [
 
 # Argument docstring for the F2 docstring
 const F2_DOCSTRING = """
-- `F2::GramART`: the DDVSTART GramART F2 node to compute the linkage method within.
+- `F2::START`: the DDVSTART START F2 node to compute the linkage method within.
 """
 
 # Argument docstring for the F2 field, includes the argument header
 const FIELD_DOCSTRING = """
 # Arguments
-- `field::RealVector`: the DDVSTART GramART F2 node field (F2.T or F2.M) to compute the linkage for.
+- `field::RealVector`: the DDVSTART START F2 node field (F2.T or F2.M) to compute the linkage for.
 """
 
 # Argument docstring for the activation flag
@@ -233,10 +233,10 @@ Computes the similarity of the selected linkage method.
 
 # Arguments
 - `method::Symbol`: the linkage method function name as a Julia Symbol.
-- `F2::GramART`: the F2 module to compute the similarity for.
+- `F2::START`: the F2 module to compute the similarity for.
 - `activation::Bool`: flag for if the computed similarity is the activation or match.
 """
-function similarity(method::Symbol, F2::GramART, activation::Bool)
+function similarity(method::Symbol, F2::START, activation::Bool)
     # Handle :weighted usage
     if method === :weighted
         value = eval(method)(F2, activation)
@@ -292,7 +292,7 @@ Weighted linkage DDVFA similarity function.
 $F2_DOCSTRING
 $ACTIVATION_DOCSTRING
 """
-function weighted(F2::GramART, activation::Bool)
+function weighted(F2::START, activation::Bool)
     if activation
         value = F2.T' * (F2.n_instance ./ sum(F2.n_instance))
     else
@@ -315,7 +315,7 @@ function create_category!(art::DDVSTART, statement::SomeStatement, label::Intege
     art.stats["n_categories"] += 1
 
     push!(art.labels, label)
-    new_node = GramART(
+    new_node = START(
         art.grammar,
         art.subopts,
     )

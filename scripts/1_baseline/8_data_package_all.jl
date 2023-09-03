@@ -49,7 +49,7 @@ exp_name = "8_data_package_all.jl"
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering all Dataset package datasets."
+    "$(exp_top)/$(exp_name): START for clustering all Dataset package datasets."
 )
 
 # -----------------------------------------------------------------------------
@@ -69,8 +69,8 @@ for (root, dirs, files) in walkdir(topdir)
         # Load the symbolic data and grammar
         data, grammar = OAR.symbolic_dataset(filename)
 
-        # # Initialize the GramART module with options
-        # art = OAR.GramART(grammar,
+        # # Initialize the START module with options
+        # art = OAR.START(grammar,
         #     # rho = 0.6,
         #     # rho = 0.3,
         #     rho = 0.1,
@@ -87,8 +87,8 @@ for (root, dirs, files) in walkdir(topdir)
         #     display=true,
         # )
 
-        # Initialize the GramART module with options
-        start = OAR.GramART(grammar,
+        # Initialize the START module with options
+        start = OAR.START(grammar,
             # rho = 0.6,
             # rho = 0.3,
             rho = 0.1,
@@ -97,7 +97,7 @@ for (root, dirs, files) in walkdir(topdir)
             # epochs=5,
             epochs=1,
         )
-        # dvstart = OAR.GramART(grammar,
+        # dvstart = OAR.START(grammar,
         #     # rho = 0.6,
         #     # rho = 0.3,
         #     # rho = 0.1,

@@ -5,12 +5,12 @@
 # cover: ../assets/node.png
 # author: "[Sasha Petrenko](https://github.com/AP6YC)"
 # julia: 1.9
-# description: This demo demonstrates how to utilize a GramART module on knowledge graph dataset.
+# description: This demo demonstrates how to utilize a START module on knowledge graph dataset.
 # ---
 
 # ## Overview
 
-# This script demonstrates the usage of a GramART module for analyzing biomedical data knowledge graphs.
+# This script demonstrates the usage of a START module for analyzing biomedical data knowledge graphs.
 # Though the `OAR` project contains multiple such knowledge graphs, the Charcot-Marie-Tooth (CMT) dataset is used as an example here with the procedure remaining the same with other datasets.
 
 # ## Setup
@@ -31,8 +31,8 @@ statements = OAR.get_kg_statements(edge_file)
 # Generate a simple subject-predicate-object grammar from the statements
 grammar = OAR.SPOCFG(statements)
 
-# Initialize the GramART module
-gramart = OAR.GramART(
+# Initialize the START module
+gramart = OAR.START(
     grammar,
     rho=0.05,
     terminated=false,

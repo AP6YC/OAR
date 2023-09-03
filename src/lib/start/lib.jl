@@ -2,7 +2,7 @@
     lib.jl
 
 # Description
-Aggregates all types and functions relevant to the GramART implementation.
+Aggregates all types and functions relevant to the START implementation.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
@@ -18,7 +18,7 @@ include("constants.jl")
 # Structs and their constructors
 include("types.jl")
 
-# Functions for training and classifying with GramART
+# Functions for training and classifying with START
 include("functions.jl")
 
 # TreeNode-based training and classification functions
