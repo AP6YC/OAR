@@ -15,8 +15,11 @@ Aggregates all types and functions relevant to the START implementation.
 # Constants and aliases
 include("constants.jl")
 
-# Structs and their constructors
-include("types.jl")
+# Common structs, constructors, and functions
+include("common.jl")
+
+# Dual-vigilance definitions
+include("start.jl")
 
 # Functions for training and classifying with START
 include("functions.jl")
@@ -28,4 +31,4 @@ include("tn_functions.jl")
 include("dv.jl")
 
 # Distributed dual-vigilance definitions
-include("ddvstart.jl")
+include("ddv.jl")

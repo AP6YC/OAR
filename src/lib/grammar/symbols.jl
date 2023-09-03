@@ -90,3 +90,14 @@ function join_gsymbol(symb::GSymbol{T}, num::Integer ; terminal::Bool=true) wher
         terminal,
     )
 end
+
+"""
+Checks if the [`OAR.GSymbol`](@ref) is a terminal grammar symbol.
+
+# Arguments
+- `symb::GSymbol`: the [`OAR.GSymbol`](@ref) to check.
+"""
+function is_terminal(symb::GSymbol)
+    # Check the terminal flag attribute of the grammar symbol
+    return symb.terminal
+end

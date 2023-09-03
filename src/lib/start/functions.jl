@@ -18,28 +18,6 @@ This file implements the structs, methods, and functions for START's functionali
 # -----------------------------------------------------------------------------
 
 """
-Checks if the [`OAR.GSymbol`](@ref) is a terminal grammar symbol.
-
-# Arguments
-- `symb::GSymbol`: the [`OAR.GSymbol`](@ref) to check.
-"""
-function is_terminal(symb::GSymbol)
-    # Check the terminal flag attribute of the grammar symbol
-    return symb.terminal
-end
-
-"""
-Checks if the [`OAR.TreeNode`](@ref) contains a terminal symbol.
-
-# Arguments
-- `treenode::TreeNode`: the [`OAR.TreeNode`](@ref) to containing the [`OAR.GSymbol`](@ref) to check if terminal.
-"""
-function is_terminal(treenode::TreeNode)
-    # Wrap the GSymbol check function
-    return is_terminal(treenode.t)
-end
-
-"""
 Adds an empty node to the end of the [`OAR.START`](@ref) module.
 
 # Arguments
@@ -252,6 +230,7 @@ function accommodate_vector!(vec::Vector{T}, goal_len::Integer) where {T}
         push!(vec, zero(T))
     end
 end
+
 """
 Trains [`OAR.START`](@ref) module on a [`OAR.SomeStatement`](@ref) from the [`OAR.START`](@ref)'s grammar.
 
@@ -317,12 +296,25 @@ function train!(
     return y_hat
 end
 
+"""
+Computes the activation and match values in place, extending the `T` and `M` vectors if necessary.
+
+# Arguments
+- `art::START`:
+- `statement::SomeStatement`
+"""
 function activation_match!(art::START, statement::SomeStatement)
+    # Extend the in-place vectors if necessary
     accommodate_vector!(art.T, art.stats["n_categories"])
     accommodate_vector!(art.M, art.stats["n_categories"])
+
+    # Compute the activation and match for each category
     for ix = 1:art.stats["n_categories"]
         art.T[ix] = activation(art.protonodes[ix], statement)
+        art.M[ix] = match(art.protonodes[ix], statement)
     end
+
+    # Empty return
     return
 end
 

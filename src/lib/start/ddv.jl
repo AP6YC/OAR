@@ -1,5 +1,5 @@
 """
-    ddvstart.jl
+    ddv.jl
 
 # Description
 Distributed dual-vigilance START definitions.

@@ -6,6 +6,43 @@ Dual-vigilance definitions.
 """
 
 """
+[`START`](@ref) options struct as a `Parameters.jl` `@with_kw` object.
+"""
+@with_kw mutable struct opts_DVSTART @deftype Float
+    """
+    Lower-bound vigilance parameter: rho_lb ∈ [0, 1].
+    """
+    rho_lb = 0.55;
+    # @assert rho_lb >= 0.0 && rho_lb <= 1.0
+
+    """
+    Upper bound vigilance parameter: rho_ub ∈ [0, 1].
+    """
+    rho_ub = 0.75; @assert rho_lb <= rho_ub
+    # @assert rho_ub >= 0.0 && rho_ub <= 1.0 && rho_ub > rho_lb
+
+    """
+    Choice parameter: alpha > 0.
+    """
+    alpha = 1e-3; @assert alpha > 0.0
+
+    """
+    Learning parameter: beta ∈ (0, 1].
+    """
+    beta = 1.0; @assert beta > 0.0 && beta <= 1.0
+
+    """
+    Maximum number of epochs during training.
+    """
+    epochs::Int = 1
+
+    """
+    Flag for generating nodes at the terminal distributions below their nonterminal positions.
+    """
+    terminated::Bool = false
+end
+
+"""
 Trains [`OAR.START`](@ref) module on a [`OAR.SomeStatement`](@ref) from the [`OAR.START`](@ref)'s grammar.
 
 # Arguments
@@ -45,6 +82,7 @@ function train_dv!(
     for ix = 1:art.stats["n_categories"]
         # activations[ix] = activation(art.protonodes[ix], statement)
         art.T[ix] = activation(art.protonodes[ix], statement)
+        art.M[ix] = match(art.protonodes[ix], statement)
     end
 
     # Sort by highest activation
@@ -112,6 +150,7 @@ function classify_dv(
     for ix = 1:art.stats["n_categories"]
         # activations[ix] = activation(art.protonodes[ix], statement)
         art.T[ix] = activation(art.protonodes[ix], statement)
+        art.M[ix] = match(art.protonodes[ix], statement)
     end
 
     # Sort by highest activation

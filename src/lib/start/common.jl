@@ -15,6 +15,15 @@ Abstract type for all START-type modules.
 abstract type AbstractSTART end
 
 # -----------------------------------------------------------------------------
+# ALIASES
+# -----------------------------------------------------------------------------
+
+"""
+Type alias for the [`OAR.START`](@ref) dictionary containing module stats.
+"""
+const STARTStats = Dict{String, Any}
+
+# -----------------------------------------------------------------------------
 # STRUCTS
 # -----------------------------------------------------------------------------
 
@@ -78,96 +87,6 @@ struct TreeNode <: ARTNode
     children::Vector{TreeNode}
 end
 
-"""
-[`START`](@ref) options struct as a `Parameters.jl` `@with_kw` object.
-"""
-@with_kw mutable struct opts_START @deftype Float
-    """
-    Vigilance parameter: ρ ∈ [0, 1]
-    """
-    rho = 0.7;
-    # @assert rho >= 0.0 && rho <= 1.0
-
-    """
-    Lower-bound vigilance parameter: rho_lb ∈ [0, 1].
-    """
-    rho_lb = 0.55;
-    # @assert rho_lb >= 0.0 && rho_lb <= 1.0
-
-    """
-    Upper bound vigilance parameter: rho_ub ∈ [0, 1].
-    """
-    rho_ub = 0.75; @assert rho_lb <= rho_ub
-    # @assert rho_ub >= 0.0 && rho_ub <= 1.0 && rho_ub > rho_lb
-
-    """
-    Choice parameter: alpha > 0.
-    """
-    alpha = 1e-3; @assert alpha > 0.0
-
-    """
-    Learning parameter: beta ∈ (0, 1].
-    """
-    beta = 1.0; @assert beta > 0.0 && beta <= 1.0
-
-    """
-    Maximum number of epochs during training.
-    """
-    epochs::Int = 1
-
-    """
-    Flag for generating nodes at the terminal distributions below their nonterminal positions.
-    """
-    terminated::Bool = false
-end
-
-"""
-Type alias for the [`OAR.START`](@ref) dictionary containing module stats.
-"""
-const STARTStats = Dict{String, Any}
-
-"""
-Definition of a START module.
-
-Contains the [`ProtoNode`](@ref)s and [`CFG`](@ref) grammar that is used for processing statements and generating nodes.
-"""
-struct START <: AbstractSTART
-    """
-    The [`OAR.ProtoNode`](@ref)s of the START module.
-    """
-    protonodes::Vector{ProtoNode}
-
-    """
-    The [`OAR.CFG`](@ref) (Context-Free Grammar) used for processing data (statements).
-    """
-    grammar::CFG
-
-    """
-    The [`OAR.opts_START`](@ref) hyperparameters of the START module.
-    """
-    opts::opts_START
-
-    """
-    Incremental list of labels corresponding to each F2 node, self-prescribed or supervised.
-    """
-    labels::Vector{Int}
-
-    """
-    Activation values for every weight for a given sample.
-    """
-    T::Vector{Float}
-
-    """
-    Match values for every weight for a given sample.
-    """
-    M::Vector{Float}
-
-    """
-    Dictionary of mutable statistics for the module.
-    """
-    stats::STARTStats
-end
-
 # -----------------------------------------------------------------------------
 # DEPENDENT ALIASES
 # -----------------------------------------------------------------------------
@@ -206,47 +125,6 @@ function gen_STARTStats()
     stats["n_clusters"] = 0
     stats["n_instance"] = Vector{Int}()
     return stats
-end
-
-"""
-Constructor for an [`OAR.START`](@ref) module that takes a [`CFG`](@ref) grammar and automatically sets up the [`ProtoNode`](@ref) tree.
-
-# Arguments
-$ARG_CFG
-- `opts::opts_START`: a custom set of [`OAR.START`](@ref) options to use.
-"""
-function START(grammar::CFG, opts::opts_START)
-    # Init the stats
-    stats = gen_STARTStats()
-
-    # Instantiate and return the START module
-    START(
-        Vector{ProtoNode}(),    # protonodes
-        grammar,                # grammar
-        opts,                   # opts
-        Vector{Int}(),          # labels
-        Vector{Float}(),        # T
-        Vector{Float}(),        # M
-        stats,                  # stats
-    )
-end
-
-"""
-Constructor for an [`OAR.START`](@ref) module that takes a [`OAR.CFG`](@ref) grammar and an optional list of keyword arguments for the options.
-
-# Arguments
-$ARG_CFG
-- `kwargs...`: a list of keyword arguments for the [`OAR.opts_START`](@ref) options struct.
-"""
-function START(grammar::CFG; kwargs...)
-    # Construct the START options from the keyword arguments
-    opts = opts_START(;kwargs...)
-
-    # Construct and return the START module
-    START(
-        grammar,
-        opts,
-    )
 end
 
 """
@@ -324,6 +202,21 @@ function TreeNode(name::AbstractString, is_terminal::Bool=true)
 end
 
 # -----------------------------------------------------------------------------
+# FUNCTIONS
+# -----------------------------------------------------------------------------
+
+"""
+Checks if the [`OAR.TreeNode`](@ref) contains a terminal symbol.
+
+# Arguments
+- `treenode::TreeNode`: the [`OAR.TreeNode`](@ref) to containing the [`OAR.GSymbol`](@ref) to check if terminal.
+"""
+function is_terminal(treenode::TreeNode)
+    # Wrap the GSymbol check function
+    return is_terminal(treenode.t)
+end
+
+# -----------------------------------------------------------------------------
 # SHOW OVERLOADS
 # -----------------------------------------------------------------------------
 
@@ -349,14 +242,12 @@ function print_treenode_children(io::IO, node::TreeNode, level::Integer, last::B
     # Get the number of children to display
     n_children = length(node.children)
     # Get the level spacing
-    # spacer = last ? "    " : "│   "^level
     spacer = last ? "    " : " │  "^level
     # Append to the printstring for each child
     term = "\n"
     for ix = 1:n_children
         is_last = (ix == n_children)
         local_symb = "\"$(node.children[ix].t.data)\""
-        # sep = (is_last ? "└───" : "├───")
         sep = (is_last ? " └──" : " ├──")
         print(io, spacer * sep * local_symb * term)
         # If the node also has children, recursively call this function one level lower
