@@ -24,10 +24,9 @@ Adds an empty node to the end of the [`OAR.START`](@ref) module.
 - `art::START`: the [`OAR.START`](@ref) module to append a node to.
 """
 function add_node!(
-    # art::START;
     art::SingleSTART;
     new_cluster::Bool=true,
-)
+)::Nothing
     # Update the stats counters
     art.stats["n_categories"] += 1
 
@@ -68,12 +67,11 @@ Adds a recursively-generated [`OAR.ProtoNode`](@ref) to the [`OAR.START`](@ref) 
 - `art::START`: the [`OAR.START`](@ref) to append a new node to.
 """
 function create_category!(
-    # art::START,
     art::SingleSTART,
     statement::SomeStatement,
     label::Integer;
     new_cluster::Bool=true,
-)
+)::Nothing
     # Instantiate an empty node
     add_node!(art, new_cluster=new_cluster)
 
@@ -97,7 +95,7 @@ Updates the distribution of a single [`OAR.ProtoNode`](@ref) from one new symbol
 function update_dist!(
     pn::ProtoNode,
     symb::STARTSymbol,
-)
+)::Nothing
     # Update the counts
     pn.N[symb] += 1
     pn.stats.m += 1
@@ -126,7 +124,7 @@ function inc_update_symbols!(
     nonterminal::STARTSymbol,
     symb::STARTSymbol,
     terminated::Bool,
-)
+)::Nothing
     # function inc_update_symbols!(pn::ProtoNode, symb::GSymbol, position::Integer)
     # Update the top node
     update_dist!(pn, symb)
@@ -156,7 +154,7 @@ function learn!(
     art::AbstractSTART,
     statement::Statement,
     index::Integer,
-)
+)::Nothing
     # Update each position of the protonode at `index`
     for ix in eachindex(statement)
         inc_update_symbols!(
@@ -166,6 +164,9 @@ function learn!(
             art.opts.terminated
         )
     end
+
+    # Empty return
+    return
 end
 
 """
@@ -178,7 +179,7 @@ Computes the ART activation of a statement on an [`OAR.ProtoNode`](@ref).
 function activation(
     node::ProtoNode,
     statement::Statement,
-)
+)::Float
     # Intialize the sum
     local_sum = 0.0
 
@@ -203,7 +204,7 @@ Computes the ART match of a statement on an [`OAR.ProtoNode`](@ref).
 function match(
     node::ProtoNode,
     statement::Statement,
-)
+)::Float
     # Initialize the sum
     local_sum = 0.0
 
@@ -213,6 +214,8 @@ function match(
     end
 
     # local_sum /= length(statement)
+
+    @info typeof(local_sum)
 
     # Return the match sum
     return local_sum
@@ -225,12 +228,18 @@ Extends a vector to a goal length with zeros of its element type to accommodate 
 - `vec::Vector{T}`: a vector of arbitrary element type.
 - `goal_len::Integer`: the length that the vector should be.
 """
-function accommodate_vector!(vec::Vector{T}, goal_len::Integer) where {T}
+function accommodate_vector!(
+    vec::Vector{T},
+    goal_len::Integer,
+)::Nothing where {T}
     # While the the vector is not the correct length
     while length(vec) < goal_len
         # Push a zero of the type of the vector elements
         push!(vec, zero(T))
     end
+
+    # Empty return
+    return
 end
 
 """
@@ -243,7 +252,7 @@ Computes the activation and match values in place, extending the `T` and `M` vec
 function activation_match!(
     art::SingleSTART,
     statement::SomeStatement,
-)
+)::Nothing
     # Extend the in-place vectors if necessary
     accommodate_vector!(art.T, art.stats["n_categories"])
     accommodate_vector!(art.M, art.stats["n_categories"])

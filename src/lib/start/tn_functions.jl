@@ -17,7 +17,7 @@ function learn!(
     gramart::START,
     statement::TreeNode,
     index::Integer,
-)
+)::Nothing
     # Update each position of the protonode at `index`
     for ix in eachindex(statement.children)
         local_tn = statement.children[ix]
@@ -42,6 +42,9 @@ function learn!(
             end
         end
     end
+
+    # Empty return
+    return
 end
 
 """
@@ -54,7 +57,7 @@ Computes the ART activation of a statement on an [`OAR.ProtoNode`](@ref).
 function activation(
     node::ProtoNode,
     statement::TreeNode,
-)
+)::Float
     # Intialize the sum
     local_sum = 0.0
 
@@ -85,7 +88,7 @@ Computes the ART match of a statement on an [`OAR.ProtoNode`](@ref).
 function match(
     node::ProtoNode,
     statement::TreeNode,
-)
+)::Float
     # Initialize the sum
     local_sum = 0.0
 
@@ -105,50 +108,3 @@ function match(
     # Return the match sum
     return local_sum
 end
-
-# """
-# Classifies the [`OAR.TreeNode`](@ref) into one of [`OAR.START`](@ref)'s internal categories.
-
-# # Arguments
-# - `gramart::START`: the [`OAR.START`](@ref) to use in classification/inference.
-# - `statement::TreeNode`: the [`OAR.TreeNode`](@ref) to classify.
-# - `get_bmu::Bool=false`: optional, whether to get the best matching unit in the case of complete mismatch.
-# """
-# function classify(
-#     gramart::START,
-#     statement::TreeNode ;
-#     get_bmu::Bool=false
-# )
-#     # Compute the activations
-#     n_nodes = length(gramart.protonodes)
-#     activations = zeros(n_nodes)
-#     for ix = 1:n_nodes
-#         activations[ix] = activation(gramart.protonodes[ix], statement)
-#     end
-
-#     # Sort by highest activation
-#     index = sortperm(activations, rev=true)
-
-#     # Default is mismatch
-#     mismatch_flag = true
-#     y_hat = -1
-#     for jx in 1:n_nodes
-#         bmu = index[jx]
-#         # Vigilance check - pass
-#         if activations[bmu] >= gramart.opts.rho
-#             # Current winner
-#             y_hat = bmu
-#             mismatch_flag = false
-#             break
-#         end
-#     end
-
-#     # If we did not find a match
-#     if mismatch_flag
-#         # Report either the best matching unit or the mismatch label -1
-#         bmu = index[1]
-#         y_hat = get_bmu ? bmu : -1
-#     end
-
-#     return y_hat
-# end
