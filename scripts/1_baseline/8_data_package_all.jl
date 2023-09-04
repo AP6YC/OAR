@@ -89,27 +89,35 @@ for (root, dirs, files) in walkdir(topdir)
 
         # Initialize the START module with options
         start = OAR.START(grammar,
-            # rho = 0.6,
-            # rho = 0.3,
             rho = 0.1,
-            rho_lb = 0.1,
-            rho_ub = 0.3,
-            # epochs=5,
             epochs=1,
         )
-        # dvstart = OAR.START(grammar,
-        #     # rho = 0.6,
-        #     # rho = 0.3,
-        #     # rho = 0.1,
-        #     rho_lb = 0.1,
-        #     rho_ub = 0.3,
-        #     # epochs=5,
-        #     epochs=1,
-        # )
+        dvstart = OAR.DVSTART(grammar,
+            rho_lb = 0.1,
+            rho_ub = 0.3,
+            epochs=1,
+        )
+        ddvstart = OAR.DDVSTART(grammar,
+            rho_lb = 0.1,
+            rho_ub = 0.3,
+            epochs=1,
+        )
 
         @info "---------- $(file) - START ----------"
         OAR.tt_serial(
             start,
+            data,
+            display=true,
+        )
+        @info "---------- $(file) - DVSTART ----------"
+        OAR.tt_serial(
+            dvstart,
+            data,
+            display=true,
+        )
+        @info "---------- $(file) - DDVSTART ----------"
+        OAR.tt_serial(
+            ddvstart,
             data,
             display=true,
         )

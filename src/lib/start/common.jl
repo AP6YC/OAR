@@ -133,21 +133,25 @@ const SomeStatements = Union{TreeStatements, Statements}
 """
 Constructor for prepopulating the stats dictionary.
 """
-function gen_STARTStats()
+function gen_STARTStats()::STARTStats
     # Init the stats
     stats = STARTStats()
+
+    # Init elements in the dict
     stats["n_categories"] = 0
     stats["n_clusters"] = 0
     stats["n_instance"] = Vector{Int}()
+
+    # Return the stats
     return stats
 end
 
 """
 Empty constructor for the mutable options and stats component of a [`OAR.ProtoNode`](@ref).
 """
-function ProtoNodeStats()
+function ProtoNodeStats()::ProtoNodeStats
     # Construct and return the protonode statistics struct
-    ProtoNodeStats(
+    return ProtoNodeStats(
         0,
         false,
     )
@@ -156,9 +160,9 @@ end
 """
 Empty constructor for a [`OAR.START`](@ref) [`OAR.ProtoNode`](@ref).
 """
-function ProtoNode()
+function ProtoNode()::ProtoNode
     # Construct and return the ProtoNode
-    ProtoNode(
+    return ProtoNode(
         TerminalDist(),     # dict
         SymbolCount(),      # N
         ProtoChildren(),    # children
@@ -172,7 +176,7 @@ Constructor for a zero-initialized [`OAR.START`](@ref) [`OAR.ProtoNode`](@ref).
 # Arguments
 - `symbols::SymbolSet`: the terminal symbols to initialize the node with.
 """
-function ProtoNode(symbols::SymbolSet)
+function ProtoNode(symbols::SymbolSet)::ProtoNode
     # Initialize an empty ProtoNode
     pn = ProtoNode()
 
@@ -192,8 +196,8 @@ Constructor for a [`OAR.START`](@ref) [`OAR.TreeNode`](@ref) taking an existing 
 # Arguments
 - `symb::STARTSymbol`: the preconstructed STARTSymbol used for constructing the [`OAR.TreeNode`](@ref).
 """
-function TreeNode(symb::STARTSymbol)
-    TreeNode(
+function TreeNode(symb::STARTSymbol)::TreeNode
+    return TreeNode(
         symb,                   # t
         Vector{TreeNode}(),     # children
     )
@@ -206,9 +210,9 @@ Constructor for a [`OAR.START`](@ref) [`OAR.TreeNode`](@ref), taking a string na
 - `name::AbstractString`: the string name of the symbol to instantiate the [`OAR.TreeNode`](@ref) with.
 - `is_terminal::Bool`: flag for if the symbol in the node is terminal or not.
 """
-function TreeNode(name::AbstractString, is_terminal::Bool=true)
+function TreeNode(name::AbstractString, is_terminal::Bool=true)::TreeNode
     # Construct and return the tree node
-    TreeNode(
+    return TreeNode(
         STARTSymbol(
             name,
             is_terminal,
@@ -226,7 +230,7 @@ Checks if the [`OAR.TreeNode`](@ref) contains a terminal symbol.
 # Arguments
 - `treenode::TreeNode`: the [`OAR.TreeNode`](@ref) to containing the [`OAR.GSymbol`](@ref) to check if terminal.
 """
-function is_terminal(treenode::TreeNode)
+function is_terminal(treenode::TreeNode)::Bool
     # Wrap the GSymbol check function
     return is_terminal(treenode.t)
 end

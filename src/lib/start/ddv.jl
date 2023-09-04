@@ -5,6 +5,42 @@
 Distributed dual-vigilance START definitions.
 """
 
+# -----------------------------------------------------------------------------
+# CONstANTS
+# -----------------------------------------------------------------------------
+
+"""
+A list of all distributed dual-vigilance similarity linkage methods.
+"""
+const LINKAGE_METHODS = [
+    :single,
+    :average,
+    :complete,
+    :median,
+    :weighted,
+    # :centroid,
+]
+
+# Argument docstring for the F2 docstring
+const F2_DOCSTRING = """
+- `F2::START`: the DDVSTART START F2 node to compute the linkage method within.
+"""
+
+# Argument docstring for the F2 field, includes the argument header
+const FIELD_DOCSTRING = """
+# Arguments
+- `field::RealVector`: the DDVSTART START F2 node field (F2.T or F2.M) to compute the linkage for.
+"""
+
+# Argument docstring for the activation flag
+const ACTIVATION_DOCSTRING = """
+- `activation::Bool`: flag to use the activation function. False uses the match function.
+"""
+
+# -----------------------------------------------------------------------------
+# STRUCTS
+# -----------------------------------------------------------------------------
+
 """
 DDVSTART options struct as a `Parameters.jl` object.
 """
@@ -152,6 +188,10 @@ mutable struct DDVSTART <: AbstractSTART
     # stats::ARTStats
 end
 
+# -----------------------------------------------------------------------------
+# CONSTRUCTORS
+# -----------------------------------------------------------------------------
+
 """
 DDVSTART constructor taking a [`CFG`](@ref) grammart and keyword arguments for its options.
 
@@ -200,33 +240,9 @@ function DDVSTART(
     )
 end
 
-"""
-A list of all distributed dual-vigilance similarity linkage methods.
-"""
-const LINKAGE_METHODS = [
-    :single,
-    :average,
-    :complete,
-    :median,
-    :weighted,
-    # :centroid,
-]
-
-# Argument docstring for the F2 docstring
-const F2_DOCSTRING = """
-- `F2::START`: the DDVSTART START F2 node to compute the linkage method within.
-"""
-
-# Argument docstring for the F2 field, includes the argument header
-const FIELD_DOCSTRING = """
-# Arguments
-- `field::RealVector`: the DDVSTART START F2 node field (F2.T or F2.M) to compute the linkage for.
-"""
-
-# Argument docstring for the activation flag
-const ACTIVATION_DOCSTRING = """
-- `activation::Bool`: flag to use the activation function. False uses the match function.
-"""
+# -----------------------------------------------------------------------------
+# FUNCTIONS
+# -----------------------------------------------------------------------------
 
 """
 Computes the similarity of the selected linkage method.
@@ -310,7 +326,11 @@ Create a new category in a DDVSTART module, initiated on [`SomeStatement`](@ref)
 - `statement::SomeStatement`: the statement to initialize the new category on.
 - `label::Integer`: the global label for the new category.
 """
-function create_category!(art::DDVSTART, statement::SomeStatement, label::Integer)
+function create_category!(
+    art::DDVSTART,
+    statement::SomeStatement,
+    label::Integer,
+)
     # Update the stats counters
     art.stats["n_categories"] += 1
 
