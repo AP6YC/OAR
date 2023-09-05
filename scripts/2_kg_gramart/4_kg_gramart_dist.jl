@@ -96,7 +96,7 @@ sim_params = Dict{String, Any}(
     opts["grammar"] = OAR.SPOCFG(statements)
 
     # Define the single-parameter function used for pmap
-    local_sim(dict) = OAR.tc_gramart(
+    local_sim(dict) = OAR.tc_start(
         dict,
         statements,
         sweep_results_dir,

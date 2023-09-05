@@ -2,7 +2,7 @@
     4_analyze_dist.jl
 
 # Description
-This script takes the results of `3_gramart_dist.jl` and compiles it for visualization, etc.
+This script takes the results of `3_start_dist.jl` and compiles it for visualization, etc.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>

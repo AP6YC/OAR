@@ -1,5 +1,5 @@
 """
-    gramart.jl
+    1_start.jl
 
 # Description
 This script uses START to cluster CMT protein data.
@@ -27,7 +27,7 @@ using DataFrames
 # -----------------------------------------------------------------------------
 
 exp_top = "3_cmt"
-exp_name = "1_gramart.jl"
+exp_name = "1_start.jl"
 
 # Input CSV file
 input_file = OAR.data_dir("cmt", "output_CMT_file.csv")
@@ -65,17 +65,16 @@ ts = OAR.df_to_trees(df, df_dict)
 grammar = OAR.CMTCFG(ts)
 
 # Initialize the START module
-gramart = OAR.START(
+art = OAR.START(
     grammar,
     # rho=0.7,
     rho=0.6,
     terminated=false,
 )
-# @info gramart
 
 # Process the statements
 @showprogress "Training" for tn in ts
-    OAR.train!(gramart, tn)
+    OAR.train!(art, tn)
 end
 
 # Create a copy of the input dataframe for saving corresponding clusters
@@ -84,7 +83,7 @@ out_df = deepcopy(df)
 # Classify and push the results to a list of cluster assignments
 clusters = Vector{Int}()
 @showprogress "Classifying" for tn in ts
-    cluster = OAR.classify(gramart, tn, get_bmu=true)
+    cluster = OAR.classify(art, tn, get_bmu=true)
     push!(clusters, cluster)
 end
 

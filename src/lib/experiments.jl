@@ -48,7 +48,7 @@ $ARG_SIM_TS
 $ARG_SIM_DIR_FUNC
 $ARG_SIM_OPTS
 """
-function tc_gramart(
+function tc_start(
     d::AbstractDict,
     ts::SomeStatements,
     dir_func::Function,

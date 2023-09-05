@@ -121,7 +121,7 @@ sim_params = Dict{String, Any}(
     opts["grammar"] = grammar
 
     # Define the single-parameter function used for pmap
-    local_sim(dict) = OAR.tc_gramart(
+    local_sim(dict) = OAR.tc_start(
         dict,
         data,
         sweep_results_dir,

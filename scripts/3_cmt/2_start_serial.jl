@@ -1,5 +1,5 @@
 """
-    gramart_sweep.jl
+    2_start_serial.jl
 
 # Description
 This script uses START to cluster CMT protein data.
@@ -32,7 +32,7 @@ RHO_LB = 0.1
 RHO_UB = 0.9
 
 exp_top = "3_cmt"
-exp_name = "2_gramart_serial.jl"
+exp_name = "2_start_serial.jl"
 
 # Input CSV file and data definition
 input_file = OAR.data_dir("cmt", "output_CMT_file.csv")
@@ -85,7 +85,7 @@ clusters = zeros(Int, length(ts), N_SWEEP)
 # Iterate over all rhos
 for ix in eachindex(rhos)
     # Initialize the START module
-    gramart = OAR.START(
+    art = OAR.START(
         grammar,
         rho=rhos[ix],
         terminated=false,
@@ -93,13 +93,13 @@ for ix in eachindex(rhos)
 
     # Process the statements
     @showprogress "Training" for tn in ts
-        OAR.train!(gramart, tn)
+        OAR.train!(art, tn)
     end
 
     # Classify and add the cluster label to the assignment matrix
     for jx in eachindex(ts)
         clusters[jx, ix] = OAR.classify(
-            gramart,
+            art,
             ts[jx],
             get_bmu=true,
         )
