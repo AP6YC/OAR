@@ -8,7 +8,7 @@ Implements the parser used for the IRIS dataset.
 """
 The IRIS grammar tree subtypes from a Lerche Transformer.
 """
-struct IRISGramARTTree <: Transformer end
+struct IRISSTARTTree <: Transformer end
 
 """
 Type alias stating that a symbolic IRIS dataset symbol is a string
@@ -16,8 +16,8 @@ Type alias stating that a symbolic IRIS dataset symbol is a string
 const IRISSymbol = GSymbol{String}
 
 # The rules turn the terminals into `OAR` grammar symbols and statements into vectors
-@rule iris_symb(t::IRISGramARTTree, p) = IRISSymbol(p[1], true)
-@rule statement(t::IRISGramARTTree, p) = Vector{IRISSymbol}(p)
+@rule iris_symb(t::IRISSTARTTree, p) = IRISSymbol(p[1], true)
+@rule statement(t::IRISSTARTTree, p) = Vector{IRISSymbol}(p)
 
 """
 Constructs and returns a Lerche parser for the symbolic IRIS dataset.
@@ -48,7 +48,7 @@ function get_iris_parser()
         iris_grammar,
         parser="lalr",
         lexer="standard",
-        transformer=IRISGramARTTree()
+        transformer=IRISSTARTTree()
     )
 
     return iris_parser

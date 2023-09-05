@@ -1,0 +1,4 @@
+rng_seed: 1234
+n_sweep: 1000
+rho_lb: 0.01
+rho_ub: 0.1

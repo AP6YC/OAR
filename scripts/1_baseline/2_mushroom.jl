@@ -1,8 +1,8 @@
 """
-    mushroom.jl
+    2_mushroom.jl
 
 # Description
-This script shows how to use a GramART to cluster on the Iris dataset.
+This script shows how to use a START to cluster on the Mushroom dataset.
 
 # Attribution
 
@@ -30,7 +30,10 @@ using OAR
 # -----------------------------------------------------------------------------
 
 # using DataFrames
+using Random
+Random.seed!(1234)
 using ProgressMeter
+using Clustering
 
 # -----------------------------------------------------------------------------
 # VARIABLES
@@ -45,31 +48,76 @@ exp_name = "2_mushroom.jl"
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering the categorical UCI Mushroom dataset."
+    "$(exp_top)/$(exp_name): START for clustering the categorical UCI Mushroom dataset."
 )
 
 # -----------------------------------------------------------------------------
 # MUSHROOM DATASET
 # -----------------------------------------------------------------------------
 
-fs, bnf = OAR.symbolic_mushroom()
+# All-in-one function
+data, grammar = OAR.symbolic_mushroom()
 
-# # All-in-one function
-# fs, bnf = OAR.symbolic_iris()
-
-# Initialize the GramART module
-gramart = OAR.GramART(bnf)
-
-# Set the vigilance parameter and show
-gramart.opts.rho = 0.07
-@info gramart
+# Initialize the START module with options
+art = OAR.START(grammar,
+    # rho = 0.6,
+    rho = 0.1,
+    rho_lb = 0.1,
+    rho_ub = 0.3,
+)
 
 # Process the statements
-# for statement in fs.train_x
-@showprogress for statement in fs
-    OAR.train!(gramart, statement)
+@showprogress for ix in eachindex(data.train_x)
+    statement = data.train_x[ix]
+    label = data.train_y[ix]
+    OAR.train!(
+    # OAR.train_dv!(
+        art,
+        statement,
+        y=label,
+    )
 end
 
-# See the statistics of the first protonode
-# @info gramart.protonodes[1].stats
-@info gramart.protonodes
+# Classify
+clusters = zeros(Int, length(data.test_y))
+@showprogress for ix in eachindex(data.test_x)
+    clusters[ix] = OAR.classify(
+    # clusters[ix] = OAR.classify_dv(
+        art,
+        data.test_x[ix],
+        get_bmu=true,
+    )
+end
+
+# Calculate testing performance
+perf = OAR.AdaptiveResonance.performance(data.test_y, clusters)
+
+# Logging
+@info "Final performance: $(perf)"
+@info "n_categories: $(art.stats["n_categories"])"
+# @info "n_instance: $(art.stats["n_instance"])"
+
+
+# Clustering
+
+# Initialize the START module with options
+art = OAR.START(grammar,
+    # rho = 0.6,
+    rho = 0.3,
+    rho_lb = 0.1,
+    rho_ub = 0.3,
+)
+
+ddvstart = OAR.DDVSTART(grammar,
+    # rho_lb = 0.07,
+    # rho_ub = 0.08,
+    rho_lb = 1.54,
+    rho_ub = 1.76,
+)
+
+ri1 = OAR.cluster_rand_data(art, data)
+ri2 = OAR.cluster_rand_data(ddvstart, data)
+
+@info ri1
+@info ri2
+@info length(ddvstart.F2)

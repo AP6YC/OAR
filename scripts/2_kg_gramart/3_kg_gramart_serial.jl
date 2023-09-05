@@ -2,7 +2,7 @@
     3_kg_gramart_serial.jl
 
 # Description
-This script is a serial hyperparameter sweep version of `2_kg_gramart.jl`, which uses GramART to cluster disease knowledge graph statements.
+This script is a serial hyperparameter sweep version of `2_kg_gramart.jl`, which uses START to cluster disease knowledge graph statements.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
@@ -47,7 +47,7 @@ output_file = output_dir("cmt-kg-clusters-sweep_rho=$(RHO_LB)-$(N_SWEEP)-$(RHO_U
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): hyperparameter sweep of GramART for clustering a disease knowledge graph."
+    "$(exp_top)/$(exp_name): hyperparameter sweep of START for clustering a disease knowledge graph."
 )
 
 # -----------------------------------------------------------------------------
@@ -72,8 +72,8 @@ clusters = zeros(Int, length(statements), N_SWEEP)
 
 # Iterate over all rhos
 for ix in eachindex(rhos)
-    # Initialize the GramART module
-    gramart = OAR.GramART(
+    # Initialize the START module
+    gramart = OAR.START(
         grammar,
         rho = rhos[ix],
         terminated=false,

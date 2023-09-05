@@ -21,7 +21,7 @@
 using
     OAR,                # This project
     MLDatasets,         # Iris dataset
-    MLDataUtils         # Data utilities, splitting, etc.
+    MLUtils             # Data utilities, splitting, etc.
 
 # ## Loading the Dataset
 
@@ -33,14 +33,14 @@ iris = Iris()
 
 features, labels = Matrix(iris.features)', vec(Matrix{String}(iris.targets))
 
-# Because the MLDatasets package gives us Iris labels as strings, we will use the `MLDataUtils.convertlabel` method with the `MLLabelUtils.LabelEnc.Indices` type to get a list of integers representing each class:
+# Because the MLDatasets package gives us Iris labels as strings, we need to get a list of integers representing each class:
 
-labels = convertlabel(LabelEnc.Indices{Int}, labels)
+labels = OAR.integer_encoding(labels)
 unique(labels)
 
-# Next, we will create a train/test split with the `MLDataUtils.stratifiedobs` utility:
+# Next, we will create a train/test split:
 
-(X_train, y_train), (X_test, y_test) = stratifiedobs((features, labels))
+(X_train, y_train), (X_test, y_test) = splitobs((features, labels))
 
 # We now have a train/test split of the features and targets for the Iris dataset.
 # This project also defines some low-level data utilities for more easily passing around and transforming this data, so we often see this train/test split as a combined `DataSplit` struct:

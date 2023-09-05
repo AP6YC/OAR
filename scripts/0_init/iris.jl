@@ -2,7 +2,7 @@
     iris.jl
 
 # Description
-This script is a place to develop the symbolic version of the Iris dataset for validating GramART.
+This script is a place to develop the symbolic version of the Iris dataset for validating START.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>

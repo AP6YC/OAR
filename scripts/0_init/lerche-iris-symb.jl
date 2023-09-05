@@ -47,18 +47,18 @@ iris_grammar = raw"""
 """
 
 # The grammar tree subtypes from a Lerche Transformer
-struct GramARTTree <: Transformer end
+struct STARTTree <: Transformer end
 
 # The rules turn the terminals into `OAR` grammar symbols and statements into vectors
-@rule iris_symb(t::GramARTTree, p) = OAR.GSymbol{String}(p[1], true)
-@rule statement(t::GramARTTree, p) = Vector(p)
+@rule iris_symb(t::STARTTree, p) = OAR.GSymbol{String}(p[1], true)
+@rule statement(t::STARTTree, p) = Vector(p)
 
 # Create the parser from these rules
 iris_parser = Lark(
     iris_grammar,
     parser="lalr",
     lexer="standard",
-    transformer=GramARTTree()
+    transformer=STARTTree()
 )
 
 # Set some sample text as the input statement

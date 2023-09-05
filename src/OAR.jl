@@ -28,17 +28,19 @@ module OAR
 # -----------------------------------------------------------------------------
 
 # Usings/imports for the whole package declared once
-using Reexport              # @reexport
+# using Reexport              # @reexport
 
 # Full usings (which supports comma-separated import notation)
 using
     AdaptiveResonance,      # ART algorithms
     ArgParse,               # ArgParseSettings
     CSV,                    # CSV.File(...)
+    Clustering,             # randindex
     DataFrames,             # DataFrame
+    DelimitedFiles,         # readdlm
     Distributed,            # myid()
     MLDatasets,             # Iris dataset
-    MLDataUtils,            # # Data utilities, splitting, etc.
+    MLUtils,                # Data utilities, splitting, etc.
     DocStringExtensions,    # Docstring utilities
     DrWatson,               # Project directory utilities
     InvertedIndices,        # Not()
@@ -46,10 +48,16 @@ using
     NumericalTypeAliases,   # RealMatrix, IntegerVector, etc.
     Parameters,             # @with_kw
     Pkg,                    # Version
-    Random                  # seed!
+    Plots,                  # Plot
+    ProgressMeter,          # @showprogress
+    Random,                 # seed!
+    StatsPlots
 
 # Precompile concrete type methods
 using PrecompileSignatures: @precompile_signatures
+
+using Statistics: median as statistics_median
+using Statistics: mean as statistics_mean
 
 # Imports
 import YAML
@@ -79,8 +87,8 @@ export
     # Grammar names
     GSymbol,
 
-    # GramART names
-    GramART,
+    # START names
+    START,
     ProtoNode,
     TreeNode,
 

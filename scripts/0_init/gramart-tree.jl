@@ -2,7 +2,7 @@
     gramart.jl
 
 # Description
-This script is used in the final development of GramART.
+This script is used in the final development of START.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
@@ -22,8 +22,8 @@ using OAR
 # All-in-one function
 fs, bnf = OAR.symbolic_iris()
 
-# Initialize the GramART module
-gramart = OAR.GramART(bnf)
+# Initialize the START module
+gramart = OAR.START(bnf)
 
 # Set the vigilance parameter and show
 gramart.opts.rho = 0.5

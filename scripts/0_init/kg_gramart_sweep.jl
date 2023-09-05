@@ -2,7 +2,7 @@
     kg_gramart_monosweep.jl
 
 # Description
-This script is a hyperparameter sweep version of `kg_gramart.jl`, which uses GramART to cluster disease knowledge graph statements.
+This script is a hyperparameter sweep version of `kg_gramart.jl`, which uses START to cluster disease knowledge graph statements.
 This script saves all of the results to one file.
 
 # Authors
@@ -44,7 +44,7 @@ mkpath(output_dir())
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "2_kg/kg_gramart_sweep.jl: hyperparameter sweep of GramART for clustering a disease knowledge graph."
+    "2_kg/kg_gramart_sweep.jl: hyperparameter sweep of START for clustering a disease knowledge graph."
 )
 
 # -----------------------------------------------------------------------------
@@ -65,8 +65,8 @@ rhos = collect(LinRange(
 ))
 
 for rho in rhos
-    # Initialize the GramART module
-    gramart = OAR.GramART(
+    # Initialize the START module
+    gramart = OAR.START(
         grammar,
         # rho=0.1,    # ~12GB
         rho = rho,

@@ -5,3 +5,7 @@ jupyterlab
 owlready2
 matplotlib
 scipy
+shap
+scikit-learn
+pandas
+xgboost
