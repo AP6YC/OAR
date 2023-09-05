@@ -215,8 +215,6 @@ function match(
 
     # local_sum /= length(statement)
 
-    @info typeof(local_sum)
-
     # Return the match sum
     return local_sum
 end

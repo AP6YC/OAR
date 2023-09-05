@@ -105,12 +105,15 @@ Constructor for an [`OAR.START`](@ref) module that takes a [`CFG`](@ref) grammar
 $ARG_CFG
 - `opts::opts_START`: a custom set of [`OAR.START`](@ref) options to use.
 """
-function START(grammar::CFG, opts::opts_START)
+function START(
+    grammar::CFG,
+    opts::opts_START,
+)::START
     # Init the stats
     stats = gen_STARTStats()
 
     # Instantiate and return the START module
-    START(
+    return START(
         Vector{ProtoNode}(),    # protonodes
         grammar,                # grammar
         opts,                   # opts
@@ -128,12 +131,15 @@ Constructor for an [`OAR.START`](@ref) module that takes a [`OAR.CFG`](@ref) gra
 $ARG_CFG
 - `kwargs...`: a list of keyword arguments for the [`OAR.opts_START`](@ref) options struct.
 """
-function START(grammar::CFG; kwargs...)
+function START(
+    grammar::CFG;
+    kwargs...
+)::START
     # Construct the START options from the keyword arguments
     opts = opts_START(;kwargs...)
 
     # Construct and return the START module
-    START(
+    return START(
         grammar,
         opts,
     )
@@ -155,8 +161,7 @@ function train!(
     art::START,
     statement::SomeStatement;
     y::Integer=0,
-    # epochs::Integer=1,
-)
+)::Int
     # Flag for if the sample is supervised
     supervised = !iszero(y)
 
@@ -220,7 +225,7 @@ function classify(
     art::START,
     statement::SomeStatement ;
     get_bmu::Bool=false,
-)
+)::Int
     # Compute the activations
     activation_match!(art, statement)
 

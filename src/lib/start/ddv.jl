@@ -198,9 +198,15 @@ DDVSTART constructor taking a [`CFG`](@ref) grammart and keyword arguments for i
 # Arguments
 - `grammar:CFG`: the grammar that the module works upon.
 """
-function DDVSTART(grammar::CFG; kwargs...)
+function DDVSTART(
+    grammar::CFG;
+    kwargs...
+)::DDVSTART
+    # Create the options struct from the keyword arguments
     opts = opts_DDVSTART(;kwargs...)
-    DDVSTART(
+
+    # Construct and return the module
+    return DDVSTART(
         grammar,
         opts,
     )
@@ -216,7 +222,7 @@ DDVSTART constructor taking a [`CFG`](@ref) grammart and [`opts_DDVSTART`](@ref)
 function DDVSTART(
     grammar::CFG,
     opts::opts_DDVSTART,
-)
+)::DDVSTART
     # Init the stats
     stats = gen_STARTStats()
 
@@ -226,7 +232,7 @@ function DDVSTART(
     )
 
     # Initialize the module
-    DDVSTART(
+    return DDVSTART(
         grammar,                # grammar
         opts,
         subopts,
@@ -252,7 +258,11 @@ Computes the similarity of the selected linkage method.
 - `F2::START`: the F2 module to compute the similarity for.
 - `activation::Bool`: flag for if the computed similarity is the activation or match.
 """
-function similarity(method::Symbol, F2::START, activation::Bool)
+function similarity(
+    method::Symbol,
+    F2::START,
+    activation::Bool,
+)::Float
     # Handle :weighted usage
     if method === :weighted
         value = eval(method)(F2, activation)
@@ -270,7 +280,7 @@ Single linkage DDVFA similarity function.
 
 $FIELD_DOCSTRING
 """
-function single(field::RealVector)
+function single(field::RealVector)::Float
     return maximum(field)
 end
 
@@ -279,7 +289,7 @@ Average linkage DDVFA similarity function.
 
 $FIELD_DOCSTRING
 """
-function average(field::RealVector)
+function average(field::RealVector)::Float
     return statistics_mean(field)
 end
 
@@ -288,7 +298,7 @@ Complete linkage DDVFA similarity function.
 
 $FIELD_DOCSTRING
 """
-function complete(field::RealVector)
+function complete(field::RealVector)::Float
     return minimum(field)
 end
 
@@ -297,7 +307,7 @@ Median linkage DDVFA similarity function.
 
 $FIELD_DOCSTRING
 """
-function median(field::RealVector)
+function median(field::RealVector)::Float
     return statistics_median(field)
 end
 
@@ -308,7 +318,7 @@ Weighted linkage DDVFA similarity function.
 $F2_DOCSTRING
 $ACTIVATION_DOCSTRING
 """
-function weighted(F2::START, activation::Bool)
+function weighted(F2::START, activation::Bool)::Float
     if activation
         value = F2.T' * (F2.n_instance ./ sum(F2.n_instance))
     else
@@ -330,7 +340,7 @@ function create_category!(
     art::DDVSTART,
     statement::SomeStatement,
     label::Integer,
-)
+)::Nothing
     # Update the stats counters
     art.stats["n_categories"] += 1
 
@@ -356,7 +366,7 @@ function train!(
     art::DDVSTART,
     statement::SomeStatement;
     y::Integer=0,
-)
+)::Int
     # Flag for if the sample is supervised
     supervised = !iszero(y)
 
@@ -431,7 +441,7 @@ function classify(
     art::DDVSTART,
     statement::SomeStatement ;
     get_bmu::Bool=false,
-)
+)::Int
     # accommodate_vector!(art.T, art.stats["n_categories"])
     # accommodate_vector!(art.M, art.stats["n_categories"])
     # for ix = 1:art.stats["n_categories"]

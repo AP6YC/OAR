@@ -95,7 +95,10 @@ Constructor for an [`OAR.DVSTART`](@ref) module that takes a [`CFG`](@ref) gramm
 $ARG_CFG
 - `opts::opts_DVSTART`: a custom set of [`OAR.DVSTART`](@ref) options to use.
 """
-function DVSTART(grammar::CFG, opts::opts_DVSTART)::DVSTART
+function DVSTART(
+    grammar::CFG,
+    opts::opts_DVSTART
+)::DVSTART
     # Init the stats
     stats = gen_STARTStats()
 
@@ -153,8 +156,6 @@ function train!(
     if isempty(art.protonodes)
         y_hat = supervised ? y : 1
         create_category!(art, statement, y_hat)
-        # add_node!(art)
-        # learn!(art, statement, 1)
         return y_hat
     end
 
@@ -165,22 +166,16 @@ function train!(
     end
 
     # Compute the activations
-    # n_nodes = length(art.protonodes)
-    # activations = zeros(n_nodes)
     accommodate_vector!(art.T, art.stats["n_categories"])
     accommodate_vector!(art.M, art.stats["n_categories"])
-    # for ix = 1:n_nodes
     for ix = 1:art.stats["n_categories"]
-        # activations[ix] = activation(art.protonodes[ix], statement)
         art.T[ix] = activation(art.protonodes[ix], statement)
         art.M[ix] = match(art.protonodes[ix], statement)
     end
 
     # Sort by highest activation
-    # index = sortperm(activations, rev=true)
     index = sortperm(art.T, rev=true)
     mismatch_flag = true
-    # for jx = 1:n_nodes
     for jx = 1:art.stats["n_categories"]
         # Get the best-matching unit
         bmu = index[jx]
@@ -188,16 +183,13 @@ function train!(
         if supervised && (art.labels[bmu] != y)
             break
         end
-        # if activations[bmu] >= art.opts.rho
         # Vigilance test upper bound
-        # if activations[bmu] >= art.opts.rho_ub
         if art.T[bmu] >= art.opts.rho_ub
             y_hat = art.labels[bmu]
             learn!(art, statement, bmu)
             art.stats["n_instance"][bmu] += 1
             mismatch_flag = false
             break
-        # elseif activations[bmu] >= art.opts.rho_lb
         elseif art.T[bmu] >= art.opts.rho_lb
             # Update sample labels
             y_hat = supervised ? y : art.labels[bmu]
@@ -208,10 +200,8 @@ function train!(
 
     # If we triggered a mismatch, add a node
     if mismatch_flag
-        # bmu = n_nodes + 1
         y_hat = supervised ? y : art.stats["n_categories"] + 1
         create_category!(art, statement, y_hat)
-        # learn!(art, statement, bmu)
     end
 
     # Return the training label
