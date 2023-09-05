@@ -1,8 +1,8 @@
 """
-    gramart.jl
+    1_start.jl
 
 # Description
-This script uses GramART to cluster CMT protein data.
+This script uses START to cluster CMT protein data.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
@@ -27,7 +27,7 @@ using DataFrames
 # -----------------------------------------------------------------------------
 
 exp_top = "3_cmt"
-exp_name = "1_gramart.jl"
+exp_name = "1_start.jl"
 
 # Input CSV file
 input_file = OAR.data_dir("cmt", "output_CMT_file.csv")
@@ -40,7 +40,7 @@ output_file = OAR.results_dir("3_cmt", "cmt_clusters.csv")
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering disease protein statements."
+    "$(exp_top)/$(exp_name): START for clustering disease protein statements."
 )
 
 # -----------------------------------------------------------------------------
@@ -59,22 +59,22 @@ df_dict = OAR.load_cmt_dict(data_dict_file)
 
 # Turn the statements into TreeNodes
 ts = OAR.df_to_trees(df, df_dict)
-@info ts[1]
+# @info ts[1]
 
 # Generate a grammart from the statements
 grammar = OAR.CMTCFG(ts)
 
-# Initialize the GramART module
-gramart = OAR.GramART(
+# Initialize the START module
+art = OAR.START(
     grammar,
-    rho=0.7,    # ~12GB
+    # rho=0.7,
+    rho=0.6,
     terminated=false,
 )
-@info gramart
 
 # Process the statements
-@showprogress for tn in ts
-    OAR.train!(gramart, tn)
+@showprogress "Training" for tn in ts
+    OAR.train!(art, tn)
 end
 
 # Create a copy of the input dataframe for saving corresponding clusters
@@ -82,8 +82,8 @@ out_df = deepcopy(df)
 
 # Classify and push the results to a list of cluster assignments
 clusters = Vector{Int}()
-@showprogress for tn in ts
-    cluster = OAR.classify(gramart, tn, get_bmu=true)
+@showprogress "Classifying" for tn in ts
+    cluster = OAR.classify(art, tn, get_bmu=true)
     push!(clusters, cluster)
 end
 

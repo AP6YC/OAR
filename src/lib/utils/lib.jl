@@ -29,3 +29,6 @@ include("data_utils.jl")
 
 # File and options utilities
 include("file.jl")
+
+# Plotting functions and recipes
+include("plot.jl")

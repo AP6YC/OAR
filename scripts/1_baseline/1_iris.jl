@@ -2,7 +2,7 @@
     1_iris.jl
 
 # Description
-This script shows how to use a GramART to cluster on the Iris dataset.
+This script shows how to use a START to cluster on the Iris dataset.
 
 # Attribution
 
@@ -47,7 +47,7 @@ exp_name = "1_iris.jl"
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering the real-valued UCI Iris dataset."
+    "$(exp_top)/$(exp_name): START for clustering the real-valued UCI Iris dataset."
 )
 
 # -----------------------------------------------------------------------------
@@ -57,18 +57,20 @@ pargs = OAR.exp_parse(
 # All-in-one function
 data, grammmar = OAR.symbolic_iris()
 
-# Initialize the GramART module
-gramart = OAR.GramART(grammmar)
-
-# Set the vigilance parameter and show
-# gramart.opts.rho = 0.15
-gramart.opts.rho = 0.05
+# Initialize the START module with options
+gramart = OAR.START(
+    grammmar,
+    rho = 0.15,
+    rho_lb = 0.1,
+    rho_ub = 0.25,
+)
 
 # Process the statements
 @showprogress for ix in eachindex(data.train_x)
     statement = data.train_x[ix]
     label = data.train_y[ix]
-    OAR.train!(gramart, statement, y=label)
+    # OAR.train!(gramart, statement, y=label)
+    OAR.train_dv!(gramart, statement, y=label)
 end
 
 # See the statistics of the first protonode
@@ -77,7 +79,8 @@ end
 # Classify
 clusters = zeros(Int, length(data.test_y))
 @showprogress for ix in eachindex(data.test_x)
-    clusters[ix] = OAR.classify(gramart, data.test_x[ix])
+    # clusters[ix] = OAR.classify(gramart, data.test_x[ix], get_bmu=true)
+    clusters[ix] = OAR.classify_dv(gramart, data.test_x[ix], get_bmu=true)
 end
 
 # Calculate testing performance

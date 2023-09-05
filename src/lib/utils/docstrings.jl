@@ -114,3 +114,10 @@ $COMMON_DOC config filename argument.
 const ARG_CONFIG_FILE = """
 - `config_file::AbstractString`: the config file name as a string.
 """
+
+"""
+$COMMON_DOC argument for a file name.
+"""
+const ARG_FILENAME = """
+- `filename::AbstractString`: the full file path as a string.
+"""

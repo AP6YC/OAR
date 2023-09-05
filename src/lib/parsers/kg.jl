@@ -8,7 +8,7 @@ Implements the parser used for the knowledge graph edge attributes data.
 """
 The KG grammar tree subtypes from a Lerche Transformer.
 """
-struct KGGramARTTree <: Transformer end
+struct KGSTARTTree <: Transformer end
 
 """
 Alias stating that a KG grammar symbol is a string (`KGSymbol = `[`GSymbol`](@ref)`{String}`).
@@ -22,11 +22,11 @@ const KGStatement = Vector{KGSymbol}
 
 # The rules turn the terminals into `OAR` grammar symbols and statements into vectors
 # Turn statements into Julia Vectors
-@rule statement(t::KGGramARTTree, p) = Vector{KGSymbol}(p)
+@rule statement(t::KGSTARTTree, p) = Vector{KGSymbol}(p)
 # Remove backslashes in escaped strings
-@inline_rule gstring(t::KGGramARTTree, s) = replace(s[2:end-1],"\\\""=>"\"")
+@inline_rule gstring(t::KGSTARTTree, s) = replace(s[2:end-1],"\\\""=>"\"")
 # Define the datatype for the strings themselves
-@rule kg_symb(t::KGGramARTTree, p) = KGSymbol(p[1], true)
+@rule kg_symb(t::KGSTARTTree, p) = KGSymbol(p[1], true)
 
 """
 Constructs and returns a parser for the KG edge attributes data.
@@ -54,14 +54,14 @@ function get_kg_parser()
         kg_edge_grammar,
         parser="lalr",
         lexer="standard",
-        transformer=KGGramARTTree()
+        transformer=KGSTARTTree()
     )
 
     return kg_parser
 end
 
 """
-Loads the KG edge data file, parses the lines, and returns a vector of statements for GramART.
+Loads the KG edge data file, parses the lines, and returns a vector of statements for START.
 
 # Arguments
 - `file::AbstractString`: the location of the edge data file.

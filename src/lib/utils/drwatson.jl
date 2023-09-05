@@ -55,3 +55,23 @@ function config_dir(args...)
     # mkpath(newdir(args...))
     return newdir(args...)
 end
+
+"""
+`DrWatson`-style paper results directory.
+
+$DRWATSON_ARGS_DOC
+"""
+function paper_results_dir(args...)
+    return joinpath(
+        "C:\\",
+        "Users",
+        "Sasha",
+        "Dropbox",
+        "Apps",
+        "Overleaf",
+        "Paper-Biomed-Ontologies-GramART",
+        "images",
+        "results",
+        args...
+    )
+end

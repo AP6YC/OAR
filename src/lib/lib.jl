@@ -18,8 +18,8 @@ include("utils/lib.jl")
 # Grammars definitions
 include("grammar/lib.jl")
 
-# GramART Julia implementation
-include("gramart/lib.jl")
+# START Julia implementation
+include("start/lib.jl")
 
 # Lerche parsers
 include("parsers/lib.jl")

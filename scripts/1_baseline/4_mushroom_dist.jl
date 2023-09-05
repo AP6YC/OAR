@@ -1,8 +1,8 @@
 """
-    2_mushroom.jl
+    4_mushroom_dist.jl
 
 # Description
-This script shows how to use a GramART to cluster on the Mushroom dataset.
+This script shows how to use a START to cluster on the Mushroom dataset.
 
 # Attribution
 
@@ -39,7 +39,7 @@ using ProgressMeter
 # -----------------------------------------------------------------------------
 
 exp_top = "1_baseline"
-exp_name = "2_mushroom.jl"
+exp_name = "4_mushroom_dist"
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -47,7 +47,7 @@ exp_name = "2_mushroom.jl"
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering the categorical UCI Mushroom dataset."
+    "$(exp_top)/$(exp_name): START for clustering the categorical UCI Mushroom dataset."
 )
 
 # -----------------------------------------------------------------------------
@@ -57,8 +57,8 @@ pargs = OAR.exp_parse(
 # All-in-one function
 fs, bnf = OAR.symbolic_mushroom()
 
-# Initialize the GramART module
-gramart = OAR.GramART(bnf)
+# Initialize the START module
+gramart = OAR.START(bnf)
 
 # Set the vigilance parameter and show
 gramart.opts.rho = 0.05

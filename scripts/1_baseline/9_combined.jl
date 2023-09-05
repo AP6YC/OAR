@@ -69,8 +69,8 @@ pargs = OAR.exp_parse(
 # All-in-one function
 mushroom_data, mushroom_grammar = OAR.symbolic_mushroom()
 
-# Initialize the GramART module
-gramart = OAR.GramART(mushroom_grammar)
+# Initialize the START module
+gramart = OAR.START(mushroom_grammar)
 
 # Set the vigilance parameter and show
 gramart.opts.rho = 0.05
@@ -100,8 +100,8 @@ perf = OAR.AdaptiveResonance.performance(mushroom_data.test_y, clusters)
 # All-in-one function
 iris_data, iris_grammmar = OAR.symbolic_iris()
 
-# Initialize the GramART module
-gramart = OAR.GramART(iris_grammmar)
+# Initialize the START module
+gramart = OAR.START(iris_grammmar)
 
 # Set the vigilance parameter and show
 # gramart.opts.rho = 0.15

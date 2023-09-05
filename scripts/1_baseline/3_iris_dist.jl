@@ -1,8 +1,8 @@
 """
-    1_iris.jl
+    3_iris_dist.jl
 
 # Description
-This script shows how to use a GramART to cluster on the Iris dataset.
+Distributed simulations with START on the Iris dataset.
 
 # Attribution
 
@@ -38,7 +38,7 @@ using DrWatson
 # -----------------------------------------------------------------------------
 
 exp_top = "1_baseline"
-exp_name = "1_iris.jl"
+exp_name = "3_iris_dist"
 config_file = "iris_sweep.yml"
 
 # -----------------------------------------------------------------------------
@@ -60,7 +60,7 @@ config = OAR.load_config(config_file)
 
 # Set the simulation parameters
 sim_params = Dict{String, Any}(
-    "m" => "GramART",
+    "m" => "START",
     "rng_seed" => config["rng_seed"],
     "rho" => collect(LinRange(
         config["rho_lb"],
@@ -68,7 +68,6 @@ sim_params = Dict{String, Any}(
         config["n_sweep"],
     ))
 )
-
 
 # -----------------------------------------------------------------------------
 # PARALLEL DEFINITIONS
@@ -81,7 +80,6 @@ sim_params = Dict{String, Any}(
 
     # Modules
     using OAR
-
 
     # Point to the CSV data file and data definition
     input_file = OAR.data_dir(
@@ -103,26 +101,29 @@ sim_params = Dict{String, Any}(
     # Make the path
     mkpath(sweep_results_dir())
 
-    # Load the CMT disease data file
-    df = OAR.load_cmt(input_file)
+    # # Load the CMT disease data file
+    # df = OAR.load_cmt(input_file)
 
-    # Load the data definition dictionary
-    df_dict = OAR.load_cmt_dict(data_dict_file)
+    # # Load the data definition dictionary
+    # df_dict = OAR.load_cmt_dict(data_dict_file)
 
-    # Turn the statements into TreeNodes
-    ts = OAR.df_to_trees(df, df_dict)
+    # # Turn the statements into TreeNodes
+    # ts = OAR.df_to_trees(df, df_dict)
 
-    # Generate a grammart from the statements
-    grammar = OAR.CMTCFG(ts)
+    # # Generate a grammart from the statements
+    # grammar = OAR.CMTCFG(ts)
+
+    # All-in-one function
+    data, grammmar = OAR.symbolic_iris()
 
     # Generate a simple subject-predicate-object grammar from the statements
     opts = Dict()
     opts["grammar"] = grammar
 
     # Define the single-parameter function used for pmap
-    local_sim(dict) = OAR.tc_gramart(
+    local_sim(dict) = OAR.tc_start(
         dict,
-        ts,
+        data,
         sweep_results_dir,
         opts,
     )
@@ -157,8 +158,8 @@ println("--- Simulation complete ---")
 # All-in-one function
 data, grammmar = OAR.symbolic_iris()
 
-# Initialize the GramART module
-gramart = OAR.GramART(grammmar)
+# Initialize the START module
+gramart = OAR.START(grammmar)
 
 # Set the vigilance parameter and show
 # gramart.opts.rho = 0.15
