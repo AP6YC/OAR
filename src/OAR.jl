@@ -28,7 +28,7 @@ module OAR
 # -----------------------------------------------------------------------------
 
 # Usings/imports for the whole package declared once
-using Reexport              # @reexport
+# using Reexport              # @reexport
 
 # Full usings (which supports comma-separated import notation)
 using

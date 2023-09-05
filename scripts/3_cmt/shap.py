@@ -1,10 +1,25 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+    shap.py
+
+# Description
+
+Demonstration of SHAP values for clustering of CMT cases
+
+# Acknowledgements
+
+## History
 Created on Fri Jul  8 13:07:47 2022
 
-@author: danielhier
+## Authors
+- Sasha Petrenko
+- danielhier
 """
+
+# -----------------------------------------------------------------------------
+# IMPORTS
+# -----------------------------------------------------------------------------
 
 # import os
 # import numpy as np
@@ -20,9 +35,9 @@ from sklearn.ensemble import HistGradientBoostingClassifier
 
 from pathlib import Path
 
-"""
-Demonstration of SHAP values for clustering of CMT cases
-"""
+# -----------------------------------------------------------------------------
+# EXPERIMENT
+# -----------------------------------------------------------------------------
 
 # os.chdir('/Users/danielhier/Desktop/MS Clustering')
 #########################################################################

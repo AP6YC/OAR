@@ -69,25 +69,7 @@ for (root, dirs, files) in walkdir(topdir)
         # Load the symbolic data and grammar
         data, grammar = OAR.symbolic_dataset(filename)
 
-        # # Initialize the START module with options
-        # art = OAR.START(grammar,
-        #     # rho = 0.6,
-        #     # rho = 0.3,
-        #     rho = 0.1,
-        #     rho_lb = 0.1,
-        #     rho_ub = 0.3,
-        #     # epochs=5,
-        #     epochs=1,
-        # )
-
-        # @info "---------- $(file) ----------"
-        # OAR.tt_serial(
-        #     art,
-        #     data,
-        #     display=true,
-        # )
-
-        # Initialize the START module with options
+        # Initialize the START modules with options
         start = OAR.START(grammar,
             rho = 0.1,
             epochs=1,
@@ -103,6 +85,7 @@ for (root, dirs, files) in walkdir(topdir)
             epochs=1,
         )
 
+        # Run all serial simulations
         @info "---------- $(file) - START ----------"
         OAR.tt_serial(
             start,
