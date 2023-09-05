@@ -32,9 +32,9 @@ begin
 end
 
 # ╔═╡ 78f1b791-4209-470d-a047-60f2062c1af3
-md"# _GramART and IRIS_
+md"# _START and IRIS_
 
-This notebook tests the GramART algorithm on the real-valued IRIS dataset.
+This notebook tests the START algorithm on the real-valued IRIS dataset.
 "
 
 # ╔═╡ 35e178e3-64db-4d2e-b4a5-8516048ef76c
@@ -49,7 +49,7 @@ TableOfContents(title="Experiments 🔬")
 md"## Experiments"
 
 # ╔═╡ f7e7d8f8-3150-424f-a084-df5e82551f5b
-md"### 1: GramART"
+md"### 1: START"
 
 # ╔═╡ 0f8e9e34-6ee4-4354-972d-b39cfe98423b
 begin
@@ -59,8 +59,8 @@ begin
 end
 
 # ╔═╡ b49b3f98-8509-429b-a569-78d03e0f5434
-# Initialize the GramART module
-gramart = OAR.GramART(bnf)
+# Initialize the START module
+gramart = OAR.START(bnf)
 
 # ╔═╡ cd5222bc-c5a9-480e-8f03-c94f6ed2ee2f
 begin

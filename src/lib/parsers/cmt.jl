@@ -38,7 +38,7 @@ const CMT_CLUSTERING_COLUMNS = [
 ]
 
 """
-A list of the phenotype columns for aggregation into one GramART feature.
+A list of the phenotype columns for aggregation into one START feature.
 """
 const CMT_PHENOTYPES = [
     "ataxia",
@@ -75,7 +75,7 @@ const CMT_PHENOTYPES = [
 """
 The CMT grammar tree subtypes from a Lerche Transformer.
 """
-struct CMTGramARTTree <: Transformer end
+struct CMTSTARTTree <: Transformer end
 
 """
 Alias stating that a CMT grammar symbol is a string (`CMTSymbol = `[`GSymbol`](@ref)`{String}`).
@@ -84,11 +84,11 @@ const CMTSymbol = GSymbol{String}
 
 # The rules turn the terminals into `OAR` grammar symbols and statements into vectors
 # Turn statements into Julia Vectors
-@rule statement(t::CMTGramARTTree, p) = Vector{CMTSymbol}(p)
+@rule statement(t::CMTSTARTTree, p) = Vector{CMTSymbol}(p)
 # Remove backslashes in escaped strings
-@inline_rule gstring(t::CMTGramARTTree, s) = replace(s[2:end-1],"\\\""=>"\"")
+@inline_rule gstring(t::CMTSTARTTree, s) = replace(s[2:end-1],"\\\""=>"\"")
 # Define the datatype for the strings themselves
-@rule cmt_symb(t::CMTGramARTTree, p) = CMTSymbol(p[1], true)
+@rule cmt_symb(t::CMTSTARTTree, p) = CMTSymbol(p[1], true)
 
 """
 Constructs and returns a parser for the KG edge attributes data.
@@ -137,7 +137,7 @@ function get_cmt_parser()
         cmt_grammar,
         parser="lalr",
         lexer="standard",
-        transformer=CMTGramARTTree()
+        transformer=CMTSTARTTree()
     )
 
     return cmt_parser
@@ -248,14 +248,14 @@ function get_piped_parser()
 end
 
 """
-Turns a vector of GramARTSymbols into a nonterminal [`OAR.TreeNode`](@ref) with children.
+Turns a vector of STARTSymbols into a nonterminal [`OAR.TreeNode`](@ref) with children.
 
 # Arguments
-- `local_vec::Vector{GramARTSymbol}`: the vector to turn into a [`OAR.TreeNode`](@ref).
+- `local_vec::Vector{STARTSymbol}`: the vector to turn into a [`OAR.TreeNode`](@ref).
 - `nonterminal::AbstractString`: the nonterminal string name at the top of the tree.
 """
 function vector_to_tree(
-    local_vec::Vector{GramARTSymbol},
+    local_vec::Vector{STARTSymbol},
     nonterminal::AbstractString
 )
     # Create a nonterminal TreeNoe
@@ -294,14 +294,14 @@ Turns a protein data DataFrame into a vector of [`OAR.TreeNode`](@ref)s.
 - `data_dict::DataFrame`: the DataFrame containing attributes about the columns of the protein data, such as if they are piped or not.
 """
 function df_to_trees(data::DataFrame, data_dict::DataFrame)
-    # statements = Vector{Vector{GramARTSymbol}}()
-    # statements = GramARTStatements()
+    # statements = Vector{Vector{STARTSymbol}}()
+    # statements = STARTStatements()
     statements = Vector{TreeNode}()
     piped_parser = get_piped_parser()
 
     for row in eachrow(data)
-        # statement = Vector{GramARTSymbol}()
-        # statement = GramARTStatement()
+        # statement = Vector{STARTSymbol}()
+        # statement = STARTStatement()
         statement = TreeNode("statement", false)
         for column in CMT_CLUSTERING_COLUMNS
             if check_if_piped(data_dict, column)
@@ -324,11 +324,11 @@ end
 Recursive function for adding terminal symbols to a set.
 
 # Arguments
-- `terminals::Set{GramARTSymbol}`: the set for adding/tracking all terminals.
+- `terminals::Set{STARTSymbol}`: the set for adding/tracking all terminals.
 - `statement::TreeStatment`: the current statement being processed.
 """
 function add_subtree_terminals(
-    terminals::Set{GramARTSymbol},
+    terminals::Set{STARTSymbol},
     statement::TreeStatement,
 )
     for node in statement.children
@@ -351,7 +351,7 @@ Gets all of the terminal symbols contained in a set of [`OAR.TreeStatements`](@r
 """
 function get_tree_terminals(statements::TreeStatements)
     # Initialize a set for tracking all terminal symbols.
-    terminals = Set{GramARTSymbol}()
+    terminals = Set{STARTSymbol}()
 
     # Recursively add terminals to the set for every statement provided
     for statement in statements
@@ -377,11 +377,11 @@ end
 Takes a set of nonterminals and a set of statements and returns their corresponding production rules.
 
 # Arguments
-- `N::Vector{GramARTSymbol}`: the nonterminal symbols of the grammar.
+- `N::Vector{STARTSymbol}`: the nonterminal symbols of the grammar.
 - `statements::TreeStatements`: the statements to infer production rules from.
 """
 function get_tree_production_rules(
-    N::Vector{GramARTSymbol},
+    N::Vector{STARTSymbol},
     statements::TreeStatements,
 )
     # Initialize the production rule set
@@ -419,7 +419,7 @@ Turns a vector of statements in the form of [`OAR.TreeNode`](@ref)s into a CMT d
 """
 function CMTCFG(statements::TreeStatements)
     # Init the ordered nonterminals vector
-    ordered_nonterminals = Vector{GramARTSymbol}()
+    ordered_nonterminals = Vector{STARTSymbol}()
 
     for column in CMT_CLUSTERING_COLUMNS
         push!(ordered_nonterminals, GSymbol(column, false))
@@ -428,7 +428,7 @@ function CMTCFG(statements::TreeStatements)
     N = Set(ordered_nonterminals)
     # Term = get_tree_terminals(statements)
     P = get_tree_production_rules(ordered_nonterminals, statements)
-    Term = Set{GramARTSymbol}()
+    Term = Set{STARTSymbol}()
     for (_, local_set) in P
         for el in local_set
             push!(Term, el)

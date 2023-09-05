@@ -200,21 +200,40 @@ function get_mldata(mldataset::Symbol, download_local::Bool=false)
     return data
 end
 
+"""
+Wrapper for shuffling features and their labels.
+
+# Arguments
+- `features`: the set of data features.
+- `labels`: the set of labels corresponding to the features.
+"""
+function shuffle_pairs(features, labels)
+    # Use the MLUtils function for shuffling
+    ls, ll = shuffleobs((features, labels))
+
+    # Return the pairs
+    return ls, ll
+end
+
+"""
+Constructor for a [`OAR.DataSplit`](@ref) taking a set of features and options for the split ratio and shuffle flag.
+"""
 function DataSplit(
     features,
     labels;
-    p::Float=0.7,
+    p::Float=DEFAULT_P,
     shuffle::Bool=true,
 )
-    if shuffle
-        ls, ll = shuffleobs((features, labels))
+    # Get the features and labels
+    ls, ll = if shuffle
+        # ls, ll = shuffleobs((features, labels))
+        shuffle_pairs(features, labels)
     else
-        ls, ll = (features, labels)
+        (features, labels)
     end
 
     # Create a train/test split
     (X_train, y_train), (X_test, y_test) = splitobs((ls, ll); at=p)
-
 
     # Create and return a single container for this train/test split
     return DataSplit(
@@ -249,7 +268,7 @@ function tt_real(mldataset::Symbol; download_local::Bool=false)
 end
 
 """
-Turns a [`OAR.DataSplit`](@ref) into a binned symbolic variant for use with GramART.
+Turns a [`OAR.DataSplit`](@ref) into a binned symbolic variant for use with START.
 
 # Arguments
 - `data::DataSplit`: the [`OAR.DataSplit`](@ref) to convert to symbols.
@@ -492,17 +511,20 @@ function CFG_from_df(df::DataFrame, label::Symbol=:class, ignores::Vector{Symbol
     return grammar, statements, int_labels
 end
 
+"""
+Constructor for a generic
+"""
 function DataSplitGeneric(
     statements,
     labels;
-    p::Float=0.7,
+    p::Float=DEFAULT_P,
     shuffle::Bool=true,
 )
-
-    if shuffle
-        ls, ll = shuffleobs((statements, labels))
+    # Get the features and labels
+    ls, ll = if shuffle
+        shuffle_pairs(statements, labels)
     else
-        ls, ll = (statements, labels)
+        (statements, labels)
     end
 
     # Create a train/test split
@@ -562,13 +584,19 @@ end
 """
 Vector of alphabetical letters as Strings for discretized feature labels.
 """
-const letter_vec = string.(collect('A':'Z'))
+const alphabet = string.(collect('A':'Z'))
+
+"""
+Two-letter alphabetical feature names.
+"""
+const letter_vec = reduce(vcat, [letter .* alphabet for letter in alphabet])
 
 """
 Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from the provided CSV dataset.
 
 # Arguments
 - `filename::AbstractString=data_dir("mushroom", "mushrooms.csv")`: the location of the file to load with a default value.
+- `bins::Int=10`: the number of symbol bins for each feature, default 10.
 """
 function symbolic_dataset(filename::AbstractString, bins::Int=10)
     # Load the data
@@ -588,6 +616,31 @@ function symbolic_dataset(filename::AbstractString, bins::Int=10)
 
     # Create the symbolic version of the data
     statements, grammar = OAR.real_to_symb(ds, N, bins=bins)
+
+    # Return the statements and grammar
+    return statements, grammar
+end
+
+"""
+Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from the provided CSV dataset.
+
+# Arguments
+- `filename::AbstractString=data_dir("mushroom", "mushrooms.csv")`: the location of the file to load with a default value.
+"""
+function symbolic_cluster_dataset(filename::AbstractString)
+    # Load the data
+    data = readdlm(filename, ',', Int, header=false)
+
+    n_samples, n_features = size(data)
+
+    # Declare the names for the nonterminal symbols
+    N = letter_vec[1:n_features]
+
+    df = DataFrame(data, N)
+    df.class = zeros(Int, n_samples)
+
+    # Create a grammar, set of statements, and target labels from the dataframe
+    grammar, statements, _ = CFG_from_df(df, :class, stringify=true)
 
     # Return the statements and grammar
     return statements, grammar

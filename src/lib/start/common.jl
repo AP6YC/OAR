@@ -2,8 +2,41 @@
     types.jl
 
 # Description
-The structs and constructors of GramART.
+The structs and constructors of START.
 """
+
+# -----------------------------------------------------------------------------
+# ABSTRACT TYPES
+# -----------------------------------------------------------------------------
+
+"""
+Abstract type for all START-type modules.
+"""
+abstract type AbstractSTART end
+
+"""
+Abstract type for all START-type modules.
+"""
+abstract type SingleSTART <: AbstractSTART end
+
+"""
+Abstract type for all START-type modules.
+"""
+abstract type DistributedSTART <: AbstractSTART  end
+
+"""
+Definition of the ARTNode supertype.
+"""
+abstract type ARTNode end
+
+# -----------------------------------------------------------------------------
+# ALIASES
+# -----------------------------------------------------------------------------
+
+"""
+Type alias for the [`OAR.START`](@ref) dictionary containing module stats.
+"""
+const STARTStats = Dict{String, Any}
 
 # -----------------------------------------------------------------------------
 # STRUCTS
@@ -25,7 +58,7 @@ mutable struct ProtoNodeStats
 end
 
 """
-ProtoNode struct, used to generate tree prototypes, which are the templates of [`OAR.GramART`](@ref).
+ProtoNode struct, used to generate tree prototypes, which are the templates of [`OAR.START`](@ref).
 """
 struct ProtoNode <: ARTNode
     """
@@ -39,9 +72,9 @@ struct ProtoNode <: ARTNode
     N::SymbolCount
 
     """
-    The children of this node (`Dict{`[`GramARTSymbol`](@ref)`, ProtoNode}`).
+    The children of this node (`Dict{`[`STARTSymbol`](@ref)`, ProtoNode}`).
     """
-    children::Dict{GramARTSymbol, ProtoNode}
+    children::Dict{STARTSymbol, ProtoNode}
 
     """
     The mutable [`ProtoNodeStats`](@ref) options and stats of the ProtoNode.
@@ -50,100 +83,23 @@ struct ProtoNode <: ARTNode
 end
 
 """
-Alias for how ProtoNode children are indexed (`ProtoChildren = Dict{`[`GramARTSymbol`](@ref)`, `[`ProtoNode`](@ref)`}`).
+Alias for how ProtoNode children are indexed (`ProtoChildren = Dict{`[`STARTSymbol`](@ref)`, `[`ProtoNode`](@ref)`}`).
 """
-const ProtoChildren = Dict{GramARTSymbol, ProtoNode}
+const ProtoChildren = Dict{STARTSymbol, ProtoNode}
 
 """
-Tree node for a [`GramART`](@ref) module.
+Tree node for a [`START`](@ref) module.
 """
 struct TreeNode <: ARTNode
     """
-    The [`GramARTSymbol`](@ref) symbol for the node.
+    The [`STARTSymbol`](@ref) symbol for the node.
     """
-    t::GramARTSymbol
+    t::STARTSymbol
 
     """
     Children nodes of this node.
     """
     children::Vector{TreeNode}
-end
-
-"""
-[`GramART`](@ref) options struct as a `Parameters.jl` `@with_kw` object.
-"""
-@with_kw mutable struct opts_GramART @deftype Float
-    """
-    Vigilance parameter: ρ ∈ [0, 1]
-    """
-    rho = 0.7; @assert rho >= 0.0 && rho <= 1.0
-
-    """
-    Lower-bound vigilance parameter: rho_lb ∈ [0, 1].
-    """
-    rho_lb = 0.55; @assert rho_lb >= 0.0 && rho_lb <= 1.0
-
-    """
-    Upper bound vigilance parameter: rho_ub ∈ [0, 1].
-    """
-    rho_ub = 0.75; @assert rho_ub >= 0.0 && rho_ub <= 1.0 && rho_ub > rho_lb
-
-    """
-    Choice parameter: alpha > 0.
-    """
-    alpha = 1e-3; @assert alpha > 0.0
-
-    """
-    Learning parameter: beta ∈ (0, 1].
-    """
-    beta = 1.0; @assert beta > 0.0 && beta <= 1.0
-
-    """
-    Maximum number of epochs during training.
-    """
-    max_epoch::Int = 1
-
-    """
-    Flag for generating nodes at the terminal distributions below their nonterminal positions.
-    """
-    terminated::Bool = false
-end
-
-"""
-Type alias for the [`OAR.GramART`](@ref) dictionary containing module stats.
-"""
-const GramARTStats = Dict{String, Any}
-
-"""
-Definition of a GramART module.
-
-Contains the [`ProtoNode`](@ref)s and [`CFG`](@ref) grammar that is used for processing statements and generating nodes.
-"""
-struct GramART
-    """
-    The [`OAR.ProtoNode`](@ref)s of the GramART module.
-    """
-    protonodes::Vector{ProtoNode}
-
-    """
-    The [`OAR.CFG`](@ref) (Context-Free Grammar) used for processing data (statements).
-    """
-    grammar::CFG
-
-    """
-    The [`OAR.opts_GramART`](@ref) hyperparameters of the GramART module.
-    """
-    opts::opts_GramART
-
-    """
-    Incremental list of labels corresponding to each F2 node, self-prescribed or supervised.
-    """
-    labels::Vector{Int}
-
-    """
-    Dictionary of mutable statistics for the module.
-    """
-    stats::GramARTStats
 end
 
 # -----------------------------------------------------------------------------
@@ -175,64 +131,38 @@ const SomeStatements = Union{TreeStatements, Statements}
 # -----------------------------------------------------------------------------
 
 """
-Constructor for an [`OAR.GramART`](@ref) module that takes a [`CFG`](@ref) grammar and automatically sets up the [`ProtoNode`](@ref) tree.
-
-# Arguments
-$ARG_CFG
-- `opts::opts_GramART`: a custom set of [`OAR.GramART`](@ref) options to use.
+Constructor for prepopulating the stats dictionary.
 """
-function GramART(grammar::CFG, opts::opts_GramART)
+function gen_STARTStats()::STARTStats
     # Init the stats
-    stats = GramARTStats()
+    stats = STARTStats()
+
+    # Init elements in the dict
     stats["n_categories"] = 0
     stats["n_clusters"] = 0
     stats["n_instance"] = Vector{Int}()
 
-    # Instantiate and return the GramART module
-    GramART(
-        Vector{ProtoNode}(),    # protonodes
-        grammar,                # grammar
-        opts,                   # opts
-        Vector{Int}(),          # labels
-        stats,                  # stats
-    )
-end
-
-"""
-Constructor for an [`OAR.GramART`](@ref) module that takes a [`OAR.CFG`](@ref) grammar and an optional list of keyword arguments for the options.
-
-# Arguments
-$ARG_CFG
-- `kwargs...`: a list of keyword arguments for the [`OAR.opts_GramART`](@ref) options struct.
-"""
-function GramART(grammar::CFG; kwargs...)
-    # Construct the GramART options from the keyword arguments
-    opts = opts_GramART(;kwargs...)
-
-    # Construct and return the GramART module
-    GramART(
-        grammar,
-        opts,
-    )
+    # Return the stats
+    return stats
 end
 
 """
 Empty constructor for the mutable options and stats component of a [`OAR.ProtoNode`](@ref).
 """
-function ProtoNodeStats()
+function ProtoNodeStats()::ProtoNodeStats
     # Construct and return the protonode statistics struct
-    ProtoNodeStats(
+    return ProtoNodeStats(
         0,
         false,
     )
 end
 
 """
-Empty constructor for a [`OAR.GramART`](@ref) [`OAR.ProtoNode`](@ref).
+Empty constructor for a [`OAR.START`](@ref) [`OAR.ProtoNode`](@ref).
 """
-function ProtoNode()
+function ProtoNode()::ProtoNode
     # Construct and return the ProtoNode
-    ProtoNode(
+    return ProtoNode(
         TerminalDist(),     # dict
         SymbolCount(),      # N
         ProtoChildren(),    # children
@@ -241,12 +171,12 @@ function ProtoNode()
 end
 
 """
-Constructor for a zero-initialized [`OAR.GramART`](@ref) [`OAR.ProtoNode`](@ref).
+Constructor for a zero-initialized [`OAR.START`](@ref) [`OAR.ProtoNode`](@ref).
 
 # Arguments
 - `symbols::SymbolSet`: the terminal symbols to initialize the node with.
 """
-function ProtoNode(symbols::SymbolSet)
+function ProtoNode(symbols::SymbolSet)::ProtoNode
     # Initialize an empty ProtoNode
     pn = ProtoNode()
 
@@ -261,33 +191,48 @@ function ProtoNode(symbols::SymbolSet)
 end
 
 """
-Constructor for a [`OAR.GramART`](@ref) [`OAR.TreeNode`](@ref) taking an existing [`OAR.GramARTSymbol`](@ref).
+Constructor for a [`OAR.START`](@ref) [`OAR.TreeNode`](@ref) taking an existing [`OAR.STARTSymbol`](@ref).
 
 # Arguments
-- `symb::GramARTSymbol`: the preconstructed GramARTSymbol used for constructing the [`OAR.TreeNode`](@ref).
+- `symb::STARTSymbol`: the preconstructed STARTSymbol used for constructing the [`OAR.TreeNode`](@ref).
 """
-function TreeNode(symb::GramARTSymbol)
-    TreeNode(
+function TreeNode(symb::STARTSymbol)::TreeNode
+    return TreeNode(
         symb,                   # t
         Vector{TreeNode}(),     # children
     )
 end
 
 """
-Constructor for a [`OAR.GramART`](@ref) [`OAR.TreeNode`](@ref), taking a string name of the symbol and if it is terminal or not.
+Constructor for a [`OAR.START`](@ref) [`OAR.TreeNode`](@ref), taking a string name of the symbol and if it is terminal or not.
 
 # Arguments
 - `name::AbstractString`: the string name of the symbol to instantiate the [`OAR.TreeNode`](@ref) with.
 - `is_terminal::Bool`: flag for if the symbol in the node is terminal or not.
 """
-function TreeNode(name::AbstractString, is_terminal::Bool=true)
+function TreeNode(name::AbstractString, is_terminal::Bool=true)::TreeNode
     # Construct and return the tree node
-    TreeNode(
-        GramARTSymbol(
+    return TreeNode(
+        STARTSymbol(
             name,
             is_terminal,
         ),
     )
+end
+
+# -----------------------------------------------------------------------------
+# FUNCTIONS
+# -----------------------------------------------------------------------------
+
+"""
+Checks if the [`OAR.TreeNode`](@ref) contains a terminal symbol.
+
+# Arguments
+- `treenode::TreeNode`: the [`OAR.TreeNode`](@ref) to containing the [`OAR.GSymbol`](@ref) to check if terminal.
+"""
+function is_terminal(treenode::TreeNode)::Bool
+    # Wrap the GSymbol check function
+    return is_terminal(treenode.t)
 end
 
 # -----------------------------------------------------------------------------
@@ -301,8 +246,12 @@ Overload of the show function for [`OAR.ProtoNode`](@ref).
 - `io::IO`: the current IO stream.
 - `node::ProtoNode`: the [`OAR.ProtoNode`](@ref) to print/display.
 """
-function Base.show(io::IO, node::ProtoNode)
+function Base.show(io::IO, node::ProtoNode)::Nothing
+    # Show the protonode info
     print(io, "$(typeof(node))($(length(node.N)))")
+
+    # Empty return
+    return
 end
 
 """
@@ -312,18 +261,16 @@ Prints a tree string for displaying children of a [`OAR.TreeNode`](@ref), used i
 - `io::IO`: the current IO stream.
 - `node::TreeNode`: the [`OAR.TreeNode`](@ref) with children to display
 """
-function print_treenode_children(io::IO, node::TreeNode, level::Integer, last::Bool)
+function print_treenode_children(io::IO, node::TreeNode, level::Integer, last::Bool)::Nothing
     # Get the number of children to display
     n_children = length(node.children)
     # Get the level spacing
-    # spacer = last ? "    " : "│   "^level
     spacer = last ? "    " : " │  "^level
     # Append to the printstring for each child
     term = "\n"
     for ix = 1:n_children
         is_last = (ix == n_children)
         local_symb = "\"$(node.children[ix].t.data)\""
-        # sep = (is_last ? "└───" : "├───")
         sep = (is_last ? " └──" : " ├──")
         print(io, spacer * sep * local_symb * term)
         # If the node also has children, recursively call this function one level lower
@@ -331,6 +278,7 @@ function print_treenode_children(io::IO, node::TreeNode, level::Integer, last::B
             print_treenode_children(io, node.children[ix], level + 1, is_last)
         end
     end
+
     # Explicitly empty return
     return
 end
@@ -342,7 +290,7 @@ Overload of the show function for [`OAR.TreeNode`](@ref).
 - `io::IO`: the current IO stream.
 - `node::TreeNode`: the [`OAR.TreeNode`](@ref) to print/display.
 """
-function Base.show(io::IO, node::TreeNode)
+function Base.show(io::IO, node::TreeNode)::Nothing
     # Set the top of the printstring
     printstring = "$(typeof(node))(\"$(node.t.data)\")"
     print(io, printstring)
@@ -353,4 +301,7 @@ function Base.show(io::IO, node::TreeNode)
         print(io, "\n")
         print_treenode_children(io, node, 0, false)
     end
+
+    # Empty return
+    return
 end

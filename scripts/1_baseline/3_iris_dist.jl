@@ -60,7 +60,7 @@ config = OAR.load_config(config_file)
 
 # Set the simulation parameters
 sim_params = Dict{String, Any}(
-    "m" => "GramART",
+    "m" => "START",
     "rng_seed" => config["rng_seed"],
     "rho" => collect(LinRange(
         config["rho_lb"],
@@ -121,7 +121,7 @@ sim_params = Dict{String, Any}(
     opts["grammar"] = grammar
 
     # Define the single-parameter function used for pmap
-    local_sim(dict) = OAR.tc_gramart(
+    local_sim(dict) = OAR.tc_start(
         dict,
         data,
         sweep_results_dir,
@@ -158,8 +158,8 @@ println("--- Simulation complete ---")
 # All-in-one function
 data, grammmar = OAR.symbolic_iris()
 
-# Initialize the GramART module
-gramart = OAR.GramART(grammmar)
+# Initialize the START module
+gramart = OAR.START(grammmar)
 
 # Set the vigilance parameter and show
 # gramart.opts.rho = 0.15

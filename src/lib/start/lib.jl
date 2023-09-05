@@ -2,7 +2,7 @@
     lib.jl
 
 # Description
-Aggregates all types and functions relevant to the GramART implementation.
+Aggregates all types and functions relevant to the START implementation.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
@@ -15,14 +15,20 @@ Aggregates all types and functions relevant to the GramART implementation.
 # Constants and aliases
 include("constants.jl")
 
-# Structs and their constructors
-include("types.jl")
+# Common structs, constructors, and functions
+include("common.jl")
 
-# Functions for training and classifying with GramART
+# Dual-vigilance definitions
+include("start.jl")
+
+# Dual-vigilance definitions
+include("dv.jl")
+
+# Distributed dual-vigilance definitions
+include("ddv.jl")
+
+# Functions for training and classifying with START
 include("functions.jl")
 
 # TreeNode-based training and classification functions
 include("tn_functions.jl")
-
-# Include the dual-vigilance and distributed dual-vigilance definitions
-include("dv.jl")

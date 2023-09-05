@@ -10,8 +10,8 @@
 
 # ## Overview
 
-# This example shows how the the [`Lerche.jl`](https://jamesrhester.github.io/Lerche.jl/dev/) parsing library works, which provides the necessary machinery to define `lark`-like grammars and parse statements into arbitrary Julia structures to interface with the GramART tools in this project.
-# These tools are demonstrated on the how to parse approximate symbolic statements of the real-valued Iris dataset back into a tree that can be used in GramART.
+# This example shows how the the [`Lerche.jl`](https://jamesrhester.github.io/Lerche.jl/dev/) parsing library works, which provides the necessary machinery to define `lark`-like grammars and parse statements into arbitrary Julia structures to interface with the START tools in this project.
+# These tools are demonstrated on the how to parse approximate symbolic statements of the real-valued Iris dataset back into a tree that can be used in START.
 
 # ## Setup
 
@@ -45,11 +45,11 @@ iris_grammar = raw"""
 # Next, we set up the parsing transformer and its rules for transforming the symbols that the parser encounters into Julia datatypes.
 
 ## The grammar tree subtypes from a Lerche Transformer
-struct GramARTTree <: Transformer end
+struct STARTTree <: Transformer end
 
 ## The rules turn the terminals into `OAR` grammar symbols and statements into vectors
-@rule iris_symb(t::GramARTTree, p) = OAR.GSymbol{String}(p[1], true)
-@rule statement(t::GramARTTree, p) = Vector(p)
+@rule iris_symb(t::STARTTree, p) = OAR.GSymbol{String}(p[1], true)
+@rule statement(t::STARTTree, p) = Vector(p)
 
 # Finally, we create the parser from these rules:
 
@@ -58,7 +58,7 @@ iris_parser = Lark(
     iris_grammar,
     parser="lalr",
     lexer="standard",
-    transformer=GramARTTree()
+    transformer=STARTTree()
 );
 
 # We can then set some sample text as the input statement:

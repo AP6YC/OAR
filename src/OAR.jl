@@ -28,13 +28,14 @@ module OAR
 # -----------------------------------------------------------------------------
 
 # Usings/imports for the whole package declared once
-using Reexport              # @reexport
+# using Reexport              # @reexport
 
 # Full usings (which supports comma-separated import notation)
 using
     AdaptiveResonance,      # ART algorithms
     ArgParse,               # ArgParseSettings
     CSV,                    # CSV.File(...)
+    Clustering,             # randindex
     DataFrames,             # DataFrame
     DelimitedFiles,         # readdlm
     Distributed,            # myid()
@@ -54,6 +55,9 @@ using
 
 # Precompile concrete type methods
 using PrecompileSignatures: @precompile_signatures
+
+using Statistics: median as statistics_median
+using Statistics: mean as statistics_mean
 
 # Imports
 import YAML
@@ -83,8 +87,8 @@ export
     # Grammar names
     GSymbol,
 
-    # GramART names
-    GramART,
+    # START names
+    START,
     ProtoNode,
     TreeNode,
 

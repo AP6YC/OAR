@@ -1,16 +1,16 @@
 # ---
-# title: GramART
+# title: START
 # id: gramart
 # date: 2023-5-15
 # cover: ../assets/grammar.png
 # author: "[Sasha Petrenko](https://github.com/AP6YC)"
 # julia: 1.9
-# description: This demo demonstrates how to utilize a GramART module on a basic dataset.
+# description: This demo demonstrates how to utilize a START module on a basic dataset.
 # ---
 
 # ## Overview
 
-# This example demonstrates the usage of a GramART module.
+# This example demonstrates the usage of a START module.
 # This module is tested on a modified symbolic Iris dataset as a proof of concept, but it is capable of working on arbitrary symbolic datasets.
 
 # ## Setup
@@ -25,14 +25,14 @@ using OAR
 ## All-in-one function
 fs, bnf = OAR.symbolic_iris()
 
-# We can finally initialize the GramART module using the grammar that we have describing the symbolic Iris dataset:
+# We can finally initialize the START module using the grammar that we have describing the symbolic Iris dataset:
 
-## Initialize the GramART module
-gramart = OAR.GramART(bnf)
+## Initialize the START module
+gramart = OAR.START(bnf)
 
 # ## Training
 
-# Now that we have a GramART module, we should process the training dataset:
+# Now that we have a START module, we should process the training dataset:
 
 ## Cluster the statements
 for statement in fs.train_x
@@ -42,8 +42,8 @@ end
 # In fact, we can also do a simple supervised version of the training if labels are available.
 # Let's do that with another module:
 
-## Initialize the GramART module
-gramart_supervised = OAR.GramART(bnf)
+## Initialize the START module
+gramart_supervised = OAR.START(bnf)
 ## Set the vigilance low for generalization
 gramart_supervised.opts.rho = 0.05
 ## Train in supervised mode

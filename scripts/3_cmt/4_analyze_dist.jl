@@ -2,7 +2,7 @@
     4_analyze_dist.jl
 
 # Description
-This script takes the results of `3_gramart_dist.jl` and compiles it for visualization, etc.
+This script takes the results of `3_start_dist.jl` and compiles it for visualization, etc.
 
 # Authors
 - Sasha Petrenko <petrenkos@mst.edu>
@@ -38,7 +38,7 @@ column_digits = 6
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): analyze GramART distributed results."
+    "$(exp_top)/$(exp_name): analyze START distributed results."
 )
 
 # Point to the sweep results

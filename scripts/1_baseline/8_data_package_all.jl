@@ -32,7 +32,8 @@ using OAR
 
 # using DataFrames
 using Random
-Random.seed!(1234)
+# Random.seed!(1234)
+Random.seed!(1235)
 using ProgressMeter
 
 # -----------------------------------------------------------------------------
@@ -48,7 +49,7 @@ exp_name = "8_data_package_all.jl"
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): GramART for clustering all Dataset package datasets."
+    "$(exp_top)/$(exp_name): START for clustering all Dataset package datasets."
 )
 
 # -----------------------------------------------------------------------------
@@ -68,15 +69,40 @@ for (root, dirs, files) in walkdir(topdir)
         # Load the symbolic data and grammar
         data, grammar = OAR.symbolic_dataset(filename)
 
-        # Initialize the GramART module with options
-        gramart = OAR.GramART(grammar,
-            # rho = 0.6,
-            rho = 0.3,
+        # Initialize the START modules with options
+        start = OAR.START(grammar,
+            rho = 0.1,
+            epochs=1,
+        )
+        dvstart = OAR.DVSTART(grammar,
             rho_lb = 0.1,
             rho_ub = 0.3,
+            epochs=1,
+        )
+        ddvstart = OAR.DDVSTART(grammar,
+            rho_lb = 0.1,
+            rho_ub = 0.3,
+            epochs=1,
         )
 
-        @info "---------- $(file) ----------"
-        OAR.tt_serial(gramart, data)
+        # Run all serial simulations
+        @info "---------- $(file) - START ----------"
+        OAR.tt_serial(
+            start,
+            data,
+            display=true,
+        )
+        @info "---------- $(file) - DVSTART ----------"
+        OAR.tt_serial(
+            dvstart,
+            data,
+            display=true,
+        )
+        @info "---------- $(file) - DDVSTART ----------"
+        OAR.tt_serial(
+            ddvstart,
+            data,
+            display=true,
+        )
     end
 end

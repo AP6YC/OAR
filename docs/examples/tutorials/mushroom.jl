@@ -36,7 +36,7 @@ fs, bnf = OAR.symbolic_mushroom(filename)
 # We use the grammar and keyword arguments to set the options of the module during initialization:
 
 ## Initialize the module with options
-art = OAR.GramART(bnf,
+art = OAR.START(bnf,
     rho = 0.6,
 )
 

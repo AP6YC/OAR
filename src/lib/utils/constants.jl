@@ -6,6 +6,11 @@ This file contains constants regulating default functionality of the `OAR` proje
 """
 
 """
+The default split ration for train/test datasets.
+"""
+const DEFAULT_P = 0.7
+
+"""
 The default number of processes to start in distributed experiments on Windows.
 """
 const DEFAULT_N_PROCS_WINDOWS = 11
