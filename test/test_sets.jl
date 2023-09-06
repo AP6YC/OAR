@@ -17,6 +17,7 @@ using OAR
 # -----------------------------------------------------------------------------
 
 using
+    Aqua,
     Logging,
     Test
 
@@ -24,13 +25,37 @@ using
 # COMMON VARIABLES SETUP
 # -----------------------------------------------------------------------------
 
+# -----------------------------------------------------------------------------
+# AQUA
+# -----------------------------------------------------------------------------
+
+# @testset "Aqua.jl" begin
+#     Aqua.test_all(
+#         OAR;
+#     #   ambiguities=(exclude=[SomePackage.some_function], broken=true),
+#         ambiguities=false,
+#         unbound_args=true,
+#         undefined_exports=true,
+#         project_extras=true,
+#         stale_deps=(ignore=[
+#             :PlutoUI,
+#             :Revise,
+#             :Pluto,
+#         ],),
+#         # deps_compat=(ignore=[:SomeOtherPackage],),
+#         project_toml_formatting=true,
+#         piracy=false,
+#         # piracy=true,
+#     )
+#   end
 
 # -----------------------------------------------------------------------------
 # DRWATSON MODIFICATIONS TESTS
 # -----------------------------------------------------------------------------
 
 @testset "DrWatson Modifications" begin
-    # Temp dir for
+    # Temp dir for testing
+    # asdf
     test_dir = "testing"
     @info OAR.work_dir(test_dir)
     @info OAR.results_dir(test_dir)

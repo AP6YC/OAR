@@ -34,8 +34,9 @@ module OAR
 using
     AdaptiveResonance,      # ART algorithms
     ArgParse,               # ArgParseSettings
-    CSV,                    # CSV.File(...)
+    # CSV,                    # CSV.File(...)
     Clustering,             # randindex
+    ClusterValidityIndices,
     DataFrames,             # DataFrame
     DelimitedFiles,         # readdlm
     Distributed,            # myid()
@@ -44,9 +45,10 @@ using
     DocStringExtensions,    # Docstring utilities
     DrWatson,               # Project directory utilities
     InvertedIndices,        # Not()
+    Latexify,
     Lerche,                 # Parsers
     NumericalTypeAliases,   # RealMatrix, IntegerVector, etc.
-    Parameters,             # @with_kw
+    # Parameters,             # @with_kw
     Pkg,                    # Version
     Plots,                  # Plot
     ProgressMeter,          # @showprogress
@@ -54,13 +56,17 @@ using
     StatsPlots
 
 # Precompile concrete type methods
-using PrecompileSignatures: @precompile_signatures
+import PrecompileSignatures: @precompile_signatures
 
-using Statistics: median as statistics_median
-using Statistics: mean as statistics_mean
+import Statistics: median as statistics_median
+import Statistics: mean as statistics_mean
+
+import Parameters: @with_kw
 
 # Imports
-import YAML
+import
+    CSV,                    # CSV.File(...)
+    YAML
 
 # -----------------------------------------------------------------------------
 # VARIABLES
@@ -89,6 +95,10 @@ export
 
     # START names
     START,
+    DVSTART,
+    DDVSTART,
+    train!,
+    classify,
     ProtoNode,
     TreeNode,
 
