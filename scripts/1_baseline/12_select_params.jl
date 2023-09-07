@@ -24,11 +24,13 @@ using DataFrames
 # OPTIONS
 # -----------------------------------------------------------------------------
 
-exp_top = "3_cmt"
-exp_name = "4_analyze_dist"
-out_filename = "cmt-clusters-sweep.csv"
-clusters_plot_filename = "clusters-vs-rho.png"
-column_digits = 6
+exp_top = "1_baseline"
+from_exp_name = "11_grand"
+exp_name = "12_select_params"
+out_df_filename = "best_params.jld2"
+# out_filename = "cmt-clusters-sweep.csv"
+# clusters_plot_filename = "clusters-vs-rho.png"
+# column_digits = 6
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -42,13 +44,14 @@ pargs = OAR.exp_parse(
 # Point to the sweep results
 sweep_dir = OAR.results_dir(
     exp_top,
+    from_exp_name,
     "sweep",
 )
 
 # Output file
-output_dir(args...) = OAR.results_dir(exp_top, exp_name, args...)
-mkpath(output_dir())
-output_file = output_dir(out_filename)
+# output_dir(args...) = OAR.results_dir(exp_top, exp_name, args...)
+# mkpath(output_dir())
+# output_file = output_dir(out_filename)
 
 # -----------------------------------------------------------------------------
 # LOAD RESULTS
