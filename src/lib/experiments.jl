@@ -364,7 +364,7 @@ function sim_tt_serial(
     end
 
     # Shuffle the training data with the rng seed for the experiment
-    Random.seed!(opts["rng_seed"])
+    Random.seed!(d["rng_seed"])
     local_data = OAR.shuffle_dataset(data)
 
     # Train and test

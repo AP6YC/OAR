@@ -216,17 +216,18 @@ function shuffle_pairs(features, labels)
 end
 
 """
-Creates a new [`DataSplit`](@ref) with shuffled training examples.
+Creates a new [`VectoredDataset`](@ref) with shuffled training examples.
 
 # Arguments
-- `ds::DataSplit`: the original [`DataSplit`](@ref) dataset.
+- `ds::VectoredDataset`: the original [`VectoredDataset`](@ref) dataset.
 """
-function shuffle_dataset(ds::DataSplit)
+function shuffle_dataset(ds::T) where T <: VectoredDataset
+    # VectoredDataSplit
     # Shuffle the training pairs
     train_x, train_y = shuffle_pairs(ds.train_x, ds.train_y)
 
     # Create and return dataset with shuffled training examples
-    return DataSplit(
+    return T(
         train_x,
         ds.test_x,
         train_y,

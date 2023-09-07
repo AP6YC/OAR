@@ -54,6 +54,8 @@ pargs = OAR.dist_exp_parse(
     "$(exp_top)/$(exp_name): START for clustering...everything."
 )
 
+# pargs["procs"] = 0
+
 # Start several processes
 if pargs["procs"] > 0
     addprocs(pargs["procs"], exeflags="--project=.")
