@@ -216,6 +216,25 @@ function shuffle_pairs(features, labels)
 end
 
 """
+Creates a new [`DataSplit`](@ref) with shuffled training examples.
+
+# Arguments
+- `ds::DataSplit`: the original [`DataSplit`](@ref) dataset.
+"""
+function shuffle_dataset(ds::DataSplit)
+    # Shuffle the training pairs
+    train_x, train_y = shuffle_pairs(ds.train_x, ds.train_y)
+
+    # Create and return dataset with shuffled training examples
+    return DataSplit(
+        train_x,
+        ds.test_x,
+        train_y,
+        ds.test_y,
+    )
+end
+
+"""
 Constructor for a [`OAR.DataSplit`](@ref) taking a set of features and options for the split ratio and shuffle flag.
 """
 function DataSplit(
@@ -512,7 +531,7 @@ function CFG_from_df(df::DataFrame, label::Symbol=:class, ignores::Vector{Symbol
 end
 
 """
-Constructor for a generic
+Constructor for a generic train/test dataset split.
 """
 function DataSplitGeneric(
     statements,
@@ -595,7 +614,7 @@ const letter_vec = reduce(vcat, [letter .* alphabet for letter in alphabet])
 Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from the provided CSV dataset.
 
 # Arguments
-- `filename::AbstractString=data_dir("mushroom", "mushrooms.csv")`: the location of the file to load with a default value.
+- `filename::AbstractString`: the location of the file to load with a default value.
 - `bins::Int=10`: the number of symbol bins for each feature, default 10.
 """
 function symbolic_dataset(filename::AbstractString, bins::Int=10)

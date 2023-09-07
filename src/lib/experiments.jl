@@ -363,10 +363,14 @@ function sim_tt_serial(
         error("Unrecognized module type")
     end
 
+    # Shuffle the training data with the rng seed for the experiment
+    Random.seed!(opts["rng_seed"])
+    local_data = OAR.shuffle_dataset(data)
+
     # Train and test
     perf, n_categories = OAR.tt_serial(
         art,
-        data,
+        local_data,
         display=false,
     )
 
