@@ -5,7 +5,6 @@
 Selects and saves the best-performing hyperparameters for each module and dataset from 11_grand.jl.
 """
 
-
 # -----------------------------------------------------------------------------
 # PREAMBLE
 # -----------------------------------------------------------------------------
@@ -27,10 +26,7 @@ using DataFrames
 exp_top = "1_baseline"
 from_exp_name = "11_grand"
 exp_name = "12_select_params"
-out_df_filename = "best_params.jld2"
-# out_filename = "cmt-clusters-sweep.csv"
-# clusters_plot_filename = "clusters-vs-rho.png"
-# column_digits = 6
+out_filename = "best_params.csv"
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
@@ -49,9 +45,9 @@ sweep_dir = OAR.results_dir(
 )
 
 # Output file
-# output_dir(args...) = OAR.results_dir(exp_top, exp_name, args...)
-# mkpath(output_dir())
-# output_file = output_dir(out_filename)
+output_dir(args...) = OAR.results_dir(exp_top, exp_name, args...)
+mkpath(output_dir())
+output_file = output_dir(out_filename)
 
 # -----------------------------------------------------------------------------
 # LOAD RESULTS
@@ -60,21 +56,38 @@ sweep_dir = OAR.results_dir(
 # Collect the results into a single dataframe
 df = collect_results!(sweep_dir)
 
+# Get the names of each dataset
 datasets = unique(df[:, :data])
 
-function get_top_params(df, method::AbstractString, dataset::AbstractString)
+# Get the methods names
+methods = unique(df[:, :m])
+
+# Create a quick local function for getting the most performant parameter set for a method and dataset combination
+function get_top_params(df::DataFrame, method::AbstractString, dataset::AbstractString)
+    # Select the rows corresponding to the method and dataset
     local_df = df[(df.m .== method) .& (df.data .== dataset), :]
-    # sort!()
+    # Sort by the performance, high to low
+    sorted_df = sort(local_df, :p, rev=true)
+    # Get the best-performing hyperparameter row
+    top_1 = sorted_df[1, :]
+    # Return the row
+    return top_1
 end
 
 d = Dict()
-d["start"] = Dict()
-d["dvstart"] = Dict()
-d["ddvstart"] = Dict()
-for dataset in datasets
-    d["start"][dataset] = get_top_params(df, "start", dataset)
-    d["dvstart"][dataset] = get_top_params(df, "")
-    # dvstart = df[(df.m .== "dvstart") .& (df.data .== dataset), :]
-    # ddvstart = df[(df.m .== "ddvstart") .& (df.data .== dataset), :]
-    # dvstart =
+for method in methods
+    d[method] = Dict()
 end
+
+# Create a new empty dataframe with the same columns
+new_df = similar(df, 0)
+# Get the top parameters for each dataset and method combination
+for dataset in datasets
+    for method in methods
+        d[method][dataset] = get_top_params(df, method, dataset)
+        push!(new_df, d[method][dataset])
+    end
+end
+
+# Save the top hyperparameter combos
+OAR.save_dataframe(new_df, output_file)
