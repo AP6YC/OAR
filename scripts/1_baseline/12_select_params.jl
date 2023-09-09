@@ -34,7 +34,7 @@ out_filename = "best_params.csv"
 
 # Parse the arguments provided to this script
 pargs = OAR.exp_parse(
-    "$(exp_top)/$(exp_name): analyze START distributed results."
+    "$(exp_top)/$(exp_name): analyze distributed results."
 )
 
 # Point to the sweep results

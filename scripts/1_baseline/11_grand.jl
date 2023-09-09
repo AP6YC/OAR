@@ -51,7 +51,7 @@ config_file = "grand_sweep.yml"
 
 # Parse the arguments provided to this script
 pargs = OAR.dist_exp_parse(
-    "$(exp_top)/$(exp_name): START for clustering...everything."
+    "$(exp_top)/$(exp_name): hyperparameter sweep to find the top-performing settings for each method and dataset."
 )
 
 # pargs["procs"] = 0

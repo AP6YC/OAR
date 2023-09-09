@@ -127,3 +127,17 @@ function save_dataframe(df::DataFrame, savename::AbstractString)
     # Empty return
     return
 end
+
+"""
+Wrapper for how to load DataFrames in the `OAR` project.
+
+# Arguments
+- `savename::AbstractString`: the location of the saved dataframe.
+"""
+function load_dataframe(savename::AbstractString)
+    # Load the CSV file into a DataFrame
+    df = DataFrame(CSV.File(savename))
+
+    # Return the dataframe
+    return df
+end
