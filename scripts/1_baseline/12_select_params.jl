@@ -59,3 +59,22 @@ sweep_dir = OAR.results_dir(
 
 # Collect the results into a single dataframe
 df = collect_results!(sweep_dir)
+
+datasets = unique(df[:, :data])
+
+function get_top_params(df, method::AbstractString, dataset::AbstractString)
+    local_df = df[(df.m .== method) .& (df.data .== dataset), :]
+    # sort!()
+end
+
+d = Dict()
+d["start"] = Dict()
+d["dvstart"] = Dict()
+d["ddvstart"] = Dict()
+for dataset in datasets
+    d["start"][dataset] = get_top_params(df, "start", dataset)
+    d["dvstart"][dataset] = get_top_params(df, "")
+    # dvstart = df[(df.m .== "dvstart") .& (df.data .== dataset), :]
+    # ddvstart = df[(df.m .== "ddvstart") .& (df.data .== dataset), :]
+    # dvstart =
+end
