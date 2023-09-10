@@ -25,13 +25,14 @@ using Distributed
 # VARIABLES
 # -----------------------------------------------------------------------------
 
+# This experiment's names and configs
 exp_top = "1_baseline"
 exp_name = "13_grand"
 config_file = "regrand_sweep.yml"
 
+# Experiment dependency names
 from_exp_name = "12_select_params"
 from_filename = "best_params.csv"
-
 # -----------------------------------------------------------------------------
 # PARSE ARGS
 # -----------------------------------------------------------------------------
@@ -41,18 +42,33 @@ pargs = OAR.dist_exp_parse(
     "$(exp_top)/$(exp_name): for clustering...everything."
 )
 
-# pargs["procs"] = 0
+pargs["procs"] = 0
 
 # Start several processes
 if pargs["procs"] > 0
     addprocs(pargs["procs"], exeflags="--project=.")
 end
 
+# # Experiment dependency names
+# @everywhere begin
+#     from_exp_name = "12_select_params"
+#     from_filename = "best_params.csv"
+# end
+
 # Load the simulation configuration file
 config = OAR.load_config(config_file)
 
+# Point to the file containing the best parameters for each method and dataset
 from_file = OAR.results_dir(exp_top, from_exp_name, from_filename)
+
+# Load the parameters as a DataFrame
 df = OAR.load_dataframe(from_file)
+
+dicts = OAR.df_to_dicts(df)
+
+# sim_params = Dict{String, Any}(
+
+# )
 
 # start_params = Dict{String, Any}(
 #     "m" => "start",
@@ -116,6 +132,8 @@ df = OAR.load_dataframe(from_file)
 #         push!(data_names, filename)
 #     end
 # end
+data_names = OAR.get_data_package_names()
+
 # for dict in (start_params, dvstart_params, ddvstart_params)
 #     dict["data"] = data_names
 # end
@@ -129,17 +147,20 @@ df = OAR.load_dataframe(from_file)
 # filter!(d -> d["rho_ub"] > d["rho_lb"], dvstart_dicts)
 # filter!(d -> d["rho_ub"] > d["rho_lb"], ddvstart_dicts)
 
-# # -----------------------------------------------------------------------------
-# # PARALLEL DEFINITIONS
-# # -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# PARALLEL DEFINITIONS
+# -----------------------------------------------------------------------------
 
-# @everywhere begin
-#     # Activate the project in case
-#     using Pkg
-#     Pkg.activate(".")
+@everywhere begin
+    # Activate the project in case
+    using Pkg
+    Pkg.activate(".")
 
-#     # Modules
-#     using OAR
+    # Modules
+    using OAR
+
+    # Get the datasets and grammars from the data package
+    opts = OAR.load_data_package()
 
 #     # Point to the top of the data package directory
 #     topdir =  OAR.data_dir("data-package")
@@ -178,7 +199,7 @@ df = OAR.load_dataframe(from_file)
 #         sweep_results_dir,
 #         opts,
 #     )
-# end
+end
 
 # # -----------------------------------------------------------------------------
 # # EXPERIMENT

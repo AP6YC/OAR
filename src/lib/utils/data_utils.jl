@@ -618,7 +618,10 @@ Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from t
 - `filename::AbstractString`: the location of the file to load with a default value.
 - `bins::Int=10`: the number of symbol bins for each feature, default 10.
 """
-function symbolic_dataset(filename::AbstractString, bins::Int=10)
+function symbolic_dataset(
+    filename::AbstractString,
+    bins::Int=10,
+)
     # Load the data
     data = readdlm(filename, ',', header=false)
 
@@ -647,7 +650,9 @@ Generates a [`OAR.DataSplitGeneric`](@ref) and [`OAR.CFG`](@ref) grammart from t
 # Arguments
 - `filename::AbstractString=data_dir("mushroom", "mushrooms.csv")`: the location of the file to load with a default value.
 """
-function symbolic_cluster_dataset(filename::AbstractString)
+function symbolic_cluster_dataset(
+    filename::AbstractString
+)
     # Load the data
     data = readdlm(filename, ',', Int, header=false)
 
@@ -664,4 +669,78 @@ function symbolic_cluster_dataset(filename::AbstractString)
 
     # Return the statements and grammar
     return statements, grammar
+end
+
+"""
+Loads the data packages datasets and their grammars.
+"""
+function get_data_package_names(
+    topdir::AbstractString=data_dir("data-package"),
+)
+    # Point to the top of the data package directory
+    # topdir =  OAR.data_dir("data-package")
+    # data_names = Dict{String, Any}()
+    data_names = []
+    # Walk the directory
+    for (root, dirs, files) in walkdir(topdir)
+        # Iterate over all of the files
+        for file in files
+            # Load the symbolic data and grammar
+            filename = splitext(file)[1]
+            push!(data_names, filename)
+        end
+    end
+
+    return data_names
+end
+
+function load_data_package(
+    topdir::AbstractString=data_dir("data-package"),
+)
+    opts = Dict{String, Any}()
+    opts["data"] = Dict{String, Any}()
+    opts["grammar"] = Dict{String, Any}()
+    # Walk the directory
+    for (root, dirs, files) in walkdir(topdir)
+        # Iterate over all of the files
+        for file in files
+            # Get the full filename for the current data file
+            filename = joinpath(root, file)
+
+            # Load the symbolic data and grammar
+            data_name = splitext(file)[1]
+            opts["data"][data_name], opts["grammar"][data_name] = OAR.symbolic_dataset(filename)
+        end
+    end
+
+    return opts
+end
+
+"""
+Turns a DataFrame into a vector of dictionaries from its rows.
+
+# Arguments
+- `df::DataFrame`: the DataFrame to turn into a vector of dictionaries.
+"""
+function df_to_dicts(
+    df::DataFrame,
+    # excludes=(:path,)
+)
+    # Init the dicts vector
+    dicts = Vector{Dict{String, Any}}()
+    for row in eachrow(df)
+        # Exclude the
+        # local_row = row[:, Not.(excludes)]
+        local_row = row[:, Not.(:path,)]
+        local_dict = Dict(pairs(local_row))
+        new_local_dict = Dict{String, Any}()
+        for (key, value) in local_dict
+            if value != missing
+                new_local_dict[string(key)] = value
+            end
+        end
+        push!(dicts, new_local_dict)
+    end
+
+    return dicts
 end

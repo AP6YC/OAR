@@ -117,19 +117,21 @@ ddvstart_params = Dict{String, Any}(
     )),
 )
 
-# Point to the top of the data package directory
-topdir =  OAR.data_dir("data-package")
-# data_names = Dict{String, Any}()
-data_names = []
-# Walk the directory
-for (root, dirs, files) in walkdir(topdir)
-    # Iterate over all of the files
-    for file in files
-        # Load the symbolic data and grammar
-        filename = splitext(file)[1]
-        push!(data_names, filename)
-    end
-end
+# # Point to the top of the data package directory
+# topdir =  OAR.data_dir("data-package")
+# # data_names = Dict{String, Any}()
+# data_names = []
+# # Walk the directory
+# for (root, dirs, files) in walkdir(topdir)
+#     # Iterate over all of the files
+#     for file in files
+#         # Load the symbolic data and grammar
+#         filename = splitext(file)[1]
+#         push!(data_names, filename)
+#     end
+# end
+data_names = OAR.get_data_package_names()
+
 for dict in (start_params, dvstart_params, ddvstart_params)
     dict["data"] = data_names
 end
@@ -155,25 +157,25 @@ filter!(d -> d["rho_ub"] > d["rho_lb"], ddvstart_dicts)
     # Modules
     using OAR
 
-    # Point to the top of the data package directory
-    topdir =  OAR.data_dir("data-package")
+    # # Point to the top of the data package directory
+    # topdir =  OAR.data_dir("data-package")
 
-    # Generate a simple subject-predicate-object grammar from the statements
-    opts = Dict{String, Any}()
-    opts["data"] = Dict{String, Any}()
-    opts["grammar"] = Dict{String, Any}()
-    # Walk the directory
-    for (root, dirs, files) in walkdir(topdir)
-        # Iterate over all of the files
-        for file in files
-            # Get the full filename for the current data file
-            filename = joinpath(root, file)
+    # opts = Dict{String, Any}()
+    # opts["data"] = Dict{String, Any}()
+    # opts["grammar"] = Dict{String, Any}()
+    # # Walk the directory
+    # for (root, dirs, files) in walkdir(topdir)
+    #     # Iterate over all of the files
+    #     for file in files
+    #         # Get the full filename for the current data file
+    #         filename = joinpath(root, file)
 
-            # Load the symbolic data and grammar
-            data_name = splitext(file)[1]
-            opts["data"][data_name], opts["grammar"][data_name] = OAR.symbolic_dataset(filename)
-        end
-    end
+    #         # Load the symbolic data and grammar
+    #         data_name = splitext(file)[1]
+    #         opts["data"][data_name], opts["grammar"][data_name] = OAR.symbolic_dataset(filename)
+    #     end
+    # end
+    opts = OAR.load_data_package()
 
     # Point to the sweep results
     sweep_results_dir(args...) = OAR.results_dir(
