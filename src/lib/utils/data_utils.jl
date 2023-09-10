@@ -728,14 +728,14 @@ function df_to_dicts(
 )
     # Init the dicts vector
     dicts = Vector{Dict{String, Any}}()
-    for row in eachrow(df)
-        # Exclude the
+    local_df = df[:, Not.(:path,)]
+    for row in eachrow(local_df)
         # local_row = row[:, Not.(excludes)]
-        local_row = row[:, Not.(:path,)]
-        local_dict = Dict(pairs(local_row))
+        # local_row = row[:, Not.(:path)]
+        local_dict = Dict(pairs(row))
         new_local_dict = Dict{String, Any}()
         for (key, value) in local_dict
-            if value != missing
+            if !ismissing(value)
                 new_local_dict[string(key)] = value
             end
         end

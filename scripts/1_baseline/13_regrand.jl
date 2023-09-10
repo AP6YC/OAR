@@ -64,7 +64,18 @@ from_file = OAR.results_dir(exp_top, from_exp_name, from_filename)
 # Load the parameters as a DataFrame
 df = OAR.load_dataframe(from_file)
 
+# Turn the dataframe into a vector of dictionaries
 dicts = OAR.df_to_dicts(df)
+
+# Expand the dictionaries for the number of
+sim_dicts = Vector{Dict{String, Any}}()
+for d in dicts
+    for n = 1:config["n_sweep"]
+        local_d = deepcopy(d)
+        local_d["rng_seed"] = n
+        push!(sim_dicts, local_d)
+    end
+end
 
 # sim_params = Dict{String, Any}(
 
