@@ -43,7 +43,7 @@ pargs = OAR.dist_exp_parse(
     "$(exp_top)/$(exp_name): for clustering...everything."
 )
 
-pargs["procs"] = 0
+# pargs["procs"] = 0
 
 # Start several processes
 if pargs["procs"] > 0
