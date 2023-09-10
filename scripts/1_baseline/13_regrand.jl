@@ -33,6 +33,7 @@ config_file = "regrand_sweep.yml"
 # Experiment dependency names
 from_exp_name = "12_select_params"
 from_filename = "best_params.csv"
+
 # -----------------------------------------------------------------------------
 # PARSE ARGS
 # -----------------------------------------------------------------------------
@@ -48,12 +49,6 @@ pargs["procs"] = 0
 if pargs["procs"] > 0
     addprocs(pargs["procs"], exeflags="--project=.")
 end
-
-# # Experiment dependency names
-# @everywhere begin
-#     from_exp_name = "12_select_params"
-#     from_filename = "best_params.csv"
-# end
 
 # Load the simulation configuration file
 config = OAR.load_config(config_file)
@@ -77,87 +72,6 @@ for d in dicts
     end
 end
 
-# sim_params = Dict{String, Any}(
-
-# )
-
-# start_params = Dict{String, Any}(
-#     "m" => "start",
-#     "rng_seed" => collect(range(
-#         1,
-#         config["start"]["n_sweep"],
-#         step = 1,
-#     )),
-#     # "rho" => ,
-# )
-
-# dvstart_params = Dict{String, Any}(
-#     "m" => "dvstart",
-#     "rng_seed" => collect(range(
-#         1,
-#         config["dvstart"]["n_sweep"],
-#         step = 1,
-#     )),
-#     "rho_lb" => collect(range(
-#         config["dvstart"]["rho_lb_lb"],
-#         config["dvstart"]["rho_lb_ub"],
-#         step = config["start"]["increment"],
-#     )),
-#     "rho_ub" => collect(range(
-#         config["dvstart"]["rho_ub_lb"],
-#         config["dvstart"]["rho_ub_ub"],
-#         step = config["dvstart"]["increment"],
-#     )),
-# )
-
-# ddvstart_params = Dict{String, Any}(
-#     "m" => "ddvstart",
-#     "similarity" => config["ddvstart"]["similarity"],
-#     "rng_seed" => collect(range(
-#         1,
-#         config["ddvstart"]["n_sweep"],
-#         step = 1,
-#     )),
-#     "rho_lb" => collect(range(
-#         config["ddvstart"]["rho_lb_lb"],
-#         config["ddvstart"]["rho_lb_ub"],
-#         step = config["start"]["increment"],
-#     )),
-#     "rho_ub" => collect(range(
-#         config["ddvstart"]["rho_ub_lb"],
-#         config["ddvstart"]["rho_ub_ub"],
-#         step = config["ddvstart"]["increment"],
-#     )),
-# )
-
-# # Point to the top of the data package directory
-# topdir =  OAR.data_dir("data-package")
-# # data_names = Dict{String, Any}()
-# data_names = []
-# # Walk the directory
-# for (root, dirs, files) in walkdir(topdir)
-#     # Iterate over all of the files
-#     for file in files
-#         # Load the symbolic data and grammar
-#         filename = splitext(file)[1]
-#         push!(data_names, filename)
-#     end
-# end
-data_names = OAR.get_data_package_names()
-
-# for dict in (start_params, dvstart_params, ddvstart_params)
-#     dict["data"] = data_names
-# end
-
-# # Turn the dictionary of lists into a list of dictionaries
-# start_dicts = dict_list(start_params)
-# dvstart_dicts = dict_list(dvstart_params)
-# ddvstart_dicts = dict_list(ddvstart_params)
-
-# # Remove impermissible sim options
-# filter!(d -> d["rho_ub"] > d["rho_lb"], dvstart_dicts)
-# filter!(d -> d["rho_ub"] > d["rho_lb"], ddvstart_dicts)
-
 # -----------------------------------------------------------------------------
 # PARALLEL DEFINITIONS
 # -----------------------------------------------------------------------------
@@ -173,64 +87,40 @@ data_names = OAR.get_data_package_names()
     # Get the datasets and grammars from the data package
     opts = OAR.load_data_package()
 
-#     # Point to the top of the data package directory
-#     topdir =  OAR.data_dir("data-package")
+    # Point to the sweep results
+    sweep_results_dir(args...) = OAR.results_dir(
+        "1_baseline",
+        "13_regrand",
+        "sweep",
+        args...
+    )
 
-#     # Generate a simple subject-predicate-object grammar from the statements
-#     opts = Dict{String, Any}()
-#     opts["data"] = Dict{String, Any}()
-#     opts["grammar"] = Dict{String, Any}()
-#     # Walk the directory
-#     for (root, dirs, files) in walkdir(topdir)
-#         # Iterate over all of the files
-#         for file in files
-#             # Get the full filename for the current data file
-#             filename = joinpath(root, file)
+    # Make the path
+    mkpath(sweep_results_dir())
 
-#             # Load the symbolic data and grammar
-#             data_name = splitext(file)[1]
-#             opts["data"][data_name], opts["grammar"][data_name] = OAR.symbolic_dataset(filename)
-#         end
-#     end
-
-#     # Point to the sweep results
-#     sweep_results_dir(args...) = OAR.results_dir(
-#         "1_baseline",
-#         "11_grand",
-#         "sweep",
-#         args...
-#     )
-
-#     # Make the path
-#     mkpath(sweep_results_dir())
-
-#     # Define the single-parameter function used for pmap
-#     local_sim(dict) = OAR.sim_tt_serial(
-#         dict,
-#         sweep_results_dir,
-#         opts,
-#     )
+    # Define the single-parameter function used for pmap
+    local_sim(dict) = OAR.sim_tt_serial(
+        dict,
+        sweep_results_dir,
+        opts,
+    )
 end
 
-# # -----------------------------------------------------------------------------
-# # EXPERIMENT
-# # -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# EXPERIMENT
+# -----------------------------------------------------------------------------
 
-# # Log the simulation scale
-# @info "START: $(dict_list_count(start_params)) simulations across $(nprocs()) processes."
-# @info "DVSTART: $(dict_list_count(dvstart_params)) simulations across $(nprocs()) processes."
-# @info "DDVSTART: $(dict_list_count(ddvstart_params)) simulations across $(nprocs()) processes."
+# Log the simulation scale
+@info "$(length(sim_dicts)) simulations across $(nprocs()) processes."
 
-# # Parallel map the sims
-# pmap(local_sim, start_dicts)
-# pmap(local_sim, dvstart_dicts)
-# pmap(local_sim, ddvstart_dicts)
+# Parallel map the sims
+pmap(local_sim, sim_dicts)
 
-# # -----------------------------------------------------------------------------
-# # CLEANUP
-# # -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# CLEANUP
+# -----------------------------------------------------------------------------
 
-# # Close the workers after simulation
-# rmprocs(workers())
+# Close the workers after simulation
+rmprocs(workers())
 
-# println("--- Simulation complete ---")
+println("--- Simulation complete ---")

@@ -694,6 +694,12 @@ function get_data_package_names(
     return data_names
 end
 
+"""
+Loades the datasets and grammars from the data package experiment.
+
+# Arguments
+- `topdir::AbstractString`: default `data_dir("data-package")`, the directory containing the CSV data package files.
+"""
 function load_data_package(
     topdir::AbstractString=data_dir("data-package"),
 )
