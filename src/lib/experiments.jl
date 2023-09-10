@@ -23,10 +23,10 @@ function save_sim(
         d,
         "jld2";
         digits=4,
-        ignores=[
-            "rng_seed",
-            "m",
-        ],
+        # ignores=[
+        #     "rng_seed",
+        #     "m",
+        # ],
     ))
 
     # Log completion of the simulation
