@@ -742,7 +742,12 @@ function df_to_dicts(
         new_local_dict = Dict{String, Any}()
         for (key, value) in local_dict
             if !ismissing(value)
-                new_local_dict[string(key)] = value
+                if typeof(value) <: AbstractString
+                    local_value = String(value)
+                else
+                    local_value = value
+                end
+                new_local_dict[string(key)] = local_value
             end
         end
         push!(dicts, new_local_dict)
