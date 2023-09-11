@@ -62,12 +62,23 @@ df = collect_results!(sweep_dir)
 # GENERATE TABLE
 # -----------------------------------------------------------------------------
 
-# pretty_rows = dictionaries
-out_df = DataFrame(
-    Dataset = String[],
-    START = String[],
-    DVSTART = String[],
-    DDVSTART = String[],
+pretty_rows = Dict(
+    "CBB-Aggregation" => "Aggregation",
+    "CBB-Compound" => "Compound",
+    "CBB-R15" => "R15",
+    "CBB-jain" => "Jain",
+    "CBB-flame" => "Flame",
+    "CBB-pathbased" => "PathBased",
+    "CBB-spiral" => "Spiral",
+    "face" => "Face",
+    "flag" => "Flag",
+    "halfring" => "Halfring",
+    "iris" => "Iris",
+    "moon" => "Moon",
+    "ring" => "Ring",
+    "spiral" => "Spiral",
+    "wave" => "Wave",
+    "wine" => "Wine",
 )
 
 modules = [
@@ -79,10 +90,17 @@ modules = [
 # modules = unique(df[:, :m])
 datasets = unique(df[:, :data])
 
+out_df = DataFrame(
+    Dataset = String[],
+    START = String[],
+    DVSTART = String[],
+    DDVSTART = String[],
+)
+
 for dataset in datasets
     new_entry = String[]
     # First entry is the dataset name
-    push!(new_entry, dataset)
+    push!(new_entry, pretty_rows[dataset])
     # Iterate over every module
     for m in modules
         local_df = df[(df.m .== m), :]
