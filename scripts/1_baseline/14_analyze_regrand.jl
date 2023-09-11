@@ -18,6 +18,8 @@ using OAR
 
 using DrWatson      # collect_results!
 using DataFrames
+using Latexify
+using Statistics
 
 # -----------------------------------------------------------------------------
 # OPTIONS
@@ -55,3 +57,38 @@ output_file = output_dir(out_filename)
 
 # Collect the results into a single dataframe
 df = collect_results!(sweep_dir)
+
+# -----------------------------------------------------------------------------
+# GENERATE TABLE
+# -----------------------------------------------------------------------------
+
+# pretty_rows = dictionaries
+out_df = DataFrame(
+    Dataset = String[],
+    START = String[],
+    DVSTART = String[],
+    DDVSTART = String[],
+)
+
+modules = [
+    "start",
+    "dvstart",
+    "ddvstart",
+]
+
+# modules = unique(df[:, :m])
+datasets = unique(df[:, :data])
+
+for dataset in datasets
+    new_entry = String[]
+    # First entry is the dataset name
+    push!(new_entry, dataset)
+    # Iterate over every module
+    for m in modules
+        local_df = df[(df.m .== m), :]
+        push!(new_entry, "$(mean(local_df[:, :p])) ± $(var(local_df[:, :p]))")
+    end
+    push!(out_df, new_entry)
+end
+
+new_df_tex = latexify(out_df, env=:table, fmt="%.3f")
