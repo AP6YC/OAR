@@ -91,4 +91,8 @@ for dataset in datasets
     push!(out_df, new_entry)
 end
 
-new_df_tex = latexify(out_df, env=:table, fmt="%.3f")
+new_df_tex = latexify(out_df, env=:table, fmt="%.5f")
+
+open(output_file, "w") do f
+    write(f, new_df_tex)
+end
