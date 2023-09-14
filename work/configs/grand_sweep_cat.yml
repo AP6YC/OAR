@@ -1,8 +1,11 @@
 # rng_seed: 1234
 n_sweep:
   start: 10
-  dvstart: 5
-  ddvstart: 2
+  dvstart: 1
+  ddvstart: 1
+  # start: 10
+  # dvstart: 5
+  # ddvstart: 2
 
 mushrooms:
   rho_lb: 1.1
@@ -10,11 +13,9 @@ mushrooms:
   increment: 0.1
 
 lung-cancer:
-  # rho:
   rho_lb: 0.1
   rho_ub: 1.0
   increment: 0.1
-  # rho_lb:
 
 similarity:
   - single
