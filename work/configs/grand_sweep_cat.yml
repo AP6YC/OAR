@@ -1,28 +1,23 @@
 # rng_seed: 1234
-start:
-  n_sweep: 100
-  rho_lb: 0.01
-  rho_ub: 0.50
-  increment: 0.01
+n_sweep:
+  start: 10
+  dvstart: 5
+  ddvstart: 3
 
-dvstart:
-  n_sweep: 5
-  increment: 0.01
-  rho_lb_lb: 0.01
-  rho_lb_ub: 0.50
-  rho_ub_lb: 0.01
-  rho_ub_ub: 0.50
+mushrooms:
+  rho_lb: 1.1
+  rho_ub: 2.0
+  increment: 0.1
 
-ddvstart:
-  n_sweep: 1
-  rho_lb_lb: 0.01
-  rho_lb_ub: 0.50
-  rho_ub_lb: 0.01
-  rho_ub_ub: 0.50
-  increment: 0.01
-  similarity:
-    - single
-    - average
-    - complete
-    - median
-    # - weighted
+lung-cancer:
+  # rho:
+  rho_lb: 0.1
+  rho_ub: 1.0
+  increment: 0.1
+  # rho_lb:
+
+similarity:
+  - single
+  - average
+  - complete
+  - median

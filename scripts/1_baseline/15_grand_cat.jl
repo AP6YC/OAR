@@ -40,7 +40,7 @@ pargs = OAR.dist_exp_parse(
     "$(exp_top)/$(exp_name): hyperparameter sweep to find the top-performing settings for each method and categorical dataset."
 )
 
-# pargs["procs"] = 0
+pargs["procs"] = 0
 
 # Start several processes
 if pargs["procs"] > 0
@@ -50,63 +50,69 @@ end
 # Load the simulation configuration file
 config = OAR.load_config(config_file)
 
-start_params = Dict{String, Any}(
-    "m" => "start",
-    "rng_seed" => collect(range(
-        1,
-        config["start"]["n_sweep"],
-        step = 1,
-    )),
-    "rho" => collect(range(
-        config["start"]["rho_lb"],
-        config["start"]["rho_ub"],
-        step = config["start"]["increment"],
-    )),
-)
-
-dvstart_params = Dict{String, Any}(
-    "m" => "dvstart",
-    "rng_seed" => collect(range(
-        1,
-        config["dvstart"]["n_sweep"],
-        step = 1,
-    )),
-    "rho_lb" => collect(range(
-        config["dvstart"]["rho_lb_lb"],
-        config["dvstart"]["rho_lb_ub"],
-        step = config["start"]["increment"],
-    )),
-    "rho_ub" => collect(range(
-        config["dvstart"]["rho_ub_lb"],
-        config["dvstart"]["rho_ub_ub"],
-        step = config["dvstart"]["increment"],
-    )),
-)
-
-ddvstart_params = Dict{String, Any}(
-    "m" => "ddvstart",
-    "similarity" => config["ddvstart"]["similarity"],
-    "rng_seed" => collect(range(
-        1,
-        config["ddvstart"]["n_sweep"],
-        step = 1,
-    )),
-    "rho_lb" => collect(range(
-        config["ddvstart"]["rho_lb_lb"],
-        config["ddvstart"]["rho_lb_ub"],
-        step = config["start"]["increment"],
-    )),
-    "rho_ub" => collect(range(
-        config["ddvstart"]["rho_ub_lb"],
-        config["ddvstart"]["rho_ub_ub"],
-        step = config["ddvstart"]["increment"],
-    )),
-)
-
+# datasets = ["mushroom", "lung-cancer"]
 data_names = OAR.get_data_package_names(OAR.data_dir("categorical"))
 
-for dict in (start_params, dvstart_params, ddvstart_params)
-    dict["data"] = data_names
+start_params = Dict{String, Any}()
+dvstart_params = Dict{String, Any}()
+ddvstart_params = Dict{String, Any}()
+
+for dataset in data_names
+    merge!(start_params, Dict{String, Any}(
+        "m" => "start",
+        "data" => dataset,
+        "rng_seed" => collect(range(
+            1,
+            config["n_sweep"]["start"],
+            step = 1,
+        )),
+        "rho" => collect(range(
+            config[dataset]["rho_lb"],
+            config[dataset]["rho_ub"],
+            step = config[dataset]["increment"],
+        )),
+    ))
+
+    merge!(dvstart_params, Dict{String, Any}(
+        "m" => "dvstart",
+        "data" => dataset,
+        "rng_seed" => collect(range(
+            1,
+            config["n_sweep"]["dvstart"],
+            step = 1,
+        )),
+        "rho_lb" => collect(range(
+            config[dataset]["rho_lb"],
+            config[dataset]["rho_ub"],
+            step = config[dataset]["increment"],
+        )),
+        "rho_ub" => collect(range(
+            config[dataset]["rho_lb"],
+            config[dataset]["rho_ub"],
+            step = config[dataset]["increment"],
+        )),
+    ))
+
+    merge!(ddvstart_params, Dict{String, Any}(
+        "m" => "ddvstart",
+        "data" => dataset,
+        "similarity" => config["similarity"],
+        "rng_seed" => collect(range(
+            1,
+            config["n_sweep"]["ddvstart"],
+            step = 1,
+        )),
+        "rho_lb" => collect(range(
+            config[dataset]["rho_lb"],
+            config[dataset]["rho_ub"],
+            step = config[dataset]["increment"],
+        )),
+        "rho_ub" => collect(range(
+            config[dataset]["rho_lb"],
+            config[dataset]["rho_ub"],
+            step = config[dataset]["increment"],
+        )),
+    ))
 end
 
 # Turn the dictionary of lists into a list of dictionaries

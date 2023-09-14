@@ -61,9 +61,10 @@ data, grammar = OAR.symbolic_lung_cancer()
 # Initialize the START module with options
 gramart = OAR.START(grammar,
     # rho = 0.6,
-    rho = 0.3,
-    # rho_lb = 0.1,
-    # rho_ub = 0.3,
+    # rho = 0.3,
+    # rho = 0.1,
+    # rho = 0.9,
+    rho = 1.0,
 )
 
 OAR.tt_serial(gramart, data)
