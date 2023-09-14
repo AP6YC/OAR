@@ -1,8 +1,8 @@
 """
-    13_regrand.jl
+    17_regrand_cat.jl
 
 # Description
-Runs the full training suite from the parameters selected by 12_select_params.jl.
+Runs the full training suite from the parameters selected by 16_select_params_cat.jl.
 """
 
 # -----------------------------------------------------------------------------
@@ -27,7 +27,7 @@ using Distributed
 
 # This experiment's names and configs
 exp_top = "1_baseline"
-exp_name = "17_regrand"
+exp_name = "17_regrand_cat"
 config_file = "regrand_sweep_cat.yml"
 
 # Experiment dependency names

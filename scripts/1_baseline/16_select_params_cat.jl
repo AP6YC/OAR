@@ -1,8 +1,8 @@
 """
-    12_select_params.jl
+    16_select_params_cat.jl
 
 # Description
-Selects and saves the best-performing hyperparameters for each module and dataset from 11_grand.jl.
+Selects and saves the best-performing hyperparameters for each module and dataset from 12_grand_cat.jl.
 """
 
 # -----------------------------------------------------------------------------

@@ -1,8 +1,8 @@
 """
-    14_analyze_regrand.jl
+    18_analyze_regrand_cat.jl
 
 # Description
-Analyzes the results from the regrand experiment.
+Analyzes the results from the regrand categories experiment.
 """
 
 # -----------------------------------------------------------------------------
@@ -79,7 +79,7 @@ pretty_rows = Dict(
     "spiral" => "Spiral",
     "wave" => "Wave",
     "wine" => "Wine",
-    "mushroom" => "Mushroom",
+    "mushrooms" => "Mushroom",
     "lung-cancer" => "LungCancer",
 )
 
