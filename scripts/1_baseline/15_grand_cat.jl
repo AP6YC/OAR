@@ -122,9 +122,9 @@ dvstart_dicts = VD()
 ddvstart_dicts = VD()
 # Turn the dictionary of lists into a list of dictionaries
 for ix = 1:length(data_names)
-    push!(start_dicts, dict_list(start_params[ix]))
-    push!(dvstart_dicts, dict_list(dvstart_params[ix]))
-    push!(ddvstart_dicts, dict_list(ddvstart_params[ix]))
+    start_dicts = [start_dicts; dict_list(start_params[ix])]
+    dvstart_dicts = [dvstart_dicts; dict_list(dvstart_params[ix])]
+    ddvstart_dicts = [ddvstart_dicts; dict_list(ddvstart_params[ix])]
 end
 
 # Remove impermissible sim options
