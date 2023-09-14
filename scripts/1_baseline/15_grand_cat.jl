@@ -50,7 +50,8 @@ end
 # Load the simulation configuration file
 config = OAR.load_config(config_file)
 
-# datasets = ["mushroom", "lung-cancer"]
+# data_names = ["mushroom", "lung-cancer"]
+# data_names = ["lung-cancer"]
 data_names = OAR.get_data_package_names(OAR.data_dir("categorical"))
 
 VD = Vector{Dict{String, Any}}

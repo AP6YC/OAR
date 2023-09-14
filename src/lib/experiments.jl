@@ -384,6 +384,10 @@ function sim_tt_serial(
     # Save the results
     full_save_sim(dir_func, d, fulld)
 
+    # Manually clear some memory
+    art = nothing
+
+
     # catch
     #     @warn "Failed to run sim from worker $(myid())"
     # end

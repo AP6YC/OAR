@@ -59,17 +59,15 @@ pargs = OAR.exp_parse(
 data, grammar = OAR.symbolic_mushroom()
 
 # Initialize the START module with options
-art = OAR.START(grammar,
-    # rho = 1.1
-    rho = 1.9,
-    # rho = 1.76,
-    # rho = 1.4,
-)
+# art = OAR.START(grammar,
+#     rho = 1.9,
+# )
 
 # art = OAR.DVSTART(grammar,
-#     rho_lb = 0.1,
-#     rho_ub = 0.2,
-# )
+art = OAR.DDVSTART(grammar,
+    rho_lb = 1.1,
+    rho_ub = 1.5,
+)
 
 OAR.tt_serial(art, data)
 
