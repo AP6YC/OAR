@@ -53,12 +53,14 @@ config = OAR.load_config(config_file)
 # datasets = ["mushroom", "lung-cancer"]
 data_names = OAR.get_data_package_names(OAR.data_dir("categorical"))
 
-start_params = Dict{String, Any}()
-dvstart_params = Dict{String, Any}()
-ddvstart_params = Dict{String, Any}()
+VD = Vector{Dict{String, Any}}
+
+start_params = VD()
+dvstart_params = VD()
+ddvstart_params = VD()
 
 for dataset in data_names
-    merge!(start_params, Dict{String, Any}(
+    push!(start_params, Dict{String, Any}(
         "m" => "start",
         "data" => dataset,
         "rng_seed" => collect(range(
@@ -73,7 +75,7 @@ for dataset in data_names
         )),
     ))
 
-    merge!(dvstart_params, Dict{String, Any}(
+    push!(dvstart_params, Dict{String, Any}(
         "m" => "dvstart",
         "data" => dataset,
         "rng_seed" => collect(range(
@@ -93,7 +95,7 @@ for dataset in data_names
         )),
     ))
 
-    merge!(ddvstart_params, Dict{String, Any}(
+    push!(ddvstart_params, Dict{String, Any}(
         "m" => "ddvstart",
         "data" => dataset,
         "similarity" => config["similarity"],
@@ -115,10 +117,15 @@ for dataset in data_names
     ))
 end
 
+start_dicts = VD()
+dvstart_dicts = VD()
+ddvstart_dicts = VD()
 # Turn the dictionary of lists into a list of dictionaries
-start_dicts = dict_list(start_params)
-dvstart_dicts = dict_list(dvstart_params)
-ddvstart_dicts = dict_list(ddvstart_params)
+for ix = 1:length(data_names)
+    push!(start_dicts, dict_list(start_params[ix]))
+    push!(dvstart_dicts, dict_list(dvstart_params[ix]))
+    push!(ddvstart_dicts, dict_list(ddvstart_params[ix]))
+end
 
 # Remove impermissible sim options
 filter!(d -> d["rho_ub"] > d["rho_lb"], dvstart_dicts)
