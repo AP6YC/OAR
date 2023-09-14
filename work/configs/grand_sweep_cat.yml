@@ -2,7 +2,7 @@
 n_sweep:
   start: 10
   dvstart: 5
-  ddvstart: 3
+  ddvstart: 2
 
 mushrooms:
   rho_lb: 1.1
