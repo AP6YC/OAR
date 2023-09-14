@@ -27,11 +27,11 @@ using Distributed
 
 # This experiment's names and configs
 exp_top = "1_baseline"
-exp_name = "13_regrand"
-config_file = "regrand_sweep.yml"
+exp_name = "17_regrand"
+config_file = "regrand_sweep_cat.yml"
 
 # Experiment dependency names
-from_exp_name = "12_select_params"
+from_exp_name = "16_select_params_cat"
 from_filename = "best_params.csv"
 
 # -----------------------------------------------------------------------------
@@ -90,7 +90,7 @@ end
     # Point to the sweep results
     sweep_results_dir(args...) = OAR.results_dir(
         "1_baseline",
-        "13_regrand",
+        "17_regrand_cat",
         "sweep",
         args...
     )

@@ -1,0 +1,28 @@
+# rng_seed: 1234
+start:
+  n_sweep: 100
+  rho_lb: 0.01
+  rho_ub: 0.50
+  increment: 0.01
+
+dvstart:
+  n_sweep: 5
+  increment: 0.01
+  rho_lb_lb: 0.01
+  rho_lb_ub: 0.50
+  rho_ub_lb: 0.01
+  rho_ub_ub: 0.50
+
+ddvstart:
+  n_sweep: 1
+  rho_lb_lb: 0.01
+  rho_lb_ub: 0.50
+  rho_ub_lb: 0.01
+  rho_ub_ub: 0.50
+  increment: 0.01
+  similarity:
+    - single
+    - average
+    - complete
+    - median
+    # - weighted

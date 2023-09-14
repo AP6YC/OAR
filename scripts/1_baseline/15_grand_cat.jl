@@ -29,7 +29,7 @@ using Distributed
 
 exp_top = "1_baseline"
 exp_name = "15_grand_cat.jl"
-config_file = "grand_sweep.yml"
+config_file = "grand_sweep_cat.yml"
 
 # -----------------------------------------------------------------------------
 # PARSE ARGS
