@@ -40,7 +40,7 @@ pargs = OAR.dist_exp_parse(
     "$(exp_top)/$(exp_name): hyperparameter sweep to find the top-performing settings for each method and categorical dataset."
 )
 
-pargs["procs"] = 0
+# pargs["procs"] = 0
 
 # Start several processes
 if pargs["procs"] > 0
