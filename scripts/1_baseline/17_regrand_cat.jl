@@ -85,7 +85,7 @@ end
     using OAR
 
     # Get the datasets and grammars from the data package
-    opts = OAR.load_data_package()
+    opts = OAR.load_data_package(OAR.data_dir("categorical"))
 
     # Point to the sweep results
     sweep_results_dir(args...) = OAR.results_dir(

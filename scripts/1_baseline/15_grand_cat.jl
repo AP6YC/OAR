@@ -177,9 +177,9 @@ end
 @info "DDVSTART: $(dict_list_count(ddvstart_params)) simulations across $(nprocs()) processes."
 
 # Parallel map the sims
-pmap(local_sim, start_dicts)
+# pmap(local_sim, start_dicts)
 pmap(local_sim, dvstart_dicts)
-pmap(local_sim, ddvstart_dicts)
+# pmap(local_sim, ddvstart_dicts)
 
 # -----------------------------------------------------------------------------
 # CLEANUP
