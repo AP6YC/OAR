@@ -682,7 +682,7 @@ function get_data_package_names(
     # data_names = Dict{String, Any}()
     data_names = []
     # Walk the directory
-    for (root, dirs, files) in walkdir(topdir)
+    for (_, _, files) in walkdir(topdir)
         # Iterate over all of the files
         for file in files
             # Load the symbolic data and grammar
@@ -707,7 +707,7 @@ function load_data_package(
     opts["data"] = Dict{String, Any}()
     opts["grammar"] = Dict{String, Any}()
     # Walk the directory
-    for (root, dirs, files) in walkdir(topdir)
+    for (root, _, files) in walkdir(topdir)
         # Iterate over all of the files
         for file in files
             # Get the full filename for the current data file
@@ -715,7 +715,13 @@ function load_data_package(
 
             # Load the symbolic data and grammar
             data_name = splitext(file)[1]
-            opts["data"][data_name], opts["grammar"][data_name] = OAR.symbolic_dataset(filename)
+            opts["data"][data_name], opts["grammar"][data_name] = if (file == "lung-cancer.csv")
+                OAR.symbolic_lung_cancer(filename)
+            elseif (file == "mushrooms.csv")
+                OAR.symbolic_mushroom(filename)
+            else
+                OAR.symbolic_dataset(filename)
+            end
         end
     end
 

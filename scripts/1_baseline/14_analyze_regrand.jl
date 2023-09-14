@@ -103,13 +103,13 @@ for dataset in datasets
     push!(new_entry, pretty_rows[dataset])
     # Iterate over every module
     for m in modules
-        local_df = df[(df.m .== m), :]
+        local_df = df[(df.m .== m) .& (df.data .== dataset), :]
         push!(new_entry, "$(mean(local_df[:, :p])) ± $(var(local_df[:, :p]))")
     end
     push!(out_df, new_entry)
 end
 
-new_df_tex = latexify(out_df, env=:table, fmt="%.5f")
+new_df_tex = latexify(out_df, env=:table, fmt="%.6f")
 
 open(output_file, "w") do f
     write(f, new_df_tex)
