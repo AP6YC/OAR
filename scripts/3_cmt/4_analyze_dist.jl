@@ -21,6 +21,7 @@ using OAR
 
 using DrWatson      # collect_results!
 using DataFrames
+using Plots
 
 # -----------------------------------------------------------------------------
 # OPTIONS
@@ -92,7 +93,13 @@ p1 = OAR.cluster_stats_plot(
     xlabel = "Vigilance Parameter ρ",
     ylabel = "Count",
     legend = :topright,
+    # linestyle = [:solid, :dash, :dot],
 )
+# linestyles = [:solid, :dashdot, :dot]
+# for ix = 1:3
+#     p1.series_list[ix].plotattributes[:linestyle] = linestyles[ix]
+# end
+display(p1)
 
 # Save the plot
 OAR.save_plot(p1, clusters_plot_filename, exp_top, exp_name)

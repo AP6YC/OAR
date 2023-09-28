@@ -215,12 +215,18 @@ function cluster_stats_plot(
         end
     end
 
+    linestyles = [:solid, :dashdot, :dot]
+    for ix = 1:3
+        p.series_list[ix].plotattributes[:linestyle] = linestyles[ix]
+    end
+
     # Add the vline for the preselected rho value
     vline!(p,
         [0.6],
         linewidth=LINEWIDTH,
         linestyle = :dash,
-        label="",
+        # label="",
+        label="ρ = 0.6",
     )
 
     # Display the plot
