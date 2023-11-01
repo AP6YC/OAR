@@ -37,6 +37,7 @@ YAML = "ddb6d928-2868-570f-bddf-ab3f9cf99eb6"
 
 [compat]
 AdaptiveResonance = "0.8"
+Aqua = "0.7"
 ArgParse = "1"
 CSV = "0.10"
 ClusterValidityIndices = "0.6"
