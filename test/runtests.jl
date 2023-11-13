@@ -17,7 +17,6 @@ using Test
 
 # @safetestset "All Test Sets" begin
 @testset verbose=true showtiming=true "OAR" begin
-    a = "asdf"
     include("test_sets.jl")
 end
 # end

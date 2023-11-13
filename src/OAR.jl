@@ -58,9 +58,11 @@ using
 # Precompile concrete type methods
 import PrecompileSignatures: @precompile_signatures
 
+# Specific Statistics deps
 import Statistics: median as statistics_median
 import Statistics: mean as statistics_mean
 
+# Keyword-option structs for options
 import Parameters: @with_kw
 
 # Imports
@@ -74,6 +76,7 @@ import
 
 # Necessary to download data without prompts to custom folders
 ENV["DATADEPS_ALWAYS_ACCEPT"] = true
+
 # Suppress display on headless systems
 ENV["GKSwstype"] = 100
 
