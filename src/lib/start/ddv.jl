@@ -434,7 +434,7 @@ Classifies [`SomeStatement`](@ref) with the provided [`DDVSTART`](@ref) module w
 
 # Arguments
 - `art::DDVSTART`: the [`DDVSTART`](@ref) module to classify with.
-- `statement::SomeStatment`: the sample as [`SomeStatment`](@ref) to classify.
+- `statement::SomeStatement`: the sample as [`SomeStatement`](@ref) to classify.
 - `get_bmu`: optional flag to get the best-matching unit in the case of complete mismatch.
 """
 function classify(

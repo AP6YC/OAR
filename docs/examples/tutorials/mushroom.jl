@@ -30,6 +30,7 @@ using OAR
 filename = joinpath("..", "assets", "mushrooms.csv")
 ## All-in-one function
 fs, bnf = OAR.symbolic_mushroom(filename)
+typeof(fs)
 
 # ## Intializing START
 

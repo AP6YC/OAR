@@ -40,7 +40,7 @@ unique(labels)
 
 # Next, we will create a train/test split:
 
-(X_train, y_train), (X_test, y_test) = splitobs((features, labels))
+(X_train, y_train), (X_test, y_test) = splitobs((features, labels), at=0.8)
 
 # We now have a train/test split of the features and targets for the Iris dataset.
 # This project also defines some low-level data utilities for more easily passing around and transforming this data, so we often see this train/test split as a combined `DataSplit` struct:
