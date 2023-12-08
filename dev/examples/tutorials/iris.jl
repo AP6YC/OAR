@@ -11,7 +11,7 @@ features, labels = Matrix(iris.features)', vec(Matrix{String}(iris.targets))
 labels = OAR.integer_encoding(labels)
 unique(labels)
 
-(X_train, y_train), (X_test, y_test) = splitobs((features, labels))
+(X_train, y_train), (X_test, y_test) = splitobs((features, labels), at=0.8)
 
 data = OAR.DataSplit(X_train, X_test, y_train, y_test)
 

@@ -5,6 +5,7 @@ using OAR
 filename = joinpath("..", "assets", "mushrooms.csv")
 # All-in-one function
 fs, bnf = OAR.symbolic_mushroom(filename)
+typeof(fs)
 
 # Initialize the module with options
 art = OAR.START(bnf,

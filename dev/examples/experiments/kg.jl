@@ -5,6 +5,7 @@ using OAR
 edge_file = joinpath("..", "assets", "edge_attributes_lerche.txt")
 
 statements = OAR.get_kg_statements(edge_file)
+typeof(statements)
 
 grammar = OAR.SPOCFG(statements)
 
