@@ -1,3 +1,11 @@
+# -----------------------------------------------------------------------------
+# OAR General Python Requirements
+#
+# Description:
+# These requirements are used for the majority of Python notebooks and scripts
+# experiments
+# -----------------------------------------------------------------------------
+
 tensorflow
 jupyterlab
 tqdm

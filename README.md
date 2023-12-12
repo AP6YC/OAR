@@ -5,11 +5,11 @@
 Ontologies with Adaptive Resonance Theory (ART).
 Please see the [documentation][docs-url].
 
-| **Documentation** | **Docs Build Status** |  **DOI** |
+| **Documentation** | **Docs Build Status** | **Coveralls** |
 |:-----------------:|:---------------------:|:--------:|
-| [![Docs][docs-img]][docs-url] | [![Docs Status][doc-status-img]][doc-status-url] | [![DOI][zenodo-img]][zenodo-url] |
-| **Testing Status** | **Coveralls** | **Codecov** |
-| [![CI Status][ci-img]][ci-url] | [![Coveralls][coveralls-img]][coveralls-url] | [![Codecov][codecov-img]][codecov-url] |
+| [![Docs][docs-img]][docs-url] | [![Docs Status][doc-status-img]][doc-status-url] | [![Coveralls][coveralls-img]][coveralls-url] |
+| **Zenodo DOI** | **Testing Status** | **Codecov** |
+| [![DOI][zenodo-img]][zenodo-url] | [![CI Status][ci-img]][ci-url] |  [![Codecov][codecov-img]][codecov-url] |
 
 [doc-status-img]: https://github.com/AP6YC/OAR/actions/workflows/Documentation.yml/badge.svg
 [doc-status-url]: https://github.com/AP6YC/OAR/actions/workflows/Documentation.yml

@@ -1,3 +1,11 @@
+# -----------------------------------------------------------------------------
+# OMIM Requirements
+#
+# Description:
+# These requirements are used specifically in scripts and notebooks for
+# interfacing with biomedical data from https://omim.org/
+# -----------------------------------------------------------------------------
+
 pandas
 networkx
 rdflib
