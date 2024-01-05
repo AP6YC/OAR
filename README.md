@@ -39,7 +39,7 @@ Please see the [documentation][docs-url].
 - [Attribution](#attribution)
   - [Citations](#citations)
   - [Authors](#authors)
-  - [Images](#images)
+  - [Assets](#assets)
 
 [1]: https://julialang.org/
 [2]: https://www.python.org/
@@ -108,9 +108,13 @@ This section contains several categories of links to useful resources when worki
 - Sasha Petrenko <petrenkos@mst.edu>
 - Dr. Daniel Hier <dbhier@dbhier.com>
 
-### Images
+### Assets
 
 This project uses the following images:
 
 - [Boat icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/boat) ([boat_2383726](https://www.flaticon.com/free-icon/boat_2383726))
 - [Oar icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/oar) ([boat_196204](https://www.flaticon.com/free-icon/boat_196204))
+
+This project also uses the following fonts in generated imagery:
+
+- [Float the Boat Font by Chequered Ink](https://www.fontspace.com/float-the-boat-font-f30073)
