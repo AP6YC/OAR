@@ -1,8 +1,6 @@
-# OAR
+[![oar-header](https://github.com/AP6YC/FileStorage/blob/main/OAR/header.png?raw=true)][docs-url]
 
-[![oar-header](docs/src/assets/logo.png)][docs-url]
-
-Ontologies with Adaptive Resonance Theory (ART).
+**O**ntologies with **A**daptive **R**esonance.
 Please see the [documentation][docs-url].
 
 | **Documentation** | **Docs Build Status** | **Coveralls** |
@@ -31,18 +29,17 @@ Please see the [documentation][docs-url].
 
 ## Table of Contents
 
-- [OAR](#oar)
-  - [Table of Contents](#table-of-contents)
-  - [Overview](#overview)
-  - [Usage](#usage)
-  - [Links](#links)
-    - [Ontology](#ontology)
-    - [Packages](#packages)
-    - [Miscellaneous](#miscellaneous)
-  - [Attribution](#attribution)
-    - [Citations](#citations)
-    - [Authors](#authors)
-    - [Images](#images)
+- [Table of Contents](#table-of-contents)
+- [Overview](#overview)
+- [Usage](#usage)
+- [Links](#links)
+  - [Ontology](#ontology)
+  - [Packages](#packages)
+  - [Miscellaneous](#miscellaneous)
+- [Attribution](#attribution)
+  - [Citations](#citations)
+  - [Authors](#authors)
+  - [Images](#images)
 
 [1]: https://julialang.org/
 [2]: https://www.python.org/
