@@ -95,6 +95,7 @@ This section contains several categories of links to useful resources when worki
 - [FBVector](https://github.com/facebook/folly/blob/main/folly/docs/FBVector.md)
 - [Lotka-Volterra](https://www.wikiwand.com/en/Lotka%E2%80%93Volterra_equations)
 - [Karpathy's Makemore Tutorial](https://youtu.be/PaCmpygFfXo)
+- [OMIM PS118220](https://omim.org/search?index=entry&start=1&limit=10&sort=score+desc%2C+prefix_sort+desc&search=PS118220)
 
 ## Attribution
 
