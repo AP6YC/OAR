@@ -56,7 +56,7 @@ using
     StatsPlots
 
 # Precompile concrete type methods
-import PrecompileSignatures: @precompile_signatures
+# import PrecompileSignatures: @precompile_signatures
 
 # Specific Statistics deps
 import Statistics: median as statistics_median
@@ -113,6 +113,6 @@ export
 # -----------------------------------------------------------------------------
 
 # Precompile any concrete-type function signatures
-@precompile_signatures(OAR)
+# @precompile_signatures(OAR)
 
 end
